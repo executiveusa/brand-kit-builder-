@@ -3,7 +3,8 @@
   "task": "Harden Brand Kit Builder for in-house AI agents",
   "repository": "executiveusa/brand-kit-builder-",
   "branch": "zte/ZTE-20260715-0003/agent-hardening",
-  "status": "implementation_complete_validation_pending",
+  "pull_request": 2,
+  "status": "validated_merge_approval_required",
   "risk_tier": "MEDIUM",
   "interfaces": ["json-cli", "mcp-stdio", "javascript-sdk"],
   "network_listener": false,
@@ -13,10 +14,14 @@
   "runtime_dependencies_added": false,
   "production_changed": false,
   "guards": [
-    "source",
+    "source-access-and-conflict",
     "prebuild",
     "stage-order",
-    "artifact-evidence",
+    "single-active-work-order",
+    "work-order-binding",
+    "artifact-manifest",
+    "artifact-type",
+    "artifact-sha256",
     "guardian",
     "approval",
     "path",
@@ -26,9 +31,23 @@
     "single-job-cost",
     "daily-cost"
   ],
+  "tests": [
+    "repository-contract-validation",
+    "security",
+    "prebuild",
+    "orchestrator",
+    "artifact-integrity",
+    "source-gate",
+    "cost-circuit-breakers",
+    "mcp-initialize-and-tools-list"
+  ],
   "validation": {
-    "local_container": "blocked by unavailable external DNS",
-    "github_ci": "pending"
+    "local_container": "blocked by unavailable external DNS when cloning",
+    "github_actions_run": 29398429196,
+    "github_ci": "success",
+    "npm_run_check": "success",
+    "npm_test": "success"
   },
-  "rollback": "Close the stacked pull request or revert commits on the agent-hardening branch."
+  "merge_gate": "Explicit Bambu approval required before merging PR 2.",
+  "rollback": "Close PR 2 without merging or revert the hardening commits."
 }
