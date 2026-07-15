@@ -13,6 +13,8 @@
   "secrets_changed": false,
   "runtime_dependencies_added": false,
   "production_changed": false,
+  "agent_supplied_approvals": false,
+  "owner_approval_channel": "interactive-local-cli",
   "guards": [
     "source-access-and-conflict",
     "prebuild",
@@ -23,7 +25,9 @@
     "artifact-type",
     "artifact-sha256",
     "guardian",
-    "approval",
+    "approval-injection",
+    "interactive-owner-approval",
+    "approval-recheck",
     "path",
     "symlink",
     "secret",
@@ -38,16 +42,25 @@
     "orchestrator",
     "artifact-integrity",
     "source-gate",
+    "approval-injection",
+    "interactive-approval-requirement",
+    "approval-confirmation",
     "cost-circuit-breakers",
     "mcp-initialize-and-tools-list"
   ],
   "validation": {
     "local_container": "blocked by unavailable external DNS when cloning",
-    "github_actions_run": 29398429196,
+    "github_actions_run": 29399475242,
     "github_ci": "success",
     "npm_run_check": "success",
-    "npm_test": "success"
+    "npm_test": "success",
+    "independent_code_review": "CodeRabbit review rate-limited; no independent review result available"
   },
+  "known_limits": [
+    "Interactive approval is a cooperative local control, not cryptographic identity proof.",
+    "Use one MCP server per workspace; cross-process file locking is not implemented.",
+    "Model, browser, PDF, GitHub-write, and deployment adapters remain disabled."
+  ],
   "merge_gate": "Explicit Bambu approval required before merging PR 2.",
   "rollback": "Close PR 2 without merging or revert the hardening commits."
 }
