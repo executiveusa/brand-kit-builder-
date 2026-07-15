@@ -1,4 +1,6 @@
-import { access } from "node:fs/promises";
+import { createReadStream } from "node:fs";
+import { lstat } from "node:fs/promises";
+import { createHash } from "node:crypto";
 import path from "node:path";
 import { APP_VERSION, GATED_STAGES, OWNER_APPROVAL_STAGES, STAGES, STAGE_OUTPUTS } from "./constants.mjs";
 import { AgentError } from "./errors.mjs";
@@ -66,6 +68,23 @@ function validateSources(sources) {
   });
 }
 
+function assertSourcesReady(sources) {
+  const normalized = validateSources(sources);
+  const governing = normalized.filter((source) => source.trust_level === "primary" || source.trust_level === "governing");
+  const unread = governing.filter((source) => !source.accessed).map((source) => source.source_id);
+  const unresolvedConflicts = normalized
+    .filter((source) => source.conflicts.length > 0)
+    .map((source) => ({ source_id: source.source_id, conflicts: source.conflicts }));
+  if (governing.length === 0 || unread.length > 0 || unresolvedConflicts.length > 0) {
+    throw new AgentError("SOURCE_GATE_FAILED", "Primary and governing sources must be accessed and conflicts resolved before readiness or generation.", {
+      governing_source_count: governing.length,
+      unread_sources: unread,
+      unresolved_conflicts: unresolvedConflicts
+    }, 409);
+  }
+  return normalized;
+}
+
 function validateProjectShape(project) {
   assertNoSecretLikeData(project);
   const projectId = assertSafeIdentifier(project?.project_id, "project_id");
@@ -85,6 +104,19 @@ function assertPriorStageCompleted(project, stage) {
   const prior = STAGES[index - 1];
   if (project.stages?.[prior]?.status !== "completed") {
     throw new AgentError("STAGE_ORDER_GUARD", `Stage ${prior} must be completed before ${stage}.`, { required_stage: prior }, 409);
+  }
+}
+
+function assertStageAvailable(project, stage) {
+  const state = project.stages?.[stage]?.status;
+  if (state === "completed") {
+    throw new AgentError("STAGE_ALREADY_COMPLETED", `Stage ${stage} is already completed.`, { stage }, 409);
+  }
+  if (state === "ready") {
+    throw new AgentError("STAGE_ALREADY_ACTIVE", `Stage ${stage} already has an active work order.`, {
+      stage,
+      job_id: project.stages?.[stage]?.job_id
+    }, 409);
   }
 }
 
@@ -139,6 +171,68 @@ async function reserveDailyCost(context, jobId, estimatedCostCents) {
   return current;
 }
 
+function sha256File(filePath) {
+  return new Promise((resolve, reject) => {
+    const hash = createHash("sha256");
+    const stream = createReadStream(filePath);
+    stream.on("error", reject);
+    stream.on("data", (chunk) => hash.update(chunk));
+    stream.on("end", () => resolve(hash.digest("hex")));
+  });
+}
+
+async function verifyArtifact(projectRoot, relativePath, manifestItem) {
+  const absolutePath = resolveInside(projectRoot, relativePath);
+  let stats;
+  try {
+    stats = await lstat(absolutePath);
+  } catch (error) {
+    if (error?.code === "ENOENT") {
+      throw new AgentError("ARTIFACT_NOT_FOUND", "A declared artifact does not exist in the project workspace.", { path: relativePath });
+    }
+    throw error;
+  }
+  if (stats.isSymbolicLink() || !stats.isFile()) {
+    throw new AgentError("ARTIFACT_TYPE_GUARD", "Stage artifacts must be regular files and may not be symbolic links.", { path: relativePath });
+  }
+  const sha256 = await sha256File(absolutePath);
+  if (manifestItem?.sha256 && manifestItem.sha256.toLowerCase() !== sha256) {
+    throw new AgentError("ARTIFACT_HASH_MISMATCH", "Artifact hash does not match the completion manifest.", {
+      path: relativePath,
+      expected: manifestItem.sha256.toLowerCase(),
+      actual: sha256
+    }, 409);
+  }
+  return {
+    path: relativePath,
+    media_type: manifestItem?.media_type ?? "application/octet-stream",
+    size_bytes: stats.size,
+    sha256
+  };
+}
+
+function validateArtifactManifest(stage, artifacts) {
+  if (!Array.isArray(artifacts)) {
+    throw new AgentError("INVALID_ARTIFACT_MANIFEST", "artifacts must be an array.");
+  }
+  const required = STAGE_OUTPUTS[stage];
+  const paths = artifacts.map((item) => item?.path);
+  if (paths.some((itemPath) => typeof itemPath !== "string" || itemPath.trim() === "")) {
+    throw new AgentError("INVALID_ARTIFACT_MANIFEST", "Every artifact requires a project-relative path.");
+  }
+  const duplicates = paths.filter((itemPath, index) => paths.indexOf(itemPath) !== index);
+  const missing = required.filter((requiredPath) => !paths.includes(requiredPath));
+  const extra = paths.filter((itemPath) => !required.includes(itemPath));
+  if (duplicates.length || missing.length || extra.length) {
+    throw new AgentError("ARTIFACT_MANIFEST_MISMATCH", "Artifact manifest must contain exactly the required stage outputs.", {
+      duplicates: [...new Set(duplicates)],
+      missing,
+      extra
+    });
+  }
+  return new Map(artifacts.map((item) => [item.path, item]));
+}
+
 export async function createAgentContext(workspaceRoot) {
   const root = await ensureWorkspaceRoot(workspaceRoot);
   return { root, store: new WorkspaceStore(root) };
@@ -158,6 +252,7 @@ export function inspectCapabilities() {
       score_prebuild: true,
       create_stage_work_order: true,
       complete_stage_with_artifact_evidence: true,
+      artifact_hashing: true,
       idempotent_jobs: true,
       filesystem_sandbox: true,
       secret_rejection: true,
@@ -228,12 +323,20 @@ export async function validateProject(context, projectId) {
   const { project } = await getProject(context, projectId);
   const { sources } = validateProjectShape(project);
   const readiness = project.readiness?.scores ? scorePrebuild(project.readiness.scores) : null;
+  let sourceGate = "PASS";
+  try {
+    assertSourcesReady(sources);
+  } catch {
+    sourceGate = "FAIL";
+  }
   return {
     ok: true,
     valid: true,
     project_id: projectId,
     source_count: sources.length,
+    source_gate: sourceGate,
     readiness,
+    active_stage: STAGES.find((stage) => project.stages?.[stage]?.status === "ready") ?? null,
     completed_stages: STAGES.filter((stage) => project.stages?.[stage]?.status === "completed"),
     guardian_gate: GUARDIAN_NAMES.every((name) => project.guardians?.[name]?.status === "passed")
   };
@@ -249,11 +352,22 @@ export async function runStage(context, input) {
   }
   const previous = await context.store.loadJob(idempotencyKey);
   if (previous) {
+    if (previous.project_id !== projectId || previous.stage !== stage) {
+      throw new AgentError("IDEMPOTENCY_CONFLICT", "The idempotency key is already bound to a different project or stage.", {
+        idempotency_key: idempotencyKey,
+        existing_project_id: previous.project_id,
+        existing_stage: previous.stage,
+        requested_project_id: projectId,
+        requested_stage: stage
+      }, 409);
+    }
     return { ok: true, reused: true, job: previous };
   }
 
   const { project } = await getProject(context, projectId);
   assertPriorStageCompleted(project, stage);
+  assertStageAvailable(project, stage);
+  if (STAGES.indexOf(stage) >= STAGES.indexOf("readiness")) assertSourcesReady(project.sources);
   if (GATED_STAGES.has(stage)) assertPrebuildPassed(project.readiness);
   if (stage === "export") assertGuardiansPassed(project);
   if (OWNER_APPROVAL_STAGES.has(stage)) assertApproval(project.approvals, stage, project.owner);
@@ -285,34 +399,70 @@ export async function runStage(context, input) {
     completion_command: "complete-stage"
   };
   await context.store.saveJob(idempotencyKey, job);
+  project.stages[stage] = { status: "ready", job_id: jobId, idempotency_key: idempotencyKey, requested_at: now() };
+  project.updated_at = now();
+  await context.store.saveProject(project);
   return { ok: true, reused: false, job };
 }
 
 export async function completeStage(context, input) {
   assertNoSecretLikeData(input);
   const projectId = assertSafeIdentifier(input?.project_id, "project_id");
+  const idempotencyKey = assertSafeIdentifier(input?.idempotency_key, "idempotency_key");
   const stage = input?.stage;
   if (!STAGES.includes(stage)) throw new AgentError("INVALID_STAGE", "Unknown stage.", { stage, allowed: STAGES });
-  const { project } = await getProject(context, projectId);
-  assertPriorStageCompleted(project, stage);
-  if (GATED_STAGES.has(stage)) assertPrebuildPassed(project.readiness);
-  if (OWNER_APPROVAL_STAGES.has(stage)) assertApproval(project.approvals, stage, project.owner);
-
-  const projectRoot = context.store.projectDirectory(projectId);
-  const artifacts = Array.isArray(input.artifacts) ? input.artifacts : [];
-  const artifactMap = new Map(artifacts.map((item) => [item?.path, item]));
-  const missing = STAGE_OUTPUTS[stage].filter((requiredPath) => !artifactMap.has(requiredPath));
-  if (missing.length) {
-    throw new AgentError("ARTIFACT_MANIFEST_INCOMPLETE", "Required stage artifacts are missing from the manifest.", { missing });
+  const job = await context.store.loadJob(idempotencyKey);
+  if (!job) {
+    throw new AgentError("WORK_ORDER_REQUIRED", "Stage completion requires an existing work order.", { idempotency_key: idempotencyKey }, 409);
+  }
+  if (job.project_id !== projectId || job.stage !== stage) {
+    throw new AgentError("IDEMPOTENCY_CONFLICT", "The completion request does not match the bound work order.", {
+      idempotency_key: idempotencyKey,
+      job_project_id: job.project_id,
+      job_stage: job.stage,
+      requested_project_id: projectId,
+      requested_stage: stage
+    }, 409);
+  }
+  if (job.status === "completed") {
+    return { ok: true, reused: true, job };
+  }
+  if (job.status !== "ready") {
+    throw new AgentError("WORK_ORDER_NOT_READY", "The work order is not ready for completion.", { status: job.status }, 409);
   }
 
+  const { project } = await getProject(context, projectId);
+  assertPriorStageCompleted(project, stage);
+  const stageState = project.stages?.[stage];
+  if (stageState?.status !== "ready" || stageState?.job_id !== job.job_id) {
+    throw new AgentError("WORK_ORDER_STATE_MISMATCH", "Project stage state does not match the completion work order.", {
+      stage,
+      expected_job_id: stageState?.job_id,
+      received_job_id: job.job_id,
+      stage_status: stageState?.status
+    }, 409);
+  }
+  if (STAGES.indexOf(stage) >= STAGES.indexOf("readiness")) assertSourcesReady(project.sources);
+  if (GATED_STAGES.has(stage)) assertPrebuildPassed(project.readiness);
+  if (stage === "export") assertGuardiansPassed(project);
+  if (OWNER_APPROVAL_STAGES.has(stage)) assertApproval(project.approvals, stage, project.owner);
+
+  if (stage === "sources") {
+    const sources = assertSourcesReady(input.sources);
+    project.sources = sources;
+    await context.store.saveSourceLedger(projectId, {
+      schema_version: "1.0",
+      project_id: projectId,
+      sources,
+      generated_at: now()
+    });
+  }
+
+  const projectRoot = context.store.projectDirectory(projectId);
+  const artifactMap = validateArtifactManifest(stage, input.artifacts);
+  const artifactEvidence = [];
   for (const requiredPath of STAGE_OUTPUTS[stage]) {
-    const absolutePath = resolveInside(projectRoot, requiredPath);
-    try {
-      await access(absolutePath);
-    } catch {
-      throw new AgentError("ARTIFACT_NOT_FOUND", "A declared artifact does not exist in the project workspace.", { path: requiredPath });
-    }
+    artifactEvidence.push(await verifyArtifact(projectRoot, requiredPath, artifactMap.get(requiredPath)));
   }
 
   if (stage === "readiness") {
@@ -335,18 +485,27 @@ export async function completeStage(context, input) {
 
   project.stages[stage] = {
     status: "completed",
+    job_id: job.job_id,
     completed_at: now(),
-    artifacts: STAGE_OUTPUTS[stage]
+    artifacts: artifactEvidence
   };
   project.updated_at = now();
   await context.store.saveProject(project);
 
+  job.status = "completed";
+  job.completed_at = now();
+  job.artifacts = artifactEvidence;
+  job.next_stage = STAGES[STAGES.indexOf(stage) + 1] ?? null;
+  await context.store.saveJob(idempotencyKey, job);
+
   return {
     ok: true,
+    reused: false,
     operation: "complete_stage",
     project_id: projectId,
     stage,
     status: "completed",
-    next_stage: STAGES[STAGES.indexOf(stage) + 1] ?? null
+    artifacts: artifactEvidence,
+    next_stage: job.next_stage
   };
 }
