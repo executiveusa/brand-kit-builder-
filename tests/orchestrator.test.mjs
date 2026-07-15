@@ -4,7 +4,7 @@ import { mkdtemp, mkdir, rm, writeFile } from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
 import { PREBUILD_AXES, STAGES, STAGE_OUTPUTS } from "../src/agent/constants.mjs";
-import { completeStage, createAgentContext, createProject, runStage } from "../src/agent/orchestrator.mjs";
+import { completeStage, createAgentContext, createProject, recordOwnerApproval, runStage } from "../src/agent/orchestrator.mjs";
 
 function scores(value = 8.5) {
   return Object.fromEntries(PREBUILD_AXES.map((axis) => [axis, value]));
@@ -36,6 +36,19 @@ async function writeStageArtifacts(context, projectId, stage) {
     await writeFile(target, `test evidence for ${relative}\n`, "utf8");
   }
 }
+
+test("rejects approvals injected through project intake", async (t) => {
+  const workspace = await mkdtemp(path.join(os.tmpdir(), "brand-kit-approval-injection-"));
+  t.after(() => rm(workspace, { recursive: true, force: true }));
+  const context = await createAgentContext(workspace);
+  await assert.rejects(
+    createProject(context, {
+      ...projectInput("approval-injection"),
+      approvals: [{ action: "export", approved_by: "Bambu", status: "approved", approved_at: new Date().toISOString() }]
+    }),
+    (error) => error?.code === "APPROVAL_INJECTION_GUARD"
+  );
+});
 
 test("binds idempotency keys, work orders, stage state, and artifact evidence", async (t) => {
   const workspace = await mkdtemp(path.join(os.tmpdir(), "brand-kit-builder-"));
@@ -119,7 +132,7 @@ test("binds idempotency keys, work orders, stage state, and artifact evidence", 
   assert.equal(readiness.job.stage, "readiness");
 });
 
-test("requires owner approval and passed guardians before export", async (t) => {
+test("requires local owner confirmation and passed guardians before export", async (t) => {
   const workspace = await mkdtemp(path.join(os.tmpdir(), "brand-kit-builder-export-"));
   t.after(() => rm(workspace, { recursive: true, force: true }));
   const context = await createAgentContext(workspace);
@@ -139,14 +152,36 @@ test("requires owner approval and passed guardians before export", async (t) => 
     runStage(context, { project_id: "test-brand", stage: "export", idempotency_key: "export-no-approval" }),
     (error) => error?.code === "APPROVAL_REQUIRED"
   );
+  await assert.rejects(
+    recordOwnerApproval(context, {
+      project_id: "test-brand",
+      action: "export",
+      approved_by: "Bambu",
+      confirmation: "APPROVE test-brand export",
+      interactive: false
+    }),
+    (error) => error?.code === "INTERACTIVE_APPROVAL_REQUIRED"
+  );
+  await assert.rejects(
+    recordOwnerApproval(context, {
+      project_id: "test-brand",
+      action: "export",
+      approved_by: "Bambu",
+      confirmation: "wrong phrase",
+      interactive: true
+    }),
+    (error) => error?.code === "INVALID_APPROVAL_CONFIRMATION"
+  );
 
-  project.approvals.push({
+  const approval = await recordOwnerApproval(context, {
+    project_id: "test-brand",
     action: "export",
     approved_by: "Bambu",
-    status: "approved",
-    approved_at: new Date().toISOString()
+    confirmation: "APPROVE test-brand export",
+    interactive: true
   });
-  await context.store.saveProject(project);
+  assert.equal(approval.approval.channel, "interactive-local-cli");
+
   const result = await runStage(context, {
     project_id: "test-brand",
     stage: "export",
