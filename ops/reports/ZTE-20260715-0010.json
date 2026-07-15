@@ -1,0 +1,44 @@
+{
+  "bead_id": "ZTE-20260715-0010",
+  "task": "Add guarded localhost Studio host and core synchronization",
+  "status": "implementation_complete_validation_pending",
+  "risk_tier": "MEDIUM",
+  "phase": "3A",
+  "interfaces": [
+    "localhost-studio-host",
+    "json-cli",
+    "mcp-stdio"
+  ],
+  "host": {
+    "default_bind": "127.0.0.1",
+    "default_port": 4173,
+    "random_session_token": true,
+    "same_origin_guard": true,
+    "request_body_limit_bytes": 1048576,
+    "command_allowlist": true,
+    "arbitrary_shell": false,
+    "arbitrary_file_access": false,
+    "provider_access": false,
+    "deployment_access": false
+  },
+  "persistence": {
+    "atomic_snapshot_state": true,
+    "event_log": true,
+    "browser_approval_state_stripped": true
+  },
+  "release_sync": {
+    "source_validation": true,
+    "20_axis_readiness_validation": true,
+    "strategy_validation": true,
+    "voice_validation": true,
+    "visual_validation": true,
+    "kaku_validation": true,
+    "guardian_validation": true,
+    "evidence_sha256": true,
+    "stale_approval_protection": true,
+    "browser_can_create_approval": false
+  },
+  "production_changed": false,
+  "cost_used_cents": 0,
+  "rollback": "Close the pull request or revert Phase 3A commits; retain studio:static or remove workspace/.brand-kit-builder/studio state."
+}
