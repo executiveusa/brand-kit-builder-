@@ -12,7 +12,7 @@ This repository contains:
 - a self-contained interactive prototype;
 - a deterministic local agent core;
 - JSON CLI and MCP-over-stdio interfaces;
-- source, readiness, stage, guardian, approval, path, secret, and cost gates;
+- source, readiness, stage, guardian, approval, artifact-integrity, path, secret, and cost gates;
 - machine-readable schemas, tests, CI, and delivery reports.
 
 The agent core is intentionally provider-neutral. It does not open a network listener, call external AI models, collect telemetry, accept secrets in job payloads, or deploy production systems.
@@ -34,20 +34,31 @@ Inspect capabilities:
 node bin/brand-kit-builder.mjs inspect
 ```
 
-Create a project from the executable example:
+Create a project from the executable example. Input files are read from stdin so they do not need to be copied into the workspace:
 
 ```bash
-node bin/brand-kit-builder.mjs create-project \
+cat examples/agent/create-project.json | \
+  node bin/brand-kit-builder.mjs create-project \
   --workspace ./workspace \
-  --input examples/agent/create-project.json
+  --input -
 ```
 
 Create an idempotent work order:
 
 ```bash
-node bin/brand-kit-builder.mjs run-stage \
+cat examples/agent/run-stage.json | \
+  node bin/brand-kit-builder.mjs run-stage \
   --workspace ./workspace \
-  --input examples/agent/run-stage.json
+  --input -
+```
+
+After creating the exact required artifacts inside `workspace/projects/<project-id>/`, complete the bound work order:
+
+```bash
+cat examples/agent/complete-intake.json | \
+  node bin/brand-kit-builder.mjs complete-stage \
+  --workspace ./workspace \
+  --input -
 ```
 
 Start the local MCP server:
@@ -73,11 +84,11 @@ intake
 → export
 ```
 
-Agents cannot skip stages. Strategy and later stages require a passing 20-axis readiness gate. Stage completion requires the declared artifacts to exist inside the project workspace. Export requires all four guardians, no P0 or unresolved P1 findings, and explicit Bambu approval.
+Agents cannot skip stages. One active work order is allowed per stage. Readiness and later stages require accessed primary and governing sources with resolved conflicts. Strategy and later stages require a passing 20-axis readiness gate. Stage completion must use the same idempotency key as its work order and contain exactly the required regular files. The engine records SHA-256 evidence for every completed artifact. Export requires all four guardians, no P0 or unresolved P1 findings, and explicit Bambu approval.
 
 ## Quality and safety laws
 
-- Inspect sources before generation.
+- Inspect primary and governing sources before readiness or generation.
 - Prebuild score must be at least 8.5.
 - Every critical readiness axis must be at least 8.0.
 - Never fabricate proof, claims, metrics, testimonials, partnerships, or product states.
@@ -87,6 +98,7 @@ Agents cannot skip stages. Strategy and later stages require a passing 20-axis r
 - Use HTML-first evidence, prototypes, fixes, reports, and handoffs.
 - Reject secret-like fields in agent payloads.
 - Keep all file operations inside the configured workspace.
+- Reject symlink artifacts and record artifact hashes.
 - Reserve at most $10 per job and $50 per UTC day.
 - Never deploy production without explicit owner approval.
 
