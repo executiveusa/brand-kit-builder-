@@ -8,14 +8,21 @@ import { scorePrebuild } from "../src/agent/prebuild.mjs";
 const root = process.cwd();
 const requiredFiles = [
   "AGENTS.md",
+  "README.md",
   "docs/PAULI_BRAND_STUDIO_MASTER_SYSTEM_PROMPT_INDEX.md",
+  "docs/AGENT_API.md",
+  "docs/SECURITY.md",
+  "skills/brand-kit-builder-agent/SKILL.md",
   "config/policy.json",
   "schemas/project.schema.json",
   "schemas/source-ledger.schema.json",
   "schemas/job.schema.json",
   "schemas/stage-completion.schema.json",
   "bin/brand-kit-builder.mjs",
+  "bin/brand-kit-builder-mcp.mjs",
   "src/agent/orchestrator.mjs",
+  "src/agent/security.mjs",
+  "src/agent/store.mjs",
   "examples/agent/create-project.json",
   "examples/agent/run-stage.json"
 ];
@@ -24,13 +31,20 @@ const jsonFiles = requiredFiles.filter((file) => file.endsWith(".json"));
 for (const file of requiredFiles) await access(path.join(root, file));
 for (const file of jsonFiles) JSON.parse(await readFile(path.join(root, file), "utf8"));
 
+const packageJson = JSON.parse(await readFile(path.join(root, "package.json"), "utf8"));
+if (!packageJson.bin?.["brand-kit-builder"] || !packageJson.bin?.["brand-kit-builder-mcp"]) {
+  throw new Error("Both CLI and MCP binaries must be declared.");
+}
 if (PREBUILD_AXES.length !== 20) throw new Error(`Expected 20 prebuild axes, received ${PREBUILD_AXES.length}.`);
 if (STAGES.length !== 9) throw new Error(`Expected 9 workflow stages, received ${STAGES.length}.`);
 const readiness = scorePrebuild(Object.fromEntries(PREBUILD_AXES.map((axis) => [axis, 8.5])));
 if (readiness.gate !== "PASS") throw new Error("Canonical readiness fixture did not pass.");
 const capabilities = inspectCapabilities();
-if (capabilities.network_listener !== false || capabilities.external_model_calls !== false) {
-  throw new Error("Foundation hardening must remain local and provider-neutral.");
+if (capabilities.network_listener !== false || capabilities.external_model_calls !== false || capabilities.telemetry !== false) {
+  throw new Error("Agent hardening must remain local, provider-neutral, and telemetry-free.");
+}
+if (capabilities.limits?.max_job_cost_cents !== 1000 || capabilities.limits?.max_daily_cost_cents !== 5000) {
+  throw new Error("Cost circuit breakers do not match studio policy.");
 }
 
 process.stdout.write(`${JSON.stringify({
@@ -38,5 +52,6 @@ process.stdout.write(`${JSON.stringify({
   checked_files: requiredFiles.length,
   prebuild_axes: PREBUILD_AXES.length,
   stages: STAGES.length,
-  interface: capabilities.interface
+  interfaces: ["json-cli", "mcp-stdio"],
+  network_listener: capabilities.network_listener
 }, null, 2)}\n`);
