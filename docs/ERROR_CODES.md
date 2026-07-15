@@ -21,6 +21,12 @@
 | `ARTIFACT_NOT_FOUND` | A declared artifact does not exist | Create and verify the file inside the project workspace |
 | `ARTIFACT_TYPE_GUARD` | Artifact is a directory or symlink | Replace it with a regular file |
 | `ARTIFACT_HASH_MISMATCH` | Supplied SHA-256 does not match | Recompute the hash and inspect the artifact for mutation |
+| `APPROVAL_INJECTION_GUARD` | Approval was supplied through agent intake | Remove it; the owner must use the interactive local CLI |
+| `INTERACTIVE_APPROVAL_REQUIRED` | Approval was attempted without a human TTY | Stop and route the project owner to the local `approve` command |
+| `INVALID_APPROVAL_REQUEST` | Approval command lacks project or action | Supply both CLI flags |
+| `INVALID_APPROVAL_ACTION` | Action is not eligible for approval | Use an allowed gated action |
+| `INVALID_APPROVER` | Typed owner does not match project owner | Stop and have the actual owner approve |
+| `INVALID_APPROVAL_CONFIRMATION` | Typed phrase is incorrect | Read and type the exact phrase in the local terminal |
 | `GUARDIAN_GATE_FAILED` | A guardian failed or severe findings remain | Resolve findings and rerun review |
 | `APPROVAL_REQUIRED` | Owner approval is missing | Stop and obtain explicit Bambu approval |
 | `COST_GUARD` | Per-job or daily reservation limit would be exceeded | Stop or obtain a policy override outside this interface |
