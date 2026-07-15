@@ -1,13 +1,14 @@
 import { agentBridge } from './agent-bridge.js';
 import { BrandTools } from './brand-tools.js';
-import { StudioProjectStore } from './studio-project-store.js';
+import { ReleaseProjectStore } from './release-project-store.js';
 import { installStrategyVoiceTools } from './strategy-voice-tools.js';
 import { installVisualTools } from './visual-tools.js';
 import { installBrandbookTools } from './brandbook-tools.js';
+import { installGuardianExportTools } from './guardian-export-tools.js';
 import { applyLocale, translate } from './i18n.js';
 import { ProductTour } from './tour.js';
 
-for (const href of ['./phase-2.css', './strategy-voice.css', './visual-system.css', './brandbook.css']) {
+for (const href of ['./phase-2.css', './strategy-voice.css', './visual-system.css', './brandbook.css', './guardian-export.css']) {
   const stylesheet = document.createElement('link');
   stylesheet.rel = 'stylesheet';
   stylesheet.href = href;
@@ -178,12 +179,13 @@ async function initialize() {
   state.locale = applyLocale(state.locale);
   bindEvents();
   const brandTools = new BrandTools({ agentBridge, toast });
-  brandTools.store = new StudioProjectStore();
+  brandTools.store = new ReleaseProjectStore();
   await brandTools.initialize();
   hardenDialogRerenders(brandTools);
   installStrategyVoiceTools(brandTools);
   installVisualTools(brandTools);
   installBrandbookTools(brandTools);
+  installGuardianExportTools(brandTools);
   window.pauliBrandTools = brandTools;
   const capabilities = await agentBridge.inspect();
   if (agentBridge.connected && capabilities?.ok) {
