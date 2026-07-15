@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pauli.effect/schemas/source-ledger.schema.json",
+  "title": "Brand Kit Source Ledger",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "project_id", "sources", "generated_at"],
+  "properties": {
+    "schema_version": { "const": "1.0" },
+    "project_id": { "type": "string" },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "sources": { "type": "array", "items": { "$ref": "#/$defs/source" }, "minItems": 1 }
+  },
+  "$defs": {
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_id", "type", "location", "trust_level"],
+      "properties": {
+        "source_id": { "type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$" },
+        "type": { "type": "string", "minLength": 1 },
+        "location": { "type": "string", "minLength": 1 },
+        "trust_level": { "enum": ["primary", "governing", "reference", "inspiration"] },
+        "accessed": { "type": "boolean" },
+        "hash_or_commit": { "type": "string" },
+        "license": { "type": "string" },
+        "applicable_rules": { "type": "array", "items": { "type": "string" } },
+        "conflicts": { "type": "array", "items": { "type": "string" } },
+        "notes": { "type": "string" }
+      }
+    }
+  }
+}
