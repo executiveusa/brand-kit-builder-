@@ -1,0 +1,24 @@
+{
+  "bead_id": "ZTE-20260715-0005",
+  "task": "Build Brand Studio project, discovery, source, and readiness tools",
+  "status": "implementation_complete_validation_pending",
+  "risk_tier": "MEDIUM",
+  "languages": ["en", "es-MX"],
+  "phase": "2A",
+  "features": [
+    "project-persistence",
+    "project-library",
+    "project-creation",
+    "intake-workspace",
+    "discovery-interview",
+    "source-ledger",
+    "rights-and-conflict-controls",
+    "20-axis-readiness-gate",
+    "workflow-locking",
+    "agent-bridge-events"
+  ],
+  "direct_network_calls": false,
+  "provider_secrets_in_browser": false,
+  "production_changed": false,
+  "rollback": "Close the pull request or revert the phase 2A commits; remove the v2 local-storage key to reset browser demo state."
+}
