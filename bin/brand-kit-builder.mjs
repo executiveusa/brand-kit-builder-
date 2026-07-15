@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import { readFile } from "node:fs/promises";
+import { createInterface } from "node:readline/promises";
 import process from "node:process";
 import {
   asAgentError,
@@ -13,13 +14,15 @@ import {
   scorePrebuild,
   validateProject
 } from "../src/agent/index.mjs";
+import { recordOwnerApproval } from "../src/agent/orchestrator.mjs";
+import { AgentError } from "../src/agent/errors.mjs";
 
 function parseArgs(argv) {
   const [command, ...rest] = argv;
   const options = { workspace: process.cwd(), input: "-" };
   for (let index = 0; index < rest.length; index += 1) {
     const token = rest[index];
-    if (token === "--workspace" || token === "--input" || token === "--project-id") {
+    if (token === "--workspace" || token === "--input" || token === "--project-id" || token === "--action") {
       const value = rest[index + 1];
       if (!value) throw new Error(`Missing value for ${token}`);
       options[token.slice(2).replaceAll("-", "_")] = value;
@@ -42,17 +45,48 @@ async function readInput(workspaceRoot, source) {
   return JSON.parse(await readFile(inputPath, "utf8"));
 }
 
+async function recordInteractiveApproval(context, options) {
+  if (!process.stdin.isTTY || !process.stdout.isTTY) {
+    throw new AgentError("INTERACTIVE_APPROVAL_REQUIRED", "Approval requires a human-operated local terminal.", {
+      remediation: "Run the approve command directly in a TTY. Approval is not available through stdin, MCP, CI, or agent JSON."
+    }, 403);
+  }
+  const projectId = options.project_id;
+  const action = options.action;
+  if (!projectId || !action) {
+    throw new AgentError("INVALID_APPROVAL_REQUEST", "approve requires --project-id and --action.");
+  }
+  const { project } = await getProject(context, projectId);
+  const expected = `APPROVE ${projectId} ${action}`;
+  const terminal = createInterface({ input: process.stdin, output: process.stdout });
+  try {
+    process.stderr.write(`Project: ${project.name}\nAction: ${action}\nOwner: ${project.owner}\n`);
+    const approvedBy = (await terminal.question("Type the project owner name: ")).trim();
+    const confirmation = (await terminal.question(`Type exactly '${expected}': `)).trim();
+    return recordOwnerApproval(context, {
+      project_id: projectId,
+      action,
+      approved_by: approvedBy,
+      confirmation,
+      interactive: true
+    });
+  } finally {
+    terminal.close();
+  }
+}
+
 async function main() {
   const { command, options } = parseArgs(process.argv.slice(2));
   if (!command || command === "help" || command === "--help") {
     return {
       ok: true,
-      usage: "brand-kit-builder <inspect|score-prebuild|create-project|get-project|validate-project|run-stage|complete-stage> [--workspace PATH] [--input FILE|-] [--project-id ID]"
+      usage: "brand-kit-builder <inspect|score-prebuild|create-project|get-project|validate-project|run-stage|complete-stage|approve> [--workspace PATH] [--input FILE|-] [--project-id ID] [--action ACTION]"
     };
   }
   if (command === "inspect") return inspectCapabilities();
 
   const context = await createAgentContext(options.workspace);
+  if (command === "approve") return recordInteractiveApproval(context, options);
   const input = await readInput(context.root, options.input);
   switch (command) {
     case "score-prebuild":
