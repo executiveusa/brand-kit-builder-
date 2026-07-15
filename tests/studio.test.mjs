@@ -1,0 +1,62 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { readFile } from 'node:fs/promises';
+import path from 'node:path';
+import vm from 'node:vm';
+
+const root = process.cwd();
+const read = (file) => readFile(path.join(root, file), 'utf8');
+
+function extractDictionarySource(source) {
+  const transformed = source.replace('export const dictionaries =', 'globalThis.dictionaries =').replace(/export function[\s\S]*$/, '');
+  const context = {};
+  vm.createContext(context);
+  vm.runInContext(transformed, context);
+  return context.dictionaries;
+}
+
+function idsFromHtml(html) {
+  return new Set([...html.matchAll(/\bid="([^"]+)"/g)].map((match) => `#${match[1]}`));
+}
+
+test('English and Mexican Spanish dictionaries have matching keys', async () => {
+  const dictionaries = extractDictionarySource(await read('apps/studio/i18n.js'));
+  assert.deepEqual(Object.keys(dictionaries.en).sort(), Object.keys(dictionaries['es-MX']).sort());
+  assert.ok(Object.keys(dictionaries.en).length > 120);
+});
+
+test('studio source contains no Han characters or direct network calls', async () => {
+  const files = ['index.html', 'styles.css', 'i18n.js', 'agent-bridge.js', 'tour.js', 'app.js'];
+  const source = (await Promise.all(files.map((file) => read(`apps/studio/${file}`)))).join('\n');
+  assert.equal(/\p{Script=Han}/u.test(source), false);
+  assert.equal(/\b(fetch|XMLHttpRequest|WebSocket)\s*\(/.test(source), false);
+  assert.equal(/<script[^>]+src="https?:/i.test(source), false);
+  assert.equal(/<link[^>]+href="https?:/i.test(source), false);
+});
+
+test('every tour selector resolves to an element or declared data control', async () => {
+  const html = await read('apps/studio/index.html');
+  const tour = await read('apps/studio/tour.js');
+  const ids = idsFromHtml(html);
+  for (const [, selector] of tour.matchAll(/target:\s*'([^']+)'/g)) {
+    if (selector.startsWith('#')) assert.ok(ids.has(selector), `Missing tour target ${selector}`);
+    else {
+      const attribute = selector.match(/^\[([^=\]]+)/)?.[1];
+      assert.ok(attribute && html.includes(attribute), `Missing tour selector ${selector}`);
+    }
+  }
+  assert.match(tour, /localStorage\.getItem\(TOUR_STORAGE_KEY\)/);
+  assert.match(tour, /localStorage\.setItem\(TOUR_STORAGE_KEY/);
+});
+
+test('interactive controls expose help metadata and accessible names', async () => {
+  const html = await read('apps/studio/index.html');
+  const buttons = [...html.matchAll(/<button\b([\s\S]*?)>([\s\S]*?)<\/button>/g)];
+  assert.ok(buttons.length >= 40);
+  for (const [, attributes, body] of buttons) {
+    assert.match(attributes, /data-help=/, `Button missing data-help: ${body.slice(0, 40)}`);
+    const plainText = body.replace(/<[^>]+>/g, '').trim();
+    const hasName = /aria-label=/.test(attributes) || /data-i18n=/.test(attributes) || /data-i18n=/.test(body) || plainText.length > 0;
+    assert.equal(hasName, true, `Button missing accessible name: ${body.slice(0, 40)}`);
+  }
+});

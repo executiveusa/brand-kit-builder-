@@ -1,0 +1,24 @@
+{
+  "bead_id": "ZTE-20260715-0004",
+  "task": "Build custom bilingual Brand Studio shell from reusable Open CoDesign patterns",
+  "status": "complete_pending_merge_approval",
+  "risk_tier": "MEDIUM",
+  "branch": "zte/ZTE-20260715-0004/studio-shell-bilingual-tour",
+  "pull_request": "https://github.com/executiveusa/brand-kit-builder-/pull/3",
+  "languages": ["en", "es-MX"],
+  "chinese_content_allowed": false,
+  "first_run_tour": true,
+  "tour_steps": 25,
+  "network_calls_from_browser": false,
+  "provider_secrets_in_browser": false,
+  "production_changed": false,
+  "upstream_license": "MIT",
+  "validation": {
+    "local_studio_checks": "passed",
+    "local_studio_tests": "4 passed",
+    "github_actions_run": 29445633145,
+    "github_actions_result": "success"
+  },
+  "independent_review": "CodeRabbit review rate-limited; no independent approval claimed",
+  "rollback": "Close pull request 3 or revert the studio-shell commits."
+}

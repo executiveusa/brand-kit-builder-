@@ -1,16 +1,18 @@
 {
   "name": "@pauli/brand-kit-builder",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
   "type": "module",
-  "description": "Deterministic in-house brand system workflow and agent control surface.",
+  "description": "In-house bilingual brand studio, deterministic workflow, and guarded agent control surface.",
   "bin": {
     "brand-kit-builder": "./bin/brand-kit-builder.mjs",
     "brand-kit-builder-mcp": "./bin/brand-kit-builder-mcp.mjs"
   },
   "scripts": {
+    "studio": "node scripts/serve-studio.mjs",
+    "studio:check": "node scripts/validate-studio.mjs",
     "test": "node --test",
-    "check": "node scripts/validate.mjs",
+    "check": "node scripts/validate.mjs && npm run studio:check",
     "ci": "npm run check && npm test",
     "mcp": "node bin/brand-kit-builder-mcp.mjs"
   },
