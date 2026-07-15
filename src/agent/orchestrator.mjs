@@ -18,9 +18,14 @@ const CLASSIFICATIONS = new Set([
 const SOURCE_TRUST = new Set(["primary", "governing", "reference", "inspiration"]);
 const GUARDIAN_NAMES = ["brand", "design", "voice", "rights"];
 const MAX_JOB_COST_CENTS = 1000;
+const MAX_DAILY_COST_CENTS = 5000;
 
 function now() {
   return new Date().toISOString();
+}
+
+function utcDay() {
+  return new Date().toISOString().slice(0, 10);
 }
 
 function validateSources(sources) {
@@ -96,7 +101,7 @@ function assertGuardiansPassed(project) {
   }
 }
 
-function assertCostWithinPolicy(estimatedCostCents = 0) {
+function normalizeJobCost(estimatedCostCents = 0) {
   const cost = Number(estimatedCostCents);
   if (!Number.isFinite(cost) || cost < 0) {
     throw new AgentError("INVALID_COST", "estimated_cost_cents must be a non-negative number.");
@@ -108,6 +113,30 @@ function assertCostWithinPolicy(estimatedCostCents = 0) {
     }, 403);
   }
   return Math.round(cost);
+}
+
+async function reserveDailyCost(context, jobId, estimatedCostCents) {
+  const day = utcDay();
+  const current = await context.store.loadDailyUsage(day) ?? {
+    schema_version: "1.0",
+    day,
+    reserved_cost_cents: 0,
+    jobs: []
+  };
+  if (current.jobs.some((job) => job.job_id === jobId)) return current;
+  const nextTotal = Number(current.reserved_cost_cents ?? 0) + estimatedCostCents;
+  if (nextTotal > MAX_DAILY_COST_CENTS) {
+    throw new AgentError("COST_GUARD", "The requested job would exceed the $50 daily limit.", {
+      day,
+      current_reserved_cost_cents: current.reserved_cost_cents,
+      requested_cost_cents: estimatedCostCents,
+      maximum_daily_cost_cents: MAX_DAILY_COST_CENTS
+    }, 403);
+  }
+  current.reserved_cost_cents = nextTotal;
+  current.jobs.push({ job_id: jobId, estimated_cost_cents: estimatedCostCents, reserved_at: now() });
+  await context.store.saveDailyUsage(day, current);
+  return current;
 }
 
 export async function createAgentContext(workspaceRoot) {
@@ -132,10 +161,12 @@ export function inspectCapabilities() {
       idempotent_jobs: true,
       filesystem_sandbox: true,
       secret_rejection: true,
-      owner_approval_gate: true
+      owner_approval_gate: true,
+      daily_cost_guard: true
     },
     limits: {
       max_job_cost_cents: MAX_JOB_COST_CENTS,
+      max_daily_cost_cents: MAX_DAILY_COST_CENTS,
       release_floor: 8.5,
       owner_approval_required_for: [...OWNER_APPROVAL_STAGES]
     }
@@ -226,11 +257,13 @@ export async function runStage(context, input) {
   if (GATED_STAGES.has(stage)) assertPrebuildPassed(project.readiness);
   if (stage === "export") assertGuardiansPassed(project);
   if (OWNER_APPROVAL_STAGES.has(stage)) assertApproval(project.approvals, stage, project.owner);
-  const estimatedCostCents = assertCostWithinPolicy(input.estimated_cost_cents ?? 0);
+  const estimatedCostCents = normalizeJobCost(input.estimated_cost_cents ?? 0);
+  const jobId = `job-${idempotencyKey}`;
+  const dailyUsage = await reserveDailyCost(context, jobId, estimatedCostCents);
 
   const job = {
     schema_version: "1.0",
-    job_id: `job-${idempotencyKey}`,
+    job_id: jobId,
     idempotency_key: idempotencyKey,
     project_id: projectId,
     stage,
@@ -238,6 +271,7 @@ export async function runStage(context, input) {
     requested_by: input.requested_by ?? "in-house-agent",
     created_at: now(),
     estimated_cost_cents: estimatedCostCents,
+    daily_reserved_cost_cents: dailyUsage.reserved_cost_cents,
     governing_prompt_index: "docs/PAULI_BRAND_STUDIO_MASTER_SYSTEM_PROMPT_INDEX.md",
     required_outputs: STAGE_OUTPUTS[stage],
     constraints: {
