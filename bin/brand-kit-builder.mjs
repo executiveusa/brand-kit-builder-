@@ -46,7 +46,7 @@ async function readInput(workspaceRoot, source) {
 }
 
 async function recordInteractiveApproval(context, options) {
-  if (!process.stdin.isTTY || !process.stdout.isTTY) {
+  if (!process.stdin.isTTY || !process.stderr.isTTY) {
     throw new AgentError("INTERACTIVE_APPROVAL_REQUIRED", "Approval requires a human-operated local terminal.", {
       remediation: "Run the approve command directly in a TTY. Approval is not available through stdin, MCP, CI, or agent JSON."
     }, 403);
@@ -58,7 +58,7 @@ async function recordInteractiveApproval(context, options) {
   }
   const { project } = await getProject(context, projectId);
   const expected = `APPROVE ${projectId} ${action}`;
-  const terminal = createInterface({ input: process.stdin, output: process.stdout });
+  const terminal = createInterface({ input: process.stdin, output: process.stderr });
   try {
     process.stderr.write(`Project: ${project.name}\nAction: ${action}\nOwner: ${project.owner}\n`);
     const approvedBy = (await terminal.question("Type the project owner name: ")).trim();
