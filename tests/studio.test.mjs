@@ -26,7 +26,7 @@ test('English and Mexican Spanish dictionaries have matching keys', async () => 
 });
 
 test('studio source contains no Han characters or direct network calls', async () => {
-  const files = ['index.html', 'styles.css', 'phase-2.css', 'strategy-voice.css', 'i18n.js', 'agent-bridge.js', 'tour.js', 'app.js', 'project-store.js', 'brand-copy.js', 'brand-tools.js', 'strategy-voice-copy.js', 'strategy-voice-tools.js'];
+  const files = ['index.html', 'styles.css', 'phase-2.css', 'strategy-voice.css', 'visual-system.css', 'i18n.js', 'agent-bridge.js', 'tour.js', 'app.js', 'project-store.js', 'studio-project-store.js', 'brand-copy.js', 'brand-tools.js', 'strategy-voice-copy.js', 'strategy-voice-tools.js', 'visual-copy.js', 'visual-tools.js'];
   const source = (await Promise.all(files.map((file) => read(`apps/studio/${file}`)))).join('\n');
   assert.equal(/\p{Script=Han}/u.test(source), false);
   assert.equal(/\b(fetch|XMLHttpRequest|WebSocket)\s*\(/.test(source), false);
@@ -78,4 +78,14 @@ test('strategy and voice editors are installed and use guarded bridge commands',
   assert.match(tools, /brandTools\.agentBridge\?\.invoke\('save-voice'/);
   assert.match(tools, /strategyIsComplete/);
   assert.match(tools, /voiceIsComplete/);
+});
+
+test('visual editor uses the extended store and guarded bridge command', async () => {
+  const app = await read('apps/studio/app.js');
+  const tools = await read('apps/studio/visual-tools.js');
+  assert.match(app, /new StudioProjectStore\(\)/);
+  assert.match(app, /installVisualTools\(brandTools\)/);
+  assert.match(app, /\.\/visual-system\.css/);
+  assert.match(tools, /brandTools\.agentBridge\?\.invoke\('save-visual-system'/);
+  assert.match(tools, /visualIsComplete/);
 });
