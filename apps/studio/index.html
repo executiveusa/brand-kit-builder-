@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en" data-locale="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Pauli Brand Studio</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#brand-canvas" data-i18n="a11y.skipToCanvas">Skip to brand canvas</a>
+
+  <header class="topbar" aria-label="Studio controls">
+    <div class="brand-lockup">
+      <div class="brand-mark" aria-hidden="true">P</div>
+      <div>
+        <p class="kicker" data-i18n="app.company">Pauli Brand Studio</p>
+        <h1 data-i18n="app.title">Brand Kit Builder</h1>
+      </div>
+    </div>
+
+    <button id="project-switcher" class="control project-switcher" type="button" data-help="projectSwitcher" aria-label="Open project switcher">
+      <span class="control-label" data-i18n="project.current">Current project</span>
+      <strong id="project-name">Kupuri Media</strong>
+      <svg aria-hidden="true" viewBox="0 0 20 20"><path d="m6 8 4 4 4-4"/></svg>
+    </button>
+
+    <div class="topbar-actions">
+      <div id="agent-status" class="agent-status" role="status" data-help="agentStatus">
+        <span class="status-dot" aria-hidden="true"></span>
+        <span data-i18n="agent.demoMode">Demo mode</span>
+      </div>
+
+      <div id="language-switcher" class="segmented" role="group" aria-label="Language" data-help="languageSwitcher">
+        <button type="button" class="segment is-active" data-locale-button="en" data-help="languageEnglish" aria-label="Use English">EN</button>
+        <button type="button" class="segment" data-locale-button="es-MX" data-help="languageSpanish" aria-label="Usar español de México">ES</button>
+      </div>
+
+      <button id="tour-button" class="icon-text-button" type="button" data-help="tourButton" aria-label="Start product tour">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.8 9a2.3 2.3 0 1 1 3.1 2.2c-.9.4-1.4 1-1.4 1.8M12 17h.01"/></svg>
+        <span data-i18n="tour.restart">Tour</span>
+      </button>
+
+      <button id="new-project-button" class="primary-button" type="button" data-help="newProject" aria-label="Create a new brand project">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+        <span data-i18n="project.new">New project</span>
+      </button>
+    </div>
+  </header>
+
+  <div class="app-shell">
+    <aside id="workflow-panel" class="workflow-panel" aria-label="Brand workflow" data-help="workflowPanel">
+      <div class="panel-heading">
+        <div>
+          <p class="eyebrow" data-i18n="workflow.label">Workflow</p>
+          <h2 data-i18n="workflow.title">Build the brand in order</h2>
+        </div>
+        <span id="project-progress" class="progress-pill">2 / 9</span>
+      </div>
+
+      <nav class="workflow-nav" aria-label="Project stages">
+        <button class="workflow-step is-complete" type="button" data-stage="intake" data-help="stageIntake">
+          <span class="step-index">1</span><span><strong data-i18n="stage.intake">Intake</strong><small data-i18n="stage.intakeHint">Goals and constraints</small></span><span class="step-state" data-i18n="state.done">Done</span>
+        </button>
+        <button class="workflow-step is-active" type="button" data-stage="sources" data-help="stageSources">
+          <span class="step-index">2</span><span><strong data-i18n="stage.sources">Sources</strong><small data-i18n="stage.sourcesHint">Evidence and rights</small></span><span class="step-state" data-i18n="state.active">Active</span>
+        </button>
+        <button class="workflow-step" type="button" data-stage="readiness" data-help="stageReadiness">
+          <span class="step-index">3</span><span><strong data-i18n="stage.readiness">Readiness</strong><small data-i18n="stage.readinessHint">20-axis gate</small></span><span class="step-state">7.8</span>
+        </button>
+        <button class="workflow-step" type="button" data-stage="strategy" data-help="stageStrategy">
+          <span class="step-index">4</span><span><strong data-i18n="stage.strategy">Strategy</strong><small data-i18n="stage.strategyHint">Position and proof</small></span><span class="step-state" data-i18n="state.locked">Locked</span>
+        </button>
+        <button class="workflow-step" type="button" data-stage="voice" data-help="stageVoice">
+          <span class="step-index">5</span><span><strong data-i18n="stage.voice">Voice</strong><small data-i18n="stage.voiceHint">Language system</small></span><span class="step-state" data-i18n="state.locked">Locked</span>
+        </button>
+        <button class="workflow-step" type="button" data-stage="visual" data-help="stageVisual">
+          <span class="step-index">6</span><span><strong data-i18n="stage.visual">Visual system</strong><small data-i18n="stage.visualHint">Identity and imagery</small></span><span class="step-state" data-i18n="state.locked">Locked</span>
+        </button>
+        <button class="workflow-step" type="button" data-stage="brandbook" data-help="stageBrandbook">
+          <span class="step-index">7</span><span><strong data-i18n="stage.brandbook">Brand book</strong><small data-i18n="stage.brandbookHint">KAKU presentation</small></span><span class="step-state" data-i18n="state.locked">Locked</span>
+        </button>
+        <button class="workflow-step" type="button" data-stage="guardian" data-help="stageGuardian">
+          <span class="step-index">8</span><span><strong data-i18n="stage.guardian">Guardian review</strong><small data-i18n="stage.guardianHint">Four independent checks</small></span><span class="step-state" data-i18n="state.locked">Locked</span>
+        </button>
+        <button class="workflow-step" type="button" data-stage="export" data-help="stageExport">
+          <span class="step-index">9</span><span><strong data-i18n="stage.export">Export</strong><small data-i18n="stage.exportHint">Approved delivery</small></span><span class="step-state" data-i18n="state.locked">Locked</span>
+        </button>
+      </nav>
+
+      <section id="source-summary" class="source-summary" data-help="sourceSummary" aria-labelledby="source-summary-title">
+        <div class="summary-head">
+          <h3 id="source-summary-title" data-i18n="sources.summary">Source status</h3>
+          <button class="text-button" type="button" data-action="open-files" data-help="openFiles" data-i18n="action.view">View</button>
+        </div>
+        <dl>
+          <div><dt data-i18n="sources.primary">Primary</dt><dd>3</dd></div>
+          <div><dt data-i18n="sources.reference">Reference</dt><dd>5</dd></div>
+          <div><dt data-i18n="sources.conflicts">Conflicts</dt><dd class="warn">1</dd></div>
+        </dl>
+        <p data-i18n="sources.blocker">Resolve one naming conflict before readiness can pass.</p>
+      </section>
+    </aside>
+
+    <main class="studio-main">
+      <section id="canvas-toolbar" class="canvas-toolbar" aria-label="Canvas controls" data-help="canvasToolbar">
+        <div id="canvas-tabs" class="canvas-tabs" role="tablist" aria-label="Brand canvas views" data-help="canvasTabs">
+          <button class="canvas-tab is-active" type="button" role="tab" aria-selected="true" data-view="brandbook" data-help="viewBrandbook" data-i18n="view.brandbook">Brand book</button>
+          <button class="canvas-tab" type="button" role="tab" aria-selected="false" data-view="logo" data-help="viewLogo" data-i18n="view.logo">Logo system</button>
+          <button class="canvas-tab" type="button" role="tab" aria-selected="false" data-view="social" data-help="viewSocial" data-i18n="view.social">Social</button>
+          <button class="canvas-tab" type="button" role="tab" aria-selected="false" data-view="website" data-help="viewWebsite" data-i18n="view.website">Website</button>
+        </div>
+
+        <div id="viewport-controls" class="toolbar-controls" data-help="viewportControls">
+          <button class="icon-button" type="button" data-device="desktop" data-help="deviceDesktop" aria-label="Desktop preview" aria-pressed="true"><svg aria-hidden="true" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="1"/><path d="M8 21h8M12 17v4"/></svg></button>
+          <button class="icon-button" type="button" data-device="tablet" data-help="deviceTablet" aria-label="Tablet preview" aria-pressed="false"><svg aria-hidden="true" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M11 18h2"/></svg></button>
+          <button class="icon-button" type="button" data-device="mobile" data-help="deviceMobile" aria-label="Mobile preview" aria-pressed="false"><svg aria-hidden="true" viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg></button>
+          <span class="toolbar-divider" aria-hidden="true"></span>
+          <button class="icon-button" type="button" data-zoom="out" data-help="zoomOut" aria-label="Zoom out"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4M8 11h6"/></svg></button>
+          <output id="zoom-value" class="zoom-value" aria-live="polite">100%</output>
+          <button class="icon-button" type="button" data-zoom="in" data-help="zoomIn" aria-label="Zoom in"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4M8 11h6M11 8v6"/></svg></button>
+          <button class="icon-text-button" type="button" data-action="comment-mode" data-help="commentMode" aria-label="Add a comment to the canvas"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z"/></svg><span data-i18n="action.comment">Comment</span></button>
+        </div>
+      </section>
+
+      <section id="brand-canvas" class="canvas-stage" tabindex="-1" aria-label="Brand canvas" data-help="brandCanvas">
+        <div id="canvas-frame" class="canvas-frame device-desktop" style="--canvas-zoom: 1">
+          <article class="brandbook-page" data-canvas-view="brandbook">
+            <header class="demo-cover">
+              <div class="demo-wordmark">KUPURI</div>
+              <p data-i18n="demo.coverKicker">Brand system · 2026</p>
+              <h2 data-i18n="demo.coverTitle">Stories with roots.<br>Media with purpose.</h2>
+              <div class="demo-cover-meta"><span data-i18n="demo.market">Mexico City · Bilingual</span><span>01 / 13</span></div>
+            </header>
+            <section class="demo-content">
+              <p class="demo-section-number">01</p>
+              <div><p class="demo-eyebrow" data-i18n="demo.sectionKicker">The foundation</p><h3 data-i18n="demo.sectionTitle">A clear identity for work that connects culture, business, and community.</h3><p data-i18n="demo.sectionBody">This preview demonstrates the presentation system. Every final statement must trace to a confirmed source or approved interview answer.</p></div>
+            </section>
+          </article>
+
+          <article class="logo-page is-hidden" data-canvas-view="logo">
+            <div class="logo-grid">
+              <div class="logo-primary"><span>KUPURI</span><small data-i18n="demo.logoPrimary">Primary wordmark</small></div>
+              <div class="logo-reverse"><span>KUPURI</span><small data-i18n="demo.logoReverse">Reverse use</small></div>
+              <div class="logo-mark"><span>K</span><small data-i18n="demo.logoMark">Responsive mark</small></div>
+              <div class="logo-rules"><h3 data-i18n="demo.logoRules">Logo rules</h3><p data-i18n="demo.logoRulesBody">Keep clear space, preserve proportions, and never redraw supplied artwork.</p></div>
+            </div>
+          </article>
+
+          <article class="social-page is-hidden" data-canvas-view="social">
+            <div class="social-card social-card-one"><span>K</span><h3 data-i18n="demo.socialOne">Build the story before the post.</h3><p>@kupurimedia</p></div>
+            <div class="social-card social-card-two"><p data-i18n="demo.socialTwoKicker">Field note 04</p><h3 data-i18n="demo.socialTwo">Culture is not decoration. It is context.</h3><span data-i18n="demo.socialTwoAction">Read the full story</span></div>
+            <div class="social-card social-card-three"><span data-i18n="demo.socialThree">Community-led media</span></div>
+          </article>
+
+          <article class="website-page is-hidden" data-canvas-view="website">
+            <nav><strong>KUPURI</strong><span data-i18n="demo.webNav">Work · Studio · Journal</span><button type="button" data-help="demoWebsiteCta" data-i18n="demo.webCta">Start a project</button></nav>
+            <div class="website-hero"><p data-i18n="demo.webKicker">Independent creative studio</p><h2 data-i18n="demo.webTitle">Stories with roots.<br>Media with purpose.</h2><p data-i18n="demo.webBody">Strategy, storytelling, and digital experiences for organizations building meaningful work.</p><button type="button" data-help="demoWebsiteExplore" data-i18n="demo.webExplore">Explore our work</button></div>
+          </article>
+        </div>
+        <button id="canvas-comment-pin" class="comment-pin is-hidden" type="button" data-help="commentPin" aria-label="Open canvas comment">1</button>
+      </section>
+
+      <section id="bottom-dock" class="bottom-dock" data-help="bottomDock">
+        <div class="dock-tabs" role="tablist" aria-label="Project details">
+          <button class="dock-tab is-active" type="button" role="tab" data-dock="files" data-help="dockFiles"><span data-i18n="dock.files">Files</span><b>8</b></button>
+          <button class="dock-tab" type="button" role="tab" data-dock="comments" data-help="dockComments"><span data-i18n="dock.comments">Comments</span><b>2</b></button>
+          <button class="dock-tab" type="button" role="tab" data-dock="history" data-help="dockHistory"><span data-i18n="dock.history">History</span></button>
+          <button class="dock-tab" type="button" role="tab" data-dock="claims" data-help="dockClaims"><span data-i18n="dock.claims">Claims</span><b class="warn-badge">1</b></button>
+          <button class="dock-tab" type="button" role="tab" data-dock="rights" data-help="dockRights"><span data-i18n="dock.rights">Rights</span></button>
+          <button class="dock-tab" type="button" role="tab" data-dock="deliverables" data-help="dockDeliverables"><span data-i18n="dock.deliverables">Deliverables</span><b>0</b></button>
+        </div>
+        <div id="dock-content" class="dock-content">
+          <div class="file-list" data-dock-panel="files">
+            <button type="button" data-help="fileBrandBrief"><span class="file-type">MD</span><span><strong>brand-brief.md</strong><small data-i18n="file.confirmed">Confirmed source</small></span><span class="file-status approved" data-i18n="state.approved">Approved</span></button>
+            <button type="button" data-help="fileLogo"><span class="file-type">SVG</span><span><strong>kupuri-logo.svg</strong><small data-i18n="file.protected">Protected asset</small></span><span class="file-status locked" data-i18n="state.locked">Locked</span></button>
+            <button type="button" data-help="fileWebsite"><span class="file-type">URL</span><span><strong>kupuri-media-main-site.vercel.app</strong><small data-i18n="file.inspected">Inspected</small></span><span class="file-status approved" data-i18n="state.approved">Approved</span></button>
+          </div>
+          <div class="dock-panel is-hidden" data-dock-panel="comments"><p data-i18n="dock.commentsEmpty">Two comments are attached to the brand book preview.</p></div>
+          <div class="dock-panel is-hidden" data-dock-panel="history"><p data-i18n="dock.historyEmpty">Project history records every approved decision and artifact change.</p></div>
+          <div class="dock-panel is-hidden" data-dock-panel="claims"><p data-i18n="dock.claimsEmpty">One provisional claim needs proof before it can appear in final copy.</p></div>
+          <div class="dock-panel is-hidden" data-dock-panel="rights"><p data-i18n="dock.rightsEmpty">Rights review tracks licenses, consent, attribution, and trademark risk.</p></div>
+          <div class="dock-panel is-hidden" data-dock-panel="deliverables"><p data-i18n="dock.deliverablesEmpty">Exports remain unavailable until the release gate passes.</p></div>
+        </div>
+      </section>
+    </main>
+
+    <aside id="inspector-panel" class="inspector-panel" aria-label="Brand controls" data-help="inspectorPanel">
+      <div class="panel-heading inspector-heading">
+        <div><p class="eyebrow" data-i18n="inspector.label">Inspector</p><h2 data-i18n="inspector.title">Brand controls</h2></div>
+        <button class="icon-button" type="button" data-action="reset-controls" data-help="resetControls" aria-label="Reset brand controls"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></button>
+      </div>
+
+      <div class="inspector-tabs" role="tablist" aria-label="Inspector sections">
+        <button type="button" class="inspector-tab is-active" role="tab" data-inspector="design" data-help="inspectorDesign" data-i18n="inspector.design">Design</button>
+        <button type="button" class="inspector-tab" role="tab" data-inspector="voice" data-help="inspectorVoice" data-i18n="inspector.voice">Voice</button>
+        <button type="button" class="inspector-tab" role="tab" data-inspector="provenance" data-help="inspectorProvenance" data-i18n="inspector.provenance">Evidence</button>
+      </div>
+
+      <div class="inspector-body" data-inspector-panel="design">
+        <section id="color-controls" class="control-section" data-help="colorControls">
+          <div class="control-section-head"><h3 data-i18n="control.colors">Colors</h3><span data-i18n="control.live">Live</span></div>
+          <label class="color-row"><span data-i18n="control.primary">Primary</span><input id="primary-color" type="color" value="#173f35" aria-label="Primary color"><output>#173F35</output></label>
+          <label class="color-row"><span data-i18n="control.accent">Accent</span><input id="accent-color" type="color" value="#d76a43" aria-label="Accent color"><output>#D76A43</output></label>
+          <label class="color-row"><span data-i18n="control.paper">Paper</span><input id="paper-color" type="color" value="#f3efe6" aria-label="Paper color"><output>#F3EFE6</output></label>
+        </section>
+
+        <section id="type-controls" class="control-section" data-help="typeControls">
+          <div class="control-section-head"><h3 data-i18n="control.typography">Typography</h3><span data-i18n="control.preview">Preview</span></div>
+          <label><span data-i18n="control.displayFont">Display style</span><select id="display-font" aria-label="Display style"><option value="editorial" data-i18n="font.editorial">Editorial serif</option><option value="humanist" data-i18n="font.humanist">Humanist sans</option><option value="modern" data-i18n="font.modern">Modern sans</option></select></label>
+          <label><span data-i18n="control.scale">Type scale</span><input id="type-scale" type="range" min="90" max="120" value="100"><output>100%</output></label>
+        </section>
+
+        <section id="image-controls" class="control-section" data-help="imageControls">
+          <div class="control-section-head"><h3 data-i18n="control.imagery">Image direction</h3></div>
+          <label><span data-i18n="control.polish">Documentary ↔ Polished</span><input id="image-polish" type="range" min="0" max="100" value="35"><output>35</output></label>
+          <label><span data-i18n="control.light">Natural ↔ Dramatic light</span><input id="image-light" type="range" min="0" max="100" value="25"><output>25</output></label>
+        </section>
+      </div>
+
+      <div class="inspector-body is-hidden" data-inspector-panel="voice">
+        <section id="voice-controls" class="control-section" data-help="voiceControls">
+          <div class="control-section-head"><h3 data-i18n="control.voice">Voice direction</h3><span data-i18n="control.preview">Preview</span></div>
+          <label><span data-i18n="control.direct">Direct ↔ Explanatory</span><input id="voice-direct" type="range" min="0" max="100" value="40"><output>40</output></label>
+          <label><span data-i18n="control.warm">Warm ↔ Authoritative</span><input id="voice-warm" type="range" min="0" max="100" value="45"><output>45</output></label>
+          <label><span data-i18n="control.concise">Concise ↔ Expansive</span><input id="voice-length" type="range" min="0" max="100" value="30"><output>30</output></label>
+          <div class="voice-preview"><p class="eyebrow" data-i18n="control.sample">Sample</p><blockquote id="voice-sample" data-i18n="demo.voiceSample">We help meaningful ideas become clear stories, useful systems, and work people can trust.</blockquote></div>
+        </section>
+      </div>
+
+      <div class="inspector-body is-hidden" data-inspector-panel="provenance">
+        <section id="evidence-controls" class="control-section" data-help="evidenceControls">
+          <div class="control-section-head"><h3 data-i18n="control.evidence">Evidence</h3><span class="file-status approved" data-i18n="state.traced">Traced</span></div>
+          <dl class="evidence-list">
+            <div><dt data-i18n="evidence.source">Source</dt><dd>brand-brief.md</dd></div><div><dt data-i18n="evidence.status">Status</dt><dd data-i18n="state.confirmed">Confirmed</dd></div><div><dt data-i18n="evidence.rights">Rights</dt><dd data-i18n="state.cleared">Cleared</dd></div><div><dt data-i18n="evidence.updated">Updated</dt><dd>15 Jul 2026</dd></div>
+          </dl>
+          <button class="secondary-button full-width" type="button" data-action="open-ledger" data-help="openLedger" data-i18n="action.openLedger">Open source ledger</button>
+        </section>
+      </div>
+
+      <footer id="decision-footer" class="decision-footer" data-help="decisionFooter">
+        <div><span data-i18n="decision.unsaved">Unsaved controls</span><strong id="change-count">0</strong></div>
+        <button id="apply-controls" class="primary-button full-width" type="button" data-help="applyControls" data-i18n="action.apply">Apply to draft</button>
+      </footer>
+    </aside>
+  </div>
+
+  <dialog id="new-project-dialog" class="modal" aria-labelledby="new-project-title">
+    <form method="dialog">
+      <header><div><p class="eyebrow" data-i18n="project.createKicker">New brand project</p><h2 id="new-project-title" data-i18n="project.createTitle">Start with what you already have</h2></div><button class="icon-button" value="cancel" data-help="closeNewProject" aria-label="Close new project dialog"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button></header>
+      <p data-i18n="project.createBody">Choose any source. The studio inspects evidence before it asks questions or creates work.</p>
+      <div class="source-choice-grid">
+        <button type="button" data-source-choice="idea" data-help="sourceIdea"><strong data-i18n="source.idea">Business idea</strong><small data-i18n="source.ideaHint">Start from a confirmed brief</small></button>
+        <button type="button" data-source-choice="url" data-help="sourceUrl"><strong data-i18n="source.url">Live website</strong><small data-i18n="source.urlHint">Inspect current pages and assets</small></button>
+        <button type="button" data-source-choice="repo" data-help="sourceRepo"><strong data-i18n="source.repo">Repository</strong><small data-i18n="source.repoHint">Review code, copy, and design tokens</small></button>
+        <button type="button" data-source-choice="files" data-help="sourceFiles"><strong data-i18n="source.files">Files and assets</strong><small data-i18n="source.filesHint">Add logos, images, and documents</small></button>
+      </div>
+      <footer><button class="secondary-button" value="cancel" data-help="cancelNewProject" data-i18n="action.cancel">Cancel</button><button id="continue-project" class="primary-button" value="default" data-help="continueNewProject" data-i18n="action.continue" disabled>Continue</button></footer>
+    </form>
+  </dialog>
+
+  <div id="toast-region" class="toast-region" aria-live="polite" aria-atomic="true"></div>
+  <div id="tour-root" aria-live="polite"></div>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

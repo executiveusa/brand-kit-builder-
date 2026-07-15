@@ -1,0 +1,14 @@
+{
+  "bead_id": "ZTE-20260715-0004",
+  "task": "Build custom bilingual Brand Studio shell from reusable Open CoDesign patterns",
+  "status": "implementation_complete_validation_pending",
+  "risk_tier": "MEDIUM",
+  "languages": ["en", "es-MX"],
+  "chinese_content_allowed": false,
+  "first_run_tour": true,
+  "network_calls_from_browser": false,
+  "provider_secrets_in_browser": false,
+  "production_changed": false,
+  "upstream_license": "MIT",
+  "rollback": "Close the pull request or revert the studio-shell commits."
+}
