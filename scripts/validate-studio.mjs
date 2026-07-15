@@ -1,10 +1,24 @@
 import { access, readFile } from 'node:fs/promises';
 import path from 'node:path';
 import process from 'node:process';
+import { PREBUILD_AXES } from '../apps/studio/project-store.js';
 
 const root = process.cwd();
 const files = [
-  'apps/studio/index.html', 'apps/studio/styles.css', 'apps/studio/i18n.js', 'apps/studio/agent-bridge.js', 'apps/studio/tour.js', 'apps/studio/app.js', 'apps/studio/README.md', 'scripts/serve-studio.mjs', 'docs/UPSTREAM_OPEN_CODESIGN.md', 'THIRD_PARTY_NOTICES.md'
+  'apps/studio/index.html',
+  'apps/studio/styles.css',
+  'apps/studio/phase-2.css',
+  'apps/studio/i18n.js',
+  'apps/studio/agent-bridge.js',
+  'apps/studio/tour.js',
+  'apps/studio/app.js',
+  'apps/studio/project-store.js',
+  'apps/studio/brand-copy.js',
+  'apps/studio/brand-tools.js',
+  'apps/studio/README.md',
+  'scripts/serve-studio.mjs',
+  'docs/UPSTREAM_OPEN_CODESIGN.md',
+  'THIRD_PARTY_NOTICES.md'
 ];
 for (const file of files) await access(path.join(root, file));
 const content = Object.fromEntries(await Promise.all(files.map(async (file) => [file, await readFile(path.join(root, file), 'utf8')])));
@@ -16,4 +30,9 @@ if (!content['apps/studio/tour.js'].includes('TOUR_STORAGE_KEY')) throw new Erro
 if (!content['apps/studio/index.html'].includes('data-locale-button="es-MX"')) throw new Error('Mexican Spanish switch is missing.');
 if (!content['apps/studio/index.html'].includes('id="tour-button"')) throw new Error('Tour restart button is missing.');
 if (!content['apps/studio/agent-bridge.js'].includes('window.brandKitBuilderHost')) throw new Error('Host bridge contract is missing.');
-process.stdout.write(`${JSON.stringify({ ok: true, files: files.length, locales: ['en', 'es-MX'], direct_network_calls: false, first_run_tour: true }, null, 2)}\n`);
+if (!content['apps/studio/app.js'].includes("./brand-tools.js")) throw new Error('Phase 2 brand tools are not connected to the studio shell.');
+if (!content['apps/studio/app.js'].includes("./phase-2.css")) throw new Error('Phase 2 workspace styling is not loaded.');
+if (PREBUILD_AXES.length !== 20) throw new Error(`Expected 20 readiness axes, found ${PREBUILD_AXES.length}.`);
+if (!content['apps/studio/brand-tools.js'].includes('save-readiness')) throw new Error('Readiness persistence bridge is missing.');
+if (!content['apps/studio/brand-tools.js'].includes('answer-discovery')) throw new Error('Discovery interview bridge is missing.');
+process.stdout.write(`${JSON.stringify({ ok: true, files: files.length, locales: ['en', 'es-MX'], direct_network_calls: false, first_run_tour: true, prebuild_axes: PREBUILD_AXES.length, project_persistence: true }, null, 2)}\n`);
