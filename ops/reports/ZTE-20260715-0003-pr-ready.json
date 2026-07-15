@@ -1,0 +1,8 @@
+{
+  "bead_id": "ZTE-20260715-0003",
+  "status": "pr_ready",
+  "head": "zte/ZTE-20260715-0003/agent-hardening",
+  "base": "zte/ZTE-20260715-0002/brand-builder-foundation",
+  "production_changed": false,
+  "merge_requires_review": true
+}
