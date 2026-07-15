@@ -1,0 +1,7 @@
+{
+  "project_id": "kupuri-media-demo",
+  "stage": "intake",
+  "idempotency_key": "kupuri-intake-v1",
+  "requested_by": "archon-orchestrator",
+  "estimated_cost_cents": 0
+}
