@@ -4,7 +4,6 @@
 - `run-stage.json`: idempotent intake work-order request.
 - `complete-intake.json`: bound artifact manifest used after the intake outputs exist.
 - `complete-sources.json`: source-stage completion with accessed evidence and resolved conflicts.
-- `approval.json`: explicit owner approval record shape.
 
 Run from the repository root:
 
@@ -22,3 +21,5 @@ cat examples/agent/complete-intake.json | \
 The completion command uses the same `idempotency_key` as the work order and fails until both declared files exist beneath `workspace/projects/kupuri-media-demo/`. The manifest must contain exactly the required paths.
 
 Before using `complete-sources.json`, request a `sources` work order with idempotency key `kupuri-sources-v1`, inspect the actual sources, replace the placeholder hash or snapshot identifier, and create `source-conflicts.md`.
+
+Approval is intentionally absent from agent JSON and MCP tools. The project owner records export approval only through the local interactive CLI after guardian and readiness gates pass.
