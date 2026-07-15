@@ -1,0 +1,23 @@
+{
+  "bead_id": "ZTE-20260715-0008",
+  "task": "Build exact KAKU brand-book review and local renderer",
+  "status": "implementation_complete_validation_pending",
+  "risk_tier": "MEDIUM",
+  "phase": "2D",
+  "languages": ["en", "es-MX"],
+  "kaku_core_sections": 13,
+  "digital_annexes": 10,
+  "features": [
+    "deterministic-source-derived-draft",
+    "page-editor",
+    "source-references",
+    "human-page-approval",
+    "annex-review",
+    "sandboxed-local-html-preview",
+    "guardian-unlock-gate"
+  ],
+  "remote_preview_assets": false,
+  "final_pdf_generation": false,
+  "production_changed": false,
+  "rollback": "Close the pull request or revert Phase 2D commits."
+}
