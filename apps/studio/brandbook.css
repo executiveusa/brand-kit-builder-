@@ -1,0 +1,35 @@
+.brandbook-workspace { display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: 18px; min-height: 620px; }
+.book-navigation { display: grid; align-content: start; gap: 14px; position: sticky; top: 0; }
+.book-navigation h3 { margin: 0 0 6px; font-size: 13px; }
+.book-progress { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+.book-progress div { padding: 10px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper); }
+.book-progress strong, .book-progress small { display: block; }
+.book-progress strong { font-family: var(--font-display); font-size: 22px; }
+.book-progress small { margin-top: 3px; color: var(--muted); font-size: 9px; text-transform: uppercase; letter-spacing: .06em; }
+.book-list { display: grid; gap: 5px; }
+.book-list button { width: 100%; display: grid; grid-template-columns: 30px minmax(0, 1fr) 18px; gap: 8px; align-items: center; min-height: 42px; padding: 7px 8px; border: 1px solid transparent; border-radius: var(--radius); background: transparent; color: var(--ink); text-align: left; }
+.book-list button:hover { background: var(--paper); }
+.book-list button.is-active { border-color: var(--line); background: var(--surface); }
+.book-list button.is-approved .book-status-dot { background: var(--success); border-color: var(--success); }
+.book-list button span:nth-child(2) { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 11px; }
+.book-number { color: var(--muted); font-size: 10px; font-weight: 800; }
+.book-status-dot { width: 10px; height: 10px; border: 1px solid var(--line); border-radius: 50%; background: var(--surface); }
+.book-editor { display: grid; align-content: start; gap: 15px; min-width: 0; }
+.book-editor-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+.book-editor-header h3 { margin: 4px 0 0; font-family: var(--font-display); font-size: 27px; }
+.book-editor-header p { margin: 7px 0 0; color: var(--muted); font-size: 12px; }
+.book-editor label { display: grid; gap: 7px; color: var(--muted); font-size: 12px; font-weight: 750; }
+.book-editor textarea, .book-editor input[type='text'] { width: 100%; padding: 11px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); color: var(--ink); }
+.book-editor textarea { min-height: 330px; resize: vertical; font-family: var(--font-body); line-height: 1.58; }
+.book-approval { display: flex !important; grid-template-columns: auto 1fr; align-items: center; gap: 9px !important; padding: 12px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper); color: var(--ink) !important; }
+.book-approval:has(input:checked) { border-color: #9ebea9; background: #eef6f0; }
+.book-approval input { width: auto; }
+.book-editor-actions { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.book-editor-actions > div { display: flex; gap: 8px; }
+.book-preview-panel { display: grid; gap: 10px; padding: 14px; border: 1px solid var(--line); border-radius: var(--radius); background: #e7e4dc; }
+.book-preview-panel.is-hidden { display: none; }
+.book-preview-panel header { display: flex; justify-content: space-between; gap: 12px; align-items: center; }
+.book-preview-frame { width: 100%; height: min(70vh, 760px); border: 1px solid var(--line); border-radius: var(--radius); background: white; }
+.book-notice { padding: 11px 13px; border-left: 4px solid var(--warning); background: #fbf4e8; color: var(--muted); font-size: 12px; line-height: 1.5; }
+@media (max-width: 900px) { .brandbook-workspace { grid-template-columns: 1fr; } .book-navigation { position: static; } .book-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .book-list { grid-template-columns: 1fr; } .book-editor-actions { align-items: stretch; flex-direction: column; } .book-editor-actions > div { display: grid; grid-template-columns: 1fr 1fr; } }
