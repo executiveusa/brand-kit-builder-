@@ -28,20 +28,6 @@
         "scores": { "type": "object", "minProperties": 20, "maxProperties": 20, "additionalProperties": { "type": "number", "minimum": 0, "maximum": 10 } }
       },
       "required": ["scores"]
-    },
-    "approvals": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": ["action", "approved_by", "status", "approved_at"],
-        "properties": {
-          "action": { "type": "string" },
-          "approved_by": { "type": "string" },
-          "status": { "const": "approved" },
-          "approved_at": { "type": "string", "format": "date-time" }
-        }
-      }
     }
   }
 }
