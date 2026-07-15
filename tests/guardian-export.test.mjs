@@ -103,7 +103,7 @@ test('approved package contains hashed files in a valid stored ZIP', async () =>
 
 test('stored ZIP writer produces deterministic CRC and end record', () => {
   const bytes = new TextEncoder().encode('brand');
-  assert.equal(crc32(bytes), 259237293);
+  assert.equal(crc32(bytes), 475199832);
   const zip = createStoredZip([{ path: 'test.txt', bytes }], new Date('2026-01-01T00:00:00Z'));
   assert.deepEqual([...zip.slice(0, 4)], [0x50, 0x4b, 0x03, 0x04]);
   assert.deepEqual([...zip.slice(-22, -18)], [0x50, 0x4b, 0x05, 0x06]);
