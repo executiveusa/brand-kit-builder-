@@ -24,7 +24,9 @@ const requiredFiles = [
   "src/agent/security.mjs",
   "src/agent/store.mjs",
   "examples/agent/create-project.json",
-  "examples/agent/run-stage.json"
+  "examples/agent/run-stage.json",
+  "examples/agent/complete-intake.json",
+  "examples/agent/complete-sources.json"
 ];
 const jsonFiles = requiredFiles.filter((file) => file.endsWith(".json"));
 
@@ -46,6 +48,22 @@ if (capabilities.network_listener !== false || capabilities.external_model_calls
 if (capabilities.limits?.max_job_cost_cents !== 1000 || capabilities.limits?.max_daily_cost_cents !== 5000) {
   throw new Error("Cost circuit breakers do not match studio policy.");
 }
+if (capabilities.capabilities?.agent_supplied_approvals !== false) {
+  throw new Error("Agent-supplied approvals must remain disabled.");
+}
+
+const projectSchema = JSON.parse(await readFile(path.join(root, "schemas/project.schema.json"), "utf8"));
+if (projectSchema.properties?.approvals) {
+  throw new Error("Project intake schema must not accept approvals.");
+}
+const mcpSource = await readFile(path.join(root, "bin/brand-kit-builder-mcp.mjs"), "utf8");
+if (mcpSource.includes("brand_kit_approve")) {
+  throw new Error("Owner approval must not be exposed as an MCP tool.");
+}
+const cliSource = await readFile(path.join(root, "bin/brand-kit-builder.mjs"), "utf8");
+if (!cliSource.includes("INTERACTIVE_APPROVAL_REQUIRED") || !cliSource.includes("process.stdin.isTTY")) {
+  throw new Error("Interactive local approval gate is missing.");
+}
 
 process.stdout.write(`${JSON.stringify({
   ok: true,
@@ -53,5 +71,6 @@ process.stdout.write(`${JSON.stringify({
   prebuild_axes: PREBUILD_AXES.length,
   stages: STAGES.length,
   interfaces: ["json-cli", "mcp-stdio"],
-  network_listener: capabilities.network_listener
+  network_listener: capabilities.network_listener,
+  agent_supplied_approvals: capabilities.capabilities.agent_supplied_approvals
 }, null, 2)}\n`);
