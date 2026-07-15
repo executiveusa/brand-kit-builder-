@@ -33,6 +33,8 @@ function safeSlug(value) {
   const slug = String(value ?? '').normalize('NFKD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 64);
   return slug || `brand-${Date.now().toString(36)}`;
 }
+function nonEmpty(value) { return Boolean(String(value ?? '').trim()); }
+function splitLines(value) { return Array.isArray(value) ? value.filter(nonEmpty) : String(value ?? '').split(/\r?\n/).map((item) => item.trim()).filter(Boolean); }
 
 export class MemoryStorage {
   constructor() { this.map = new Map(); }
@@ -68,6 +70,48 @@ function normalizeSource(source, index = 0) {
 }
 
 function blankStages() { return Object.fromEntries(STAGES.map((stage, index) => [stage, { status: index === 0 ? 'active' : 'locked' }])); }
+function blankStrategy() {
+  return {
+    positioning: '', promise: '', reasons_to_believe: '', values: '',
+    message_hierarchy: { primary: '', support: '', cta: '' },
+    proof_ledger: [],
+    territories: [1, 2, 3].map((index) => ({ id: `territory-${index}`, name: '', concept: '', mood: '', avoid: '' })),
+    updated_at: null
+  };
+}
+function blankVoice() {
+  return {
+    identity: '', audience_language: '', prohibited_language: '', real_phrases: '', true_stories: '', channel_rules: '', localization_rules: '', examples: '',
+    axes: { direct: 50, warm: 50, playful: 30, concise: 60 }, updated_at: null
+  };
+}
+function normalizeStrategy(strategy = {}) {
+  const base = blankStrategy();
+  const territories = Array.isArray(strategy.territories) ? strategy.territories.slice(0, 3) : [];
+  while (territories.length < 3) territories.push(base.territories[territories.length]);
+  return {
+    ...base, ...strategy,
+    message_hierarchy: { ...base.message_hierarchy, ...(strategy.message_hierarchy || {}) },
+    proof_ledger: Array.isArray(strategy.proof_ledger) ? strategy.proof_ledger : [],
+    territories: territories.map((territory, index) => ({ ...base.territories[index], ...(territory || {}), id: territory?.id || `territory-${index + 1}` }))
+  };
+}
+function normalizeVoice(voice = {}) { const base = blankVoice(); return { ...base, ...voice, axes: { ...base.axes, ...(voice.axes || {}) } }; }
+function normalizeProject(project) {
+  const normalized = { ...project };
+  normalized.schema_version = '2.1';
+  normalized.intake = { business_goal: '', audience: '', primary_action: '', approval_authority: '', constraints: '', ...(project.intake || {}) };
+  normalized.languages = Array.isArray(project.languages) && project.languages.length ? [...new Set(project.languages)] : ['en'];
+  normalized.sources = Array.isArray(project.sources) ? project.sources.map(normalizeSource) : [];
+  normalized.discovery = { current_question: 0, answers: {}, ...(project.discovery || {}) };
+  normalized.readiness = { scores: {}, overall: 0, gate: 'FAIL', gaps: [], ...(project.readiness || {}) };
+  normalized.stages = { ...blankStages(), ...(project.stages || {}) };
+  normalized.strategy = normalizeStrategy(project.strategy);
+  normalized.voice = normalizeVoice(project.voice);
+  normalized.created_at = project.created_at || now();
+  normalized.updated_at = project.updated_at || now();
+  return normalized;
+}
 
 export function createProjectRecord(input = {}) {
   const projectId = safeSlug(input.project_id || input.name);
@@ -79,17 +123,17 @@ export function createProjectRecord(input = {}) {
     accessed: input.source_type === 'idea',
     rights_status: input.source_type === 'idea' ? 'owned' : 'unknown'
   }) : null;
-  return {
-    schema_version: '2.0', project_id: projectId, name: String(input.name || 'Untitled brand').trim(),
+  return normalizeProject({
+    project_id: projectId, name: String(input.name || 'Untitled brand').trim(),
     classification: input.classification || 'greenfield', market: String(input.market || '').trim(),
     languages: Array.isArray(input.languages) && input.languages.length ? [...new Set(input.languages)] : ['en'],
     intake: { business_goal: input.business_goal || '', audience: input.audience || '', primary_action: input.primary_action || '', approval_authority: input.approval_authority || '', constraints: input.constraints || '' },
     sources: initialSource ? [initialSource] : [], discovery: { current_question: 0, answers: {} },
     readiness: { scores: {}, overall: 0, gate: 'FAIL', gaps: [] }, stages: blankStages(), current_stage: 'intake', created_at: now(), updated_at: now()
-  };
+  });
 }
 
-function hasAnswer(project, id) { return Boolean(String(project.discovery?.answers?.[id] || '').trim()); }
+function hasAnswer(project, id) { return nonEmpty(project.discovery?.answers?.[id]); }
 function hasSourceType(project, types) { return project.sources.some((source) => types.includes(source.type)); }
 function sourceGate(project) {
   const primary = project.sources.filter((source) => ['primary', 'governing'].includes(source.trust_level));
@@ -103,7 +147,7 @@ function rightsGate(project) {
 
 function derivedScore(project, axisId) {
   const source = sourceGate(project); const rights = rightsGate(project); const intake = project.intake || {}; const languages = project.languages || [];
-  const answers = project.discovery?.answers || {}; const answerCount = Object.values(answers).filter((value) => String(value || '').trim()).length; const base = Math.min(9, 4 + answerCount * 0.45);
+  const answers = project.discovery?.answers || {}; const answerCount = Object.values(answers).filter(nonEmpty).length; const base = Math.min(9, 4 + answerCount * 0.45);
   switch (axisId) {
     case 'source_completeness': return source.passed ? 9 : Math.max(3, 5 + project.sources.filter((item) => item.accessed).length);
     case 'business_clarity': return intake.business_goal ? 8.5 : hasAnswer(project, 'business_story') ? 8 : 4;
@@ -143,20 +187,50 @@ export function calculateReadiness(project) {
   return { scores, overall, gate, critical_gaps: criticalGaps, gaps, source_gate: source.passed };
 }
 
-function reconcileStages(project) {
+export function strategyIsComplete(strategy = {}) {
+  const normalized = normalizeStrategy(strategy);
+  const messages = normalized.message_hierarchy;
+  const territoriesComplete = normalized.territories.length === 3 && normalized.territories.every((territory) => nonEmpty(territory.name) && nonEmpty(territory.concept) && nonEmpty(territory.mood) && nonEmpty(territory.avoid));
+  const proofComplete = normalized.proof_ledger.length > 0 && normalized.proof_ledger.every((item) => nonEmpty(item.claim) && nonEmpty(item.source) && ['confirmed', 'provisional', 'blocked'].includes(item.status));
+  return [normalized.positioning, normalized.promise, normalized.reasons_to_believe, normalized.values, messages.primary, messages.support, messages.cta].every(nonEmpty) && territoriesComplete && proofComplete;
+}
+
+export function voiceIsComplete(voice = {}) {
+  const normalized = normalizeVoice(voice);
+  return [normalized.identity, normalized.audience_language, normalized.prohibited_language, normalized.real_phrases, normalized.channel_rules, normalized.localization_rules, normalized.examples].every(nonEmpty);
+}
+
+function reconcileStages(inputProject) {
+  const project = normalizeProject(inputProject);
   const intakeComplete = Boolean(project.intake.business_goal && project.intake.audience && project.intake.primary_action && project.intake.approval_authority);
-  const sourcesComplete = sourceGate(project).passed; const readiness = calculateReadiness(project); project.readiness = readiness;
+  const sourcesComplete = sourceGate(project).passed;
+  const readiness = calculateReadiness(project); project.readiness = readiness;
+  const strategyComplete = strategyIsComplete(project.strategy);
+  const voiceComplete = voiceIsComplete(project.voice);
   project.stages.intake.status = intakeComplete ? 'complete' : 'active';
   project.stages.sources.status = intakeComplete ? (sourcesComplete ? 'complete' : 'active') : 'locked';
   project.stages.readiness.status = sourcesComplete ? (readiness.gate === 'PASS' ? 'complete' : 'active') : 'locked';
-  const generationUnlocked = readiness.gate === 'PASS';
-  for (const stage of STAGES.slice(3)) { if (project.stages[stage].status === 'complete') continue; project.stages[stage].status = generationUnlocked && stage === 'strategy' ? 'active' : 'locked'; }
-  project.current_stage = STAGES.find((stage) => project.stages[stage].status === 'active') || 'export'; project.updated_at = now(); return project;
+  project.stages.strategy.status = readiness.gate === 'PASS' ? (strategyComplete ? 'complete' : 'active') : 'locked';
+  project.stages.voice.status = strategyComplete ? (voiceComplete ? 'complete' : 'active') : 'locked';
+  project.stages.visual.status = voiceComplete ? (project.stages.visual.status === 'complete' ? 'complete' : 'active') : 'locked';
+  for (const stage of ['brandbook', 'guardian', 'export']) if (project.stages[stage].status !== 'complete') project.stages[stage].status = 'locked';
+  project.current_stage = STAGES.find((stage) => project.stages[stage].status === 'active') || 'export';
+  project.updated_at = now();
+  return project;
 }
 
 export class BrandProjectStore {
   constructor(storage = browserStorage()) { this.storage = storage; this.state = this.load(); }
-  load() { try { const parsed = JSON.parse(this.storage.getItem(PROJECT_STORAGE_KEY) || 'null'); if (parsed?.version === 2 && parsed.projects) return parsed; } catch {} return { version: 2, current_project_id: null, projects: {} }; }
+  load() {
+    try {
+      const parsed = JSON.parse(this.storage.getItem(PROJECT_STORAGE_KEY) || 'null');
+      if (parsed?.version === 2 && parsed.projects) {
+        parsed.projects = Object.fromEntries(Object.entries(parsed.projects).map(([id, project]) => [id, reconcileStages(project)]));
+        return parsed;
+      }
+    } catch {}
+    return { version: 2, current_project_id: null, projects: {} };
+  }
   persist() { this.storage.setItem(PROJECT_STORAGE_KEY, JSON.stringify(this.state)); }
   list() { return Object.values(this.state.projects).map(deepClone).sort((a, b) => b.updated_at.localeCompare(a.updated_at)); }
   get(projectId) { return deepClone(this.state.projects[projectId] || null); }
@@ -169,6 +243,8 @@ export class BrandProjectStore {
   saveIntake(projectId, intake) { return this.update(projectId, (project) => { project.intake = { ...project.intake, ...intake }; if (Array.isArray(intake.languages)) project.languages = [...new Set(intake.languages)]; if (typeof intake.market === 'string') project.market = intake.market; return project; }); }
   answerDiscovery(projectId, questionId, answer) { return this.update(projectId, (project) => { project.discovery.answers[questionId] = String(answer || '').trim(); project.discovery.current_question = Math.min(project.discovery.current_question + 1, 9); return project; }); }
   saveReadinessScores(projectId, scores) { return this.update(projectId, (project) => { project.readiness.scores = { ...project.readiness.scores, ...scores }; return project; }); }
+  saveStrategy(projectId, strategy) { return this.update(projectId, (project) => { project.strategy = normalizeStrategy({ ...project.strategy, ...strategy, message_hierarchy: { ...project.strategy?.message_hierarchy, ...(strategy.message_hierarchy || {}) }, updated_at: now() }); return project; }); }
+  saveVoice(projectId, voice) { return this.update(projectId, (project) => { project.voice = normalizeVoice({ ...project.voice, ...voice, axes: { ...project.voice?.axes, ...(voice.axes || {}) }, updated_at: now() }); return project; }); }
   ensureDemoProject() {
     if (this.state.projects[DEMO_PROJECT_ID]) { if (!this.state.current_project_id) this.setCurrent(DEMO_PROJECT_ID); return this.get(DEMO_PROJECT_ID); }
     const demo = createProjectRecord({ project_id: DEMO_PROJECT_ID, name: 'Kupuri Media', source_type: 'idea', market: 'Mexico City', languages: ['en', 'es-MX'], business_goal: 'Build a clear bilingual creative studio brand.', audience: 'Purpose-led organizations and founders.', primary_action: 'Start a project', approval_authority: 'Bambu', constraints: 'Preserve cultural context and source traceability.' });
@@ -177,3 +253,5 @@ export class BrandProjectStore {
     this.state.projects[DEMO_PROJECT_ID] = reconcileStages(demo); this.state.current_project_id = DEMO_PROJECT_ID; this.persist(); return this.get(DEMO_PROJECT_ID);
   }
 }
+
+export { splitLines };
