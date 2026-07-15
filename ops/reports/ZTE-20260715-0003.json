@@ -1,0 +1,34 @@
+{
+  "bead_id": "ZTE-20260715-0003",
+  "task": "Harden Brand Kit Builder for in-house AI agents",
+  "repository": "executiveusa/brand-kit-builder-",
+  "branch": "zte/ZTE-20260715-0003/agent-hardening",
+  "status": "implementation_complete_validation_pending",
+  "risk_tier": "MEDIUM",
+  "interfaces": ["json-cli", "mcp-stdio", "javascript-sdk"],
+  "network_listener": false,
+  "external_model_calls": false,
+  "telemetry": false,
+  "secrets_changed": false,
+  "runtime_dependencies_added": false,
+  "production_changed": false,
+  "guards": [
+    "source",
+    "prebuild",
+    "stage-order",
+    "artifact-evidence",
+    "guardian",
+    "approval",
+    "path",
+    "symlink",
+    "secret",
+    "idempotency",
+    "single-job-cost",
+    "daily-cost"
+  ],
+  "validation": {
+    "local_container": "blocked by unavailable external DNS",
+    "github_ci": "pending"
+  },
+  "rollback": "Close the stacked pull request or revert commits on the agent-hardening branch."
+}
