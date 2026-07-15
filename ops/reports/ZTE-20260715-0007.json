@@ -1,0 +1,26 @@
+{
+  "bead_id": "ZTE-20260715-0007",
+  "task": "Build the governed visual-system workspace",
+  "status": "implementation_complete_validation_pending",
+  "risk_tier": "MEDIUM",
+  "phase": "2C",
+  "languages": ["en", "es-MX"],
+  "features": [
+    "creative-territory-selection",
+    "logo-policy",
+    "semantic-color-tokens",
+    "typography-rules",
+    "imagery-rules",
+    "icon-and-illustration-rules",
+    "layout-and-motion-rules",
+    "accessibility-rules",
+    "priority-applications",
+    "live-local-preview",
+    "brandbook-unlock-gate"
+  ],
+  "direct_network_calls": false,
+  "external_image_generation": false,
+  "provider_secrets_in_browser": false,
+  "production_changed": false,
+  "rollback": "Close the pull request or revert Phase 2C commits."
+}
