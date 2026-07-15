@@ -3,6 +3,12 @@ import { BrandTools } from './brand-tools.js';
 import { applyLocale, translate } from './i18n.js';
 import { ProductTour } from './tour.js';
 
+const phaseTwoStyles = document.createElement('link');
+phaseTwoStyles.rel = 'stylesheet';
+phaseTwoStyles.href = './phase-2.css';
+phaseTwoStyles.dataset.studioPhase = '2';
+document.head.append(phaseTwoStyles);
+
 const state = {
   locale: localStorage.getItem('pauli-brand-studio-locale') || 'en',
   view: 'brandbook', device: 'desktop', zoom: 100, changes: 0, inspector: 'design', dock: 'files'
