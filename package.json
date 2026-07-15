@@ -5,12 +5,14 @@
   "type": "module",
   "description": "Deterministic in-house brand system workflow and agent control surface.",
   "bin": {
-    "brand-kit-builder": "./bin/brand-kit-builder.mjs"
+    "brand-kit-builder": "./bin/brand-kit-builder.mjs",
+    "brand-kit-builder-mcp": "./bin/brand-kit-builder-mcp.mjs"
   },
   "scripts": {
     "test": "node --test",
     "check": "node scripts/validate.mjs",
-    "ci": "npm run check && npm test"
+    "ci": "npm run check && npm test",
+    "mcp": "node bin/brand-kit-builder-mcp.mjs"
   },
   "engines": {
     "node": ">=20"
