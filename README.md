@@ -84,7 +84,20 @@ intake
 → export
 ```
 
-Agents cannot skip stages. One active work order is allowed per stage. Readiness and later stages require accessed primary and governing sources with resolved conflicts. Strategy and later stages require a passing 20-axis readiness gate. Stage completion must use the same idempotency key as its work order and contain exactly the required regular files. The engine records SHA-256 evidence for every completed artifact. Export requires all four guardians, no P0 or unresolved P1 findings, and explicit Bambu approval.
+Agents cannot skip stages. One active work order is allowed per stage. Readiness and later stages require accessed primary and governing sources with resolved conflicts. Strategy and later stages require a passing 20-axis readiness gate. Stage completion must use the same idempotency key as its work order and contain exactly the required regular files. The engine records SHA-256 evidence for every completed artifact.
+
+## Human approval gate
+
+Agents cannot place approvals in project JSON, SDK intake, or MCP calls. After readiness, all prior stages, and all four guardians pass, the project owner records export approval from a local interactive terminal:
+
+```bash
+node bin/brand-kit-builder.mjs approve \
+  --workspace ./workspace \
+  --project-id <project-id> \
+  --action export
+```
+
+The command requires a real TTY, asks for the project owner name, and requires the exact confirmation phrase shown on screen. Prompts go to stderr and the approval record is returned as JSON on stdout. This is an in-house cooperative control, not a cryptographic identity system; a signed approval adapter is a future hardening layer.
 
 ## Quality and safety laws
 
