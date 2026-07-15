@@ -3,10 +3,11 @@ import { BrandTools } from './brand-tools.js';
 import { StudioProjectStore } from './studio-project-store.js';
 import { installStrategyVoiceTools } from './strategy-voice-tools.js';
 import { installVisualTools } from './visual-tools.js';
+import { installBrandbookTools } from './brandbook-tools.js';
 import { applyLocale, translate } from './i18n.js';
 import { ProductTour } from './tour.js';
 
-for (const href of ['./phase-2.css', './strategy-voice.css', './visual-system.css']) {
+for (const href of ['./phase-2.css', './strategy-voice.css', './visual-system.css', './brandbook.css']) {
   const stylesheet = document.createElement('link');
   stylesheet.rel = 'stylesheet';
   stylesheet.href = href;
@@ -182,6 +183,7 @@ async function initialize() {
   hardenDialogRerenders(brandTools);
   installStrategyVoiceTools(brandTools);
   installVisualTools(brandTools);
+  installBrandbookTools(brandTools);
   window.pauliBrandTools = brandTools;
   const capabilities = await agentBridge.inspect();
   if (agentBridge.connected && capabilities?.ok) {
