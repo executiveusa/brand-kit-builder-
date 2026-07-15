@@ -147,11 +147,33 @@ function bindEvents() {
   });
 }
 
+function hardenDialogRerenders(brandTools) {
+  const originalOpenLibrary = brandTools.openLibrary.bind(brandTools);
+  brandTools.openLibrary = () => {
+    if (brandTools.library?.open) brandTools.library.close();
+    return originalOpenLibrary();
+  };
+
+  const originalOpenNewProject = brandTools.openNewProject.bind(brandTools);
+  brandTools.openNewProject = () => {
+    if (brandTools.dialog?.open) brandTools.dialog.close();
+    return originalOpenNewProject();
+  };
+
+  const originalOpenStage = brandTools.openStage.bind(brandTools);
+  brandTools.openStage = (stage) => {
+    if (stage === 'new-project') return brandTools.openNewProject();
+    if (brandTools.dialog?.open) brandTools.dialog.close();
+    return originalOpenStage(stage);
+  };
+}
+
 async function initialize() {
   state.locale = applyLocale(state.locale);
   bindEvents();
   const brandTools = new BrandTools({ agentBridge, toast });
   await brandTools.initialize();
+  hardenDialogRerenders(brandTools);
   window.pauliBrandTools = brandTools;
   const capabilities = await agentBridge.inspect();
   if (agentBridge.connected && capabilities?.ok) {
