@@ -1,13 +1,16 @@
 import { agentBridge } from './agent-bridge.js';
 import { BrandTools } from './brand-tools.js';
+import { installStrategyVoiceTools } from './strategy-voice-tools.js';
 import { applyLocale, translate } from './i18n.js';
 import { ProductTour } from './tour.js';
 
-const phaseTwoStyles = document.createElement('link');
-phaseTwoStyles.rel = 'stylesheet';
-phaseTwoStyles.href = './phase-2.css';
-phaseTwoStyles.dataset.studioPhase = '2';
-document.head.append(phaseTwoStyles);
+for (const href of ['./phase-2.css', './strategy-voice.css']) {
+  const stylesheet = document.createElement('link');
+  stylesheet.rel = 'stylesheet';
+  stylesheet.href = href;
+  stylesheet.dataset.studioPhase = '2';
+  document.head.append(stylesheet);
+}
 
 const state = {
   locale: localStorage.getItem('pauli-brand-studio-locale') || 'en',
@@ -174,6 +177,7 @@ async function initialize() {
   const brandTools = new BrandTools({ agentBridge, toast });
   await brandTools.initialize();
   hardenDialogRerenders(brandTools);
+  installStrategyVoiceTools(brandTools);
   window.pauliBrandTools = brandTools;
   const capabilities = await agentBridge.inspect();
   if (agentBridge.connected && capabilities?.ok) {

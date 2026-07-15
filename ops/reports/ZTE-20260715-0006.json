@@ -1,0 +1,24 @@
+{
+  "bead_id": "ZTE-20260715-0006",
+  "task": "Build structured brand strategy and voice workspaces",
+  "status": "implementation_complete_validation_pending",
+  "risk_tier": "MEDIUM",
+  "phase": "2B",
+  "languages": ["en", "es-MX"],
+  "features": [
+    "strategy-domain",
+    "message-hierarchy",
+    "proof-ledger",
+    "three-creative-territories",
+    "voice-domain",
+    "voice-axes",
+    "channel-rules",
+    "localization-rules",
+    "project-migration",
+    "workflow-progression"
+  ],
+  "direct_network_calls": false,
+  "provider_secrets_in_browser": false,
+  "production_changed": false,
+  "rollback": "Close the pull request or revert Phase 2B commits."
+}
