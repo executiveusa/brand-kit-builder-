@@ -1,6 +1,7 @@
 {
   "project_id": "kupuri-media-demo",
   "stage": "intake",
+  "idempotency_key": "kupuri-intake-v1",
   "artifacts": [
     { "path": "discovery/intake.json", "media_type": "application/json" },
     { "path": "discovery/interview-log.md", "media_type": "text/markdown" }
