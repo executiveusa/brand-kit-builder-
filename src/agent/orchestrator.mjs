@@ -257,6 +257,7 @@ export function inspectCapabilities() {
       filesystem_sandbox: true,
       secret_rejection: true,
       owner_approval_gate: true,
+      agent_supplied_approvals: false,
       daily_cost_guard: true
     },
     limits: {
@@ -269,6 +270,11 @@ export function inspectCapabilities() {
 }
 
 export async function createProject(context, input) {
+  if (Object.prototype.hasOwnProperty.call(input ?? {}, "approvals")) {
+    throw new AgentError("APPROVAL_INJECTION_GUARD", "Approvals cannot be supplied through project intake or agent JSON.", {
+      remediation: "Use the local interactive approval command after all release gates pass."
+    }, 403);
+  }
   const { projectId, sources } = validateProjectShape(input);
   const existing = await context.store.loadProject(projectId);
   if (existing) {
@@ -291,7 +297,7 @@ export async function createProject(context, input) {
     stages: Object.fromEntries(STAGES.map((stage) => [stage, { status: "pending" }])),
     guardians: Object.fromEntries(GUARDIAN_NAMES.map((name) => [name, { status: "pending", findings: [] }])),
     guardian_summary: { p0: 0, unresolved_p1: 0 },
-    approvals: Array.isArray(input.approvals) ? input.approvals : [],
+    approvals: [],
     created_at: now(),
     updated_at: now()
   };
@@ -319,6 +325,51 @@ export async function getProject(context, projectId) {
   return { ok: true, project };
 }
 
+export async function recordOwnerApproval(context, input) {
+  const projectId = assertSafeIdentifier(input?.project_id, "project_id");
+  const action = input?.action;
+  if (!OWNER_APPROVAL_STAGES.has(action)) {
+    throw new AgentError("INVALID_APPROVAL_ACTION", "This action is not eligible for owner approval through the local gate.", {
+      action,
+      allowed: [...OWNER_APPROVAL_STAGES]
+    });
+  }
+  const { project } = await getProject(context, projectId);
+  if (input?.interactive !== true) {
+    throw new AgentError("INTERACTIVE_APPROVAL_REQUIRED", "Owner approval can only be recorded from the local interactive CLI.", {}, 403);
+  }
+  if (input?.approved_by !== project.owner) {
+    throw new AgentError("INVALID_APPROVER", "The approval actor does not match the project owner.", {
+      expected: project.owner,
+      received: input?.approved_by
+    }, 403);
+  }
+  const expectedConfirmation = `APPROVE ${projectId} ${action}`;
+  if (input?.confirmation !== expectedConfirmation) {
+    throw new AgentError("INVALID_APPROVAL_CONFIRMATION", "The typed approval confirmation did not match the required phrase.", {
+      expected: expectedConfirmation
+    }, 403);
+  }
+  assertGuardiansPassed(project);
+  assertPrebuildPassed(project.readiness);
+  const existing = project.approvals.find((approval) => approval.action === action && approval.approved_by === project.owner && approval.status === "approved");
+  if (existing) {
+    return { ok: true, reused: true, operation: "record_owner_approval", approval: existing };
+  }
+  const approval = {
+    action,
+    approved_by: project.owner,
+    status: "approved",
+    approved_at: now(),
+    channel: "interactive-local-cli",
+    confirmation_sha256: createHash("sha256").update(expectedConfirmation).digest("hex")
+  };
+  project.approvals.push(approval);
+  project.updated_at = now();
+  await context.store.saveProject(project);
+  return { ok: true, reused: false, operation: "record_owner_approval", approval };
+}
+
 export async function validateProject(context, projectId) {
   const { project } = await getProject(context, projectId);
   const { sources } = validateProjectShape(project);
@@ -338,7 +389,8 @@ export async function validateProject(context, projectId) {
     readiness,
     active_stage: STAGES.find((stage) => project.stages?.[stage]?.status === "ready") ?? null,
     completed_stages: STAGES.filter((stage) => project.stages?.[stage]?.status === "completed"),
-    guardian_gate: GUARDIAN_NAMES.every((name) => project.guardians?.[name]?.status === "passed")
+    guardian_gate: GUARDIAN_NAMES.every((name) => project.guardians?.[name]?.status === "passed"),
+    approved_actions: project.approvals.filter((approval) => approval.status === "approved").map((approval) => approval.action)
   };
 }
 
