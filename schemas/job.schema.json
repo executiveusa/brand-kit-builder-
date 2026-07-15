@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pauli.effect/schemas/agent-job.schema.json",
+  "title": "Brand Kit Builder Agent Job",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["project_id", "stage", "idempotency_key"],
+  "properties": {
+    "project_id": { "type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$" },
+    "stage": { "enum": ["intake", "sources", "readiness", "strategy", "voice", "visual", "brandbook", "guardian", "export"] },
+    "idempotency_key": { "type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$" },
+    "requested_by": { "type": "string" },
+    "estimated_cost_cents": { "type": "integer", "minimum": 0, "maximum": 1000 }
+  }
+}
