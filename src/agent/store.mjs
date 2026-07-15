@@ -47,6 +47,11 @@ export class WorkspaceStore {
     return resolveInside(this.stateRoot, path.join("jobs", `${idempotencyKey}.json`));
   }
 
+  usageFile(day) {
+    assertSafeIdentifier(day, "usage_day");
+    return resolveInside(this.stateRoot, path.join("usage", `${day}.json`));
+  }
+
   async loadProject(projectId) {
     return readJson(this.projectFile(projectId));
   }
@@ -75,5 +80,16 @@ export class WorkspaceStore {
     await assertNoSymlinkSegments(this.workspaceRoot, jobFile);
     await atomicWriteJson(jobFile, job);
     return jobFile;
+  }
+
+  async loadDailyUsage(day) {
+    return readJson(this.usageFile(day));
+  }
+
+  async saveDailyUsage(day, usage) {
+    const usageFile = this.usageFile(day);
+    await assertNoSymlinkSegments(this.workspaceRoot, usageFile);
+    await atomicWriteJson(usageFile, usage);
+    return usageFile;
   }
 }
