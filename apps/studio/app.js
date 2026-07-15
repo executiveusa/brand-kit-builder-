@@ -1,6 +1,13 @@
 import { agentBridge } from './agent-bridge.js';
+import { BrandTools } from './brand-tools.js';
 import { applyLocale, translate } from './i18n.js';
 import { ProductTour } from './tour.js';
+
+const phaseTwoStyles = document.createElement('link');
+phaseTwoStyles.rel = 'stylesheet';
+phaseTwoStyles.href = './phase-2.css';
+phaseTwoStyles.dataset.studioPhase = '2';
+document.head.append(phaseTwoStyles);
 
 const state = {
   locale: localStorage.getItem('pauli-brand-studio-locale') || 'en',
@@ -102,13 +109,6 @@ function bindEvents() {
     state.locale = applyLocale(button.dataset.localeButton);
   }));
   $('#tour-button').addEventListener('click', () => tour.start({ force: true }));
-  $('#new-project-button').addEventListener('click', () => $('#new-project-dialog').showModal());
-  $('#project-switcher').addEventListener('click', () => runAction('list-projects'));
-
-  $$('.workflow-step').forEach((button) => button.addEventListener('click', () => {
-    if (button.classList.contains('is-complete') || button.classList.contains('is-active')) return runAction('open-stage', { stage: button.dataset.stage });
-    toast('toast.blocked');
-  }));
 
   $$('.canvas-tab').forEach((button) => button.addEventListener('click', () => setView(button.dataset.view)));
   $$('[data-device]').forEach((button) => button.addEventListener('click', () => setDevice(button.dataset.device)));
@@ -142,24 +142,39 @@ function bindEvents() {
     toast('toast.saved');
   });
 
-  $$('[data-source-choice]').forEach((button) => button.addEventListener('click', () => {
-    $$('[data-source-choice]').forEach((item) => item.classList.remove('is-selected'));
-    button.classList.add('is-selected');
-    $('#continue-project').disabled = false;
-    $('#continue-project').dataset.source = button.dataset.sourceChoice;
-  }));
-  $('#new-project-dialog').addEventListener('close', () => {
-    if ($('#new-project-dialog').returnValue === 'default') runAction('create-project', { source_type: $('#continue-project').dataset.source });
-  });
-
   $$('[data-help]').forEach((element) => {
     if (!element.getAttribute('title')) element.setAttribute('title', element.getAttribute('aria-label') || element.textContent.trim().replace(/\s+/g, ' ').slice(0, 100));
   });
 }
 
+function hardenDialogRerenders(brandTools) {
+  const originalOpenLibrary = brandTools.openLibrary.bind(brandTools);
+  brandTools.openLibrary = () => {
+    if (brandTools.library?.open) brandTools.library.close();
+    return originalOpenLibrary();
+  };
+
+  const originalOpenNewProject = brandTools.openNewProject.bind(brandTools);
+  brandTools.openNewProject = () => {
+    if (brandTools.dialog?.open) brandTools.dialog.close();
+    return originalOpenNewProject();
+  };
+
+  const originalOpenStage = brandTools.openStage.bind(brandTools);
+  brandTools.openStage = (stage) => {
+    if (stage === 'new-project') return brandTools.openNewProject();
+    if (brandTools.dialog?.open) brandTools.dialog.close();
+    return originalOpenStage(stage);
+  };
+}
+
 async function initialize() {
   state.locale = applyLocale(state.locale);
   bindEvents();
+  const brandTools = new BrandTools({ agentBridge, toast });
+  await brandTools.initialize();
+  hardenDialogRerenders(brandTools);
+  window.pauliBrandTools = brandTools;
   const capabilities = await agentBridge.inspect();
   if (agentBridge.connected && capabilities?.ok) {
     $('#agent-status span:last-child').textContent = translate('agent.connected', state.locale);

@@ -26,7 +26,7 @@ test('English and Mexican Spanish dictionaries have matching keys', async () => 
 });
 
 test('studio source contains no Han characters or direct network calls', async () => {
-  const files = ['index.html', 'styles.css', 'i18n.js', 'agent-bridge.js', 'tour.js', 'app.js'];
+  const files = ['index.html', 'styles.css', 'phase-2.css', 'i18n.js', 'agent-bridge.js', 'tour.js', 'app.js', 'project-store.js', 'brand-copy.js', 'brand-tools.js'];
   const source = (await Promise.all(files.map((file) => read(`apps/studio/${file}`)))).join('\n');
   assert.equal(/\p{Script=Han}/u.test(source), false);
   assert.equal(/\b(fetch|XMLHttpRequest|WebSocket)\s*\(/.test(source), false);
@@ -59,4 +59,12 @@ test('interactive controls expose help metadata and accessible names', async () 
     const hasName = /aria-label=/.test(attributes) || /data-i18n=/.test(attributes) || /data-i18n=/.test(body) || plainText.length > 0;
     assert.equal(hasName, true, `Button missing accessible name: ${body.slice(0, 40)}`);
   }
+});
+
+test('phase 2 dialogs can rerender safely after a locale change', async () => {
+  const app = await read('apps/studio/app.js');
+  assert.match(app, /function hardenDialogRerenders/);
+  assert.match(app, /if \(brandTools\.library\?\.open\) brandTools\.library\.close\(\)/);
+  assert.match(app, /if \(stage === 'new-project'\) return brandTools\.openNewProject\(\)/);
+  assert.match(app, /hardenDialogRerenders\(brandTools\)/);
 });
