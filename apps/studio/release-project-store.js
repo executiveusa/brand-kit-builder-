@@ -3,6 +3,7 @@ import { StudioProjectStore } from './studio-project-store.js';
 import { GUARDIAN_ORDER, blankGuardian, evaluateGuardian, guardianGate, validExportApproval } from './guardian-export-domain.js';
 
 function now() { return new Date().toISOString(); }
+function clone(value) { return value == null ? value : structuredClone(value); }
 
 export class ReleaseProjectStore extends StudioProjectStore {
   constructor(storage) {
@@ -28,6 +29,30 @@ export class ReleaseProjectStore extends StudioProjectStore {
     return this.get(projectId);
   }
 
+  hydrateFromHost(hostState) {
+    if (!hostState?.projects || Object.keys(hostState.projects).length === 0) return this.getCurrent();
+    const projects = {};
+    for (const [projectId, source] of Object.entries(hostState.projects)) {
+      const project = clone(source);
+      delete project.approvals;
+      delete project.export_approval;
+      delete project.export_package;
+      if (project.release_summary) delete project.release_summary.approval;
+      projects[projectId] = project;
+    }
+    this.state = {
+      version: 2,
+      current_project_id: projects[hostState.current_project_id] ? hostState.current_project_id : Object.keys(projects)[0],
+      projects
+    };
+    for (const projectId of Object.keys(projects)) {
+      super.update(projectId, (project) => project);
+      this.reconcileRelease(projectId, false);
+    }
+    this.persist();
+    return this.getCurrent();
+  }
+
   create(input) {
     const project = super.create(input);
     return this.reconcileRelease(project.project_id);
@@ -42,13 +67,15 @@ export class ReleaseProjectStore extends StudioProjectStore {
     return this.update(projectId, (project) => {
       project.guardians = project.guardians || {};
       project.guardians[name] = evaluateGuardian(name, review);
+      project.export_approval = null;
+      project.export_package = null;
       return project;
     });
   }
 
   syncExportApproval(projectId, approval) {
-    if (!approval || approval.source !== 'agent-core' || approval.project_id !== projectId || approval.action !== 'export' || approval.status !== 'approved') {
-      throw new Error('Only a verified read response from the agent core may synchronize export approval.');
+    if (!approval || approval.source !== 'agent-core' || approval.project_id !== projectId || approval.action !== 'export' || approval.status !== 'approved' || !approval.evidence_sha256) {
+      throw new Error('Only a verified read response from the agent core may synchronize export approval for current evidence.');
     }
     return this.update(projectId, (project) => {
       project.export_approval = {
@@ -58,7 +85,8 @@ export class ReleaseProjectStore extends StudioProjectStore {
         source: 'agent-core',
         approved_by: String(approval.approved_by || ''),
         approved_at: String(approval.approved_at || ''),
-        approval_id: String(approval.approval_id || '')
+        approval_id: String(approval.approval_id || ''),
+        evidence_sha256: String(approval.evidence_sha256 || '')
       };
       return project;
     });
