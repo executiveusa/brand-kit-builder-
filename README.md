@@ -6,37 +6,105 @@ In-house Pauli Brand Studio application for turning a business idea, URL, reposi
 
 This repository contains:
 
-- the full Pauli Brand Studio master operating prompt;
+- the complete Pauli Brand Studio operating prompt;
 - repository-level agent guardrails;
 - product and architecture specifications;
 - a self-contained interactive prototype;
-- source-ledger and delivery-report templates.
+- a deterministic local agent core;
+- JSON CLI and MCP-over-stdio interfaces;
+- source, readiness, stage, guardian, approval, path, secret, and cost gates;
+- machine-readable schemas, tests, CI, and delivery reports.
 
-The prototype is intentionally frontend-only. It demonstrates intake, evidence collection, the 20-axis prebuild gate, KAKU brand-book sequencing, voice-system requirements, source traceability, and release gating. It does not claim to run AI generation or persist production data yet.
+The agent core is intentionally provider-neutral. It does not open a network listener, call external AI models, collect telemetry, accept secrets in job payloads, or deploy production systems.
 
-## Open the prototype
+## Requirements
+
+- Node.js 20 or newer
+- No runtime npm dependencies
+
+## Open the visual prototype
 
 Open `prototype/index.html` directly in a browser.
+
+## Use from an AI agent
+
+Inspect capabilities:
+
+```bash
+node bin/brand-kit-builder.mjs inspect
+```
+
+Create a project from the executable example:
+
+```bash
+node bin/brand-kit-builder.mjs create-project \
+  --workspace ./workspace \
+  --input examples/agent/create-project.json
+```
+
+Create an idempotent work order:
+
+```bash
+node bin/brand-kit-builder.mjs run-stage \
+  --workspace ./workspace \
+  --input examples/agent/run-stage.json
+```
+
+Start the local MCP server:
+
+```bash
+BKB_WORKSPACE=/absolute/path/to/workspace npm run mcp
+```
+
+Full usage: [`docs/AGENT_API.md`](docs/AGENT_API.md)  
+Security model: [`docs/SECURITY.md`](docs/SECURITY.md)
+
+## Agent workflow
+
+```text
+intake
+→ sources
+→ readiness
+→ strategy
+→ voice
+→ visual
+→ brandbook
+→ guardian
+→ export
+```
+
+Agents cannot skip stages. Strategy and later stages require a passing 20-axis readiness gate. Stage completion requires the declared artifacts to exist inside the project workspace. Export requires all four guardians, no P0 or unresolved P1 findings, and explicit Bambu approval.
+
+## Quality and safety laws
+
+- Inspect sources before generation.
+- Prebuild score must be at least 8.5.
+- Every critical readiness axis must be at least 8.0.
+- Never fabricate proof, claims, metrics, testimonials, partnerships, or product states.
+- Preserve supplied logos, people, products, packages, and artwork unless a scoped change is approved.
+- Apply Steve Krug clarity and trunk-test principles.
+- Never use emojis as interface icons.
+- Use HTML-first evidence, prototypes, fixes, reports, and handoffs.
+- Reject secret-like fields in agent payloads.
+- Keep all file operations inside the configured workspace.
+- Reserve at most $10 per job and $50 per UTC day.
+- Never deploy production without explicit owner approval.
+
+## Validate
+
+```bash
+npm run ci
+```
 
 ## Product path
 
 1. Foundation and source governance
-2. Source ingestion adapters
-3. Relentless discovery interview
-4. Strategy and voice engines
-5. Visual identity and image studio
-6. KAKU brand-book renderer
-7. HTML/PDF/export pipeline
-8. Guardian review and handoff
-9. GitHub and deployment integrations
-
-## Core quality laws
-
-- Source inspection before generation
-- Prebuild score at least 8.5
-- No fabricated proof or claims
-- Steve Krug clarity and trunk-test compliance
-- No emojis as interface icons
-- Asset lock for supplied logos, people, products, and artwork
-- HTML-first evidence, prototype, fix, report, and handoff
-- No production deployment without explicit owner approval
+2. Hardened local agent core
+3. Source-ingestion adapters
+4. Relentless discovery interview
+5. Strategy and voice engines
+6. Visual identity and image studio
+7. KAKU brand-book renderer
+8. HTML/PDF/export pipeline
+9. Guardian review and design handoff
+10. Approved GitHub and deployment integrations
