@@ -155,8 +155,9 @@ test("requires owner approval and passed guardians before export", async (t) => 
   assert.equal(result.job.stage, "export");
   assert.equal(result.job.status, "ready");
 
-  project.guardians.rights.status = "failed";
-  await context.store.saveProject(project);
+  const activeProject = await context.store.loadProject("test-brand");
+  activeProject.guardians.rights.status = "failed";
+  await context.store.saveProject(activeProject);
   await writeStageArtifacts(context, "test-brand", "export");
   await assert.rejects(
     completeStage(context, {
