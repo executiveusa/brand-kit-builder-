@@ -24,7 +24,7 @@ test('English and Mexican Spanish dictionaries have matching keys', async () => 
 });
 
 test('studio source contains no Han characters or direct network calls', async () => {
-  const files = ['index.html', 'styles.css', 'phase-2.css', 'strategy-voice.css', 'visual-system.css', 'brandbook.css', 'i18n.js', 'agent-bridge.js', 'tour.js', 'app.js', 'project-store.js', 'studio-project-store.js', 'brand-copy.js', 'brand-tools.js', 'strategy-voice-copy.js', 'strategy-voice-tools.js', 'visual-copy.js', 'visual-tools.js', 'kaku-brandbook.js', 'brandbook-copy.js', 'brandbook-tools.js'];
+  const files = ['index.html', 'styles.css', 'phase-2.css', 'strategy-voice.css', 'visual-system.css', 'brandbook.css', 'guardian-export.css', 'i18n.js', 'agent-bridge.js', 'tour.js', 'app.js', 'project-store.js', 'studio-project-store.js', 'release-project-store.js', 'brand-copy.js', 'brand-tools.js', 'strategy-voice-copy.js', 'strategy-voice-tools.js', 'visual-copy.js', 'visual-tools.js', 'kaku-brandbook.js', 'brandbook-copy.js', 'brandbook-tools.js', 'guardian-export-domain.js', 'guardian-export-copy.js', 'guardian-export-tools.js', 'export-package.js', 'zip-store.js'];
   const source = (await Promise.all(files.map((file) => read(`apps/studio/${file}`)))).join('\n');
   assert.equal(/\p{Script=Han}/u.test(source), false);
   assert.equal(/\b(fetch|XMLHttpRequest|WebSocket)\s*\(/.test(source), false);
@@ -76,10 +76,10 @@ test('strategy and voice editors are installed and use guarded bridge commands',
   assert.match(tools, /brandTools\.agentBridge\?\.invoke\('save-voice'/);
 });
 
-test('visual editor uses the extended store and guarded bridge command', async () => {
+test('visual editor uses the release-aware store and guarded bridge command', async () => {
   const app = await read('apps/studio/app.js');
   const tools = await read('apps/studio/visual-tools.js');
-  assert.match(app, /new StudioProjectStore\(\)/);
+  assert.match(app, /new ReleaseProjectStore\(\)/);
   assert.match(app, /installVisualTools\(brandTools\)/);
   assert.match(app, /\.\/visual-system\.css/);
   assert.match(tools, /brandTools\.agentBridge\?\.invoke\('save-visual-system'/);
@@ -94,4 +94,17 @@ test('KAKU editor is installed with local sandboxed preview and guarded saves', 
   assert.match(tools, /renderBrandbookDocument/);
   assert.match(tools, /brandTools\.agentBridge\?\.invoke\('save-brandbook-section'/);
   assert.match(tools, /brandTools\.agentBridge\?\.invoke\('save-brandbook-annex'/);
+});
+
+test('Guardian and export tools inspect but never create approval', async () => {
+  const app = await read('apps/studio/app.js');
+  const tools = await read('apps/studio/guardian-export-tools.js');
+  const store = await read('apps/studio/release-project-store.js');
+  assert.match(app, /installGuardianExportTools\(brandTools\)/);
+  assert.match(app, /\.\/guardian-export\.css/);
+  assert.match(tools, /'inspect-export-approval'/);
+  assert.match(tools, /'save-guardian-review'/);
+  assert.match(tools, /buildExportPackage/);
+  assert.doesNotMatch(tools, /grant-export-approval|approve-export|brand_kit_approve/);
+  assert.match(store, /approval\.source !== 'agent-core'/);
 });

@@ -1,0 +1,35 @@
+{
+  "bead_id": "ZTE-20260715-0009",
+  "task": "Build four Guardian reviews and human-gated local export",
+  "status": "implementation_complete_validation_pending",
+  "risk_tier": "MEDIUM",
+  "phase": "2E",
+  "languages": ["en", "es-MX"],
+  "guardians": ["brand", "design", "voice", "rights"],
+  "release_rules": {
+    "open_p0_allowed": false,
+    "open_p1_allowed": false,
+    "browser_can_approve_export": false,
+    "verified_agent_core_approval_required": true
+  },
+  "outputs": [
+    "brandbook-html",
+    "print-css",
+    "design-token-json",
+    "design-token-css",
+    "strategy-json",
+    "voice-json",
+    "visual-system-json",
+    "source-ledger-json",
+    "claims-ledger-json",
+    "guardian-report-json",
+    "asset-manifest-json",
+    "handoff-json",
+    "sha256-package-manifest",
+    "stored-zip"
+  ],
+  "pdf_generated": false,
+  "direct_network_calls": false,
+  "production_changed": false,
+  "rollback": "Close the pull request or revert Phase 2E commits."
+}
