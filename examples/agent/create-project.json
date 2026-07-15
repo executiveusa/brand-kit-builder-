@@ -1,0 +1,49 @@
+{
+  "project_id": "kupuri-media-demo",
+  "name": "Kupuri Media Demo",
+  "classification": "brownfield",
+  "owner": "Bambu",
+  "primary_audience": "Mission-driven founders and nonprofit leaders",
+  "business_goal": "Create a source-traceable brand system and qualified-client acquisition kit",
+  "primary_action": "Book a discovery call",
+  "languages": ["en", "es"],
+  "protected_assets": ["approved logo", "founder quotations", "verified client proof"],
+  "sources": [
+    {
+      "source_id": "live-site",
+      "type": "url",
+      "location": "https://kupuri-media-main-site.vercel.app/",
+      "trust_level": "primary",
+      "accessed": false,
+      "hash_or_commit": "unknown",
+      "license": "client-owned",
+      "applicable_rules": ["preserve approved identity until redesign is approved"],
+      "conflicts": [],
+      "notes": "Example input only; the agent must inspect the current site before generation."
+    }
+  ],
+  "readiness": {
+    "scores": {
+      "source_completeness": 8.5,
+      "business_clarity": 9,
+      "audience_clarity": 9,
+      "offer_and_conversion_clarity": 8.5,
+      "differentiation": 8.5,
+      "brand_purpose_and_values": 9,
+      "proof_and_claim_safety": 8,
+      "voice_evidence": 8.5,
+      "visual_evidence": 8.5,
+      "logo_status": 8,
+      "application_requirements": 8.5,
+      "accessibility_requirements": 8,
+      "language_and_localization_requirements": 9,
+      "rights_and_licensing_status": 8,
+      "technical_environment_clarity": 8.5,
+      "deliverable_scope": 9,
+      "approval_authority": 10,
+      "budget_time_and_production_constraints": 8,
+      "repository_and_handoff_readiness": 8.5,
+      "contradiction_resolution": 8
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "project_id": "kupuri-media-demo",
+  "stage": "sources",
+  "idempotency_key": "kupuri-sources-v1",
+  "sources": [
+    {
+      "source_id": "live-site",
+      "type": "url",
+      "location": "https://kupuri-media-main-site.vercel.app/",
+      "trust_level": "primary",
+      "accessed": true,
+      "hash_or_commit": "record-current-content-hash-or-snapshot-id",
+      "license": "client-owned",
+      "applicable_rules": ["preserve approved identity until redesign is approved"],
+      "conflicts": [],
+      "notes": "Replace placeholder hash after actual inspection."
+    }
+  ],
+  "artifacts": [
+    { "path": "source-ledger.json", "media_type": "application/json" },
+    { "path": "source-conflicts.md", "media_type": "text/markdown" }
+  ]
+}

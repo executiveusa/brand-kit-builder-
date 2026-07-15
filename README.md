@@ -6,37 +6,130 @@ In-house Pauli Brand Studio application for turning a business idea, URL, reposi
 
 This repository contains:
 
-- the full Pauli Brand Studio master operating prompt;
+- the complete Pauli Brand Studio operating prompt;
 - repository-level agent guardrails;
 - product and architecture specifications;
 - a self-contained interactive prototype;
-- source-ledger and delivery-report templates.
+- a deterministic local agent core;
+- JSON CLI and MCP-over-stdio interfaces;
+- source, readiness, stage, guardian, approval, artifact-integrity, path, secret, and cost gates;
+- machine-readable schemas, tests, CI, and delivery reports.
 
-The prototype is intentionally frontend-only. It demonstrates intake, evidence collection, the 20-axis prebuild gate, KAKU brand-book sequencing, voice-system requirements, source traceability, and release gating. It does not claim to run AI generation or persist production data yet.
+The agent core is intentionally provider-neutral. It does not open a network listener, call external AI models, collect telemetry, accept secrets in job payloads, or deploy production systems.
 
-## Open the prototype
+## Requirements
+
+- Node.js 20 or newer
+- No runtime npm dependencies
+
+## Open the visual prototype
 
 Open `prototype/index.html` directly in a browser.
+
+## Use from an AI agent
+
+Inspect capabilities:
+
+```bash
+node bin/brand-kit-builder.mjs inspect
+```
+
+Create a project from the executable example. Input files are read from stdin so they do not need to be copied into the workspace:
+
+```bash
+cat examples/agent/create-project.json | \
+  node bin/brand-kit-builder.mjs create-project \
+  --workspace ./workspace \
+  --input -
+```
+
+Create an idempotent work order:
+
+```bash
+cat examples/agent/run-stage.json | \
+  node bin/brand-kit-builder.mjs run-stage \
+  --workspace ./workspace \
+  --input -
+```
+
+After creating the exact required artifacts inside `workspace/projects/<project-id>/`, complete the bound work order:
+
+```bash
+cat examples/agent/complete-intake.json | \
+  node bin/brand-kit-builder.mjs complete-stage \
+  --workspace ./workspace \
+  --input -
+```
+
+Start the local MCP server:
+
+```bash
+BKB_WORKSPACE=/absolute/path/to/workspace npm run mcp
+```
+
+Full usage: [`docs/AGENT_API.md`](docs/AGENT_API.md)  
+Security model: [`docs/SECURITY.md`](docs/SECURITY.md)
+
+## Agent workflow
+
+```text
+intake
+→ sources
+→ readiness
+→ strategy
+→ voice
+→ visual
+→ brandbook
+→ guardian
+→ export
+```
+
+Agents cannot skip stages. One active work order is allowed per stage. Readiness and later stages require accessed primary and governing sources with resolved conflicts. Strategy and later stages require a passing 20-axis readiness gate. Stage completion must use the same idempotency key as its work order and contain exactly the required regular files. The engine records SHA-256 evidence for every completed artifact.
+
+## Human approval gate
+
+Agents cannot place approvals in project JSON, SDK intake, or MCP calls. After readiness, all prior stages, and all four guardians pass, the project owner records export approval from a local interactive terminal:
+
+```bash
+node bin/brand-kit-builder.mjs approve \
+  --workspace ./workspace \
+  --project-id <project-id> \
+  --action export
+```
+
+The command requires a real TTY, asks for the project owner name, and requires the exact confirmation phrase shown on screen. Prompts go to stderr and the approval record is returned as JSON on stdout. This is an in-house cooperative control, not a cryptographic identity system; a signed approval adapter is a future hardening layer.
+
+## Quality and safety laws
+
+- Inspect primary and governing sources before readiness or generation.
+- Prebuild score must be at least 8.5.
+- Every critical readiness axis must be at least 8.0.
+- Never fabricate proof, claims, metrics, testimonials, partnerships, or product states.
+- Preserve supplied logos, people, products, packages, and artwork unless a scoped change is approved.
+- Apply Steve Krug clarity and trunk-test principles.
+- Never use emojis as interface icons.
+- Use HTML-first evidence, prototypes, fixes, reports, and handoffs.
+- Reject secret-like fields in agent payloads.
+- Keep all file operations inside the configured workspace.
+- Reject symlink artifacts and record artifact hashes.
+- Reserve at most $10 per job and $50 per UTC day.
+- Never deploy production without explicit owner approval.
+
+## Validate
+
+```bash
+npm run ci
+```
 
 ## Product path
 
 1. Foundation and source governance
-2. Source ingestion adapters
-3. Relentless discovery interview
-4. Strategy and voice engines
-5. Visual identity and image studio
-6. KAKU brand-book renderer
-7. HTML/PDF/export pipeline
-8. Guardian review and handoff
-9. GitHub and deployment integrations
-
-## Core quality laws
-
-- Source inspection before generation
-- Prebuild score at least 8.5
-- No fabricated proof or claims
-- Steve Krug clarity and trunk-test compliance
-- No emojis as interface icons
-- Asset lock for supplied logos, people, products, and artwork
-- HTML-first evidence, prototype, fix, report, and handoff
-- No production deployment without explicit owner approval
+2. Hardened local agent core
+3. Source-ingestion adapters
+4. Relentless discovery interview
+5. Strategy and voice engines
+6. Visual identity and image studio
+7. KAKU brand-book renderer
+8. HTML/PDF/export pipeline
+9. Guardian review and design handoff
+10. Approved GitHub and deployment integrations

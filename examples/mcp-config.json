@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "brand-kit-builder": {
+      "command": "node",
+      "args": ["/absolute/path/brand-kit-builder-/bin/brand-kit-builder-mcp.mjs"],
+      "env": {
+        "BKB_WORKSPACE": "/absolute/path/brand-kit-workspace"
+      }
+    }
+  }
+}

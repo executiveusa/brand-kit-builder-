@@ -1,0 +1,7 @@
+{
+  "bead_id": "ZTE-20260715-0003",
+  "action": "repository_cleanup",
+  "removed_transient_marker_files": 24,
+  "reason": "Keep the hardening pull request reviewable and free of process-only clutter.",
+  "production_changed": false
+}
