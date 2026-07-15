@@ -1,0 +1,15 @@
+{
+  "bead_id": "ZTE-20260715-0002",
+  "task": "Initialize dedicated Brand Kit Builder repository",
+  "repository": "executiveusa/brand-kit-builder-",
+  "branch": "zte/ZTE-20260715-0002/brand-builder-foundation",
+  "status": "pushed",
+  "risk_tier": "LOW",
+  "production_changed": false,
+  "secrets_changed": false,
+  "runtime_dependencies_added": false,
+  "master_prompt_sections": "0-25",
+  "master_prompt_storage": "docs/prompt/ ordered modules",
+  "prototype": "prototype/index.html",
+  "rollback": "Close the pull request without merging or revert the branch commits."
+}

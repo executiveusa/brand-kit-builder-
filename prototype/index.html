@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Brand Kit Builder — Foundation Prototype</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="product-label">Pauli Brand Studio</p>
+      <h1>Brand Kit Builder</h1>
+    </div>
+    <div class="gate" aria-label="Current quality gate">
+      <span>Prebuild gate</span>
+      <strong id="gateScore">7.8</strong>
+      <span id="gateState" class="status blocked">Blocked</span>
+    </div>
+  </header>
+
+  <div class="shell">
+    <nav class="rail" aria-label="Project workflow">
+      <button class="nav-item active" data-view="intake">1. Intake</button>
+      <button class="nav-item" data-view="sources">2. Sources</button>
+      <button class="nav-item" data-view="readiness">3. Readiness</button>
+      <button class="nav-item" data-view="strategy">4. Strategy</button>
+      <button class="nav-item" data-view="voice">5. Voice</button>
+      <button class="nav-item" data-view="visual">6. Visual system</button>
+      <button class="nav-item" data-view="brandbook">7. Brand book</button>
+      <button class="nav-item" data-view="review">8. Guardian review</button>
+      <button class="nav-item" data-view="export">9. Export</button>
+    </nav>
+
+    <main>
+      <section class="view active" id="intake">
+        <div class="section-heading">
+          <div><p class="eyebrow">Project 001</p><h2>Start from whatever exists</h2></div>
+          <p>Choose every input available. The system must inspect sources before it asks questions or creates assets.</p>
+        </div>
+        <div class="mode-grid" role="group" aria-label="Input modes">
+          <button class="mode selected">Business idea</button>
+          <button class="mode">Live URL</button>
+          <button class="mode">Git repository</button>
+          <button class="mode">Logo</button>
+          <button class="mode">Image</button>
+          <button class="mode">Documents</button>
+        </div>
+        <div class="form-grid">
+          <label>Project name<input id="projectName" value="Untitled brand project"></label>
+          <label>Primary audience<input value="Unknown"></label>
+          <label>Business goal<input value="Define during discovery"></label>
+          <label>Primary action<input value="Unknown"></label>
+        </div>
+        <div class="decision-panel">
+          <div><span class="decision-index">01</span><div><strong>Unresolved decision</strong><p>What must this brand help the business achieve in the next 12 months?</p></div></div>
+          <button>Record answer</button>
+        </div>
+      </section>
+
+      <section class="view" id="sources">
+        <div class="section-heading"><div><p class="eyebrow">Evidence first</p><h2>Source ledger</h2></div><p>Every file, URL, repository, page, license, and conflict is recorded before generation.</p></div>
+        <div class="table-wrap"><table><thead><tr><th>Source</th><th>Type</th><th>Trust</th><th>Status</th></tr></thead><tbody id="sourceRows"></tbody></table></div>
+        <button class="primary-action" id="addSource">Add sample source</button>
+      </section>
+
+      <section class="view" id="readiness">
+        <div class="section-heading"><div><p class="eyebrow">No creation before scoring</p><h2>20-axis prebuild gate</h2></div><p>Overall readiness must reach 8.5 and every critical axis must reach 8.0.</p></div>
+        <div id="axisList" class="axis-list"></div>
+      </section>
+
+      <section class="view" id="strategy">
+        <div class="section-heading"><div><p class="eyebrow">After gate approval</p><h2>Brand strategy</h2></div><p>Positioning, proof, message hierarchy, creative rationale, and three genuinely distinct visual territories.</p></div>
+        <div class="territories">
+          <article><span>Territory A</span><h3>Evidence-led utility</h3><p>Clear, restrained, precise, conversion-first.</p></article>
+          <article><span>Territory B</span><h3>Human editorial</h3><p>Story-led, tactile, culturally specific, warm.</p></article>
+          <article><span>Territory C</span><h3>Systemic expression</h3><p>Structured motion and visual language tied to the operating model.</p></article>
+        </div>
+      </section>
+
+      <section class="view" id="voice">
+        <div class="section-heading"><div><p class="eyebrow">Specific beats impressive</p><h2>Brand voice system</h2></div><p>Real phrases, true stories, approved proof, message hierarchy, platform behavior, and claim controls.</p></div>
+        <div class="requirements" id="voiceRequirements"></div>
+      </section>
+
+      <section class="view" id="visual">
+        <div class="section-heading"><div><p class="eyebrow">Asset lock active</p><h2>Visual identity and image studio</h2></div><p>Supplied logos, people, products, packages, and approved artwork remain unchanged unless a scoped edit is approved.</p></div>
+        <div class="visual-spec">
+          <div><h3>Logo system</h3><p>Master, responsive variants, clear space, minimum size, monochrome, reverse, favicon, and forbidden uses.</p></div>
+          <div><h3>Image direction</h3><p>Concept, composition, layers, materials, lighting, palette, authenticity, negative constraints, and provenance.</p></div>
+          <div><h3>Design tokens</h3><p>Typography, semantic color, spacing, grid, radius, borders, elevation, motion, and accessibility.</p></div>
+        </div>
+      </section>
+
+      <section class="view" id="brandbook">
+        <div class="section-heading"><div><p class="eyebrow">Fixed presentation structure</p><h2>KAKU brand-book sequence</h2></div><p>The sequence is preserved while each business receives its own identity and relevant applications.</p></div>
+        <ol class="kaku-sequence" id="kakuSequence"></ol>
+      </section>
+
+      <section class="view" id="review">
+        <div class="section-heading"><div><p class="eyebrow">Independent review</p><h2>Guardian gate</h2></div><p>The creator is not the sole approver.</p></div>
+        <div class="guardian-grid">
+          <article><h3>Brand Guardian</h3><p>Strategy, differentiation, logo integrity, applications, coherence, governance.</p><span class="status pending">Pending</span></article>
+          <article><h3>Design Guardian</h3><p>Krug usability, hierarchy, anti-slop, accessibility, responsive states, motion.</p><span class="status pending">Pending</span></article>
+          <article><h3>Voice Guardian</h3><p>Authenticity, proof, claim safety, localization, platform rules.</p><span class="status pending">Pending</span></article>
+          <article><h3>Rights Guardian</h3><p>Licenses, attribution, consent, provenance, trademark risk flags.</p><span class="status pending">Pending</span></article>
+        </div>
+      </section>
+
+      <section class="view" id="export">
+        <div class="section-heading"><div><p class="eyebrow">Release package</p><h2>Exports and handoff</h2></div><p>Outputs remain blocked until the release gate passes.</p></div>
+        <div class="export-list">
+          <button disabled>Brand book HTML</button>
+          <button disabled>Brand book PDF</button>
+          <button disabled>Brand voice files</button>
+          <button disabled>Design tokens</button>
+          <button disabled>Image prompt library</button>
+          <button disabled>Developer handoff</button>
+          <button disabled>GitHub pull request</button>
+        </div>
+        <p class="blocking-note">Exports are disabled in this foundation prototype because the project has not passed the prebuild and guardian gates.</p>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
