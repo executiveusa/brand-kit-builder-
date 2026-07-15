@@ -1,4 +1,5 @@
 import { agentBridge } from './agent-bridge.js';
+import { BrandTools } from './brand-tools.js';
 import { applyLocale, translate } from './i18n.js';
 import { ProductTour } from './tour.js';
 
@@ -102,13 +103,6 @@ function bindEvents() {
     state.locale = applyLocale(button.dataset.localeButton);
   }));
   $('#tour-button').addEventListener('click', () => tour.start({ force: true }));
-  $('#new-project-button').addEventListener('click', () => $('#new-project-dialog').showModal());
-  $('#project-switcher').addEventListener('click', () => runAction('list-projects'));
-
-  $$('.workflow-step').forEach((button) => button.addEventListener('click', () => {
-    if (button.classList.contains('is-complete') || button.classList.contains('is-active')) return runAction('open-stage', { stage: button.dataset.stage });
-    toast('toast.blocked');
-  }));
 
   $$('.canvas-tab').forEach((button) => button.addEventListener('click', () => setView(button.dataset.view)));
   $$('[data-device]').forEach((button) => button.addEventListener('click', () => setDevice(button.dataset.device)));
@@ -142,16 +136,6 @@ function bindEvents() {
     toast('toast.saved');
   });
 
-  $$('[data-source-choice]').forEach((button) => button.addEventListener('click', () => {
-    $$('[data-source-choice]').forEach((item) => item.classList.remove('is-selected'));
-    button.classList.add('is-selected');
-    $('#continue-project').disabled = false;
-    $('#continue-project').dataset.source = button.dataset.sourceChoice;
-  }));
-  $('#new-project-dialog').addEventListener('close', () => {
-    if ($('#new-project-dialog').returnValue === 'default') runAction('create-project', { source_type: $('#continue-project').dataset.source });
-  });
-
   $$('[data-help]').forEach((element) => {
     if (!element.getAttribute('title')) element.setAttribute('title', element.getAttribute('aria-label') || element.textContent.trim().replace(/\s+/g, ' ').slice(0, 100));
   });
@@ -160,6 +144,9 @@ function bindEvents() {
 async function initialize() {
   state.locale = applyLocale(state.locale);
   bindEvents();
+  const brandTools = new BrandTools({ agentBridge, toast });
+  await brandTools.initialize();
+  window.pauliBrandTools = brandTools;
   const capabilities = await agentBridge.inspect();
   if (agentBridge.connected && capabilities?.ok) {
     $('#agent-status span:last-child').textContent = translate('agent.connected', state.locale);
