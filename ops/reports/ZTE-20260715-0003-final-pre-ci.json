@@ -1,0 +1,17 @@
+{
+  "bead_id": "ZTE-20260715-0003",
+  "stage": "TEST",
+  "status": "ready_for_ci",
+  "branch": "zte/ZTE-20260715-0003/agent-hardening",
+  "base_branch": "zte/ZTE-20260715-0002/brand-builder-foundation",
+  "tests_declared": [
+    "security",
+    "prebuild",
+    "orchestrator",
+    "cost",
+    "mcp"
+  ],
+  "local_execution": "blocked by unavailable DNS when cloning",
+  "authoritative_execution": "GitHub Actions on stacked pull request",
+  "production_changed": false
+}
