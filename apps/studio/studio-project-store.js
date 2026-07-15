@@ -1,4 +1,5 @@
 import { BrandProjectStore, STAGES, voiceIsComplete } from './project-store.js';
+import { brandbookIsComplete, buildBrandbookDraft } from './kaku-brandbook.js';
 
 function now() { return new Date().toISOString(); }
 function nonEmpty(value) { return Boolean(String(value ?? '').trim()); }
@@ -43,19 +44,22 @@ export function visualIsComplete(visual = {}, strategy = {}) {
 export class StudioProjectStore extends BrandProjectStore {
   constructor(storage) {
     super(storage);
-    for (const projectId of Object.keys(this.state.projects)) this.reconcileVisual(projectId, false);
+    for (const projectId of Object.keys(this.state.projects)) this.reconcileStudio(projectId, false);
     this.persist();
   }
 
-  reconcileVisual(projectId, persist = true) {
+  reconcileStudio(projectId, persist = true) {
     const project = this.state.projects[projectId];
     if (!project) throw new Error(`Unknown project: ${projectId}`);
     project.visual = normalizeVisualSystem(project.visual);
     const voiceReady = voiceIsComplete(project.voice);
-    const complete = voiceReady && visualIsComplete(project.visual, project.strategy);
-    project.stages.visual.status = voiceReady ? (complete ? 'complete' : 'active') : 'locked';
-    project.stages.brandbook.status = complete ? (project.stages.brandbook.status === 'complete' ? 'complete' : 'active') : 'locked';
-    for (const stage of ['guardian', 'export']) if (project.stages[stage].status !== 'complete') project.stages[stage].status = 'locked';
+    const visualComplete = voiceReady && visualIsComplete(project.visual, project.strategy);
+    if (!project.brandbook && visualComplete) project.brandbook = buildBrandbookDraft(project, project.languages?.includes('es-MX') && !project.languages?.includes('en') ? 'es-MX' : 'en');
+    const bookComplete = visualComplete && brandbookIsComplete(project.brandbook);
+    project.stages.visual.status = voiceReady ? (visualComplete ? 'complete' : 'active') : 'locked';
+    project.stages.brandbook.status = visualComplete ? (bookComplete ? 'complete' : 'active') : 'locked';
+    project.stages.guardian.status = bookComplete ? (project.stages.guardian.status === 'complete' ? 'complete' : 'active') : 'locked';
+    if (project.stages.export.status !== 'complete') project.stages.export.status = 'locked';
     project.current_stage = STAGES.find((stage) => project.stages[stage].status === 'active') || 'export';
     project.updated_at = now();
     if (persist) this.persist();
@@ -64,12 +68,12 @@ export class StudioProjectStore extends BrandProjectStore {
 
   create(input) {
     const project = super.create(input);
-    return this.reconcileVisual(project.project_id);
+    return this.reconcileStudio(project.project_id);
   }
 
   update(projectId, updater) {
     super.update(projectId, updater);
-    return this.reconcileVisual(projectId);
+    return this.reconcileStudio(projectId);
   }
 
   saveVisual(projectId, visual) {
@@ -79,8 +83,37 @@ export class StudioProjectStore extends BrandProjectStore {
     });
   }
 
+  seedBrandbook(projectId, locale = 'en') {
+    return this.update(projectId, (project) => {
+      project.brandbook = buildBrandbookDraft(project, locale);
+      return project;
+    });
+  }
+
+  saveBrandbookSection(projectId, sectionId, patch) {
+    return this.update(projectId, (project) => {
+      if (!project.brandbook) project.brandbook = buildBrandbookDraft(project, 'en');
+      const section = project.brandbook.sections.find((item) => item.id === sectionId);
+      if (!section) throw new Error(`Unknown brand-book section: ${sectionId}`);
+      Object.assign(section, patch);
+      project.brandbook.updated_at = now();
+      return project;
+    });
+  }
+
+  saveBrandbookAnnex(projectId, annexId, patch) {
+    return this.update(projectId, (project) => {
+      if (!project.brandbook) project.brandbook = buildBrandbookDraft(project, 'en');
+      const annex = project.brandbook.annexes.find((item) => item.id === annexId);
+      if (!annex) throw new Error(`Unknown brand-book annex: ${annexId}`);
+      Object.assign(annex, patch);
+      project.brandbook.updated_at = now();
+      return project;
+    });
+  }
+
   ensureDemoProject() {
     const project = super.ensureDemoProject();
-    return this.reconcileVisual(project.project_id);
+    return this.reconcileStudio(project.project_id);
   }
 }
