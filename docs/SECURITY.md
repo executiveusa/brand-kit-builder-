@@ -16,12 +16,13 @@ The core does not:
 
 ## Filesystem boundary
 
-All reads and writes are resolved beneath the configured workspace root. The engine rejects:
+All state reads and writes are resolved beneath the configured workspace root. The engine rejects:
 
 - `..` path traversal;
 - absolute paths supplied as relative artifact paths;
 - null bytes;
 - symbolic-link segments in write paths;
+- symlink or non-file stage artifacts;
 - project IDs and idempotency keys outside the safe identifier grammar.
 
 Project artifacts live under:
@@ -36,6 +37,8 @@ Machine state lives under:
 .brand-kit-builder/
 ```
 
+CLI JSON files outside the workspace should be streamed through stdin rather than passed as direct input paths.
+
 ## Secret guard
 
 Input objects are recursively inspected for secret-like keys such as:
@@ -49,15 +52,40 @@ Input objects are recursively inspected for secret-like keys such as:
 
 Non-empty values under those keys are rejected with `SECRET_GUARD`. Credentials must be supplied to future provider adapters through a runtime vault or approved environment integration, never through project JSON.
 
-## Integrity and evidence gates
+## Source gate
 
-- A project requires at least one explicit source record.
+- Every project requires at least one explicit source record.
+- Primary and governing sources must be marked as accessed before readiness or generation.
+- Unresolved source conflicts block the pipeline.
+- The source stage writes the canonical source ledger from validated completion input.
+
+## Work-order integrity
+
+- Stage order cannot be skipped.
+- Only one active work order is allowed per project stage.
+- Every job uses a globally unique idempotency key.
+- Reusing a key for another project or stage fails.
+- Completion requires the same project, stage, and idempotency key as the bound work order.
+- Direct completion without a work order fails.
+- MCP calls are serialized to reduce local state races.
+
+## Artifact integrity
+
+Completion requires a manifest containing exactly the stage's required outputs. The engine rejects missing, extra, duplicate, directory, and symlink artifacts. Every completed artifact receives:
+
+- project-relative path;
+- media type;
+- byte size;
+- SHA-256 hash.
+
+A caller-supplied SHA-256 value is verified when present.
+
+## Quality and release gates
+
 - The 20-axis readiness schema must be complete.
 - Strategy and later generation stages require a passing readiness gate.
-- Stage order cannot be skipped.
-- Completion requires every declared output file to exist.
-- Export requires all four guardians and explicit owner approval.
-- Duplicate idempotency keys cannot create duplicate jobs.
+- Export checks guardians and owner approval at work-order creation and completion.
+- Export requires all four guardians, zero P0 findings, zero unresolved P1 findings, and explicit owner approval.
 
 ## Cost circuit breakers
 
@@ -87,8 +115,7 @@ Stable codes let orchestrators halt, retry safely, or route a human approval wit
 
 ## Known limits of this hardening phase
 
-- Artifact presence is verified; cryptographic artifact hash verification is reserved for the next phase.
-- Local JSON state is atomic but not yet protected by a multi-process lock.
+- Local JSON writes are atomic but not yet protected by a cross-process lock. Use one MCP server process per workspace and avoid concurrent CLI writers.
 - Authentication is delegated to the local machine and MCP host because the server uses stdio only.
 - Model-provider, browser, PDF-rendering, and GitHub-write adapters are not enabled in this core.
 - Production deployment remains outside this interface and requires a separate approved integration.
