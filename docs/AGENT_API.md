@@ -30,20 +30,33 @@ Inspect capabilities:
 node bin/brand-kit-builder.mjs inspect
 ```
 
+For files outside the workspace, pass JSON through stdin. Direct `--input FILE` reads are intentionally limited to files inside the workspace.
+
 Create a project:
 
 ```bash
-node bin/brand-kit-builder.mjs create-project \
+cat examples/agent/create-project.json | \
+  node bin/brand-kit-builder.mjs create-project \
   --workspace ./workspace \
-  --input examples/agent/create-project.json
+  --input -
 ```
 
 Create an idempotent stage work order:
 
 ```bash
-node bin/brand-kit-builder.mjs run-stage \
+cat examples/agent/run-stage.json | \
+  node bin/brand-kit-builder.mjs run-stage \
   --workspace ./workspace \
-  --input examples/agent/run-stage.json
+  --input -
+```
+
+Complete the same work order after creating its exact required files:
+
+```bash
+cat examples/agent/complete-intake.json | \
+  node bin/brand-kit-builder.mjs complete-stage \
+  --workspace ./workspace \
+  --input -
 ```
 
 Read project state:
@@ -90,6 +103,8 @@ Exposed tools:
 - `brand_kit_run_stage`
 - `brand_kit_complete_stage`
 
+MCP calls are processed serially to protect local state from concurrent stdio mutations.
+
 ## Required stage order
 
 ```text
@@ -106,29 +121,43 @@ intake
 
 A stage work order contains:
 
-- project and stage identifiers
-- idempotency key
-- governing prompt index
-- required artifacts
-- workspace and project boundaries
-- cost reservation
-- quality and safety constraints
+- project and stage identifiers;
+- a globally unique idempotency key;
+- governing prompt index;
+- exact required artifacts;
+- workspace and project boundaries;
+- cost reservation;
+- quality and safety constraints.
 
-Agents create the requested artifacts inside `projects/<project-id>/`, then call `complete-stage` with an artifact manifest. The completion call verifies that every required path exists before changing project state.
+Only one active work order is allowed for a project stage. Reusing its idempotency key with a different project or stage fails with `IDEMPOTENCY_CONFLICT`.
+
+## Source stage
+
+The `sources` completion request must include the updated source array. Primary and governing sources must be marked `accessed: true`, and their `conflicts` arrays must be empty. The engine writes the canonical `source-ledger.json` and blocks readiness until this gate passes.
+
+## Stage completion
+
+Agents create the requested artifacts inside `projects/<project-id>/`, then call `complete-stage` with:
+
+- the same `project_id`;
+- the same `stage`;
+- the same `idempotency_key` returned by `run-stage`;
+- an artifact manifest containing exactly the required paths.
+
+The engine rejects missing, extra, duplicate, directory, and symlink artifacts. It computes SHA-256 and byte size for every completed artifact. A caller-supplied hash is verified when present. Completion is idempotent after the bound job reaches `completed`.
 
 ## Export gate
 
 Export remains blocked until:
 
+- primary and governing sources are accessed and conflicts resolved;
 - the 20-axis readiness gate is at least 8.5;
 - every critical readiness axis is at least 8.0;
 - Brand, Design, Voice, and Rights Guardians all pass;
 - there are no P0 or unresolved P1 findings;
 - the project contains explicit approval from Bambu for the `export` action.
 
-## Idempotency
-
-Every `run-stage` request requires an `idempotency_key`. Reusing the same key returns the original job instead of creating another job or reserving cost twice.
+Guardian and approval state are checked when the export work order is created and again when export completion is submitted.
 
 ## Cost controls
 
