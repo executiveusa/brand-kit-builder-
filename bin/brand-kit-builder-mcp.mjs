@@ -75,15 +75,31 @@ const tools = [
   },
   {
     name: "brand_kit_complete_stage",
-    description: "Mark a stage complete only after every required artifact exists in the project workspace.",
+    description: "Complete a bound work order only after every exact required artifact exists and passes integrity checks.",
     inputSchema: {
       type: "object",
       additionalProperties: true,
-      required: ["project_id", "stage", "artifacts"],
+      required: ["project_id", "stage", "idempotency_key", "artifacts"],
       properties: {
         project_id: { type: "string" },
         stage: { type: "string" },
-        artifacts: { type: "array", items: { type: "object", required: ["path"], properties: { path: { type: "string" } } } }
+        idempotency_key: { type: "string" },
+        artifacts: {
+          type: "array",
+          items: {
+            type: "object",
+            required: ["path"],
+            properties: {
+              path: { type: "string" },
+              sha256: { type: "string" },
+              media_type: { type: "string" }
+            }
+          }
+        },
+        sources: { type: "array" },
+        readiness_scores: { type: "object" },
+        guardians: { type: "object" },
+        guardian_summary: { type: "object" }
       }
     }
   }
@@ -126,7 +142,7 @@ async function handle(message) {
         protocolVersion: "2024-11-05",
         capabilities: { tools: { listChanged: false } },
         serverInfo: { name: "pauli-brand-kit-builder", version: "0.2.0" },
-        instructions: "Use source-first stages in order. Export requires passed guardians and explicit Bambu approval."
+        instructions: "Use source-first stages in order. Complete only bound work orders. Export requires passed guardians and explicit Bambu approval."
       }
     });
     return;
@@ -171,12 +187,23 @@ async function handle(message) {
   }
 }
 
-const lines = readline.createInterface({ input: process.stdin, crlfDelay: Infinity, terminal: false });
-lines.on("line", async (line) => {
+async function processLine(line) {
   if (!line.trim()) return;
   try {
     await handle(JSON.parse(line));
   } catch (error) {
     send({ jsonrpc: "2.0", id: null, error: { code: -32700, message: "Parse error", data: String(error?.message ?? error) } });
   }
+}
+
+const lines = readline.createInterface({ input: process.stdin, crlfDelay: Infinity, terminal: false });
+let queue = Promise.resolve();
+lines.on("line", (line) => {
+  queue = queue.then(() => processLine(line));
+});
+lines.on("close", () => {
+  queue.catch((error) => {
+    send({ jsonrpc: "2.0", id: null, error: { code: -32603, message: "Internal error", data: String(error?.message ?? error) } });
+    process.exitCode = 1;
+  });
 });
