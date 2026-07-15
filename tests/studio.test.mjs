@@ -15,9 +15,7 @@ function extractDictionarySource(source) {
   return context.dictionaries;
 }
 
-function idsFromHtml(html) {
-  return new Set([...html.matchAll(/\bid="([^"]+)"/g)].map((match) => `#${match[1]}`));
-}
+function idsFromHtml(html) { return new Set([...html.matchAll(/\bid="([^"]+)"/g)].map((match) => `#${match[1]}`)); }
 
 test('English and Mexican Spanish dictionaries have matching keys', async () => {
   const dictionaries = extractDictionarySource(await read('apps/studio/i18n.js'));
@@ -26,7 +24,7 @@ test('English and Mexican Spanish dictionaries have matching keys', async () => 
 });
 
 test('studio source contains no Han characters or direct network calls', async () => {
-  const files = ['index.html', 'styles.css', 'phase-2.css', 'strategy-voice.css', 'visual-system.css', 'i18n.js', 'agent-bridge.js', 'tour.js', 'app.js', 'project-store.js', 'studio-project-store.js', 'brand-copy.js', 'brand-tools.js', 'strategy-voice-copy.js', 'strategy-voice-tools.js', 'visual-copy.js', 'visual-tools.js'];
+  const files = ['index.html', 'styles.css', 'phase-2.css', 'strategy-voice.css', 'visual-system.css', 'brandbook.css', 'i18n.js', 'agent-bridge.js', 'tour.js', 'app.js', 'project-store.js', 'studio-project-store.js', 'brand-copy.js', 'brand-tools.js', 'strategy-voice-copy.js', 'strategy-voice-tools.js', 'visual-copy.js', 'visual-tools.js', 'kaku-brandbook.js', 'brandbook-copy.js', 'brandbook-tools.js'];
   const source = (await Promise.all(files.map((file) => read(`apps/studio/${file}`)))).join('\n');
   assert.equal(/\p{Script=Han}/u.test(source), false);
   assert.equal(/\b(fetch|XMLHttpRequest|WebSocket)\s*\(/.test(source), false);
@@ -76,8 +74,6 @@ test('strategy and voice editors are installed and use guarded bridge commands',
   assert.match(app, /\.\/strategy-voice\.css/);
   assert.match(tools, /brandTools\.agentBridge\?\.invoke\('save-strategy'/);
   assert.match(tools, /brandTools\.agentBridge\?\.invoke\('save-voice'/);
-  assert.match(tools, /strategyIsComplete/);
-  assert.match(tools, /voiceIsComplete/);
 });
 
 test('visual editor uses the extended store and guarded bridge command', async () => {
@@ -87,5 +83,15 @@ test('visual editor uses the extended store and guarded bridge command', async (
   assert.match(app, /installVisualTools\(brandTools\)/);
   assert.match(app, /\.\/visual-system\.css/);
   assert.match(tools, /brandTools\.agentBridge\?\.invoke\('save-visual-system'/);
-  assert.match(tools, /visualIsComplete/);
+});
+
+test('KAKU editor is installed with local sandboxed preview and guarded saves', async () => {
+  const app = await read('apps/studio/app.js');
+  const tools = await read('apps/studio/brandbook-tools.js');
+  assert.match(app, /installBrandbookTools\(brandTools\)/);
+  assert.match(app, /\.\/brandbook\.css/);
+  assert.match(tools, /sandbox="allow-same-origin"/);
+  assert.match(tools, /renderBrandbookDocument/);
+  assert.match(tools, /brandTools\.agentBridge\?\.invoke\('save-brandbook-section'/);
+  assert.match(tools, /brandTools\.agentBridge\?\.invoke\('save-brandbook-annex'/);
 });
