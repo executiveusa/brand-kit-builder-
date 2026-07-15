@@ -80,6 +80,23 @@ Completion requires a manifest containing exactly the stage's required outputs. 
 
 A caller-supplied SHA-256 value is verified when present.
 
+## Owner approval boundary
+
+Agent project intake, JSON CLI payloads, JavaScript SDK intake, and MCP tools cannot supply approvals. Non-empty or empty `approvals` fields in project intake are rejected.
+
+The only supported approval path is the local interactive CLI command. It requires:
+
+- a real terminal on stdin and stderr;
+- the typed project owner name;
+- the exact project-and-action confirmation phrase;
+- a passing readiness gate;
+- a completed guardian stage;
+- all four guardians passing.
+
+MCP does not expose an approval tool. Approval is rechecked at export work-order creation and completion.
+
+This protects against accidental or cooperative agent bypass. It is not cryptographic proof of human identity against a process with arbitrary local code execution or write access to the workspace. A signed public-key approval adapter is the next security layer before untrusted multi-agent or remote operation.
+
 ## Quality and release gates
 
 - The 20-axis readiness schema must be complete.
