@@ -87,7 +87,14 @@ test('approved package contains hashed files in a valid stored ZIP', async () =>
   let current = project;
   for (const name of GUARDIAN_ORDER) current = store.saveGuardian(project.project_id, name, passedReview(name));
   current = store.syncExportApproval(project.project_id, {
-    project_id: project.project_id, action: 'export', status: 'approved', source: 'agent-core', approved_by: 'Bambu', approved_at: '2026-07-15T20:45:00Z', approval_id: 'approval-test-1'
+    project_id: project.project_id,
+    action: 'export',
+    status: 'approved',
+    source: 'agent-core',
+    approved_by: 'Bambu',
+    approved_at: '2026-07-15T20:45:00Z',
+    approval_id: 'approval-test-1',
+    evidence_sha256: 'a'.repeat(64)
   });
   assert.equal(releaseGate(current).passed, true);
   const output = await buildExportPackage(current, 'en');
