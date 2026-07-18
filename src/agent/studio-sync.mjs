@@ -150,9 +150,7 @@ export async function syncStudioReleaseEvidence(context, snapshot) {
     schema_version: '1.0',
     project_id: projectId,
     sources,
-    generated_at: synchronizedAt,
-    evidence_sha256: evidenceSha256,
-    channel: 'local-studio-host'
+    generated_at: synchronizedAt
   });
   await context.store.saveProject(project);
   return { ok: true, project_id: projectId, evidence_sha256: evidenceSha256, synchronized_at: project.studio_sync.synchronized_at };
