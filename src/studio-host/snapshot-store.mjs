@@ -1,6 +1,6 @@
 import { appendFile, mkdir, readFile, rename, writeFile } from 'node:fs/promises';
 import path from 'node:path';
-import { assertNoSecretLikeData, assertSafeIdentifier, resolveInside } from '../agent/security.mjs';
+import { assertNoSecretLikeData, assertNoSymlinkSegments, assertSafeIdentifier, resolveInside } from '../agent/security.mjs';
 
 function now() { return new Date().toISOString(); }
 function clone(value) { return value == null ? value : JSON.parse(JSON.stringify(value)); }
@@ -23,6 +23,7 @@ export class StudioSnapshotStore {
   }
 
   async load() {
+    await assertNoSymlinkSegments(this.workspaceRoot, this.stateFile);
     try {
       const parsed = JSON.parse(await readFile(this.stateFile, 'utf8'));
       if (parsed?.version === 1 && parsed.projects) return parsed;
@@ -33,8 +34,11 @@ export class StudioSnapshotStore {
   }
 
   async save(state) {
+    await assertNoSymlinkSegments(this.workspaceRoot, this.stateFile);
     await mkdir(this.root, { recursive: true, mode: 0o750 });
+    await assertNoSymlinkSegments(this.workspaceRoot, this.stateFile);
     const temporary = `${this.stateFile}.${process.pid}.${Date.now()}.tmp`;
+    await assertNoSymlinkSegments(this.workspaceRoot, temporary);
     const next = { ...state, version: 1, updated_at: now() };
     await writeFile(temporary, `${JSON.stringify(next, null, 2)}\n`, { mode: 0o640 });
     await rename(temporary, this.stateFile);
@@ -61,7 +65,9 @@ export class StudioSnapshotStore {
     delete safePayload.approvals;
     delete safePayload.export_approval;
     assertNoSecretLikeData(safePayload);
+    await assertNoSymlinkSegments(this.workspaceRoot, this.eventsFile);
     await mkdir(this.root, { recursive: true, mode: 0o750 });
+    await assertNoSymlinkSegments(this.workspaceRoot, this.eventsFile);
     const record = { timestamp: now(), command, project_id: projectId, payload: safePayload };
     await appendFile(this.eventsFile, `${JSON.stringify(record)}\n`, { encoding: 'utf8', mode: 0o640 });
     return record;
