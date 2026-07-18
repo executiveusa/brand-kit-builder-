@@ -110,13 +110,14 @@ test('unchanged evidence preserves approval while material changes make it stale
   assert.match(approved.approval.evidence_sha256, /^[a-f0-9]{64}$/);
 
   await new Promise((resolve) => setTimeout(resolve, 8));
-  const unchanged = await service.invoke('sync-studio-project', { project_id: snapshot.project_id, project_snapshot: releaseSnapshot() });
+  const unchangedSnapshot = structuredClone(snapshot);
+  const unchanged = await service.invoke('sync-studio-project', { project_id: snapshot.project_id, project_snapshot: unchangedSnapshot });
   assert.equal(unchanged.release_sync.synchronized_at, synchronizedAt);
   const stillApproved = await service.invoke('inspect-export-approval', { project_id: snapshot.project_id, action: 'export' });
   assert.equal(stillApproved.approval.approval_id, approved.approval.approval_id);
 
   await new Promise((resolve) => setTimeout(resolve, 8));
-  const changed = releaseSnapshot();
+  const changed = structuredClone(snapshot);
   changed.strategy.promise = 'A materially changed promise.';
   const changedResult = await service.invoke('sync-studio-project', { project_id: changed.project_id, project_snapshot: changed });
   assert.notEqual(changedResult.release_sync.synchronized_at, synchronizedAt);
