@@ -123,6 +123,10 @@ export async function syncStudioReleaseEvidence(context, snapshot) {
   const guardian = assertReleaseEvidence(snapshot);
   const evidence = releaseEvidence(snapshot, sources, readiness, guardian);
   const evidenceSha256 = hashEvidence(evidence);
+  const previousSync = project.studio_sync;
+  const synchronizedAt = previousSync?.evidence_sha256 === evidenceSha256 && previousSync?.synchronized_at
+    ? previousSync.synchronized_at
+    : now();
 
   project.sources = sources;
   project.readiness = readiness;
@@ -137,11 +141,19 @@ export async function syncStudioReleaseEvidence(context, snapshot) {
   project.guardian_summary = { p0: guardian.p0, unresolved_p1: guardian.unresolved_p1 };
   project.studio_sync = {
     evidence_sha256: evidenceSha256,
-    synchronized_at: now(),
+    synchronized_at: synchronizedAt,
     schema_version: String(snapshot.schema_version || 'unknown'),
     channel: 'local-studio-host'
   };
   project.updated_at = now();
+  await context.store.saveSourceLedger(projectId, {
+    schema_version: '1.0',
+    project_id: projectId,
+    sources,
+    generated_at: synchronizedAt,
+    evidence_sha256: evidenceSha256,
+    channel: 'local-studio-host'
+  });
   await context.store.saveProject(project);
   return { ok: true, project_id: projectId, evidence_sha256: evidenceSha256, synchronized_at: project.studio_sync.synchronized_at };
 }
