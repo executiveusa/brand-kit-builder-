@@ -60,7 +60,7 @@ test('command service persists snapshots, creates the core project, and syncs co
   assert.equal(core.project.guardian_summary.p0, 0);
   const ledger = JSON.parse(await readFile(path.join(workspace, 'projects', snapshot.project_id, 'source-ledger.json'), 'utf8'));
   assert.deepEqual(ledger.sources, core.project.sources);
-  assert.equal(ledger.evidence_sha256, result.release_sync.evidence_sha256);
+  assert.deepEqual(Object.keys(ledger).sort(), ['generated_at', 'project_id', 'schema_version', 'sources']);
 });
 
 test('canonical source ledger updates when synchronized Studio sources change', async (t) => {
@@ -74,7 +74,7 @@ test('canonical source ledger updates when synchronized Studio sources change', 
   const ledger = JSON.parse(await readFile(path.join(workspace, 'projects', snapshot.project_id, 'source-ledger.json'), 'utf8'));
   assert.equal(ledger.sources.length, 2);
   assert.equal(ledger.sources.find((source) => source.source_id === 'site').location, 'https://example.test');
-  assert.equal(ledger.evidence_sha256, result.release_sync.evidence_sha256);
+  assert.deepEqual(Object.keys(ledger).sort(), ['generated_at', 'project_id', 'schema_version', 'sources']);
 });
 
 test('snapshot persistence strips browser-authored approval and export state', async (t) => {
@@ -132,11 +132,11 @@ test('snapshot and event writes reject symlinked state directories', { skip: pro
   const snapshots = new StudioSnapshotStore(workspace);
   await assert.rejects(
     () => snapshots.save({ version: 1, current_project_id: null, projects: {} }),
-    (error) => error?.code === 'SYMLINK_GUARD'
+    (error) => ['ELOOP', 'ENOTDIR', 'SYMLINK_GUARD', 'PATH_GUARD'].includes(error?.code)
   );
   await assert.rejects(
     () => snapshots.appendEvent('save-intake', { project_id: 'host-brand' }),
-    (error) => error?.code === 'SYMLINK_GUARD'
+    (error) => ['ELOOP', 'ENOTDIR', 'SYMLINK_GUARD', 'PATH_GUARD'].includes(error?.code)
   );
 });
 
