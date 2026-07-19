@@ -1,7 +1,7 @@
 {
   "bead_id": "ZTE-20260718-0003",
   "task": "Production completion handoff audit followed by Phase 0 architecture freeze",
-  "status": "phase_0_validation_pending",
+  "status": "phase_0_complete_final_ci_pending",
   "risk_tier": "MEDIUM",
   "pull_request": 12,
   "baseline": {
@@ -33,6 +33,13 @@
     "icm_method_inspected": true,
     "capability_matrix_created": true,
     "bounded_ticket_backlog_created": true,
+    "review_findings": {
+      "total": 3,
+      "p1": 1,
+      "p2": 2,
+      "addressed": 3,
+      "resolved_threads": 3
+    },
     "confirmed_high_leverage_gaps": [
       "duplicated domain/state contracts and version drift",
       "prompt-only Krug and anti-slop rules",
@@ -46,7 +53,10 @@
     ]
   },
   "phase_0": {
-    "status": "implementation_complete_validation_pending",
+    "status": "complete",
+    "validation_run_id_before_final_report_commit": 29673667462,
+    "repository_check": "passed",
+    "node_tests": "passed",
     "started_after_audit_passed": true,
     "one_brand_engine_architecture_frozen": true,
     "canonical_domain_inventory_frozen": true,
@@ -63,5 +73,6 @@
     "next_runtime_ticket": "BKB-CONTRACT-001"
   },
   "production_deploy": false,
+  "merge_performed": false,
   "rollback": "Revert PR #12/Phase 0 documentation-contract commits. No runtime migration, external provider, database, deployment, secret, or irreversible action is included."
 }
