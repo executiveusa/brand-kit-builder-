@@ -1,7 +1,7 @@
 {
   "bead_id": "ZTE-20260718-0003",
   "task": "Production completion handoff audit followed by Phase 0 architecture freeze",
-  "status": "phase_0_complete_final_ci_pending",
+  "status": "complete",
   "risk_tier": "MEDIUM",
   "pull_request": 12,
   "baseline": {
@@ -17,7 +17,7 @@
     "local_test_attempt": {
       "attempted": true,
       "completed": false,
-      "reason": "sandbox DNS could not resolve github.com during clone; GitHub Actions is the authoritative validation path"
+      "reason": "sandbox DNS could not resolve github.com during clone; GitHub Actions supplied authoritative validation"
     }
   },
   "audit": {
@@ -38,7 +38,8 @@
       "p1": 1,
       "p2": 2,
       "addressed": 3,
-      "resolved_threads": 3
+      "resolved_threads": 3,
+      "remaining_actionable_threads": 0
     },
     "confirmed_high_leverage_gaps": [
       "duplicated domain/state contracts and version drift",
@@ -54,10 +55,10 @@
   },
   "phase_0": {
     "status": "complete",
-    "validation_run_id_before_final_report_commit": 29673667462,
+    "validated_head_before_report_commit": "3ca7d82c16bb759cc05081428e4723520c7d421c",
+    "validation_run_id": 29673667462,
     "repository_check": "passed",
     "node_tests": "passed",
-    "started_after_audit_passed": true,
     "one_brand_engine_architecture_frozen": true,
     "canonical_domain_inventory_frozen": true,
     "local_first_and_provider_neutral_boundaries_frozen": true,
