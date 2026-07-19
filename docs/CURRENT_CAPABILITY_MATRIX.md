@@ -8,7 +8,7 @@ This matrix records what is actually present in code on current `main`, not what
 |---|---|---|---|---|---|---|---|---|---|---|
 | Governing operating system | BUILT | `AGENTS.md`, prompt index, eight `docs/prompt/*` modules, source corpus | static repo validation | Yes, as rules/docs | Yes, as context | PARTIAL | KEEP | Convert selected rules into executable contracts rather than prompt-only policy | domain contracts | LOW |
 | Bilingual Studio shell | BUILT/PARTIAL | `apps/studio/app.js`, i18n, phase CSS, three-panel UI | studio validation/tests | Yes | Indirect via host bridge | PARTIAL | EXTEND | Replace demo-like surfaces with canonical engine-backed workspaces; retain EN + es-MX and first-run tour | canonical engine | MEDIUM |
-| First-run guided tour | BUILT | `apps/studio/tour.js`, Studio UI | studio validation | Yes | N/A | Yes for current shell | KEEP | Extend targets as new workspaces appear; maintain keyboard/skip/restart behavior | Studio shell | LOW |
+| First-run guided tour | BUILT WITH COMPLIANCE GAP | `apps/studio/tour.js`; skip/back/next controls are created without required `data-help` attributes | current studio validation does not catch this `AGENTS.md` contract violation | Yes | N/A | NO | FIX THEN KEEP | BKB-STUDIO-COMPLIANCE-001: add required `data-help`/accessible control metadata and regression coverage before treating the tour as release-ready | Studio shell | LOW |
 | Project intake/state | TWO IMPLEMENTATIONS | Browser project model in `apps/studio/project-store.js`; agent core in `src/agent/*` | project/core tests | Yes | Yes | PARTIAL | CONSOLIDATE | Define one canonical versioned domain/project model and adapters | BKB-CONTRACT-001 | HIGH if migrated, LOW for spec |
 | Persistent state | LOCAL/PARTIAL | browser `localStorage`; workspace JSON under `.brand-kit-builder/` and `projects/` | filesystem tests | Yes, single browser/workspace | Yes, local | NO for multi-agent service | EXTEND | Add storage interfaces before DB/object storage; preserve local-first | domain/storage interfaces | MEDIUM |
 | Source ledger + gates | BUILT | `src/agent/orchestrator.mjs`, `store.mjs`, `studio-sync.mjs`, schemas | source/sync/security tests | Yes, manual metadata | Yes | PARTIAL | KEEP + EXTEND | Add real URL/repo/file/browser adapters and evidence graph; current engine validates records but does not acquire evidence | source adapters | MEDIUM |
@@ -41,7 +41,7 @@ This matrix records what is actually present in code on current `main`, not what
 | Multi-repository sandbox execution | NOT BUILT | current core forbids GitHub writes/deploy and has no worktree fleet | none | No | No | No | ADD VIA CONTROL PLANE | BKB-SANDBOX-001: isolated worktree per ticket, allowlists, diffs, previews, rollback | Paperclip/workspace adapter | HIGH |
 | Paperclip control plane | NOT INTEGRATED | no Paperclip adapter in repo | none | No unified office dashboard | No | No | ADD AS OPTIONAL ADAPTER | BKB-PAPERCLIP-001: map BrandProject/WorkOrder/Agent/Artifact events to Paperclip company/project/issues; keep domain independent | HTTP/plugin adapter | HIGH |
 | Hermes manager integration | NOT INTEGRATED | no Hermes contract in current repo | none | N/A | No | No | ADD | BKB-HERMES-001: Studio Director role using Paperclip built-in Hermes gateway/local adapter; cannot approve own work | Paperclip boundary | HIGH |
-| ICM filesystem architecture | NOT BUILT | no `icm/` hierarchy | none | No | No | No | ADD | Phase 0 defines 5 layers, numbered stage folders, explicit inputs/process/outputs and editable handoff points | canonical contracts | LOW for spec |
+| ICM filesystem architecture | NOT BUILT ON BASELINE | no `icm/` hierarchy on audited `main` | none on baseline | No on baseline | No on baseline | No | ADD | BKB-PHASE0-001 adds the five-layer ICM routing/config/stage contracts on this PR before runtime integration | canonical contracts | LOW for spec |
 | Unified agent office dashboard | NOT BUILT | Studio is project-centric, not org/workforce-centric | none | No | N/A | No | LATER | Use Paperclip UI/control plane for org chart, tasks, heartbeats, budget, workspaces; Studio embeds/links design-specific views | Paperclip adapter | HIGH |
 | Version consistency | FAILING | `package.json` = `0.3.0`; core `APP_VERSION` = `0.2.0`; MCP server = `0.2.0`; skill = `0.2.0` | no cross-version contract test | N/A | N/A | No | FIX | BKB-CONTRACT-001 adds one version source and parity test | package/contract | LOW |
 | CI/test baseline | PASSING BEFORE AUDIT | `.github/workflows/ci.yml`; PR #10 authoritative run | Agent Core CI run 29650565168 passed; 53 tests reported in prior report | N/A | N/A | baseline only | KEEP | Local clone was blocked by sandbox DNS; branch CI is authoritative | GitHub Actions | LOW |
@@ -67,7 +67,7 @@ The highest-leverage structural gaps are:
 5. generic text-heavy brand-book renderer;
 6. no provider-neutral asset production;
 7. no stable SDK or authenticated remote API;
-8. no ICM stage/context architecture;
+8. no ICM stage/context architecture on the audited baseline;
 9. no Paperclip/Hermes workforce control-plane integration;
 10. no sandboxed multi-repository execution fleet.
 
