@@ -1,0 +1,38 @@
+version: 1.0.0
+principles:
+  public_sources_only_by_default: true
+  evidence_before_conclusion: true
+  observed_facts_separate_from_inferences: true
+  retain_conflicts: true
+  no_fabrication: true
+  bounded_parallelism: true
+prohibited:
+  - bypass_authentication_or_access_controls
+  - scrape_private_profiles_or_private_linkedin_data
+  - evade_robots_rate_limits_or_provider_restrictions
+  - access_private_link_local_or_loopback_targets_without_explicit_local_mode
+  - represent_inference_as_verified_fact
+  - fabricate_reviews_reputation_metrics_or_social_accounts
+  - collect_secrets_or_session_material_into_project_state
+required_evidence_fields:
+  - evidence_id
+  - source_url_or_path
+  - source_type
+  - retrieved_at
+  - trust_level
+  - verification_state
+  - confidence
+  - content_hash_when_available
+  - rights_or_access_state
+verification_states:
+  - verified
+  - observed
+  - inferred
+  - conflicting
+  - unverified
+  - inaccessible
+human_gate:
+  required_for:
+    - unresolved_high_impact_conflict
+    - sensitive_personal_or_ownership_claim
+    - destructive_action_based_on_ambiguous_research
