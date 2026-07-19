@@ -1,13 +1,14 @@
 {
   "bead_id": "ZTE-20260718-0003",
   "task": "Production completion handoff audit followed by Phase 0 architecture freeze",
-  "status": "audit_validation_pending",
+  "status": "phase_0_validation_pending",
   "risk_tier": "MEDIUM",
+  "pull_request": 12,
   "baseline": {
     "main_sha": "7b0f142258570a32190081f88adb8361e6f64150",
-    "open_prs": [11],
+    "open_prs_at_audit": [11],
     "open_issues": 0,
-    "latest_authoritative_ci": {
+    "pre_audit_authoritative_ci": {
       "source": "PR #10 head before squash merge",
       "sha": "1139d0de610cd3cc76172c9b4005d160d6005f8a",
       "run_id": 29650565168,
@@ -16,10 +17,14 @@
     "local_test_attempt": {
       "attempted": true,
       "completed": false,
-      "reason": "sandbox DNS could not resolve github.com during clone; branch GitHub Actions is authoritative"
+      "reason": "sandbox DNS could not resolve github.com during clone; GitHub Actions is the authoritative validation path"
     }
   },
   "audit": {
+    "status": "complete",
+    "branch_ci_run_id": 29673251993,
+    "repository_check": "passed",
+    "node_tests": "passed",
     "governing_docs_read": true,
     "ordered_prompt_modules_read": 8,
     "pr_11_read": true,
@@ -36,15 +41,27 @@
       "generic brandbook renderer",
       "no provider-neutral asset production",
       "no stable SDK or authenticated remote API",
-      "no ICM architecture",
       "no Paperclip/Hermes workforce integration",
       "no sandboxed multi-repository execution fleet"
     ]
   },
   "phase_0": {
-    "started": false,
-    "blocked_until": "BKB-AUDIT-001 branch CI passes"
+    "status": "implementation_complete_validation_pending",
+    "started_after_audit_passed": true,
+    "one_brand_engine_architecture_frozen": true,
+    "canonical_domain_inventory_frozen": true,
+    "local_first_and_provider_neutral_boundaries_frozen": true,
+    "paperclip_replaceable_control_plane_boundary_frozen": true,
+    "hermes_studio_director_role_frozen": true,
+    "executable_krug_antislop_rule_model_frozen": true,
+    "icm_root_router_created": true,
+    "icm_policy_files": 5,
+    "icm_shared_contracts": 5,
+    "icm_stage_contracts": 16,
+    "multi_repository_sandbox_boundary_frozen": true,
+    "runtime_migration_performed": false,
+    "next_runtime_ticket": "BKB-CONTRACT-001"
   },
   "production_deploy": false,
-  "rollback": "Revert the documentation commits on this branch. No runtime migration or external system change is included."
+  "rollback": "Revert PR #12/Phase 0 documentation-contract commits. No runtime migration, external provider, database, deployment, secret, or irreversible action is included."
 }
