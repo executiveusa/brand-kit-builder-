@@ -1,210 +1,310 @@
 # Bounded implementation tickets
 
-These tickets are ordered by dependency and commercial leverage. Complete and verify one ticket before starting the next. Reconcile `main`, open PRs, and changed files before every ticket.
+This backlog is the authoritative dependency order after Phase 0. Complete and verify one ticket before beginning the next ticket **in the execution order below**, unless a ticket explicitly states it may run in parallel after all of its prerequisites are complete. Reconcile `main`, open PRs, and changed files before every ticket.
 
-## Foundation sequence
+## Authoritative execution order
 
-### BKB-AUDIT-001 — Current-state audit and capability matrix
+1. BKB-AUDIT-001
+2. BKB-PHASE0-001
+3. BKB-CONTRACT-001
+4. BKB-STUDIO-COMPLIANCE-001
+5. BKB-RULES-001
+6. BKB-RESEARCH-001
+7. BKB-RESEARCH-002
+8. BKB-ANALYZER-001
+9. BKB-PROVIDER-001
+10. BKB-PLATFORM-001
+11. BKB-DESIGN-SYSTEM-001
+12. BKB-FONT-001
+13. BKB-LOGO-001
+14. BKB-LOGO-002
+15. BKB-ASSET-001
+16. BKB-GUARDIAN-001
+17. BKB-KAKU-001
+18. BKB-PRINT-001
+19. BKB-EXPORT-001
+20. BKB-ADAPTER-001
+21. BKB-API-001
+22. BKB-PAPERCLIP-001
+23. BKB-HERMES-001
+24. BKB-SANDBOX-001
+25. BKB-REFERENCE-001
+
+The document position and this numbered list agree. A later ticket may never be used as a hidden prerequisite for an earlier ticket.
+
+---
+
+## BKB-AUDIT-001 — Current-state audit and capability matrix
 
 **Objective:** establish verified current reality before architecture or feature work.
 
-**Likely files:** `docs/CURRENT_CAPABILITY_MATRIX.md`, audit report/plan only.
-
 **Dependencies:** governing docs, current main, PR #11, tests, Open Pomelli/Paperclip/ICM references.
+
+**Likely files:** capability matrix, audit plan/report only.
 
 **Acceptance:** evidence-backed matrix; runtime/docs drift recorded; confirmed gaps decomposed; full CI passes.
 
 **Verification:** `npm run check`; `npm test`.
 
-**Evidence:** current main SHA, CI run, open PR list, cited files.
+**Evidence:** main SHA, CI run, open PR/issues, files inspected.
 
-**Prohibited:** runtime rewrites, migrations, deployments.
+**Prohibited:** runtime rewrites, migrations, deployment.
 
 **Rollback:** revert audit commits.
 
 ---
 
-### BKB-PHASE0-001 — Architecture freeze and ICM Studio specification
+## BKB-PHASE0-001 — Architecture freeze and ICM Studio specification
 
-**Objective:** freeze the portable, non-lock-in architecture before adding features.
-
-**Likely files:** `docs/PHASE_0_ARCHITECTURE_FREEZE.md`, `docs/ICM_STUDIO_SPEC.md`, `docs/PAPERCLIP_INTEGRATION_BOUNDARY.md`, `docs/AGENT_ORG_CHART.md`, `docs/ANTI_SLOP_RULE_ENGINE_SPEC.md`, `icm/**` contracts.
+**Objective:** freeze portable non-lock-in architecture before feature work.
 
 **Dependencies:** BKB-AUDIT-001.
 
-**Acceptance:** one Brand Engine; transport adapters separated; canonical objects defined; ICM 5-layer routing/stages defined; Paperclip optional; Hermes manager role defined; Krug rule-pack model defined; trust boundaries explicit.
+**Likely files:** Phase 0 architecture docs, ICM contracts/policies/stage routers.
 
-**Verification:** repo validation; docs/reference checks; no conflicting runtime edits.
+**Acceptance:** one Brand Engine; adapters separated; canonical objects defined; ICM 5-layer routing and 16 stage contracts; Paperclip optional; Hermes manager role; executable rule model; trust boundaries explicit.
 
-**Evidence:** architecture decision table, ICM stage map, agent org chart, threat-boundary diagram.
+**Verification:** repo validation and full tests; no overlapping concurrent edits.
 
-**Prohibited:** framework migration, DB migration, Paperclip vendoring, remote deployment.
+**Evidence:** architecture decisions, ICM tree, agent org chart, control-plane boundary.
+
+**Prohibited:** framework/DB migration, Paperclip vendoring, remote deployment.
 
 **Rollback:** revert Phase 0 docs/contracts.
 
 ---
 
-### BKB-CONTRACT-001 — Canonical domain, versions, capability and artifact contracts
+## BKB-CONTRACT-001 — Canonical domain, versions, capability and artifact contracts
 
-**Objective:** eliminate duplicated state/schema drift before more adapters are added.
-
-**Likely files:** new `src/domain/` or agreed incremental compatibility layer, schemas, constants, tests, capability descriptor.
+**Objective:** eliminate duplicated browser/core state and schema drift before more adapters are added.
 
 **Dependencies:** BKB-PHASE0-001.
 
-**Acceptance:** one canonical stage list; one prebuild axis set/criticality; one app version source; versioned `BrandProject`, `EvidenceRecord`, `WorkOrder`, `Artifact`, `GuardianReview`, `Approval`, `Release`; machine-readable capability registry; compatibility adapters for existing UI/core.
+**Likely files:** compatibility-first domain/schema layer, constants/version source, capability descriptor, tests.
 
-**Verification:** parity tests across UI/core IDs; all existing tests; version-parity test.
+**Acceptance:** one canonical stage list; one readiness-axis set/criticality; one app version source; versioned BrandProject/EvidenceRecord/ResearchRun/DesignDecision/WorkOrder/Artifact/RuleResult/GuardianReview/Approval/Release/RepoWorkspace/AgentAssignment; compatibility adapters preserve existing local projects.
 
-**Evidence:** schema fixtures and adapter compatibility matrix.
+**Verification:** UI/core parity tests; schema fixtures; version-parity test; all current tests.
 
-**Prohibited:** breaking stored local projects without migration compatibility.
+**Evidence:** capability/schema matrix and migration compatibility fixtures.
 
-**Rollback:** revert compatibility layer and preserve old schemas.
+**Prohibited:** breaking stored local projects without compatibility/migration path.
+
+**Rollback:** remove compatibility layer and retain prior schemas/state readers.
 
 ---
 
-## Research and analysis sequence
+## BKB-STUDIO-COMPLIANCE-001 — Close current Studio contract gaps
 
-### BKB-RESEARCH-001 — Safe URL/site census adapter
+**Objective:** fix known current-shell violations before calling the existing UI release-ready.
 
-**Objective:** paste a URL and produce deterministic, source-traceable site census data.
+**Dependencies:** BKB-CONTRACT-001 only when changes touch shared contracts; otherwise may be executed immediately after contract verification.
+
+**Likely files:** `apps/studio/tour.js`, Studio validation/tests, accessible help metadata.
+
+**Acceptance:** every actionable tour button has accessible name plus required `data-help`; validator/test fails when future actionable buttons omit required metadata; EN/es-MX tour behavior unchanged; skip/back/next/finish and keyboard controls still work.
+
+**Verification:** Studio static validator, focused tour tests, full CI.
+
+**Evidence:** DOM/test assertions; screenshots only if visual behavior changes.
+
+**Prohibited:** redesigning the tour or unrelated Studio refactor.
+
+**Rollback:** revert bounded UI/test commit.
+
+---
+
+## BKB-RULES-001 — Executable Krug and anti-slop rules engine
+
+**Objective:** convert prompt guidance into deterministic, versioned design law.
 
 **Dependencies:** BKB-CONTRACT-001.
 
-**Acceptance:** normalized URL; SSRF/private-network protection; robots/access policy handling; sitemap/internal-page discovery; bounded page sampling; desktop/mobile screenshots; DOM/meta/copy/font/color/logo/component extraction; errors recorded without fabrication.
+**Likely files:** rule schemas/registry, evaluator, score-cap/waiver logic, tests.
 
-**Verification:** fixture sites; SSRF tests; timeout/body-size limits; screenshot manifest hashes.
+**Acceptance:** stable rule IDs; PASS/WARN/BLOCK/NOT_APPLICABLE; evidence requirements; severity P0-P3; Krug clarity/CTA/scanability/hierarchy/clickability/navigation/recovery rules; anti-slop patterns; explicit human waiver contract; no agent self-waiver.
 
-**Evidence:** `site-census.json`, screenshot manifest, source ledger entries.
+**Verification:** positive/negative fixtures, cap/severity/waiver tests.
 
-**Prohibited:** login bypass, private data scraping, arbitrary browser downloads.
+**Evidence:** machine rule results + human report fixture.
+
+**Prohibited:** unexplained aesthetic score or automatic waiver.
+
+**Rollback:** version-pin previous rule pack/evaluator.
+
+---
+
+## BKB-RESEARCH-001 — Safe URL/site census adapter
+
+**Objective:** paste a URL and produce deterministic source-traceable site census evidence.
+
+**Dependencies:** BKB-CONTRACT-001.
+
+**Likely files:** browser inspection adapter, site-census use case, evidence writers, tests.
+
+**Acceptance:** URL normalization; SSRF/private-network protection; access/robots policy; sitemap/internal discovery; bounded representative pages; desktop/mobile screenshots; DOM/meta/copy/font/color/logo/component extraction; coverage/errors explicit.
+
+**Verification:** fixture sites, SSRF/timeout/body-size tests, screenshot-manifest hashes.
+
+**Evidence:** `site-census.json`, page inventory, screenshots/evidence records.
+
+**Prohibited:** login bypass, private scraping, unrestricted crawl/downloads.
 
 **Rollback:** disable adapter capability flag.
 
 ---
 
-### BKB-RESEARCH-002 — Parallel public-web research and evidence graph
+## BKB-RESEARCH-002 — Parallel public-web research and evidence graph
 
 **Objective:** research public reputation, reviews, social presence, news, competitors and public company/profile information in parallel.
 
-**Dependencies:** BKB-RESEARCH-001; evidence schema; search/browser adapters.
+**Dependencies:** BKB-RESEARCH-001 and canonical evidence contracts.
 
-**Acceptance:** every claim has URL/source type/retrieved time/confidence/verification state; conflicting claims retained; public-only policy; per-source adapter isolation; bounded fan-out/cost.
+**Likely files:** public search/research adapters, evidence reconciliation, research-run jobs, tests.
 
-**Verification:** mocked search adapters; conflict fixtures; duplicate-source reconciliation; privacy policy tests.
+**Acceptance:** every claim has source URL/type/time/confidence/verification state; conflicts retained; public-only policy; bounded fan-out/cost; per-source adapter isolation.
 
-**Evidence:** `evidence-graph.json`, `reputation-report.json`, `social-presence.json`, `competitor-map.json`.
+**Verification:** mocked adapters, conflict/dedup fixtures, privacy/policy tests.
 
-**Prohibited:** private LinkedIn scraping, auth bypass, fake reviews, inferred facts marked verified.
+**Evidence:** evidence graph, reputation/social/competitor reports.
 
-**Rollback:** disable affected research adapters.
+**Prohibited:** private LinkedIn scraping, auth bypass, fake reviews, inference marked verified.
+
+**Rollback:** disable affected research adapter(s).
 
 ---
 
-### BKB-ANALYZER-001 — Brand Analyzer scorecard and upgrade options
+## BKB-ANALYZER-001 — Brand Analyzer scorecard and upgrade options
 
-**Objective:** turn research into an evidence-backed scorecard and selectable remediation options.
+**Objective:** turn verified research plus executable rules into an evidence-backed scorecard and selectable remediation workstreams.
 
-**Dependencies:** BKB-RESEARCH-002; BKB-RULES-001.
+**Dependencies:** BKB-RESEARCH-002 and BKB-RULES-001 (both precede this ticket).
 
-**Acceptance:** score categories carry rule IDs/evidence/severity/confidence/remediation; human sees checkbox workstreams with impact/effort/risk; selecting options creates scoped work orders, not one unbounded rebuild.
+**Likely files:** analyzer/scoring use case, upgrade-option model/UI, tests.
 
-**Verification:** deterministic scoring fixtures; no score without evidence; option-to-ticket mapping tests.
+**Acceptance:** categories carry rule IDs/evidence/severity/confidence/remediation; human receives checkbox workstreams with impact/effort/risk/dependencies; selected options create scoped work orders rather than one unbounded rebuild.
+
+**Verification:** deterministic score fixtures; no score without evidence; option-to-ticket tests.
 
 **Evidence:** `brand-audit.json/html`, `upgrade-options.json`.
 
-**Prohibited:** mystery aggregate score; automatic destructive rebuild.
+**Prohibited:** mystery aggregate score, automatic destructive rebuild.
 
-**Rollback:** revert analyzer adapter.
-
----
-
-## Anti-slop and design-system sequence
-
-### BKB-RULES-001 — Executable Krug and anti-slop rules engine
-
-**Objective:** convert prompt guidance into deterministic, versioned design law.
-
-**Dependencies:** BKB-PHASE0-001; BKB-CONTRACT-001.
-
-**Acceptance:** rule-pack schema; stable rule IDs; PASS/WARN/BLOCK; evidence requirements; score caps; Krug clarity/navigation/scanability/clickability/recovery rules; anti-slop UI/copy patterns; exemptions require documented reason and reviewer.
-
-**Verification:** positive/negative fixtures; severity/cap tests; waiver audit tests.
-
-**Evidence:** `rule-results.json`, human-readable report.
-
-**Prohibited:** subjective score with no evidence; automatic waivers.
-
-**Rollback:** version-pin previous rule pack.
+**Rollback:** disable analyzer capability.
 
 ---
 
-### BKB-DESIGN-SYSTEM-001 — Canonical design-system compiler
+## BKB-PROVIDER-001 — Provider-neutral model/media adapters
+
+**Objective:** add safe interfaces for language, vision, image, video and optional vector providers without provider lock-in.
+
+**Dependencies:** BKB-CONTRACT-001 and cost/security contracts.
+
+**Likely files:** provider interfaces/registry, vault/env credential adapter, async job envelope, provenance/cost hooks, mocks/tests.
+
+**Acceptance:** no provider-specific logic in UI/domain; secrets never enter project JSON; capability discovery; model/tool version provenance; bounded input/output; timeout/retry/cost controls; provider can be swapped or disabled.
+
+**Verification:** mock-provider conformance, secret rejection, timeout/retry/cost tests.
+
+**Evidence:** provider capability matrix and job provenance fixtures.
+
+**Prohibited:** MuAPI or any single-provider hard dependency; browser-held secrets.
+
+**Rollback:** disable provider adapter/registry entry.
+
+---
+
+## BKB-PLATFORM-001 — Versioned platform specification catalog
+
+**Objective:** encode channel/aspect/copy/layout constraints as reviewable data instead of prompt folklore.
+
+**Dependencies:** BKB-CONTRACT-001; public research may update evidence behind specs.
+
+**Likely files:** platform schemas/catalog, version/source metadata, tests.
+
+**Acceptance:** per-platform asset dimensions/aspect roles, safe copy limits/guidance, tone/layout hints, source/version/update date, applicability; no hard-coded provider dependency.
+
+**Verification:** schema and version tests; sample asset-plan fixtures.
+
+**Evidence:** catalog + source/update metadata.
+
+**Prohibited:** presenting stale platform facts as timeless; unsupported invented limits.
+
+**Rollback:** pin previous catalog version.
+
+---
+
+## BKB-DESIGN-SYSTEM-001 — Canonical design-system compiler
 
 **Objective:** compile approved brand truth into enforceable tokens, components, patterns and page recipes.
 
-**Dependencies:** BKB-CONTRACT-001; BKB-RULES-001.
+**Dependencies:** BKB-CONTRACT-001 and BKB-RULES-001.
 
-**Acceptance:** typed color/type/spacing/radius/border/shadow/layout/motion tokens; one icon family; component registry; page recipes; token-only lint rules; accessibility metadata; exportable implementation contract.
+**Likely files:** visual/design-system schemas, compiler, linter, tests.
 
-**Verification:** schema tests; token lint fixtures; duplicate-component and arbitrary-value detection.
+**Acceptance:** typed color/type/spacing/radius/border/shadow/layout/motion tokens; one icon family; component registry/states; page recipes; accessibility/localization metadata; token-only lint hooks.
 
-**Evidence:** `design-system/` package and validation report.
+**Verification:** schema/lint fixtures, duplicate-component/arbitrary-value detection.
 
-**Prohibited:** universal Pauli visual style; arbitrary values bypassing tokens.
+**Evidence:** generated `design-system/` fixture and validation report.
 
-**Rollback:** preserve prior generated tokens and disable strict lint.
+**Prohibited:** universal Pauli visual style or arbitrary production values bypassing tokens.
 
----
-
-### BKB-FONT-001 — Licensed font registry and gallery
-
-**Objective:** create a real production font library, not a screenshot imitation system.
-
-**Dependencies:** rights policy; design-system schema.
-
-**Acceptance:** actual licensed font files only; license/source/weights/styles/glyph coverage; es-MX support checks; specimens; role/personality metadata; fallback stacks; searchable gallery.
-
-**Verification:** font parse/load tests; glyph coverage; license metadata required.
-
-**Evidence:** font registry and specimen gallery.
-
-**Prohibited:** reconstructing proprietary fonts from screenshots; unlicensed redistribution.
-
-**Rollback:** remove registry entries/assets while retaining metadata audit.
+**Rollback:** preserve prior generated tokens; disable strict linter if needed.
 
 ---
 
-## Logo, asset and brand-book sequence
+## BKB-FONT-001 — Licensed font registry and gallery
 
-### BKB-LOGO-001 — Logo asset model and deterministic SVG validator
+**Objective:** create a production font library from real licensed font binaries, not screenshot imitation.
+
+**Dependencies:** BKB-DESIGN-SYSTEM-001 and rights policy.
+
+**Likely files:** font registry/gallery, license metadata, specimen generator, tests.
+
+**Acceptance:** actual licensed font files only; source/license/weights/styles/glyph coverage; es-MX coverage; role/personality metadata; fallback stacks; searchable specimens.
+
+**Verification:** font parse/load, glyph coverage, required license metadata tests.
+
+**Evidence:** registry and specimen gallery.
+
+**Prohibited:** reconstructing proprietary fonts from screenshots or unlicensed redistribution.
+
+**Rollback:** remove registry entry/binary while retaining audit metadata.
+
+---
+
+## BKB-LOGO-001 — Logo asset model and deterministic SVG validator
 
 **Objective:** make production vector identity a first-class governed asset type.
 
-**Dependencies:** BKB-CONTRACT-001; rights/provenance schema.
+**Dependencies:** BKB-CONTRACT-001 and rights/provenance contracts.
 
-**Acceptance:** preserve/refine/redesign/new modes; canonical logo manifest; SVG parse/viewBox; no embedded raster master; no scripts/events/external URLs; text/font dependency report; ID/reference integrity; complexity metrics; hashes/provenance; PASS/WARN/BLOCK.
+**Likely files:** logo schemas/validator/fixtures/tests.
 
-**Verification:** malicious/invalid/valid SVG fixtures; hash/manifest tests.
+**Acceptance:** preserve/refine/redesign/new policies; canonical manifest; SVG/XML/viewBox validation; embedded raster/script/event/external URL blocks; font/text dependency report; ID/reference integrity; complexity metrics; hashes/provenance; PASS/WARN/BLOCK.
+
+**Verification:** malicious/invalid/valid SVG fixtures and manifest/hash tests.
 
 **Evidence:** `logo-validation-report.json`.
 
-**Prohibited:** auto-trace automatically accepted as production logo.
+**Prohibited:** treating auto-trace as automatically production-ready.
 
-**Rollback:** disable validator capability and retain original assets untouched.
+**Rollback:** disable validator capability; originals remain untouched.
 
 ---
 
-### BKB-LOGO-002 — Logo production jobs and variant engine
+## BKB-LOGO-002 — Logo production jobs and variant engine
 
-**Objective:** orchestrate production/refinement and required responsive/color variants through guarded jobs.
+**Objective:** orchestrate approved production/refinement and responsive/color variants through governed jobs.
 
-**Dependencies:** BKB-LOGO-001; provider/vector adapters.
+**Dependencies:** BKB-LOGO-001 and BKB-PROVIDER-001/vector adapter where needed.
 
-**Acceptance:** master/primary/responsive/raster/print applicability manifest; clear space/min size/prohibited uses; light/dark/mono/small-size render tests; provenance/versioning.
+**Likely files:** logo job use cases, variant manifest, render tests.
 
-**Verification:** fixture identity package; missing converter produces explicit omitted status.
+**Acceptance:** master/primary/responsive/raster/print applicability; horizontal/vertical/symbol/wordmark/favicon; mono/reversed/light/dark; clear space/min size/prohibited uses; small-size tests; provenance/versioning.
+
+**Verification:** fixture identity package; missing conversion tooling creates explicit omission.
 
 **Evidence:** logo package + QA report.
 
@@ -214,182 +314,220 @@ These tickets are ordered by dependency and commercial leverage. Complete and ve
 
 ---
 
-### BKB-ASSET-001 — Provider-neutral campaigns, photo, image and video jobs
+## BKB-ASSET-001 — Campaign/photo/image/video production jobs
 
-**Objective:** integrate the useful Open Pomelli production concepts behind governed provider-neutral jobs.
+**Objective:** integrate useful Open Pomelli production concepts behind governed provider-neutral jobs.
 
-**Dependencies:** provider abstraction, asset locks, evidence/provenance, design system.
+**Dependencies:** BKB-PROVIDER-001, BKB-PLATFORM-001, BKB-DESIGN-SYSTEM-001, asset locks/provenance.
 
-**Acceptance:** campaign concepts; platform format catalog; text-free image generation; editable text/layout layer; photo presets; image-to-video; async jobs; cost guard; assets always return through review/provenance.
+**Likely files:** campaign/image/photo/video job use cases, constrained canvas hooks, manifests/tests.
 
-**Verification:** provider mock tests; asset-lock tests; failure/omitted states; cost limits.
+**Acceptance:** campaign concepts; platform formats; text-free background generation by default; editable typography/layout layer; photo presets; image-to-video; async jobs; cost guard; review/provenance return path.
 
-**Evidence:** job manifests, prompts, seeds/model metadata when available, hashes.
+**Verification:** provider mocks, asset-lock/failure/omission/cost tests.
 
-**Prohibited:** MuAPI hard lock-in; generated text baked into final editable designs by default.
+**Evidence:** job manifests, prompts/recipes, model/tool metadata and hashes.
 
-**Rollback:** disable provider adapter.
+**Prohibited:** provider lock-in or inaccessible baked-in text as default final design.
 
----
-
-### BKB-KAKU-001 — Structured visual brand-book renderer
-
-**Objective:** keep KAKU sequence while replacing generic heading/paragraph rendering with a visual document model.
-
-**Dependencies:** logo system, design system, application assets.
-
-**Acceptance:** typed blocks for logo grids/anatomy/clear space/min sizes/swatches/type specimens/imagery/patterns/icons/mockups/digital frames/do-don't/rules/source/provenance; client tokens drive layout; EN/es-MX.
-
-**Verification:** representative fixture render; HTML structural/a11y checks; screenshot visual QA.
-
-**Evidence:** rendered HTML/screenshots.
-
-**Prohibited:** copying KAKU visual style; universal Pauli template look.
-
-**Rollback:** retain old renderer as compatibility fallback until verified.
+**Rollback:** disable production provider/capability.
 
 ---
 
-### BKB-PRINT-001 — Approved PDF renderer and page-by-page QA
+## BKB-GUARDIAN-001 — Expand independent production Guardians
 
-**Objective:** produce a real visually verified PDF from approved structured brandbook HTML.
+**Objective:** extend current four Guardians to cover the new production system without letting creators self-approve.
+
+**Dependencies:** BKB-RULES-001, BKB-DESIGN-SYSTEM-001, BKB-LOGO-001; later capabilities register additional checks.
+
+**Likely files:** Guardian schemas/check registries, independent reviewer assignment rules, tests.
+
+**Acceptance:** Brand checks strategy/distinctiveness/logo/applications; Design checks Krug/anti-slop/logo/vector/type/color/accessibility/system/brandbook; Voice checks authenticity/claims/localization; Rights checks licenses/consent/provenance/trademark flags; reviewer independence recorded; P0/P1 gating preserved.
+
+**Verification:** pass/fail fixtures, independence/self-approval rejection, rerun-after-change tests.
+
+**Evidence:** Guardian reports with rule/evidence references.
+
+**Prohibited:** silent waivers or creator as sole approver.
+
+**Rollback:** keep prior Guardian set version-pinned.
+
+---
+
+## BKB-KAKU-001 — Structured visual brand-book renderer
+
+**Objective:** preserve KAKU sequence while replacing generic heading/paragraph pages with a structured visual document model.
+
+**Dependencies:** BKB-DESIGN-SYSTEM-001, BKB-LOGO-002 and applicable approved application assets.
+
+**Likely files:** brandbook block schema/renderer/styles/tests.
+
+**Acceptance:** typed blocks for logo grids/anatomy/clear space/min size/swatches/type specimens/imagery/patterns/icons/mockups/digital frames/do-don't/rules/source/provenance; client tokens drive layout; EN/es-MX.
+
+**Verification:** representative render, semantic/a11y checks, screenshot QA.
+
+**Evidence:** HTML and screenshots.
+
+**Prohibited:** copying KAKU visual identity or forcing universal Pauli styling.
+
+**Rollback:** old renderer remains compatibility fallback until verified.
+
+---
+
+## BKB-PRINT-001 — Approved PDF renderer and page-by-page QA
+
+**Objective:** produce a real visually verified PDF from approved structured HTML.
 
 **Dependencies:** BKB-KAKU-001.
 
-**Acceptance:** local fixed-argument browser renderer; no arbitrary URL/args; page manifests; clipping/overflow/font/image/page-break/contrast checks; screenshots for every page; explicit omitted status on missing renderer.
+**Likely files:** local fixed-argument renderer, page QA, CLI/use case, tests.
 
-**Verification:** PDF signature/page count/hash; render-to-image QA; malicious input tests.
+**Acceptance:** no arbitrary URL/args; page manifest; clipping/overflow/font/image/page-break/contrast checks; page screenshots; omitted status if unavailable.
+
+**Verification:** PDF signature/page count/hash, render-to-image QA, malicious input tests.
 
 **Evidence:** PDF, page screenshots, QA report.
 
-**Prohibited:** claim PDF complete when omitted or unverified.
+**Prohibited:** claiming PDF complete when omitted/unverified.
 
 **Rollback:** disable PDF capability; HTML remains canonical review surface.
 
 ---
 
-### BKB-EXPORT-001 — Canonical complete export manifest
+## BKB-EXPORT-001 — Canonical complete export manifest/package
 
-**Objective:** one manifest governs all delivery transports and artifacts.
+**Objective:** make one manifest authoritative for all delivered artifacts.
 
-**Dependencies:** prior production modules.
+**Dependencies:** applicable production modules and Guardian contracts.
 
-**Acceptance:** full output tree; every artifact path/media/size/SHA-256/provenance/approval/version/status; explicit omitted reasons; ZIP deterministic enough for verification; no phantom artifacts.
+**Likely files:** artifact/package manifest schemas, exporter, tests.
 
-**Verification:** manifest schema; file existence/hash; omitted-state tests.
+**Acceptance:** full output tree; every artifact path/media/size/SHA-256/provenance/approval/version/status; explicit omission reasons; no phantom files.
 
-**Evidence:** package manifest + ZIP inventory.
+**Verification:** schema, existence/hash and omission tests.
+
+**Evidence:** package manifest and ZIP inventory.
 
 **Prohibited:** listing nonexistent artifacts.
 
-**Rollback:** fall back to previous export schema with versioned compatibility.
+**Rollback:** versioned compatibility with previous export schema.
 
 ---
 
-## Agent/control-plane sequence
+## BKB-ADAPTER-001 — Shared use cases across Studio, CLI, MCP and SDK
 
-### BKB-ADAPTER-001 — Shared use cases across Studio, CLI, MCP and SDK
+**Objective:** ensure current transports call one engine rather than duplicating rules.
 
-**Objective:** ensure every current interface calls one engine instead of duplicated rules.
+**Dependencies:** BKB-CONTRACT-001; may begin only after preceding product contracts that its conformance suite must expose are stable.
 
-**Dependencies:** BKB-CONTRACT-001.
+**Likely files:** application use-case layer, SDK package/export map, CLI/MCP/Studio adapters, parity tests.
 
-**Acceptance:** stable SDK; capability parity tests; Studio host, CLI and MCP map to shared use cases; no adapter-owned approval/gate logic.
+**Acceptance:** stable SDK; shared capability registry; cross-adapter project/state/artifact contract parity; no adapter-owned gate/approval logic.
 
-**Verification:** cross-adapter conformance tests.
+**Verification:** conformance tests across Studio host/CLI/MCP/SDK.
 
 **Evidence:** capability parity matrix.
 
 **Prohibited:** breaking local-first operation.
 
-**Rollback:** compatibility adapters.
+**Rollback:** compatibility adapters preserve existing commands.
 
 ---
 
-### BKB-API-001 — Authenticated versioned HTTP API
+## BKB-API-001 — Authenticated versioned HTTP API
 
-**Objective:** allow remote Pauli agents to call the same engine safely.
+**Objective:** let remote Pauli agents call the same engine safely.
 
-**Dependencies:** BKB-ADAPTER-001; identity/auth; async jobs.
+**Dependencies:** BKB-ADAPTER-001, identity/auth, async job contract.
 
-**Acceptance:** `/v1` capabilities/projects/status/validate/stages/jobs/assets/brandbook/guardians/exports; auth/authorization; request IDs; idempotency; audit; rate/cost guards; bounded payloads; no approval endpoint.
+**Likely files:** HTTP adapter/OpenAPI/authz/idempotency/audit/job routes/tests.
 
-**Verification:** authz/idempotency/replay/payload/rate tests; OpenAPI contract.
+**Acceptance:** `/v1` capabilities/projects/status/validate/stages/jobs/assets/brandbook/guardians/exports; authentication/authorization; request IDs; idempotency; audit; bounded payload/rate/cost; no approval endpoint.
 
-**Evidence:** OpenAPI spec + conformance tests.
+**Verification:** authz/replay/idempotency/payload/rate tests and OpenAPI conformance.
 
-**Prohibited:** `POST /approve`; public unauthenticated operation.
+**Evidence:** OpenAPI spec + route conformance report.
 
-**Rollback:** disable HTTP adapter, local transports remain.
+**Prohibited:** `POST /approve`, public unauthenticated operation or browser-held provider secrets.
 
----
-
-### BKB-PAPERCLIP-001 — Replaceable Paperclip control-plane adapter
-
-**Objective:** represent the design studio as an AI company without coupling brand truth to Paperclip internals.
-
-**Dependencies:** capability/work-order/event contracts; HTTP/plugin boundary.
-
-**Acceptance:** company/project/goal/issues mappings; agents/roles; atomic work checkout; heartbeat status; budgets; artifacts; approvals; workspace links; event reconciliation; idempotent sync; Paperclip can be removed without losing canonical Brand Studio state.
-
-**Verification:** adapter contract tests against mocks or isolated Paperclip; replay/idempotency tests.
-
-**Evidence:** mapping spec + sync logs.
-
-**Prohibited:** vendoring/forking Paperclip into Brand Studio core; storing sole canonical brand state only in Paperclip.
-
-**Rollback:** disable adapter; Brand Studio runs via CLI/MCP/SDK/API.
+**Rollback:** disable HTTP adapter; local transports remain.
 
 ---
 
-### BKB-HERMES-001 — Hermes Studio Director integration
+## BKB-PAPERCLIP-001 — Replaceable Paperclip control-plane adapter
 
-**Objective:** make Hermes the manager that assigns, monitors and escalates work.
+**Objective:** represent the Studio as an AI company without coupling canonical brand truth to Paperclip internals.
+
+**Dependencies:** BKB-ADAPTER-001 and stable WorkOrder/event/artifact/identity contracts; HTTP is optional depending deployment mode.
+
+**Likely files:** integration adapter/mappings/events/tests, Paperclip company template.
+
+**Acceptance:** project/work-order/agent/artifact mappings; atomic assignment/status; heartbeats/budgets/workspace links; idempotent event reconciliation; Brand Studio remains usable with adapter disabled.
+
+**Verification:** mocked/isolated adapter contract and replay/idempotency tests.
+
+**Evidence:** mapping table + sync log fixtures.
+
+**Prohibited:** vendoring/forking Paperclip into core or storing sole canonical brand state there.
+
+**Rollback:** disable adapter; CLI/MCP/SDK/API continue.
+
+---
+
+## BKB-HERMES-001 — Hermes Studio Director integration
+
+**Objective:** make Hermes the manager that assigns, monitors and escalates bounded work.
 
 **Dependencies:** BKB-PAPERCLIP-001.
 
-**Acceptance:** Hermes local/gateway adapter selection; project/task delegation; status summaries; blocker escalation; budget awareness; no creator self-approval; signed/human decision boundary retained.
+**Likely files:** Hermes agent role/config/adapter mappings, smoke workflow tests.
 
-**Verification:** smoke flow from issue -> Hermes -> specialist -> artifact -> Guardian -> human decision.
+**Acceptance:** local/gateway mode selection; delegation; status/blocker/budget summaries; specialist handoffs; human decision routing; no self-approval.
 
-**Evidence:** run timeline and audit log.
+**Verification:** issue/work order → Hermes → specialist → artifact → Guardian → human-decision smoke flow.
 
-**Prohibited:** Hermes directly mutating canonical project JSON or approving its own release.
+**Evidence:** timeline/audit log.
 
-**Rollback:** pause Hermes agent; manual/other orchestrator continues.
+**Prohibited:** direct canonical JSON edits or Hermes-created release approval.
 
----
-
-### BKB-SANDBOX-001 — Isolated multi-repository execution fleet
-
-**Objective:** safely let design agents modify multiple client repositories while humans monitor a unified dashboard.
-
-**Dependencies:** Paperclip workspace/runtime boundary; work-order contracts; repo adapter.
-
-**Acceptance:** one worktree/sandbox per ticket; repo/file allowlists; bounded credentials; pre-change snapshot; preview; diff; smoke tests; rollback; branch/PR only; no cross-project writes.
-
-**Verification:** escape/cross-repo tests; failed-build rollback; concurrent ticket isolation.
-
-**Evidence:** worktree manifest, diffs, preview links, CI results.
-
-**Prohibited:** direct main writes; public deploy without approval; >3-service blast radius without plan.
-
-**Rollback:** discard worktree/branch and restore snapshot.
+**Rollback:** pause Hermes agent; another orchestrator/manual operations continue.
 
 ---
 
-## Reference client
+## BKB-SANDBOX-001 — Isolated multi-repository execution fleet
 
-### BKB-REFERENCE-001 — Asc3nd controlled end-to-end validation
+**Objective:** let agents modify multiple client repositories safely while humans monitor unified status.
 
-**Objective:** validate the reusable core on a real reference client only after required foundations are ready.
+**Dependencies:** WorkOrder/RepoWorkspace contracts and control-plane workspace adapter.
 
-**Dependencies:** logo, renderer, Guardians, export, required research/design modules.
+**Likely files:** sandbox/worktree provider, repo/file allowlists, snapshots/diffs/previews/rollback/test harness.
 
-**Acceptance:** REFINE existing identity, not blind redesign; production vector variants; small-size and application tests; KAKU-structured brandbook; full provenance; Guardian passes; human approval.
+**Acceptance:** one worktree/sandbox per implementation ticket; scoped credentials; base SHA snapshot; preview/diff/tests; rollback; branch/PR only; project isolation.
 
-**Verification:** 16/32px, website header, event page, social avatar, shirt, banner, vinyl, embroidery simplification; full export validation.
+**Verification:** path/cross-repo escape tests, concurrent isolation, failed-build rollback.
 
-**Prohibited:** using Asc3nd-specific hacks to bypass unfinished reusable core.
+**Evidence:** workspace manifest, diff, preview and CI references.
 
-**Rollback:** retain original identity and prior approved files.
+**Prohibited:** direct main writes, unrelated repo changes, production deploy without approval, >3-service change without multi-service plan.
+
+**Rollback:** discard worktree/branch and restore recorded base.
+
+---
+
+## BKB-REFERENCE-001 — Asc3nd controlled end-to-end validation
+
+**Objective:** validate the reusable core on a real reference client only after required foundations are production-ready.
+
+**Dependencies:** applicable research, rules, design system, logo, renderer, Guardians, export and handoff modules.
+
+**Likely files:** client workspace/artifacts and reference validation tests; reusable core changes require separate tickets.
+
+**Acceptance:** REFINE existing identity rather than blind redesign; production variants; 16/32px, website/event/social/shirt/banner/vinyl/embroidery-simplification tests; KAKU-structured book; provenance; Guardian passes; human approval.
+
+**Verification:** full reference-client acceptance matrix and export validation.
+
+**Evidence:** assets, screenshots, QA, release manifest.
+
+**Prohibited:** Asc3nd-specific hacks used to bypass unfinished reusable core.
+
+**Rollback:** retain original identity and prior approved client files.
