@@ -1,0 +1,68 @@
+version: 1.0.0
+family: KRUG
+rules:
+  - id: KRUG-CLARITY-001
+    title: Purpose audience and next action are immediately understandable
+    severity: P1
+    evidence: [screenshot, primary_heading, primary_action]
+  - id: KRUG-CTA-001
+    title: One dominant primary action exists for the current task context
+    severity: P1
+    evidence: [screenshot, interactive_inventory]
+  - id: KRUG-SCAN-001
+    title: Headings labels and grouping support scanning
+    severity: P2
+    evidence: [semantic_dom, screenshot]
+  - id: KRUG-HIER-001
+    title: Visual hierarchy matches real information priority
+    severity: P1
+    evidence: [screenshot, content_priority]
+  - id: KRUG-CLICK-001
+    title: Interactive elements are recognizable without hover
+    severity: P1
+    evidence: [screenshot, interactive_inventory]
+  - id: KRUG-CONVENTION-001
+    title: Familiar conventions are used unless a tested alternative is justified
+    severity: P2
+    evidence: [interaction_map, rationale]
+  - id: KRUG-NAV-001
+    title: Navigation and current location are obvious
+    severity: P1
+    evidence: [screenshot, route_map]
+  - id: KRUG-LABEL-001
+    title: Labels match destination and user expectation
+    severity: P2
+    evidence: [navigation_map]
+  - id: KRUG-HOME-001
+    title: Brand mark returns home where expected
+    severity: P2
+    evidence: [interaction_test]
+  - id: KRUG-EXIT-001
+    title: Users can leave modals forms and dead ends obviously
+    severity: P1
+    evidence: [interaction_test]
+  - id: KRUG-FORM-001
+    title: Forms ask only for necessary information
+    severity: P2
+    evidence: [form_inventory, requirement_map]
+  - id: KRUG-ERROR-001
+    title: Errors explain what happened and how to recover
+    severity: P1
+    evidence: [error_state_capture]
+  - id: KRUG-MOBILE-001
+    title: Primary workflow remains comfortable and complete on mobile
+    severity: P1
+    evidence: [mobile_screenshot, interaction_test]
+  - id: KRUG-TRUST-001
+    title: Truthful trust evidence appears near relevant decisions
+    severity: P2
+    evidence: [screenshot, claims_ledger]
+  - id: KRUG-REDUCE-001
+    title: Decoration words and motion that do not aid understanding or action are removed
+    severity: P2
+    evidence: [screenshot, rationale]
+release_policy:
+  unresolved_P0: block
+  unresolved_P1: block
+  P2: fix_or_scoped_human_waiver
+  P3: document
