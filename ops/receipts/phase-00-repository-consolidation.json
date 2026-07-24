@@ -8,7 +8,13 @@
     "pr_12_squash": "024172e8307545a1cbe60c920c44a8a2bf0ee56b",
     "pr_11_squash": "cb56b7321dfe44f18a647f024a9b286df17b25d3"
   },
-  "post_merge_sha": "pending",
+  "post_merge_sha": "df9d9631f77c8a5d452ec8b39bbd6e9c426d4866",
+  "post_merge_verification": {
+    "npm_run_check": "PASS",
+    "npm_test": "PASS (55 tests, 53 pass, 2 skipped, 0 fail)",
+    "inspect_version": "0.3.0",
+    "inspect_capabilities_intact": true
+  },
   "openspec_change": "consolidate-brand-studio-repository",
   "beads": [
     "inventory-prs",
