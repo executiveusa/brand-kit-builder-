@@ -1,0 +1,34 @@
+version: 1.0.0
+precedence:
+  - rank: 1
+    source: current_user_instruction_and_verified_project_truth
+  - rank: 2
+    source: safety_privacy_rights_accessibility_irreversibility
+  - rank: 3
+    source: approved_existing_brand_and_protected_assets
+  - rank: 4
+    source: steve_krug_usability_and_task_clarity
+  - rank: 5
+    source: existing_repository_architecture_and_working_conventions
+  - rank: 6
+    source: kaku_delivery_structure
+  - rank: 7
+    source: uncodixfy_anti_slop
+  - rank: 8
+    source: stop_slop_prose
+  - rank: 9
+    source: impeccable_craft_and_hardening
+  - rank: 10
+    source: taste_enhancements
+  - rank: 11
+    source: reference_design_vocabulary
+  - rank: 12
+    source: agent_preference
+conflict_rules:
+  unresolved_material_conflict: block_dependent_decision
+  never_discard_conflicting_evidence: true
+  human_decision_required_for:
+    - ownership_or_rights_conflict
+    - identity_changing_brand_conflict
+    - high_impact_claim_conflict
+    - irreversible_scope_conflict

@@ -1,0 +1,68 @@
+version: 1.0.0
+family: SLOP
+rules:
+  - id: SLOP-CLAIM-001
+    title: No fabricated or unverified metrics testimonials awards partners or urgency
+    severity: P0
+  - id: SLOP-HERO-001
+    title: Hero composition and copy must be brand-specific and task-specific
+    severity: P2
+  - id: SLOP-GRADIENT-001
+    title: Gradients require documented brand or product rationale
+    severity: P3
+  - id: SLOP-GLASS-001
+    title: Glass blur and frosting may not be default decoration
+    severity: P3
+  - id: SLOP-CARD-001
+    title: Avoid unnecessary nested floating and repetitive card shells
+    severity: P2
+  - id: SLOP-RADIUS-001
+    title: Radius values must follow approved design tokens and purpose
+    severity: P2
+  - id: SLOP-PILL-001
+    title: Pills are reserved for controls or semantic labels that need the form
+    severity: P3
+  - id: SLOP-BENTO-001
+    title: Bento layouts require information-architecture justification
+    severity: P2
+  - id: SLOP-METRIC-001
+    title: Metric cards require real evidence and decision value
+    severity: P1
+  - id: SLOP-ICON-001
+    title: Avoid repetitive icon-card patterns and mixed icon families
+    severity: P2
+  - id: SLOP-SPACE-001
+    title: Spacing must support hierarchy rather than imitate generic luxury layouts
+    severity: P3
+  - id: SLOP-MOTION-001
+    title: Motion must support understanding feedback or narrative without blocking task completion
+    severity: P1
+  - id: SLOP-CURSOR-001
+    title: Custom cursors require accessibility and product justification
+    severity: P2
+  - id: SLOP-STOCK-001
+    title: Imagery must carry evidence narrative or brand value rather than fill space
+    severity: P2
+  - id: SLOP-COPY-001
+    title: Public copy must be specific enough that it cannot be swapped onto any competitor unchanged
+    severity: P2
+  - id: SLOP-PLACEHOLDER-001
+    title: Placeholder or demo data may not be represented as real business state
+    severity: P0
+  - id: SLOP-SCREENSHOT-001
+    title: Static mock interfaces may not be represented as working product
+    severity: P1
+  - id: SLOP-COMING-001
+    title: Coming-soon states require a useful next action
+    severity: P2
+  - id: SLOP-EASY-AI-001
+    title: Design choices need project rationale beyond model-generation convenience
+    severity: P2
+caps:
+  generic_ai_slop_max_score: 7.0
+  fake_claims_max_score: 6.5
+waivers:
+  require_human: true
+  require_reason: true
+  require_scope: true
+  agent_self_waiver: prohibited
