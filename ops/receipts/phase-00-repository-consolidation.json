@@ -1,0 +1,72 @@
+{
+  "phase_id": "phase-00-repository-consolidation",
+  "phase_number": 0,
+  "status": "complete",
+  "completed_at": "2026-07-24T07:00:00Z",
+  "baseline_sha": "7b0f142258570a32190081f88adb8361e6f64150",
+  "pre_merge_shas": {
+    "pr_12_squash": "024172e8307545a1cbe60c920c44a8a2bf0ee56b",
+    "pr_11_squash": "cb56b7321dfe44f18a647f024a9b286df17b25d3"
+  },
+  "post_merge_sha": "pending",
+  "openspec_change": "consolidate-brand-studio-repository",
+  "beads": [
+    "inventory-prs",
+    "reconcile-main",
+    "resolve-reviews",
+    "merge-valid-work",
+    "close-superseded",
+    "verify-main"
+  ],
+  "prs_classified": {
+    "pr_12": {
+      "title": "[ZTE] Audit current Brand Studio and begin Phase 0 architecture freeze",
+      "classification": "MERGE",
+      "reason": "Documentation only, 36 files, ICM structure + bounded tickets + capability matrix + anti-slop spec + Paperclip boundary. CI passing, reviews resolved, mergeable.",
+      "action": "squash-merged",
+      "squash_sha": "024172e8307545a1cbe60c920c44a8a2bf0ee56b"
+    },
+    "pr_11": {
+      "title": "Add one-shot production Brand Studio gap-closure prompt",
+      "classification": "MERGE",
+      "reason": "Documentation only, 1 file (gap-closure prompt). Referenced by GRINIONS handoff. CI passing, mergeable.",
+      "action": "marked-ready-then-squash-merged",
+      "squash_sha": "cb56b7321dfe44f18a647f024a9b286df17b25d3"
+    }
+  },
+  "version_drift_fixed": {
+    "package_json": "0.3.0",
+    "app_version_before": "0.2.0",
+    "app_version_after": "0.3.0",
+    "mcp_serverinfo_before": "0.2.0 (hard-coded)",
+    "mcp_serverinfo_after": "APP_VERSION (imported)",
+    "parity_check_added": true,
+    "parity_test_added": true
+  },
+  "grinions_structure_created": [
+    "openspec/changes/",
+    "openspec/specs/",
+    "ops/receipts/",
+    "ops/rollback/",
+    ".ralphy/config.json",
+    ".github/pull_request_template.md"
+  ],
+  "gitignore_updated": [
+    "graphify-out/",
+    ".ralphy/logs/",
+    "openspec/changes/*/drafts/"
+  ],
+  "validation": {
+    "npm_run_check": "PASS",
+    "npm_test": "PASS (55 tests, 53 pass, 2 skipped, 0 fail)",
+    "version_parity": "PASS"
+  },
+  "open_gaps": [],
+  "p0_p1_p2": {
+    "p0": 0,
+    "p1": 0,
+    "p2": 0
+  },
+  "next_bead": "BKB-CONTRACT-001 — Canonical Brand Engine contracts (Phase 01)",
+  "rollback": "ops/rollback/phase-00-repository-consolidation.json"
+}
