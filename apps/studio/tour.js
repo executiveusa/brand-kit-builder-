@@ -105,10 +105,10 @@ export class ProductTour {
       <header><h2 id="tour-title">${translate(step.title)}</h2></header>
       <p>${translate(step.body)}</p>
       <div class="tour-actions">
-        <button type="button" class="text-button" data-tour-action="skip">${translate('tour.skip')}</button>
+        <button type="button" class="text-button" data-tour-action="skip" data-help="tourSkip" aria-label="${translate('tour.skip')}">${translate('tour.skip')}</button>
         <div>
-          <button type="button" class="secondary-button" data-tour-action="back" ${this.index === 0 ? 'disabled' : ''}>${translate('tour.back')}</button>
-          <button type="button" class="primary-button" data-tour-action="next">${this.index === tourSteps.length - 1 ? translate('tour.finish') : translate('tour.next')}</button>
+          <button type="button" class="secondary-button" data-tour-action="back" data-help="tourBack" aria-label="${translate('tour.back')}" ${this.index === 0 ? 'disabled' : ''}>${translate('tour.back')}</button>
+          <button type="button" class="primary-button" data-tour-action="next" data-help="tourNext" aria-label="${this.index === tourSteps.length - 1 ? translate('tour.finish') : translate('tour.next')}">${this.index === tourSteps.length - 1 ? translate('tour.finish') : translate('tour.next')}</button>
         </div>
       </div>`;
     this.root.replaceChildren(shade, focus, card);
