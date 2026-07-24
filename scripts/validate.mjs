@@ -1,7 +1,7 @@
 import { access, readFile } from "node:fs/promises";
 import path from "node:path";
 import process from "node:process";
-import { PREBUILD_AXES, STAGES } from "../src/agent/constants.mjs";
+import { APP_VERSION, PREBUILD_AXES, STAGES } from "../src/agent/constants.mjs";
 import { inspectCapabilities } from "../src/agent/orchestrator.mjs";
 import { scorePrebuild } from "../src/agent/prebuild.mjs";
 
@@ -23,6 +23,7 @@ for (const file of requiredFiles) await access(path.join(root, file));
 for (const file of jsonFiles) JSON.parse(await readFile(path.join(root, file), "utf8"));
 
 const packageJson = JSON.parse(await readFile(path.join(root, "package.json"), "utf8"));
+if (packageJson.version !== APP_VERSION) throw new Error(`Version drift detected: package.json=${packageJson.version} but APP_VERSION=${APP_VERSION}. All version sources must match.`);
 if (!packageJson.bin?.["brand-kit-builder"] || !packageJson.bin?.["brand-kit-builder-mcp"]) throw new Error("Both CLI and MCP binaries must be declared.");
 if (!packageJson.scripts?.studio || !packageJson.scripts?.["studio:check"]) throw new Error("Studio run and validation scripts must be declared.");
 if (PREBUILD_AXES.length !== 20) throw new Error(`Expected 20 prebuild axes, received ${PREBUILD_AXES.length}.`);

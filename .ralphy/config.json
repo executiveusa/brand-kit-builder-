@@ -1,0 +1,33 @@
+{
+  "project": "pauli-brand-studio",
+  "repository": "https://github.com/executiveusa/brand-kit-builder-.git",
+  "mode": "GRINIONS",
+  "phase_format": "phase/<NN>-<slug>",
+  "merge_strategy": "squash",
+  "repair_budgets": {
+    "local_loops": 5,
+    "remote_ci_rounds": 2,
+    "review_rounds": 3
+  },
+  "stop_conditions": [
+    "destructive-migration",
+    "secret-exposure",
+    "auth-permission-uncertainty",
+    "irreversible-action",
+    "material-spend",
+    "legal-rights-uncertainty",
+    "missing-required-access",
+    "blast-radius-gt-3-services",
+    "exhausted-repair-budget",
+    "protected-branch-bypass",
+    "rollback-cannot-be-proven"
+  ],
+  "governance_order": [
+    "AGENTS.md",
+    "repo-local-policies",
+    "accepted-openspec",
+    "beads-dependency-graph",
+    "approved-phase-contract",
+    "grinions-handoff"
+  ]
+}

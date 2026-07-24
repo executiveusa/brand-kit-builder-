@@ -8,3 +8,6 @@ node_modules/
 dist/
 coverage/
 *.log
+graphify-out/
+.ralphy/logs/
+openspec/changes/*/drafts/

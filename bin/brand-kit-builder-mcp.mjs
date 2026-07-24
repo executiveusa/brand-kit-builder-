@@ -2,6 +2,7 @@
 import readline from "node:readline";
 import process from "node:process";
 import {
+  APP_VERSION,
   asAgentError,
   completeStage,
   createAgentContext,
@@ -141,7 +142,7 @@ async function handle(message) {
       result: {
         protocolVersion: "2024-11-05",
         capabilities: { tools: { listChanged: false } },
-        serverInfo: { name: "pauli-brand-kit-builder", version: "0.2.0" },
+        serverInfo: { name: "pauli-brand-kit-builder", version: APP_VERSION },
         instructions: "Use source-first stages in order. Complete only bound work orders. Export requires passed guardians and explicit Bambu approval."
       }
     });
