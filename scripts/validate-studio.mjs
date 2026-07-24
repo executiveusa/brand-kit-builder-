@@ -12,7 +12,7 @@ const files = [
   'apps/studio/i18n.js', 'apps/studio/agent-bridge.js', 'apps/studio/tour.js', 'apps/studio/app.js', 'apps/studio/project-store.js', 'apps/studio/studio-project-store.js', 'apps/studio/release-project-store.js',
   'apps/studio/brand-copy.js', 'apps/studio/brand-tools.js', 'apps/studio/strategy-voice-copy.js', 'apps/studio/strategy-voice-tools.js', 'apps/studio/visual-copy.js', 'apps/studio/visual-tools.js',
   'apps/studio/kaku-brandbook.js', 'apps/studio/brandbook-copy.js', 'apps/studio/brandbook-tools.js', 'apps/studio/guardian-export-domain.js', 'apps/studio/guardian-export-copy.js', 'apps/studio/guardian-export-tools.js',
-  'apps/studio/export-package.js', 'apps/studio/zip-store.js', 'apps/studio/contracts.js', 'apps/studio/README.md', 'scripts/serve-studio.mjs', 'docs/UPSTREAM_OPEN_CODESIGN.md', 'THIRD_PARTY_NOTICES.md'
+  'apps/studio/export-package.js', 'apps/studio/zip-store.js', 'apps/studio/contracts.js', 'apps/studio/rules-engine.js', 'apps/studio/README.md', 'scripts/serve-studio.mjs', 'docs/UPSTREAM_OPEN_CODESIGN.md', 'THIRD_PARTY_NOTICES.md'
 ];
 for (const file of files) await access(path.join(root, file));
 const content = Object.fromEntries(await Promise.all(files.map(async (file) => [file, await readFile(path.join(root, file), 'utf8')])));
