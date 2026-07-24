@@ -1,29 +1,8 @@
+import { STAGES, PREBUILD_AXES, STUDIO_AXIS_ALIASES } from './contracts.js';
+
+export { STAGES, PREBUILD_AXES };
+
 export const PROJECT_STORAGE_KEY = 'pauli-brand-studio-projects-v2';
-
-export const STAGES = ['intake', 'sources', 'readiness', 'strategy', 'voice', 'visual', 'brandbook', 'guardian', 'export'];
-
-export const PREBUILD_AXES = [
-  { id: 'source_completeness', critical: true, en: 'Source completeness', es: 'Fuentes completas' },
-  { id: 'business_clarity', critical: true, en: 'Business clarity', es: 'Claridad del negocio' },
-  { id: 'audience_clarity', critical: false, en: 'Audience clarity', es: 'Claridad de audiencia' },
-  { id: 'offer_conversion_clarity', critical: false, en: 'Offer and conversion clarity', es: 'Claridad de oferta y conversión' },
-  { id: 'differentiation', critical: false, en: 'Differentiation', es: 'Diferenciación' },
-  { id: 'purpose_values', critical: false, en: 'Purpose and values', es: 'Propósito y valores' },
-  { id: 'proof_claim_safety', critical: true, en: 'Proof and claim safety', es: 'Pruebas y seguridad de afirmaciones' },
-  { id: 'voice_evidence', critical: false, en: 'Voice evidence', es: 'Evidencia de voz' },
-  { id: 'visual_evidence', critical: false, en: 'Visual evidence', es: 'Evidencia visual' },
-  { id: 'logo_status', critical: false, en: 'Logo status', es: 'Estado del logo' },
-  { id: 'application_requirements', critical: false, en: 'Application requirements', es: 'Aplicaciones necesarias' },
-  { id: 'accessibility_requirements', critical: false, en: 'Accessibility requirements', es: 'Requisitos de accesibilidad' },
-  { id: 'localization_requirements', critical: false, en: 'Language and localization', es: 'Idioma y localización' },
-  { id: 'rights_licensing', critical: true, en: 'Rights and licensing', es: 'Derechos y licencias' },
-  { id: 'technical_environment', critical: false, en: 'Technical environment', es: 'Entorno técnico' },
-  { id: 'deliverable_scope', critical: false, en: 'Deliverable scope', es: 'Alcance de entregables' },
-  { id: 'approval_authority', critical: true, en: 'Approval authority', es: 'Autoridad de aprobación' },
-  { id: 'production_constraints', critical: false, en: 'Budget, time, and production constraints', es: 'Límites de presupuesto, tiempo y producción' },
-  { id: 'handoff_readiness', critical: false, en: 'Repository and handoff readiness', es: 'Preparación de repositorio y entrega' },
-  { id: 'contradiction_resolution', critical: true, en: 'Contradiction resolution', es: 'Resolución de contradicciones' }
-];
 
 const DEMO_PROJECT_ID = 'kupuri-media-demo';
 
@@ -97,6 +76,16 @@ function normalizeStrategy(strategy = {}) {
   };
 }
 function normalizeVoice(voice = {}) { const base = blankVoice(); return { ...base, ...voice, axes: { ...base.axes, ...(voice.axes || {}) } }; }
+
+function migrateReadinessScores(scores = {}) {
+  const migrated = {};
+  for (const [key, value] of Object.entries(scores)) {
+    const canonicalKey = STUDIO_AXIS_ALIASES[key] || key;
+    migrated[canonicalKey] = value;
+  }
+  return migrated;
+}
+
 function normalizeProject(project) {
   const normalized = { ...project };
   normalized.schema_version = '2.1';
@@ -104,7 +93,7 @@ function normalizeProject(project) {
   normalized.languages = Array.isArray(project.languages) && project.languages.length ? [...new Set(project.languages)] : ['en'];
   normalized.sources = Array.isArray(project.sources) ? project.sources.map(normalizeSource) : [];
   normalized.discovery = { current_question: 0, answers: {}, ...(project.discovery || {}) };
-  normalized.readiness = { scores: {}, overall: 0, gate: 'FAIL', gaps: [], ...(project.readiness || {}) };
+  normalized.readiness = { scores: {}, overall: 0, gate: 'FAIL', gaps: [], ...(project.readiness || {}), scores: migrateReadinessScores(project.readiness?.scores) };
   normalized.stages = { ...blankStages(), ...(project.stages || {}) };
   normalized.strategy = normalizeStrategy(project.strategy);
   normalized.voice = normalizeVoice(project.voice);
@@ -152,22 +141,22 @@ function derivedScore(project, axisId) {
     case 'source_completeness': return source.passed ? 9 : Math.max(3, 5 + project.sources.filter((item) => item.accessed).length);
     case 'business_clarity': return intake.business_goal ? 8.5 : hasAnswer(project, 'business_story') ? 8 : 4;
     case 'audience_clarity': return intake.audience ? 8.5 : hasAnswer(project, 'audience_pain') ? 8 : 4;
-    case 'offer_conversion_clarity': return intake.primary_action ? 8.5 : hasAnswer(project, 'offer') ? 8 : 4;
+    case 'offer_and_conversion_clarity': return intake.primary_action ? 8.5 : hasAnswer(project, 'offer') ? 8 : 4;
     case 'differentiation': return hasAnswer(project, 'differentiation') ? 8.5 : base;
-    case 'purpose_values': return hasAnswer(project, 'values') ? 8.5 : base;
-    case 'proof_claim_safety': return hasAnswer(project, 'proof') ? 8.5 : 4;
+    case 'brand_purpose_and_values': return hasAnswer(project, 'values') ? 8.5 : base;
+    case 'proof_and_claim_safety': return hasAnswer(project, 'proof') ? 8.5 : 4;
     case 'voice_evidence': return hasAnswer(project, 'voice') ? 8.5 : base;
     case 'visual_evidence': return hasSourceType(project, ['image', 'logo', 'website', 'url', 'files']) ? 8 : 5;
     case 'logo_status': return hasSourceType(project, ['logo']) ? 9 : hasAnswer(project, 'applications') ? 7 : 5;
     case 'application_requirements': return hasAnswer(project, 'applications') ? 8.5 : base;
     case 'accessibility_requirements': return hasAnswer(project, 'accessibility') ? 8.5 : 5;
-    case 'localization_requirements': return languages.length > 1 ? 9 : languages.length === 1 ? 8 : 4;
-    case 'rights_licensing': return rights ? 9 : 4;
-    case 'technical_environment': return hasSourceType(project, ['repo', 'repository', 'url', 'website']) ? 8.5 : 6;
+    case 'language_and_localization_requirements': return languages.length > 1 ? 9 : languages.length === 1 ? 8 : 4;
+    case 'rights_and_licensing_status': return rights ? 9 : 4;
+    case 'technical_environment_clarity': return hasSourceType(project, ['repo', 'repository', 'url', 'website']) ? 8.5 : 6;
     case 'deliverable_scope': return hasAnswer(project, 'applications') ? 8.5 : 5;
     case 'approval_authority': return intake.approval_authority ? 9 : 4;
-    case 'production_constraints': return intake.constraints ? 8.5 : 6;
-    case 'handoff_readiness': return hasSourceType(project, ['repo', 'repository']) ? 8.5 : 6;
+    case 'budget_time_and_production_constraints': return intake.constraints ? 8.5 : 6;
+    case 'repository_and_handoff_readiness': return hasSourceType(project, ['repo', 'repository']) ? 8.5 : 6;
     case 'contradiction_resolution': return source.unresolved.length === 0 ? 9 : 3;
     default: return base;
   }

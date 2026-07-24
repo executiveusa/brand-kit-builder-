@@ -7,29 +7,16 @@ import { strategyIsComplete, voiceIsComplete } from '../../apps/studio/project-s
 import { visualIsComplete } from '../../apps/studio/studio-project-store.js';
 import { brandbookIsComplete } from '../../apps/studio/kaku-brandbook.js';
 import { GUARDIAN_ORDER, guardianGate } from '../../apps/studio/guardian-export-domain.js';
+import { STUDIO_AXIS_ALIASES, PREBUILD_AXIS_IDS } from '../../apps/studio/contracts.js';
 
-const AXIS_MAP = {
-  source_completeness: 'source_completeness',
-  business_clarity: 'business_clarity',
-  audience_clarity: 'audience_clarity',
-  offer_conversion_clarity: 'offer_and_conversion_clarity',
-  differentiation: 'differentiation',
-  purpose_values: 'brand_purpose_and_values',
-  proof_claim_safety: 'proof_and_claim_safety',
-  voice_evidence: 'voice_evidence',
-  visual_evidence: 'visual_evidence',
-  logo_status: 'logo_status',
-  application_requirements: 'application_requirements',
-  accessibility_requirements: 'accessibility_requirements',
-  localization_requirements: 'language_and_localization_requirements',
-  rights_licensing: 'rights_and_licensing_status',
-  technical_environment: 'technical_environment_clarity',
-  deliverable_scope: 'deliverable_scope',
-  approval_authority: 'approval_authority',
-  production_constraints: 'budget_time_and_production_constraints',
-  handoff_readiness: 'repository_and_handoff_readiness',
-  contradiction_resolution: 'contradiction_resolution'
-};
+const REVERSE_ALIASES = PREBUILD_AXIS_IDS.reduce((map, canonicalId) => {
+  map.set(canonicalId, [canonicalId]);
+  return map;
+}, new Map());
+for (const [browserKey, canonicalKey] of Object.entries(STUDIO_AXIS_ALIASES)) {
+  if (!REVERSE_ALIASES.has(canonicalKey)) REVERSE_ALIASES.set(canonicalKey, []);
+  REVERSE_ALIASES.get(canonicalKey).push(browserKey);
+}
 
 function now() { return new Date().toISOString(); }
 function canonicalize(value) {
@@ -69,10 +56,11 @@ function normalizeSources(sources) {
 function normalizeReadiness(readiness) {
   const browserScores = readiness?.scores || {};
   const coreScores = {};
-  for (const [browserKey, coreKey] of Object.entries(AXIS_MAP)) {
-    const value = Number(browserScores[browserKey]);
-    if (!Number.isFinite(value)) throw new AgentError('PREBUILD_AXIS_MISMATCH', 'Studio readiness is missing a required axis.', { axis: browserKey });
-    coreScores[coreKey] = value;
+  for (const canonicalId of PREBUILD_AXIS_IDS) {
+    const possibleKeys = REVERSE_ALIASES.get(canonicalId);
+    const foundKey = possibleKeys.find((key) => Number.isFinite(Number(browserScores[key])));
+    if (!foundKey) throw new AgentError('PREBUILD_AXIS_MISMATCH', 'Studio readiness is missing a required axis.', { axis: canonicalId, expected_keys: possibleKeys });
+    coreScores[canonicalId] = Number(browserScores[foundKey]);
   }
   const scored = scorePrebuild(coreScores);
   assertPrebuildPassed(scored);

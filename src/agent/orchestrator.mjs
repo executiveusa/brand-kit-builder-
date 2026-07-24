@@ -2,25 +2,11 @@ import { createReadStream } from "node:fs";
 import { lstat } from "node:fs/promises";
 import { createHash } from "node:crypto";
 import path from "node:path";
-import { APP_VERSION, GATED_STAGES, OWNER_APPROVAL_STAGES, STAGES, STAGE_OUTPUTS } from "./constants.mjs";
+import { APP_VERSION, GATED_STAGES, GUARDIAN_NAMES, MAX_DAILY_COST_CENTS, MAX_JOB_COST_CENTS, OWNER_APPROVAL_STAGES, PROJECT_CLASSIFICATIONS, SOURCE_TRUST_LEVELS, STAGES, STAGE_OUTPUTS } from "./constants.mjs";
 import { AgentError } from "./errors.mjs";
 import { assertPrebuildPassed, scorePrebuild } from "./prebuild.mjs";
 import { assertApproval, assertNoSecretLikeData, assertSafeIdentifier, ensureWorkspaceRoot, resolveInside } from "./security.mjs";
 import { WorkspaceStore } from "./store.mjs";
-
-const CLASSIFICATIONS = new Set([
-  "greenfield",
-  "brownfield",
-  "hybrid",
-  "recovery",
-  "asset-extension",
-  "brand-refresh",
-  "full-rebrand"
-]);
-const SOURCE_TRUST = new Set(["primary", "governing", "reference", "inspiration"]);
-const GUARDIAN_NAMES = ["brand", "design", "voice", "rights"];
-const MAX_JOB_COST_CENTS = 1000;
-const MAX_DAILY_COST_CENTS = 5000;
 
 function now() {
   return new Date().toISOString();
@@ -50,7 +36,7 @@ function validateSources(sources) {
     if (typeof source.location !== "string" || source.location.trim() === "") {
       throw new AgentError("INVALID_SOURCE", "Every source requires a location or explicit brief identifier.", { source_id: sourceId });
     }
-    if (!SOURCE_TRUST.has(source.trust_level)) {
+    if (!SOURCE_TRUST_LEVELS.has(source.trust_level)) {
       throw new AgentError("INVALID_SOURCE_TRUST", "Source trust_level is invalid.", { source_id: sourceId, allowed: [...SOURCE_TRUST] });
     }
     return {
@@ -91,8 +77,8 @@ function validateProjectShape(project) {
   if (typeof project.name !== "string" || project.name.trim().length < 2) {
     throw new AgentError("INVALID_PROJECT", "Project name must contain at least two characters.");
   }
-  if (!CLASSIFICATIONS.has(project.classification)) {
-    throw new AgentError("INVALID_CLASSIFICATION", "Project classification is invalid.", { allowed: [...CLASSIFICATIONS] });
+  if (!PROJECT_CLASSIFICATIONS.has(project.classification)) {
+    throw new AgentError("INVALID_CLASSIFICATION", "Project classification is invalid.", { allowed: [...PROJECT_CLASSIFICATIONS] });
   }
   const sources = validateSources(project.sources);
   return { projectId, sources };

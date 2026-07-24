@@ -1,0 +1,26 @@
+{
+  "phase_id": "phase-01-canonical-brand-engine-contracts",
+  "created_at": "2026-07-24T07:10:00Z",
+  "baseline_sha": "1d84779",
+  "post_merge_sha": "pending",
+  "schema_version": "1.0",
+  "affected_services": [
+    "brand-kit-builder-cli",
+    "brand-kit-builder-mcp",
+    "brand-kit-builder-studio"
+  ],
+  "feature_flags": [],
+  "data_loss_risk": "none",
+  "deployment_id": null,
+  "rollback_commands": [
+    "git revert <squash-sha> --no-edit",
+    "git push origin main"
+  ],
+  "reverse_migration": "Old axis IDs remain in stored projects but are migrated on load. Reverting restores local constants in src/agent/constants.mjs and apps/studio/project-store.js.",
+  "verification_steps": [
+    "npm run check",
+    "npm test",
+    "node bin/brand-kit-builder.mjs inspect"
+  ],
+  "notes": "Canonical contracts module is additive. Backward compatibility maintained via STUDIO_AXIS_ALIASES and migrateReadinessScores. No stored-project state changes."
+}
