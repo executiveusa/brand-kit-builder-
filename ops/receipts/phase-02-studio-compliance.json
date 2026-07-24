@@ -1,0 +1,39 @@
+{
+  "phase_id": "phase-02-studio-compliance",
+  "phase_number": 2,
+  "ticket": "BKB-STUDIO-COMPLIANCE-001",
+  "status": "complete",
+  "completed_at": "2026-07-24T07:30:00Z",
+  "baseline_sha": "bac346f",
+  "post_merge_sha": "632720162a21401df80ccad83b876d0e273fb058",
+  "openspec_change": "studio-compliance-data-help-and-accessibility",
+  "beads": [
+    "audit-data-help-gaps",
+    "add-data-help-to-brand-tools",
+    "add-data-help-to-strategy-voice-tools",
+    "add-data-help-to-visual-tools",
+    "add-data-help-to-brandbook-tools",
+    "add-data-help-to-guardian-export-tools",
+    "add-data-help-to-tour",
+    "add-compliance-tests",
+    "verify-all-buttons-compliant"
+  ],
+  "buttons_updated": 30,
+  "files_updated": [
+    "apps/studio/brand-tools.js",
+    "apps/studio/strategy-voice-tools.js",
+    "apps/studio/visual-tools.js",
+    "apps/studio/brandbook-tools.js",
+    "apps/studio/guardian-export-tools.js",
+    "apps/studio/tour.js"
+  ],
+  "compliance_tests_added": 7,
+  "validation": {
+    "npm_run_check": "PASS",
+    "npm_test": "PASS (82 tests, 80 pass, 2 skipped, 0 fail)"
+  },
+  "open_gaps": [],
+  "p0_p1_p2": { "p0": 0, "p1": 0, "p2": 0 },
+  "next_bead": "BKB-RULES-001 — Executable Krug + anti-slop engine (Phase 03)",
+  "rollback": "ops/rollback/phase-02-studio-compliance.json"
+}
