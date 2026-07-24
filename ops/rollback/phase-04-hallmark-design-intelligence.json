@@ -1,0 +1,15 @@
+{
+  "phase_id": "phase-04-hallmark-design-intelligence",
+  "created_at": "2026-07-24T07:45:00Z",
+  "baseline_sha": "9c844c2",
+  "post_merge_sha": "pending",
+  "schema_version": "1.0",
+  "affected_services": ["brand-kit-builder-studio", "brand-kit-builder-cli"],
+  "feature_flags": [],
+  "data_loss_risk": "none",
+  "deployment_id": null,
+  "rollback_commands": ["git revert <squash-sha> --no-edit", "git push origin main"],
+  "reverse_migration": null,
+  "verification_steps": ["npm run check", "npm test"],
+  "notes": "Design intelligence module is additive. No runtime dependency on Hallmark. No existing behavior changed."
+}
