@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Racional Creativo — Brand Kit | Pauli Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-natural: #454B33;
+    --color-arena: #F2ECE4;
+    --color-arcilla: #9D522C;
+    --color-ladrillo: #74210F;
+    --color-ink: #1a1a1a;
+    --color-paper: #faf9f7;
+    --font-display: 'Cormorant Garamond', 'Times New Roman', serif;
+    --font-body: 'Inter', -apple-system, sans-serif;
+    --space-unit: 4px;
+    --transition: 400ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+  }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--color-paper);
+    color: var(--color-ink);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* PAGE CONTAINER */
+  .page {
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(48px, 8vw, 120px) clamp(24px, 5vw, 80px);
+    page-break-after: always;
+  }
+
+  /* NAVIGATION */
+  .nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    padding: 24px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(250,249,247,0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(26,26,26,0.06);
+  }
+  .nav-brand {
+    font-family: var(--font-display);
+    font-size: 1.125rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-ink);
+    text-decoration: none;
+    opacity: 0.6;
+    transition: opacity 200ms;
+  }
+  .nav-links a:hover { opacity: 1; }
+
+  /* PAGE 01 — COVER */
+  .page-cover {
+    background: var(--color-natural);
+    color: var(--color-arena);
+    align-items: center;
+    text-align: center;
+  }
+  .page-cover .eyebrow {
+    font-size: 0.6875rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    opacity: 0.7;
+    margin-bottom: 32px;
+  }
+  .page-cover h1 {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 10vw, 8rem);
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+  }
+  .page-cover .subtitle {
+    font-family: var(--font-display);
+    font-size: clamp(1.25rem, 3vw, 2rem);
+    font-weight: 400;
+    font-style: italic;
+    opacity: 0.8;
+    margin-bottom: 48px;
+  }
+  .page-cover .meta {
+    font-size: 0.6875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    opacity: 0.5;
+  }
+  .page-cover .deco-line {
+    width: 1px;
+    height: 80px;
+    background: var(--color-arena);
+    opacity: 0.3;
+    margin: 40px auto;
+  }
+
+  /* PAGE 02 — PHILOSOPHY */
+  .page-philosophy {
+    background: var(--color-paper);
+  }
+  .page-philosophy .content {
+    max-width: 680px;
+  }
+  .page-number {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-arcilla);
+    margin-bottom: 48px;
+  }
+  .page-philosophy h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 400;
+    line-height: 1.15;
+    margin-bottom: 40px;
+    color: var(--color-natural);
+  }
+  .page-philosophy p {
+    font-size: 1.0625rem;
+    line-height: 1.75;
+    color: rgba(26,26,26,0.75);
+    margin-bottom: 24px;
+  }
+  .quote-block {
+    margin: 56px 0;
+    padding-left: 32px;
+    border-left: 2px solid var(--color-arcilla);
+  }
+  .quote-block p {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--color-natural);
+  }
+  .quote-block cite {
+    display: block;
+    margin-top: 16px;
+    font-family: var(--font-body);
+    font-size: 0.8125rem;
+    font-style: normal;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-arcilla);
+  }
+
+  /* PAGE 03 — VISUAL ANCHOR */
+  .page-anchor {
+    background: var(--color-arena);
+  }
+  .anchor-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2px;
+    margin-top: 48px;
+  }
+  .anchor-item {
+    background: rgba(69,75,51,0.06);
+    padding: 40px 32px;
+    text-align: center;
+  }
+  .anchor-item .icon {
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+    display: block;
+  }
+  .anchor-item h3 {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 12px;
+    color: var(--color-natural);
+  }
+  .anchor-item p {
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: rgba(26,26,26,0.6);
+  }
+
+  /* PAGE 04 — TYPOGRAPHY */
+  .page-typography {
+    background: var(--color-paper);
+  }
+  .type-showcase {
+    margin-top: 48px;
+  }
+  .type-pairing {
+    margin-bottom: 64px;
+    padding-bottom: 64px;
+    border-bottom: 1px solid rgba(26,26,26,0.08);
+  }
+  .type-pairing:last-child { border-bottom: none; }
+  .type-pairing .pair-name {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-arcilla);
+    margin-bottom: 24px;
+  }
+  .type-pairing .sample-display {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 300;
+    line-height: 1.1;
+    margin-bottom: 16px;
+    color: var(--color-natural);
+  }
+  .type-pairing .sample-body {
+    font-size: 1rem;
+    line-height: 1.7;
+    max-width: 560px;
+    color: rgba(26,26,26,0.7);
+  }
+  .type-specs {
+    display: flex;
+    gap: 40px;
+    margin-top: 32px;
+    flex-wrap: wrap;
+  }
+  .type-spec {
+    font-size: 0.75rem;
+  }
+  .type-spec .label {
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(26,26,26,0.4);
+    margin-bottom: 4px;
+  }
+  .type-spec .value {
+    color: var(--color-ink);
+    font-weight: 500;
+  }
+
+  /* PAGE 05 — COLOR */
+  .page-color {
+    background: var(--color-paper);
+  }
+  .color-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    margin-top: 48px;
+  }
+  .color-swatch {
+    aspect-ratio: 4/3;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .color-swatch::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.3));
+  }
+  .color-swatch .color-info {
+    position: relative;
+    z-index: 1;
+  }
+  .color-swatch .color-name {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    font-weight: 400;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+  .color-swatch .color-hex {
+    font-family: var(--font-body);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    color: rgba(255,255,255,0.8);
+    text-transform: uppercase;
+  }
+  .color-swatch.natural { background: var(--color-natural); }
+  .color-swatch.arena { background: var(--color-arena); }
+  .color-swatch.arena .color-name,
+  .color-swatch.arena .color-hex { color: var(--color-ink); }
+  .color-swatch.arcilla { background: var(--color-arcilla); }
+  .color-swatch.ladrillo { background: var(--color-ladrillo); }
+
+  /* PAGE 06 — LOGO */
+  .page-logo {
+    background: var(--color-paper);
+  }
+  .logo-showcase {
+    margin-top: 48px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2px;
+  }
+  .logo-card {
+    aspect-ratio: 16/10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+  }
+  .logo-card.light { background: #fff; border: 1px solid rgba(0,0,0,0.06); }
+  .logo-card.dark { background: var(--color-natural); }
+  .logo-card.color { background: var(--color-arcilla); }
+  .logo-card .logo-text {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 4vw, 3rem);
+    font-weight: 400;
+    text-align: center;
+  }
+  .logo-card.light .logo-text { color: var(--color-natural); }
+  .logo-card.dark .logo-text { color: var(--color-arena); }
+  .logo-card.color .logo-text { color: #fff; }
+  .logo-card .logo-sub {
+    font-family: var(--font-body);
+    font-size: 0.625rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-top: 12px;
+    text-align: center;
+  }
+  .logo-card.light .logo-sub { color: rgba(26,26,26,0.5); }
+  .logo-card.dark .logo-sub { color: rgba(242,236,228,0.5); }
+  .logo-card.color .logo-sub { color: rgba(255,255,255,0.6); }
+
+  /* PAGE 07 — APPLICATIONS */
+  .page-applications {
+    background: var(--color-natural);
+    color: var(--color-arena);
+  }
+  .page-applications h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 300;
+    margin-bottom: 16px;
+  }
+  .page-applications .page-number { color: var(--color-arcilla); }
+  .app-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2px;
+    margin-top: 48px;
+  }
+  .app-card {
+    background: rgba(242,236,228,0.05);
+    padding: 48px 40px;
+    border: 1px solid rgba(242,236,228,0.08);
+  }
+  .app-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 400;
+    margin-bottom: 12px;
+    color: var(--color-arena);
+  }
+  .app-card p {
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: rgba(242,236,228,0.6);
+  }
+  .app-card .app-label {
+    font-size: 0.625rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-arcilla);
+    margin-bottom: 16px;
+  }
+
+  /* PAGE 08 — GUARDIAN RULES */
+  .page-rules {
+    background: var(--color-paper);
+    min-height: auto;
+    padding-bottom: 80px;
+  }
+  .rules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2px;
+    margin-top: 48px;
+  }
+  .rule-item {
+    padding: 32px;
+    background: rgba(69,75,51,0.03);
+  }
+  .rule-item h4 {
+    font-family: var(--font-display);
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--color-natural);
+  }
+  .rule-item p {
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    color: rgba(26,26,26,0.6);
+  }
+  .rule-status {
+    display: inline-block;
+    font-size: 0.625rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 4px 12px;
+    margin-top: 16px;
+  }
+  .rule-status.pass {
+    background: var(--color-natural);
+    color: var(--color-arena);
+  }
+  .rule-status.block {
+    background: var(--color-ladrillo);
+    color: #fff;
+  }
+
+  /* FOOTER */
+  .footer {
+    padding: 40px;
+    text-align: center;
+    border-top: 1px solid rgba(26,26,26,0.06);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(26,26,26,0.4);
+  }
+
+  /* SCROLL ANIMATIONS */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 600ms cubic-bezier(0.4,0,0.2,1), transform 600ms cubic-bezier(0.4,0,0.2,1);
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* PRINT STYLES */
+  @media print {
+    .nav { display: none; }
+    .page { page-break-after: always; min-height: 100vh; }
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .color-grid { grid-template-columns: 1fr; }
+    .anchor-grid { grid-template-columns: 1fr; }
+    .type-specs { gap: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="nav">
+  <div class="nav-brand">Pauli Studio</div>
+  <ul class="nav-links">
+    <li><a href="#cover">Cover</a></li>
+    <li><a href="#philosophy">Philosophy</a></li>
+    <li><a href="#anchor">Anchor</a></li>
+    <li><a href="#typography">Typography</a></li>
+    <li><a href="#color">Color</a></li>
+    <li><a href="#logo">Logo</a></li>
+    <li><a href="#applications">Applications</a></li>
+    <li><a href="#rules">Guardians</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE 01 — COVER -->
+<section class="page page-cover" id="cover">
+  <div class="eyebrow">Brand Identity System — 2026</div>
+  <h1>Racional<br>Creativo</h1>
+  <p class="subtitle">Centro Holístico — Temazcal</p>
+  <div class="deco-line"></div>
+  <p class="meta">Designed by Pauli Studio</p>
+</section>
+
+<!-- PAGE 02 — PHILOSOPHY -->
+<section class="page page-philosophy" id="philosophy">
+  <div class="content">
+    <div class="page-number">Page 02 — Philosophy</div>
+    <h2>We are part of everything</h2>
+    <p>Partimos de la idea natural que somos parte de un todo, una materia que exige estar en armonía con su entorno, tomar cada uno de los elementos y hacerlos parte de nosotros para sentirnos plenos física, emocional, espiritual y mentalmente.</p>
+    <p>Nuestro espacio será un lugar sagrado dónde todo mundo puede llegar a reencontrarse, dedicarse tiempo y obtener bienestar integral en sus organismos.</p>
+    <div class="quote-block reveal">
+      <p>"Cuando sabes donde vas, el universo te abre el camino"</p>
+      <cite>— Enric Corbera</cite>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 03 — VISUAL ANCHOR -->
+<section class="page page-anchor" id="anchor">
+  <div>
+    <div class="page-number">Page 03 — Visual Anchor</div>
+    <h2 style="font-family:var(--font-display);font-size:clamp(2rem,5vw,3.5rem);font-weight:400;color:var(--color-natural);margin-bottom:16px;">The Five Elements</h2>
+    <p style="font-size:1rem;color:rgba(26,26,26,0.6);max-width:560px;">Each element represents a pillar of our holistic practice, unifying the physical with the emotional in sacred ceremony.</p>
+    <div class="anchor-grid">
+      <div class="anchor-item reveal">
+        <span class="icon">&#9733;</span>
+        <h3>Temazcal</h3>
+        <p>Where the physical unifies with the emotional. The sacred space where we heal and become one.</p>
+      </div>
+      <div class="anchor-item reveal">
+        <span class="icon">&#9829;</span>
+        <h3>Fuego</h3>
+        <p>The element that purifies and cleanses the soul, burning away what no longer serves us.</p>
+      </div>
+      <div class="anchor-item reveal">
+        <span class="icon">&#9824;</span>
+        <h3>Tierra</h3>
+        <p>The source of life, a gift from the creator that nourishes, sustains, and teaches.</p>
+      </div>
+      <div class="anchor-item reveal">
+        <span class="icon">&#9830;</span>
+        <h3>Aire</h3>
+        <p>Invisible and subtle, identified only when traveling on the breeze or the wind.</p>
+      </div>
+      <div class="anchor-item reveal">
+        <span class="icon">&#9827;</span>
+        <h3>Agua</h3>
+        <p>Purification, renewal, liberation, fertility, and abundance flow through every ritual.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 04 — TYPOGRAPHY -->
+<section class="page page-typography" id="typography">
+  <div>
+    <div class="page-number">Page 04 — Typography</div>
+    <h2 style="font-family:var(--font-display);font-size:clamp(2rem,5vw,3.5rem);font-weight:400;color:var(--color-natural);margin-bottom:16px;">Type as Voice</h2>
+    <p style="font-size:1rem;color:rgba(26,26,26,0.6);max-width:560px;">Two typographic families create harmonic, clean, and elegant compositions. Display serifs for editorial presence, geometric sans for clarity.</p>
+    
+    <div class="type-showcase">
+      <!-- PAIRING 1 -->
+      <div class="type-pairing reveal">
+        <div class="pair-name">Primary Pairing — Editorial Luxury</div>
+        <div class="sample-display">Cormorant Garamond</div>
+        <p class="sample-body">A refined transitional serif with dramatic contrast and elegant proportions. Used for headlines, editorial mastheads, and brand statements where gravitas and heritage are required.</p>
+        <div class="type-specs">
+          <div class="type-spec"><div class="label">Role</div><div class="value">Display / Headlines</div></div>
+          <div class="type-spec"><div class="label">Weights</div><div class="value">300, 400, 500, 600, 700</div></div>
+          <div class="type-spec"><div class="label">License</div><div class="value">Google Fonts / OFL</div></div>
+        </div>
+      </div>
+      
+      <!-- PAIRING 2 -->
+      <div class="type-pairing reveal">
+        <div class="pair-name">Secondary Pairing — Modern Clarity</div>
+        <div class="sample-display" style="font-family:var(--font-body);font-weight:300;letter-spacing:-0.02em;">Inter</div>
+        <p class="sample-body">A neo-grotesque sans-serif designed for screen readability. Used for body text, UI elements, and any context where clarity and modern precision take priority.</p>
+        <div class="type-specs">
+          <div class="type-spec"><div class="label">Role</div><div class="value">Body / UI / Data</div></div>
+          <div class="type-spec"><div class="label">Weights</div><div class="value">300, 400, 500, 600, 700</div></div>
+          <div class="type-spec"><div class="label">License</div><div class="value">Google Fonts / OFL</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 05 — COLOR -->
+<section class="page page-color" id="color">
+  <div>
+    <div class="page-number">Page 05 — Color</div>
+    <h2 style="font-family:var(--font-display);font-size:clamp(2rem,5vw,3.5rem);font-weight:400;color:var(--color-natural);margin-bottom:16px;">Earth & Fire</h2>
+    <p style="font-size:1rem;color:rgba(26,26,26,0.6);max-width:560px;">A warm palette drawn from natural materials — the ochres of earth, the green of life, the warmth of clay and brick.</p>
+    <div class="color-grid">
+      <div class="color-swatch natural">
+        <div class="color-info">
+          <div class="color-name">Natural</div>
+          <div class="color-hex">#454B33</div>
+        </div>
+      </div>
+      <div class="color-swatch arena">
+        <div class="color-info">
+          <div class="color-name">Arena</div>
+          <div class="color-hex">#F2ECE4</div>
+        </div>
+      </div>
+      <div class="color-swatch arcilla">
+        <div class="color-info">
+          <div class="color-name">Arcilla</div>
+          <div class="color-hex">#9D522C</div>
+        </div>
+      </div>
+      <div class="color-swatch ladrillo">
+        <div class="color-info">
+          <div class="color-name">Ladrillo</div>
+          <div class="color-hex">#74210F</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 06 — LOGO -->
+<section class="page page-logo" id="logo">
+  <div>
+    <div class="page-number">Page 06 — Logo System</div>
+    <h2 style="font-family:var(--font-display);font-size:clamp(2rem,5vw,3.5rem);font-weight:400;color:var(--color-natural);margin-bottom:16px;">Mark & Identity</h2>
+    <p style="font-size:1rem;color:rgba(26,26,26,0.6);max-width:560px;">The logo adapts to every context while maintaining its essential character. Always used individually, never combined with other marks.</p>
+    <div class="logo-showcase">
+      <div class="logo-card light">
+        <div>
+          <div class="logo-text">Racional Creativo</div>
+          <div class="logo-sub">Primary — Light Background</div>
+        </div>
+      </div>
+      <div class="logo-card dark">
+        <div>
+          <div class="logo-text">Racional Creativo</div>
+          <div class="logo-sub">Inverse — Dark Background</div>
+        </div>
+      </div>
+      <div class="logo-card color">
+        <div>
+          <div class="logo-text">Racional Creativo</div>
+          <div class="logo-sub">Accent — Arcilla</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 07 — APPLICATIONS -->
+<section class="page page-applications" id="applications">
+  <div>
+    <div class="page-number">Page 07 — Applications</div>
+    <h2>In Every Context</h2>
+    <p style="font-size:1rem;color:rgba(242,236,228,0.6);max-width:560px;">The brand system extends across every touchpoint, maintaining visual coherence while adapting to medium and scale.</p>
+    <div class="app-grid">
+      <div class="app-card reveal">
+        <div class="app-label">Print</div>
+        <h3>Business Card</h3>
+        <p>84 × 55mm, 350gsm cotton stock, blind emboss logo, edge painted in Arcilla.</p>
+      </div>
+      <div class="app-card reveal">
+        <div class="app-label">Print</div>
+        <h3>Letterhead</h3>
+        <p>A4, 120gsm uncoated, single color Natural on Arena. Generous margins: 25mm all sides.</p>
+      </div>
+      <div class="app-card reveal">
+        <div class="app-label">Digital</div>
+        <h3>Website</h3>
+        <p>Responsive, minimum 16px body, dark mode supported. Load time target: &lt;1.5s.</p>
+      </div>
+      <div class="app-card reveal">
+        <div class="app-label">Environment</div>
+        <h3>Signage</h3>
+        <p>Brushed brass with etched logo, backlit with warm 2700K LED. Minimum 300mm height.</p>
+      </div>
+      <div class="app-card reveal">
+        <div class="app-label">Packaging</div>
+        <h3>Product Boxes</h3>
+        <p>Recycled kraft board, soy-based inks, cotton ribbon closure in Natural.</p>
+      </div>
+      <div class="app-card reveal">
+        <div class="app-label">Digital</div>
+        <h3>Social Media</h3>
+        <p>Instagram 1080×1350px, Stories 1080×1920px. Always maintain 40px safe margin.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 08 — GUARDIAN RULES -->
+<section class="page page-rules" id="rules">
+  <div>
+    <div class="page-number">Page 08 — Guardian Rules</div>
+    <h2 style="font-family:var(--font-display);font-size:clamp(2rem,5vw,3.5rem);font-weight:400;color:var(--color-natural);margin-bottom:16px;">Quality Gates</h2>
+    <p style="font-size:1rem;color:rgba(26,26,26,0.6);max-width:560px;">Every brand kit must pass these gates before shipping. No exceptions. No shortcuts.</p>
+    <div class="rules-grid">
+      <div class="rule-item reveal">
+        <h4>Steve Krug Compliance</h4>
+        <p>Every page must pass the 5-second test. Purpose obvious immediately. One primary action per view.</p>
+        <span class="rule-status pass">Auto-Pass</span>
+      </div>
+      <div class="rule-item reveal">
+        <h4>Contrast & Accessibility</h4>
+        <p>All text meets WCAG 2.1 AA minimum. Body text 4.5:1, large text 3:1, UI components 3:1.</p>
+        <span class="rule-status pass">Auto-Pass</span>
+      </div>
+      <div class="rule-item reveal">
+        <h4>No Decorative AI Slop</h4>
+        <p>No generic gradients, glassmorphism, or meaningless bento grids. Every visual choice has a reason.</p>
+        <span class="rule-status block">Blocker</span>
+      </div>
+      <div class="rule-item reveal">
+        <h4>Font Licensing Verified</h4>
+        <p>All fonts have confirmed licenses. Free fonts documented. Commercial fonts have purchase records.</p>
+        <span class="rule-status pass">Auto-Pass</span>
+      </div>
+      <div class="rule-item reveal">
+        <h4>Asset Provenance</h4>
+        <p>Every image, icon, and texture has a documented source. No unverified stock. No generated fakes.</p>
+        <span class="rule-status block">Blocker</span>
+      </div>
+      <div class="rule-item reveal">
+        <h4>Mobile First</h4>
+        <p>All layouts tested at 375px width. Touch targets minimum 44px. No hover-only interactions.</p>
+        <span class="rule-status pass">Auto-Pass</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  Pauli Studio — High-Fashion Brand Intelligence — v1.0.0
+</footer>
+
+<script>
+  // Scroll reveal animation
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
