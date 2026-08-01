@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pauli.studio/schemas/context-packet.v1.json",
+  "title": "Context Packet",
+  "description": "The smallest sufficient context for one agent call. Assembled by the context compiler. This is how we stop token waste.",
+  "type": "object",
+  "required": ["packet_id", "work_order_id", "role", "stage", "budget"],
+  "properties": {
+    "packet_id": { "type": "string" },
+    "work_order_id": { "type": "string" },
+    "role": { "type": "string", "description": "Worker name from FACTORY.md roster" },
+    "stage": { "enum": ["00_intake", "10_strategy", "20_design", "30_validate", "40_deliver", "50_publish"] },
+    "manifest_slice": { "type": "object", "description": "Only the manifest JSON paths this task touches. JSON Pointer list in _pointers." ,
+      "properties": { "_pointers": { "type": "array", "items": {"type":"string"} } }, "additionalProperties": true },
+    "rules": { "type": "array", "items": { "type": "string" }, "description": "Guardian pack ids applicable to this task type only" },
+    "evidence": { "type": "array", "items": { "type": "object", "required": ["claim", "source", "fresh_as_of"], "properties": { "claim": {"type":"string"}, "source": {"type":"string"}, "fresh_as_of": {"type":"string","format":"date-time"} } } },
+    "protected_items": { "type": "array", "items": { "type": "string" }, "description": "Always included verbatim, every packet, no exceptions" },
+    "hard_bans": { "type": "array", "items": { "type": "string" } },
+    "prior_failures": { "type": "array", "items": { "type": "object", "properties": { "guardian": {"type":"string"}, "note": {"type":"string"} } }, "description": "Injected on retry work orders" },
+    "budget": {
+      "type": "object",
+      "required": ["max_tokens", "quality_floor", "allowed_tiers"],
+      "properties": {
+        "max_tokens": { "type": "integer" },
+        "quality_floor": { "type": "number", "minimum": 0, "maximum": 10 },
+        "allowed_tiers": { "type": "array", "items": { "enum": ["draft", "balanced", "signature", "specialized"] } },
+        "max_spend_usd": { "type": "number" }
+      }
+    }
+  }
+}

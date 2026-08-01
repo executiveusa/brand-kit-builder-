@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pauli.studio/schemas/evaluation-record.v1.json",
+  "title": "Evaluation Record",
+  "description": "The receipt for every judgment. Feeds routing, the learning loop, and the release gate. 'Looks good' is not an evaluation.",
+  "type": "object",
+  "required": ["eval_id", "work_order_id", "evaluator", "scores", "verdict", "created_at"],
+  "properties": {
+    "eval_id": { "type": "string" },
+    "work_order_id": { "type": "string" },
+    "evaluator": { "type": "object", "required": ["kind", "id"], "properties": { "kind": {"enum":["guardian_agent","deterministic_check","human"]}, "id": {"type":"string"} }, "description": "Creator-verifier separation: never the worker that made the thing." },
+    "scores": {
+      "type": "object",
+      "required": ["dimensions", "weighted_total"],
+      "properties": {
+        "dimensions": {
+          "type": "object",
+          "properties": {
+            "brand_foundation": {"type":"number"}, "positioning_clarity": {"type":"number"},
+            "visual_hierarchy": {"type":"number"}, "typography_system": {"type":"number"},
+            "color_science": {"type":"number"}, "logo_distinctiveness": {"type":"number"},
+            "application_quality": {"type":"number"}, "digital_presence": {"type":"number"},
+            "accessibility": {"type":"number"}, "mobile_experience": {"type":"number"},
+            "krug_compliance": {"type":"number"}, "presentation_quality": {"type":"number"},
+            "asset_provenance": {"type":"number"}, "font_licensing": {"type":"number"},
+            "anti_slop_compliance": {"type":"number"}
+          },
+          "additionalProperties": false
+        },
+        "weighted_total": { "type": "number", "description": "Ship gate: >= 9.0. Target: 9.5." }
+      }
+    },
+    "verdict": { "enum": ["pass", "fail", "human_review"] },
+    "failure_notes": { "type": "array", "items": { "type": "string" }, "description": "Injected into retry context packets" },
+    "created_at": { "type": "string", "format": "date-time" }
+  }
+}
