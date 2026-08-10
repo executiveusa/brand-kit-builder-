@@ -1,0 +1,16 @@
+{
+  "bead_id": "ZTE-20260810-0001",
+  "generated_at": "2026-08-10T16:53:00-06:00",
+  "capabilities": [
+    {"capability":"project_context","status":"available","evidence":"current BRAND KITS project context + prior project history","impact":"can preserve prior architecture decisions"},
+    {"capability":"uploaded_files","status":"available","evidence":"mounted PDFs/Markdown/ZIP sources inspected","impact":"can use Design OS, ICM Architect v2, wiring audit, New Look and Gauntlet inputs"},
+    {"capability":"github_read","status":"available","evidence":"GitHub connector read executiveusa/brand-kit-builder-, stephengpope/thepopebot and executiveusa/hermes-usb-portable","impact":"can inspect authoritative repository truth"},
+    {"capability":"github_write","status":"available","evidence":"admin/push permission on executiveusa/brand-kit-builder-; ZTE branch created","impact":"can create branch/PR and commit approved slices"},
+    {"capability":"supabase","status":"available","evidence":"botanic-creations project discovered; public tables inspected","impact":"cloud operational schema can be added after database/production approval"},
+    {"capability":"vercel","status":"available","evidence":"THE PAULI EFFECT team and projects listed","impact":"preview/production hosting is available; production remains approval-gated"},
+    {"capability":"web_research","status":"available","evidence":"current COLLINS site inspected","impact":"can use current named quality bar without relying on memory"},
+    {"capability":"local_build_environment","status":"partial","evidence":"uploaded Design OS source mounted; external dependency/network resolution is not guaranteed in the sandbox","impact":"can inspect/generate files locally but framework runtime verification may require CI/preview"},
+    {"capability":"image_generation","status":"not_used_in_slice","evidence":"no generated campaign image required for architecture/homepage prototype","impact":"hero uses an original inline design specimen rather than claiming generated production art"},
+    {"capability":"production_deploy","status":"approval_required","evidence":"ZTE production gate","impact":"no production deploy in this slice"}
+  ]
+}
