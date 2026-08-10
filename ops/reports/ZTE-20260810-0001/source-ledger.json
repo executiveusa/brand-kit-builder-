@@ -1,0 +1,145 @@
+{
+  "bead_id": "ZTE-20260810-0001",
+  "sources": [
+    {
+      "source": "executiveusa/brand-kit-builder-",
+      "accessed": true,
+      "commit_sha_or_file_hash": "b3385224e71f1fd6593045afc3d70b183cb82d5c",
+      "files_or_pages_read": ["studio/README.md","studio/CONSOLIDATION.md","studio/ICM.md","studio/FACTORY.md","studio/API.md","demo-brand-book.html","recent commits/issues/PR state"],
+      "applicable_rules": ["manifest truth","stage law","worker roles","API intent","receipt law","one paid loop before expansion"],
+      "license": "unknown in this slice",
+      "trust_level": "primary",
+      "conflicts": ["existing unattended gates vs uploaded ICM human-every-stage law"],
+      "notes": "Target brownfield repository. No root AGENTS.md or application package manifest found by connector search at baseline."
+    },
+    {
+      "source": "design-os-main(1).zip",
+      "accessed": true,
+      "commit_sha_or_file_hash": "sha256:b05c50bbc81f16070442516914ee431f0c5ee53a404e8570090f1c999a2122d8",
+      "files_or_pages_read": ["README.md","agents.md","LICENSE","package.json","src/main.tsx","src/lib/router.tsx","src/components/AppLayout.tsx","docs/product-planning.md"],
+      "applicable_rules": ["planning before implementation","portable product definition","design tokens","responsive screen design","export handoff"],
+      "license": "MIT, Copyright 2025 CasJam Media LLC (Builder Methods)",
+      "trust_level": "reference",
+      "conflicts": ["donor is a planning tool, not the Pauli Brand Studio operating architecture"],
+      "notes": "Selective donor only. Do not blindly vendor the whole codebase."
+    },
+    {
+      "source": "icm-architect-main.zip",
+      "accessed": true,
+      "commit_sha_or_file_hash": "sha256:449fa2502332138c2cd2e5129409ea32d51d1845ee91214481e0bf57dd118d9c",
+      "files_or_pages_read": ["SKILL.md","references/core.md","references/forms.md"],
+      "applicable_rules": ["inventory before touching","one folder one job","small router","CONTEXT contracts","factory/product split","one home per fact","migration map before moves","cold-walk"],
+      "license": "present in uploaded package; exact text not recorded in this ledger entry",
+      "trust_level": "governing",
+      "conflicts": ["human-every-stage rule conflicts with owner-directed low-touch automation"],
+      "notes": "Used to derive target tree and migration gate."
+    },
+    {
+      "source": "full-stack-wiring-audit-v2.0.0.zip",
+      "accessed": true,
+      "commit_sha_or_file_hash": "sha256:b625626fcdc1c7657f6ee9a7f5df340680e955c66deefe0c5189ab7853d683d4",
+      "files_or_pages_read": ["SKILL.md","README.md"],
+      "applicable_rules": ["presence is not completion","one boss per truth","trace every promise","runtime truth","state ownership","contract reconciliation","failure paths"],
+      "license": "not recorded in this slice",
+      "trust_level": "governing",
+      "conflicts": [],
+      "notes": "Used to prevent labeling prototype interfaces as live integrations."
+    },
+    {
+      "source": "new-look-skill.zip",
+      "accessed": true,
+      "commit_sha_or_file_hash": "sha256:f2d02a9a6758cf45279df57e163a04c26804baadb0356f78087e733000459e32",
+      "files_or_pages_read": [".agents/skills/new-look/SKILL.md","AGENTS.md","references/POPEBOT_CONTRACT.md","references/QUALITY_GATES.md","references/UPSTREAM_SKILLS.md"],
+      "applicable_rules": ["chat is the product","repo truth before questions","capability graph","Popebot adapter boundary","proof/recovery/approvals","Gauntlet critic"],
+      "license": "MIT per package metadata",
+      "trust_level": "governing",
+      "conflicts": [],
+      "notes": "Homepage prototype follows outcome-first interface law."
+    },
+    {
+      "source": "gauntlet-loop-main.zip",
+      "accessed": true,
+      "commit_sha_or_file_hash": "sha256:4c7d3289d5d26c7ac80e9700e75f9d3f7cb8e76a61a038a0b5bcf9ee7ba82b15",
+      "files_or_pages_read": ["README.md"],
+      "applicable_rules": ["named fetchable comparable quality bar","separate critic","binary comparison","no fixed rounds"],
+      "license": "CC BY 4.0",
+      "trust_level": "reference",
+      "conflicts": [],
+      "notes": "Current homepage bar selected as the live COLLINS site; final visual Gauntlet remains pending."
+    },
+    {
+      "source": "KAKU_BrandBook_2022_VF (2).pdf",
+      "accessed": true,
+      "commit_sha_or_file_hash": "sha256:f5ba4907b9f9b30d479074936fb3611103b7f8468e6d0ecf685fa701a9a00cd6",
+      "files_or_pages_read": ["pages 1-13, parsed text and rendered page images"],
+      "applicable_rules": ["brand-book narrative sequence","creative rationale","symbol anatomy","logo uses","typography","color","applications","digital surface"],
+      "license": "unknown",
+      "trust_level": "governing",
+      "conflicts": [],
+      "notes": "Structure is the model; KAKU identity itself is not imposed on other clients."
+    },
+    {
+      "source": "Brand-Voice-Template.pdf",
+      "accessed": true,
+      "commit_sha_or_file_hash": "sha256:a4e1b0c6b156f60677cb375828dccb8fae519b5d12ef7962c4b00d4dd556ef8e",
+      "files_or_pages_read": ["pages 1-3"],
+      "applicable_rules": ["identity statement","audience","offers/CTA","voice axes","never list","phrases/stories/proof","platform rules"],
+      "license": "unknown",
+      "trust_level": "governing",
+      "conflicts": [],
+      "notes": "Voice system source."
+    },
+    {
+      "source": "PAULI_BRAND_STUDIO_MASTER_SYSTEM_PROMPT_v1(1).md",
+      "accessed": true,
+      "commit_sha_or_file_hash": "sha256:f00ab478bdc92fc63cd2f3950940a3e1f0c89ed267ddce41c8e241c4d08dc426",
+      "files_or_pages_read": ["full supplied project prompt"],
+      "applicable_rules": ["source ledger","prebuild gate","KAKU sequence","voice/image/UX laws","HTML first","guardian review","repo delivery workflow","production approval"],
+      "license": "owner project source",
+      "trust_level": "governing",
+      "conflicts": [],
+      "notes": "Current studio constitution source."
+    },
+    {
+      "source": "stephengpope/thepopebot",
+      "accessed": true,
+      "commit_sha_or_file_hash": "README blob:1b97d874ae968520fdf1b75f3978d87e3a841eb7",
+      "files_or_pages_read": ["README.md"],
+      "applicable_rules": ["browser/chat/job pattern","model-agnostic coding agents","repo auditability","local/cloud operation"],
+      "license": "MIT per upstream project references",
+      "trust_level": "reference",
+      "conflicts": ["upstream auto-merge patterns vs Pauli independent approval law"],
+      "notes": "Adapt interaction/orchestration boundary; do not transplant as canonical brand engine."
+    },
+    {
+      "source": "executiveusa/hermes-usb-portable",
+      "accessed": true,
+      "commit_sha_or_file_hash": "README blob:cbe0e261ef7a9c5c97d64994eeb9740360b43322",
+      "files_or_pages_read": ["README.md"],
+      "applicable_rules": ["HERMES_HOME portability","portable runtimes","zero host pollution goal","USB security warning"],
+      "license": "wrapper provided as-is; Hermes Agent MIT per README",
+      "trust_level": "reference",
+      "conflicts": [],
+      "notes": "Used to define portable project-pack mount pattern."
+    },
+    {
+      "source": "https://wearecollins.com/",
+      "accessed": true,
+      "commit_sha_or_file_hash": "web snapshot 2026-08-10",
+      "files_or_pages_read": ["homepage","case studies index","Institute of Design","Modern by Dwell and other current case-study pages"],
+      "applicable_rules": ["proof-first work hierarchy","large editorial type","systems/augments framing","impact near proof","restraint between major statements"],
+      "license": "reference only; no protected identity copied",
+      "trust_level": "inspiration",
+      "conflicts": [],
+      "notes": "Named/fetchable/comparable visual quality bar."
+    }
+  ],
+  "pending_before_final_release": [
+    "current mandatory live Pauli anti-slop/taste/impeccable references",
+    "OpenSpec current upstream",
+    "Beads current upstream",
+    "A2A current upstream",
+    "Anthropic design-handoff current skill",
+    "Stop-Slop and pbakaus/impeccable current upstream"
+  ]
+}
