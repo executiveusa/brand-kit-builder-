@@ -1,0 +1,30 @@
+{
+  "bead_id":"ZTE-20260810-0001",
+  "stage":"architecture + prototype gate",
+  "status":"approval_required",
+  "elapsed_seconds":0,
+  "last_action":"Opened draft PR #35 containing additive ICM routing, architecture contracts, portability design, interface contract, and homepage prototype.",
+  "next_action":"Owner reviews and approves TARGET_TREE.md + MIGRATION_MAP.md; then run the bounded brownfield migration and framework integration slice.",
+  "blockers":[
+    "ICM migration requires human approval before moving existing files",
+    "production deployment requires explicit owner approval",
+    "browser screenshot QA and independent Gauntlet visual review remain pending",
+    "Popebot/API/MCP/CLI/Supabase are not yet runtime-verified integrations"
+  ],
+  "cost_used_cents":0,
+  "repository":"executiveusa/brand-kit-builder-",
+  "branch":"zte/ZTE-20260810-0001/design-studio-icm",
+  "pull_request":35,
+  "main_mutated":false,
+  "supabase_mutated":false,
+  "vercel_deployed":false,
+  "verification":{
+    "github_files_written":true,
+    "root_router_refetched":true,
+    "target_tree_refetched":true,
+    "homepage_source_refetched":true,
+    "ci_status_checks_found":0,
+    "browser_visual_qa":false,
+    "runtime_integration_qa":false
+  }
+}
