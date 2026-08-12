@@ -1,0 +1,131 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pauli.studio/schemas/brand-manifest.v1.json",
+  "title": "Brand Manifest",
+  "description": "The canonical representation of a brand. Every output (brand book, website, flipbook, listing, agent prompt) is a rendering of this document. Edit the manifest, never the renderings.",
+  "type": "object",
+  "required": ["manifest_version", "tenant", "brand", "strategy", "voice", "status", "provenance"],
+  "properties": {
+    "manifest_version": { "const": "1.0.0" },
+    "tenant": { "type": "string", "description": "Sealed tenant id. Cross-tenant reads are forbidden." },
+    "status": { "enum": ["draft", "strategy_locked", "design_approved", "validated", "delivered", "published", "deprecated"] },
+    "brand": {
+      "type": "object",
+      "required": ["name", "category", "languages"],
+      "properties": {
+        "name": { "type": "string" },
+        "tagline": { "type": "string" },
+        "category": { "type": "string" },
+        "languages": { "type": "array", "items": { "enum": ["en", "es-MX"] }, "minItems": 1 },
+        "origin_story": { "type": "string" },
+        "values": { "type": "array", "items": { "type": "string" }, "maxItems": 5 }
+      }
+    },
+    "strategy": {
+      "type": "object",
+      "required": ["positioning_statement", "brand_promise", "differentiation", "audience"],
+      "properties": {
+        "positioning_statement": { "type": "string", "description": "For [audience], [brand] is the [category] that [differentiator] because [proof]." },
+        "brand_promise": { "type": "string" },
+        "proof_points": { "type": "array", "items": { "type": "string" } },
+        "differentiation": {
+          "type": "object",
+          "required": ["everybody_zigs", "we_zag"],
+          "properties": {
+            "everybody_zigs": { "type": "string" },
+            "we_zag": { "type": "string" },
+            "competitors": { "type": "array", "items": { "type": "object", "properties": { "name": {"type":"string"}, "their_position": {"type":"string"}, "source_url": {"type":"string"} } } }
+          }
+        },
+        "audience": {
+          "type": "object",
+          "required": ["primary"],
+          "properties": {
+            "primary": { "type": "object", "required": ["description", "psychographics"], "properties": { "description": {"type":"string"}, "psychographics": {"type":"array","items":{"type":"string"}} } },
+            "tribes": { "type": "array", "items": { "type": "string" }, "description": "Brand Flip: customers don't buy brands, they join brands." }
+          }
+        }
+      }
+    },
+    "voice": {
+      "type": "object",
+      "required": ["personality", "tone_rules"],
+      "properties": {
+        "personality": { "type": "array", "items": { "type": "string" }, "maxItems": 3 },
+        "tone_rules": { "type": "array", "items": { "type": "object", "required": ["context", "do", "dont"], "properties": { "context": {"type":"string"}, "do": {"type":"string"}, "dont": {"type":"string"} } } },
+        "bilingual": {
+          "type": "object",
+          "properties": {
+            "en": { "type": "object", "properties": { "sample_lines": {"type":"array","items":{"type":"string"}} } },
+            "es_MX": { "type": "object", "properties": { "sample_lines": {"type":"array","items":{"type":"string"}}, "cultural_notes": {"type":"string"} } }
+          }
+        }
+      }
+    },
+    "visual": {
+      "type": "object",
+      "properties": {
+        "logo_direction": { "type": "string", "description": "Chosen direction id from 20_design/directions/" },
+        "color_system": { "$ref": "#/$defs/colorSystem" },
+        "type_system": { "$ref": "#/$defs/typeSystem" }
+      }
+    },
+    "protected_items": { "type": "array", "items": { "type": "string" }, "description": "Locked copy, assets, decisions. Copy Guardian diffs against this list." },
+    "hard_bans": { "type": "array", "items": { "type": "string" } },
+    "provenance": {
+      "type": "object",
+      "required": ["created_by", "created_at"],
+      "properties": {
+        "created_by": { "type": "string" },
+        "created_at": { "type": "string", "format": "date-time" },
+        "approved_by": { "type": "string" },
+        "approved_at": { "type": "string", "format": "date-time" },
+        "sources": { "type": "array", "items": { "type": "object", "required": ["claim", "source"], "properties": { "claim": {"type":"string"}, "source": {"type":"string"}, "verified_at": {"type":"string","format":"date-time"} } } }
+      }
+    }
+  },
+  "$defs": {
+    "colorSystem": {
+      "type": "object",
+      "required": ["colors"],
+      "properties": {
+        "colors": {
+          "type": "array",
+          "maxItems": 6,
+          "items": {
+            "type": "object",
+            "required": ["name", "hex", "oklch", "role"],
+            "properties": {
+              "name": {"type":"string"}, "hex": {"type":"string","pattern":"^#[0-9A-Fa-f]{6}$"},
+              "oklch": {"type":"string"}, "rgb": {"type":"string"}, "cmyk": {"type":"string"}, "pantone": {"type":"string"},
+              "role": {"enum":["anchor","primary_action","secondary","neutral","status"]},
+              "usage_percent": {"type":"number"}
+            }
+          }
+        },
+        "contrast_proof": { "type": "array", "items": { "type": "object", "required": ["pair", "ratio", "passes_aa"], "properties": { "pair": {"type":"string"}, "ratio": {"type":"number"}, "passes_aa": {"type":"boolean"} } } }
+      }
+    },
+    "typeSystem": {
+      "type": "object",
+      "required": ["display", "body"],
+      "properties": {
+        "display": { "$ref": "#/$defs/fontRef" },
+        "body": { "$ref": "#/$defs/fontRef" },
+        "scale_ratio": { "const": 1.25, "description": "Major Third" },
+        "base_size_px": { "const": 16 }
+      }
+    },
+    "fontRef": {
+      "type": "object",
+      "required": ["family", "darya_id", "license_status", "rationale"],
+      "properties": {
+        "family": {"type":"string"},
+        "darya_id": {"type":"string", "description": "Entry in studio/_shared/design-systems/type/DARYA_FONT_REGISTRY.md"},
+        "license_status": {"enum":["free","commercial_licensed","commercial_pending","blocked"]},
+        "free_alternative": {"type":"string"},
+        "rationale": {"type":"string", "description": "Why this font matches brand personality. Required."}
+      }
+    }
+  }
+}
