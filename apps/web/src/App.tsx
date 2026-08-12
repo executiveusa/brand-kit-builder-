@@ -10,6 +10,7 @@ import {
   Sparkles,
   Usb,
 } from 'lucide-react'
+import { CloudWorkspace } from './components/CloudWorkspace'
 
 type RouteStep = {
   title: string
@@ -119,7 +120,7 @@ export function App() {
       <main id="main">
         <section className="hero" id="top">
           <div className="hero-copy">
-            <p className="eyebrow">Boutique brand intelligence · application shell</p>
+            <p className="eyebrow">Boutique brand intelligence · governed design office</p>
             <h1>
               Make the brand
               <span>impossible to confuse.</span>
@@ -130,8 +131,8 @@ export function App() {
                 print and software. Ask for the outcome. The machinery stays underneath.
               </p>
               <p className="hero-note">
-                Phase 2 is the human application shell. Agent execution, cloud jobs and
-                database writes remain explicitly offline until their runtime phases are wired and verified.
+                Cloud identity and work-order persistence are being added behind the same outcome-first surface.
+                Factory execution remains explicitly separate until its runtime phase is wired and verified.
               </p>
             </div>
             <blockquote className="hero-quote">
@@ -182,16 +183,15 @@ export function App() {
             <p className="eyebrow">02 — The front door</p>
             <h2>Ask for the outcome.</h2>
             <p>
-              The primary interface is a conversation. The finished system will load what it
-              already knows, ask only for missing context and return proof plus the decisions
-              only a human should make.
+              The primary interface is a conversation. The system loads what it already knows,
+              asks only for missing context and returns proof plus the decisions only a human should make.
             </p>
           </div>
 
           <form className="composer" onSubmit={submit}>
             <div className="composer-topline">
               <span>POLISH / Outcome composer</span>
-              <span className="truth-badge">Local route preview</span>
+              <span className="truth-badge">Route preview</span>
             </div>
             <div className="composer-body">
               <label htmlFor="outcome">What should the studio make?</label>
@@ -212,7 +212,7 @@ export function App() {
                 <button className="primary-button" type="submit">
                   Show the route <ArrowRight size={16} aria-hidden="true" />
                 </button>
-                <p>This interaction runs only in your browser. It does not create an agent job or write to a database.</p>
+                <p>Preview the route first. Cloud persistence appears below only when this build is configured for it.</p>
               </div>
             </div>
 
@@ -223,7 +223,7 @@ export function App() {
                     <span className="micro">Route preview</span>
                     <h3>{submitted}</h3>
                   </div>
-                  <span className="truth-badge">No external work executed</span>
+                  <span className="truth-badge">No factory execution yet</span>
                 </div>
                 <ol>
                   {route.map((step, index) => (
@@ -238,22 +238,31 @@ export function App() {
           </form>
         </section>
 
+        <section className="cloud-shell" aria-labelledby="cloud-title">
+          <div className="cloud-shell-copy">
+            <p className="eyebrow">03 — Persistence, when you want it</p>
+            <h2 id="cloud-title">Keep the work.<br /><em>Not the lock-in.</em></h2>
+            <p>Cloud state remembers identity, projects and operational receipts. The actual brand intelligence still points back to portable ICM files.</p>
+          </div>
+          <CloudWorkspace intent={submitted} />
+        </section>
+
         <section className="system section-shell" id="system">
           <div className="section-heading">
-            <span>03 — One office, many doors</span>
+            <span>04 — One office, many doors</span>
             <h2>The intelligence<br />travels <em>with you.</em></h2>
           </div>
           <div className="system-grid">
             <article><MessageCircle aria-hidden="true" /><h3>Human first</h3><p>The product starts with the outcome, not an agent roster or configuration maze.</p><span className="status live"><Check size={13} /> App shell</span></article>
             <article><ShieldCheck aria-hidden="true" /><h3>Governed</h3><p>Factory contracts, protected items and independent Guardians define what may ship.</p><span className="status contract"><FileOutput size={13} /> Contracts live</span></article>
-            <article><Usb aria-hidden="true" /><h3>Portable</h3><p>ICM projects are structured so a compatible local agent can eventually cold-start from files.</p><span className="status contract"><Sparkles size={13} /> Architecture live</span></article>
-            <article><Cloud aria-hidden="true" /><h3>Cloud optionality</h3><p>Supabase and Vercel are operational surfaces, not the sole owners of company intelligence.</p><span className="status planned"><Cloud size={13} /> Runtime later</span></article>
+            <article><Usb aria-hidden="true" /><h3>Portable</h3><p>ICM projects are structured so a compatible local agent can cold-start from files.</p><span className="status contract"><Sparkles size={13} /> Architecture live</span></article>
+            <article><Cloud aria-hidden="true" /><h3>Cloud optionality</h3><p>Supabase indexes operational state; it does not become the sole owner of company intelligence.</p><span className="status planned"><Cloud size={13} /> Phase 3</span></article>
           </div>
         </section>
 
         <section className="closing">
           <div>
-            <p className="eyebrow">04 — Ownership</p>
+            <p className="eyebrow">05 — Ownership</p>
             <h2>Your brand.<br />Your intelligence.<br />Your files.</h2>
           </div>
           <div className="closing-copy">
