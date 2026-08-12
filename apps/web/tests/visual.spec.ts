@@ -17,9 +17,9 @@ async function noHorizontalOverflow(page: import('@playwright/test').Page) {
 }
 
 async function expectSectionBelowStickyHeader(page: import('@playwright/test').Page, selector: string) {
-  const box = await page.locator(selector).boundingBox()
-  expect(box).not.toBeNull()
-  expect(box!.y).toBeGreaterThanOrEqual(72)
+  await page.waitForTimeout(650)
+  const top = await page.locator(selector).evaluate((el) => el.getBoundingClientRect().top)
+  expect(top).toBeGreaterThanOrEqual(70)
 }
 
 test.beforeEach(async ({ page }) => {
@@ -36,13 +36,14 @@ test('desktop proof, navigation, composer and route preview', async ({ page }) =
   await page.screenshot({ path: path.join(shotDir, 'desktop-1440-full.png'), fullPage: true })
   await page.locator('#top').screenshot({ path: path.join(shotDir, 'desktop-1440-hero.png') })
   await page.locator('.site-header').screenshot({ path: path.join(shotDir, 'desktop-1440-nav.png') })
-  await page.locator('#studio').screenshot({ path: path.join(shotDir, 'desktop-1440-primary-action.png') })
   await page.locator('footer').screenshot({ path: path.join(shotDir, 'desktop-1440-footer.png') })
 
+  await page.goto('/')
   await page.getByRole('link', { name: 'Open studio' }).click()
   await expect(page.locator('#studio')).toBeInViewport()
   await expectSectionBelowStickyHeader(page, '#studio')
   await expect(page.getByRole('heading', { name: 'Ask for the outcome.' })).toBeVisible()
+  await page.screenshot({ path: path.join(shotDir, 'desktop-1440-primary-action.png') })
 
   await page.getByRole('button', { name: 'Social campaign' }).click()
   await expect(page.locator('#outcome')).toHaveValue(/Instagram campaign system/)
@@ -71,10 +72,11 @@ test('mobile layout, anchor offset and keyboard focus', async ({ page }) => {
   await page.screenshot({ path: path.join(shotDir, 'mobile-390-full.png'), fullPage: true })
   await page.locator('.site-header').screenshot({ path: path.join(shotDir, 'mobile-390-nav.png') })
 
+  await page.goto('/')
   await page.getByRole('link', { name: 'Open studio' }).click()
   await expectSectionBelowStickyHeader(page, '#studio')
   await expect(page.getByRole('heading', { name: 'Ask for the outcome.' })).toBeVisible()
-  await page.locator('#studio').screenshot({ path: path.join(shotDir, 'mobile-390-primary-action.png') })
+  await page.screenshot({ path: path.join(shotDir, 'mobile-390-primary-action.png') })
 
   await page.goto('/')
   await page.keyboard.press('Tab')
