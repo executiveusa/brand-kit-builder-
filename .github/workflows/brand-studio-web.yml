@@ -38,3 +38,20 @@ jobs:
 
       - name: Lint
         run: npm run lint
+
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Visual and interaction tests
+        run: npm run test:visual
+
+      - name: Upload screenshot evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: brand-studio-web-evidence
+          path: |
+            apps/web/artifacts/design-audit/screenshots
+            apps/web/artifacts/design-audit/playwright-results
+          if-no-files-found: warn
+          retention-days: 7
