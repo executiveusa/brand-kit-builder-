@@ -155,7 +155,7 @@ export function App() {
               <div>
                 <h2>Racional<br />Creativo</h2>
                 <p>A working brand-book specimen already in this repository.</p>
-                <a href="/../../demo-brand-book.html">Open brand book <ArrowUpRight size={14} aria-hidden="true" /></a>
+                <a href="/demo-brand-book.html">Open brand book <ArrowUpRight size={14} aria-hidden="true" /></a>
               </div>
             </div>
           </div>
@@ -226,9 +226,9 @@ export function App() {
                   <span className="truth-badge">No external work executed</span>
                 </div>
                 <ol>
-                  {route.map((step) => (
+                  {route.map((step, index) => (
                     <li key={step.title}>
-                      <span className="step-number">{String(route.indexOf(step) + 1).padStart(2, '0')}</span>
+                      <span className="step-number">{String(index + 1).padStart(2, '0')}</span>
                       <div><strong>{step.title}</strong><p>{step.detail}</p></div>
                     </li>
                   ))}
