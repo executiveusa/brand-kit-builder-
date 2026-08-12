@@ -1,0 +1,78 @@
+import { expect, test } from '@playwright/test'
+import fs from 'node:fs/promises'
+import path from 'node:path'
+
+const shotDir = path.resolve('artifacts/design-audit/screenshots')
+
+async function ensureShotDir() {
+  await fs.mkdir(shotDir, { recursive: true })
+}
+
+async function noHorizontalOverflow(page: import('@playwright/test').Page) {
+  const widths = await page.evaluate(() => ({
+    scrollWidth: document.documentElement.scrollWidth,
+    clientWidth: document.documentElement.clientWidth,
+  }))
+  expect(widths.scrollWidth).toBeLessThanOrEqual(widths.clientWidth + 1)
+}
+
+test.beforeEach(async ({ page }) => {
+  await ensureShotDir()
+  await page.goto('/')
+  await expect(page.getByRole('heading', { name: /Make the brand/i })).toBeVisible()
+})
+
+test('desktop proof, navigation, composer and route preview', async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 1000 })
+  await page.goto('/')
+  await noHorizontalOverflow(page)
+
+  await page.screenshot({ path: path.join(shotDir, 'desktop-1440-full.png'), fullPage: true })
+  await page.locator('#top').screenshot({ path: path.join(shotDir, 'desktop-1440-hero.png') })
+  await page.locator('.site-header').screenshot({ path: path.join(shotDir, 'desktop-1440-nav.png') })
+  await page.locator('#studio').screenshot({ path: path.join(shotDir, 'desktop-1440-primary-action.png') })
+  await page.locator('footer').screenshot({ path: path.join(shotDir, 'desktop-1440-footer.png') })
+
+  await page.getByRole('link', { name: 'Open studio' }).click()
+  await expect(page.locator('#studio')).toBeInViewport()
+
+  await page.getByRole('button', { name: 'Social campaign' }).click()
+  await expect(page.locator('#outcome')).toHaveValue(/Instagram campaign system/)
+  await page.getByRole('button', { name: /Show the route/i }).click()
+  await expect(page.getByText('Build campaign system')).toBeVisible()
+  await page.locator('.route-preview').screenshot({ path: path.join(shotDir, 'route-preview.png') })
+
+  const proof = page.getByRole('link', { name: /Open brand book/i })
+  await expect(proof).toHaveAttribute('href', '/demo-brand-book.html')
+  const response = await page.request.get('/demo-brand-book.html')
+  expect(response.ok()).toBeTruthy()
+})
+
+test('tablet layout', async ({ page }) => {
+  await page.setViewportSize({ width: 768, height: 1024 })
+  await page.goto('/')
+  await noHorizontalOverflow(page)
+  await page.screenshot({ path: path.join(shotDir, 'tablet-768-full.png'), fullPage: true })
+  await expect(page.getByRole('link', { name: 'Open studio' })).toBeVisible()
+})
+
+test('mobile layout and keyboard focus', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 })
+  await page.goto('/')
+  await noHorizontalOverflow(page)
+  await page.screenshot({ path: path.join(shotDir, 'mobile-390-full.png'), fullPage: true })
+  await page.locator('.site-header').screenshot({ path: path.join(shotDir, 'mobile-390-nav.png') })
+  await page.locator('#studio').screenshot({ path: path.join(shotDir, 'mobile-390-primary-action.png') })
+
+  await page.keyboard.press('Tab')
+  await expect(page.locator('.skip-link')).toBeFocused()
+  const focusOutline = await page.locator('.skip-link').evaluate((el) => getComputedStyle(el).outlineStyle)
+  expect(focusOutline).not.toBe('none')
+})
+
+test('reduced motion disables smooth scrolling', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' })
+  await page.goto('/')
+  const behavior = await page.evaluate(() => getComputedStyle(document.documentElement).scrollBehavior)
+  expect(behavior).toBe('auto')
+})
