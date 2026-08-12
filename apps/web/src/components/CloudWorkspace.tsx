@@ -46,40 +46,66 @@ export function CloudWorkspace({ intent }: CloudWorkspaceProps) {
     setOrganizationId((current) => current || nextOrganizations[0]?.id || '')
   }, [])
 
-  const refreshUser = useCallback(async () => {
-    if (!cloudConfig.enabled) return
-    const user = await getCloudUser()
-    setUserEmail(user?.email ?? null)
-    if (user) await refreshOrganizations()
-    else {
-      setOrganizations([])
-      setProjects([])
-      setOrganizationId('')
-      setProjectId('')
-    }
-  }, [refreshOrganizations])
-
   useEffect(() => {
     if (!cloudConfig.enabled || !supabase) return
-    void refreshUser().catch((caught: unknown) => setError(caught instanceof Error ? caught.message : 'Unable to read cloud session.'))
-    const { data } = supabase.auth.onAuthStateChange(() => {
-      void refreshUser().catch((caught: unknown) => setError(caught instanceof Error ? caught.message : 'Unable to refresh cloud session.'))
+    let cancelled = false
+
+    async function loadSession() {
+      try {
+        const user = await getCloudUser()
+        if (cancelled) return
+        setUserEmail(user?.email ?? null)
+        if (!user) {
+          setOrganizations([])
+          setOrganizationId('')
+          return
+        }
+        const nextOrganizations = await listOrganizations()
+        if (cancelled) return
+        setOrganizations(nextOrganizations)
+        setOrganizationId((current) => current || nextOrganizations[0]?.id || '')
+      } catch (caught) {
+        if (!cancelled) setError(caught instanceof Error ? caught.message : 'Unable to read cloud session.')
+      }
+    }
+
+    void loadSession()
+    const { data } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUserEmail(session?.user.email ?? null)
+      if (!session?.user) {
+        setOrganizations([])
+        setOrganizationId('')
+        setProjects([])
+        setProjectId('')
+        return
+      }
+      void listOrganizations()
+        .then((nextOrganizations) => {
+          setOrganizations(nextOrganizations)
+          setOrganizationId((current) => current || nextOrganizations[0]?.id || '')
+        })
+        .catch((caught: unknown) => setError(caught instanceof Error ? caught.message : 'Unable to refresh cloud session.'))
     })
-    return () => data.subscription.unsubscribe()
-  }, [refreshUser])
+
+    return () => {
+      cancelled = true
+      data.subscription.unsubscribe()
+    }
+  }, [])
 
   useEffect(() => {
-    if (!organizationId || !cloudConfig.enabled) {
-      setProjects([])
-      setProjectId('')
-      return
-    }
+    if (!organizationId || !cloudConfig.enabled) return
+    let cancelled = false
     void listProjects(organizationId)
       .then((nextProjects) => {
+        if (cancelled) return
         setProjects(nextProjects)
         setProjectId((current) => nextProjects.some((project) => project.id === current) ? current : nextProjects[0]?.id || '')
       })
-      .catch((caught: unknown) => setError(caught instanceof Error ? caught.message : 'Unable to read projects.'))
+      .catch((caught: unknown) => {
+        if (!cancelled) setError(caught instanceof Error ? caught.message : 'Unable to read projects.')
+      })
+    return () => { cancelled = true }
   }, [organizationId])
 
   async function submitEmail(event: FormEvent<HTMLFormElement>) {
