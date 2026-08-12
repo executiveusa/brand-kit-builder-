@@ -1,0 +1,13 @@
+#work,
+#studio,
+#system {
+  scroll-margin-top: 88px;
+}
+
+@media (max-width: 640px) {
+  #work,
+  #studio,
+  #system {
+    scroll-margin-top: 80px;
+  }
+}

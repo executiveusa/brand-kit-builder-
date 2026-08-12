@@ -1,0 +1,38 @@
+{
+  "bead_id": "ZTE-20260812-0003",
+  "phase": 2,
+  "name": "POLISH human design office shell",
+  "state": "human_approval_required",
+  "branch": "zte/ZTE-20260812-0003/design-office-app",
+  "pr": 37,
+  "audit_score": 8.8,
+  "production_deploy": false,
+  "supabase_mutation": false,
+  "vercel_preview": "blocked_no_project_for_repository",
+  "tests": {
+    "dependency_install": "pass",
+    "typescript_vite_build": "pass",
+    "eslint": "pass",
+    "playwright_visual_interaction": "pass_4_of_4",
+    "desktop_1440": "pass",
+    "tablet_768": "pass",
+    "mobile_390": "pass",
+    "horizontal_overflow": "pass",
+    "sticky_anchor_offset": "pass_after_fix",
+    "proof_route": "pass",
+    "composer_route_logic": "pass",
+    "keyboard_focus": "pass",
+    "reduced_motion": "pass",
+    "browser_console_page_errors": "pass_zero_errors"
+  },
+  "p0": 0,
+  "p1": 0,
+  "remaining_p2": [
+    "external buyer comprehension test for headline and Open studio CTA",
+    "trademark/domain clearance for working name POLISH",
+    "Popebot/factory runtime integration in later phase",
+    "create or connect a dedicated Vercel project before preview deployment"
+  ],
+  "rollback": "revert Phase 2 PR #37; no production or database state requires rollback",
+  "next_gate": "human approval to merge PR #37"
+}
