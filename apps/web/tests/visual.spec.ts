@@ -28,7 +28,7 @@ test.beforeEach(async ({ page }) => {
   await expect(page.getByRole('heading', { name: /Make the brand/i })).toBeVisible()
 })
 
-test('desktop proof, navigation, composer, route preview and console', async ({ page }) => {
+test('desktop proof, navigation, composer, cloud boundary, route preview and console', async ({ page }) => {
   const runtimeErrors: string[] = []
   page.on('console', (message) => {
     if (message.type() === 'error') runtimeErrors.push(message.text())
@@ -43,6 +43,11 @@ test('desktop proof, navigation, composer, route preview and console', async ({ 
   await page.locator('#top').screenshot({ path: path.join(shotDir, 'desktop-1440-hero.png') })
   await page.locator('.site-header').screenshot({ path: path.join(shotDir, 'desktop-1440-nav.png') })
   await page.locator('footer').screenshot({ path: path.join(shotDir, 'desktop-1440-footer.png') })
+
+  const cloudBoundary = page.getByLabel('Cloud operating layer status')
+  await expect(cloudBoundary).toContainText('Not configured')
+  await expect(cloudBoundary).toContainText('publishable key')
+  await cloudBoundary.screenshot({ path: path.join(shotDir, 'desktop-cloud-offline.png') })
 
   await page.goto('/')
   await page.getByRole('link', { name: 'Open studio' }).click()
@@ -70,14 +75,16 @@ test('tablet layout', async ({ page }) => {
   await noHorizontalOverflow(page)
   await page.screenshot({ path: path.join(shotDir, 'tablet-768-full.png'), fullPage: true })
   await expect(page.getByRole('link', { name: 'Open studio' })).toBeVisible()
+  await expect(page.getByLabel('Cloud operating layer status')).toBeVisible()
 })
 
-test('mobile layout, anchor offset and keyboard focus', async ({ page }) => {
+test('mobile layout, cloud boundary, anchor offset and keyboard focus', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 })
   await page.goto('/')
   await noHorizontalOverflow(page)
   await page.screenshot({ path: path.join(shotDir, 'mobile-390-full.png'), fullPage: true })
   await page.locator('.site-header').screenshot({ path: path.join(shotDir, 'mobile-390-nav.png') })
+  await expect(page.getByLabel('Cloud operating layer status')).toContainText('Not configured')
 
   await page.goto('/')
   await page.getByRole('link', { name: 'Open studio' }).click()
