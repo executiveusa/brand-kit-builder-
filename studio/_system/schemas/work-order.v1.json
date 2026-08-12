@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pauli.studio/schemas/work-order.v1.json",
+  "title": "Work Order",
+  "description": "The durable unit of work. Idempotent: same work_order_id = same output path. The orchestrator's ledger entry.",
+  "type": "object",
+  "required": ["work_order_id", "tenant", "project", "stage", "role", "state", "created_at"],
+  "properties": {
+    "work_order_id": { "type": "string", "pattern": "^WO-[0-9]{8}-[0-9]{4}$" },
+    "tenant": { "type": "string" },
+    "project": { "type": "string" },
+    "stage": { "enum": ["00_intake", "10_strategy", "20_design", "30_validate", "40_deliver", "50_publish"] },
+    "role": { "type": "string" },
+    "state": { "enum": ["queued", "running", "gate_pending", "failed", "retrying", "escalated", "approved", "complete"] },
+    "attempt": { "type": "integer", "default": 1, "maximum": 3, "description": "3 strikes then escalate tier, then human" },
+    "inputs": { "type": "object", "properties": { "context_packet": {"type":"string"}, "prior_handoffs": {"type":"array","items":{"type":"string"}} } },
+    "outputs": { "type": "array", "items": { "type": "object", "required": ["path", "sha256"], "properties": { "path": {"type":"string"}, "sha256": {"type":"string"} } }, "description": "Content-addressed. Receipt or it didn't happen." },
+    "protected_items": { "type": "array", "items": {"type":"string"} },
+    "hard_bans": { "type": "array", "items": {"type":"string"} },
+    "gate": { "type": "object", "properties": { "gate_id": {"enum":["G0","G1","G2","G3","G4","G5"]}, "requires_human": {"type":"boolean"} } },
+    "created_at": { "type": "string", "format": "date-time" },
+    "completed_at": { "type": "string", "format": "date-time" }
+  }
+}
