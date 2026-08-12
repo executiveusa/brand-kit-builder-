@@ -28,7 +28,13 @@ test.beforeEach(async ({ page }) => {
   await expect(page.getByRole('heading', { name: /Make the brand/i })).toBeVisible()
 })
 
-test('desktop proof, navigation, composer and route preview', async ({ page }) => {
+test('desktop proof, navigation, composer, route preview and console', async ({ page }) => {
+  const runtimeErrors: string[] = []
+  page.on('console', (message) => {
+    if (message.type() === 'error') runtimeErrors.push(message.text())
+  })
+  page.on('pageerror', (error) => runtimeErrors.push(error.message))
+
   await page.setViewportSize({ width: 1440, height: 1000 })
   await page.goto('/')
   await noHorizontalOverflow(page)
@@ -55,6 +61,7 @@ test('desktop proof, navigation, composer and route preview', async ({ page }) =
   await expect(proof).toHaveAttribute('href', '/demo-brand-book.html')
   const response = await page.request.get('/demo-brand-book.html')
   expect(response.ok()).toBeTruthy()
+  expect(runtimeErrors).toEqual([])
 })
 
 test('tablet layout', async ({ page }) => {
