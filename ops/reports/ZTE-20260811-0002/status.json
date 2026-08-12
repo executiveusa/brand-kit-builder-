@@ -2,7 +2,7 @@
   "bead_id": "ZTE-20260811-0002",
   "phase": 1,
   "name": "ICM repository migration",
-  "state": "verification_pending",
+  "state": "ready_to_merge",
   "branch": "zte/ZTE-20260811-0002/icm-phase-1",
   "base": "main",
   "production_deploy": false,
@@ -10,15 +10,17 @@
   "vercel_deploy": false,
   "demo_brand_book_move": "deferred_to_phase_2",
   "checks": {
-    "cold_walk": "pending_final",
-    "legacy_pointer_integrity": "pending_final",
-    "branch_compare": "pending",
-    "ci_status": "pending"
+    "cold_walk": "pass",
+    "legacy_pointer_integrity": "pass",
+    "branch_compare": "pass_expected_scope_only",
+    "ci_status": "no_status_checks_available",
+    "package_runtime_tests": "not_applicable_no_application_package_detected"
   },
   "rollback": "revert Phase 1 PR merge",
   "notes": [
-    "Core factory law has been relocated to studio/_system with compatibility pointers.",
-    "Shared KAKU, DARYA and publish contracts have canonical homes under studio/_shared.",
-    "Runtime adapters remain truth-labeled as unimplemented where applicable."
+    "Core factory law is canonical under studio/_system with compatibility pointers at migrated legacy paths.",
+    "Shared KAKU, DARYA and publish contracts are canonical under studio/_shared.",
+    "REST, MCP, CLI, folder-drop and Popebot boundaries are explicit; unimplemented adapters are truth-labeled.",
+    "No production, database, secret, or deployment mutation occurred."
   ]
 }
