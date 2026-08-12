@@ -1,6 +1,6 @@
 # Migration map — brownfield → ICM v2
 
-Status: **APPROVED 2026-08-11 / PHASE 1 IN PROGRESS.**
+Status: **APPROVED / PHASE 1 CORE MIGRATION COMPLETE.**
 
 ICM restructure law requires inventory/classification and an approved old→new map before moving or deleting brownfield files. This map was approved by the owner before Phase 1 migration work began.
 
@@ -19,7 +19,7 @@ ICM restructure law requires inventory/classification and an approved old→new 
 | `KAKU_BRAND_BOOK_TEMPLATE.md` | Reusable creative reference | `studio/_shared/brand-book/KAKU_BRAND_BOOK_TEMPLATE.md` | Migrated; root pointer retained |
 | `DARYA_FONT_REGISTRY.md` | Reusable creative reference | `studio/_shared/design-systems/type/DARYA_FONT_REGISTRY.md` | Migrated; root pointer retained |
 | `demo-brand-book.html` | Product/example rendering | `studio/_shared/references/examples/racional-creativo/demo-brand-book.html` | Deferred to Phase 2 app/reference integration after runtime link rewrite |
-| `PAULI_STUDIO_GAPS.md` (if present) | Historical/status | `docs/decisions/` or `_archive/` | Inspect freshness before moving |
+| `PAULI_STUDIO_GAPS.md` (if present) | Historical/status | `docs/decisions/` or `_archive/` | Not found in current repository search |
 | `design-os-main` uploaded donor | External MIT reference | `studio/_shared/references/design-os/NOTICE.md` + selectively adapted app code | Phase 2 donor; do not vendor whole donor blindly |
 | `new-look` uploaded skill | Factory skill/reference | agent skill registry / `_shared/references/skills/` | Runtime integration phase |
 | `full-stack-wiring-audit` uploaded skill | Guardian/audit skill | agent skill registry / `_system/guardians/` pointer | Runtime/audit phase |
@@ -29,15 +29,15 @@ ICM restructure law requires inventory/classification and an approved old→new 
 ## Compatibility-pointer law
 A migrated legacy path may remain only as a small pointer to its new canonical home. The legacy file must not contain a second editable copy of the fact.
 
-## Required checks before Phase 1 merge
-1. Search repository references to migrated legacy locations.
-2. Ensure the root and studio routers point to canonical ICM paths.
-3. Verify one-home-per-fact for all migrated core contracts and shared references.
-4. Verify all canonical target files are fetchable from the Phase 1 branch.
-5. Run a cold-walk from root `AGENTS.md` → root `CONTEXT.md` → `studio/CONTEXT.md`.
-6. Compare Phase 1 branch against `main` and inspect unexpected changes.
-7. Check CI/status availability; do not claim CI pass if no checks exist.
-8. Keep `main` rollbackable through a single PR revert.
+## Phase 1 verification
+1. Root and studio cold-start routing resolve to canonical ICM paths — **PASS**.
+2. Core factory contracts exist under `studio/_system/` — **PASS**.
+3. Shared KAKU, DARYA and publish intelligence exist under `studio/_shared/` — **PASS**.
+4. Legacy core paths are pointer-only — **PASS**.
+5. Interface/cloud/portability boundaries are explicit and truth-labeled — **PASS**.
+6. Branch compare against `main` showed expected structural/documentation changes only — **PASS**.
+7. GitHub returned zero CI status checks; no application package runtime exists yet — **NO CI AVAILABLE, NOT CLAIMED AS PASS**.
+8. Rollback remains a single Phase 1 PR revert — **PASS**.
 
 ## Deferred artifact move
 `demo-brand-book.html` remains at its legacy root path in Phase 1 because it is a rendering/reference artifact rather than canonical operating truth and is referenced by the existing prototype and local injection helper. Its path migration belongs with Phase 2 application integration so links and runtime assumptions change together.
