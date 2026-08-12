@@ -16,6 +16,12 @@ async function noHorizontalOverflow(page: import('@playwright/test').Page) {
   expect(widths.scrollWidth).toBeLessThanOrEqual(widths.clientWidth + 1)
 }
 
+async function expectSectionBelowStickyHeader(page: import('@playwright/test').Page, selector: string) {
+  const box = await page.locator(selector).boundingBox()
+  expect(box).not.toBeNull()
+  expect(box!.y).toBeGreaterThanOrEqual(72)
+}
+
 test.beforeEach(async ({ page }) => {
   await ensureShotDir()
   await page.goto('/')
@@ -35,6 +41,8 @@ test('desktop proof, navigation, composer and route preview', async ({ page }) =
 
   await page.getByRole('link', { name: 'Open studio' }).click()
   await expect(page.locator('#studio')).toBeInViewport()
+  await expectSectionBelowStickyHeader(page, '#studio')
+  await expect(page.getByRole('heading', { name: 'Ask for the outcome.' })).toBeVisible()
 
   await page.getByRole('button', { name: 'Social campaign' }).click()
   await expect(page.locator('#outcome')).toHaveValue(/Instagram campaign system/)
@@ -56,14 +64,19 @@ test('tablet layout', async ({ page }) => {
   await expect(page.getByRole('link', { name: 'Open studio' })).toBeVisible()
 })
 
-test('mobile layout and keyboard focus', async ({ page }) => {
+test('mobile layout, anchor offset and keyboard focus', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 })
   await page.goto('/')
   await noHorizontalOverflow(page)
   await page.screenshot({ path: path.join(shotDir, 'mobile-390-full.png'), fullPage: true })
   await page.locator('.site-header').screenshot({ path: path.join(shotDir, 'mobile-390-nav.png') })
+
+  await page.getByRole('link', { name: 'Open studio' }).click()
+  await expectSectionBelowStickyHeader(page, '#studio')
+  await expect(page.getByRole('heading', { name: 'Ask for the outcome.' })).toBeVisible()
   await page.locator('#studio').screenshot({ path: path.join(shotDir, 'mobile-390-primary-action.png') })
 
+  await page.goto('/')
   await page.keyboard.press('Tab')
   await expect(page.locator('.skip-link')).toBeFocused()
   const focusOutline = await page.locator('.skip-link').evaluate((el) => getComputedStyle(el).outlineStyle)
