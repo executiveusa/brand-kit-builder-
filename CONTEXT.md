@@ -4,14 +4,14 @@
 This repository is a governed design office. Humans and agents bring an outcome here; the studio converts it into portable brand intelligence and production-ready design assets before downstream production systems consume them.
 
 ## Factory vs product
-- **Factory:** stable laws, schemas, skills, templates, guardians, adapters, and interface contracts.
-- **Product:** one tenant/project run, stored as an ICM workspace with editable stage outputs.
+- **Factory:** stable laws, schemas, skills, templates, guardians, adapters, and interface contracts under `studio/_system/`, `studio/_shared/`, `interfaces/`, and `apps/`.
+- **Product:** one tenant/project run under `studio/projects/<tenant>/<project>/` using the ICM stage contract.
 - **Renderings:** websites, brand books, social templates, mockups, print/POD art, decks, games, puzzles, packaging, and other surfaces generated from approved brand truth.
 
 ## Core pipeline
 `00_intake → 10_strategy → 20_design → 30_validate → 40_deliver → 50_publish`
 
-Existing detailed stage law remains in `studio/ICM.md` until the migration map is approved and executed.
+Canonical stage law: `studio/_system/contracts/ICM.md`.
 
 ## Human surface
 `apps/web/` is the design-office front door. The default interaction is outcome-first conversation. Configuration, model choice, provider details, and workflow machinery stay behind progressive disclosure.
@@ -25,16 +25,17 @@ All agent interfaces must compile to the same contracts:
 - cloud job
 - portable USB workspace
 
-No adapter owns business truth. Adapters translate into work orders/context packets and return receipts.
+Interface routing begins at `interfaces/CONTEXT.md`. No adapter owns business truth. Adapters translate into work orders/context packets and return receipts.
 
 ## Canonical ownership
 | Domain | Canonical owner |
 |---|---|
 | Brand intelligence | approved versioned ICM files + brand manifest |
-| Factory law | this repository |
+| Factory law | `studio/_system/` |
+| Shared creative intelligence | `studio/_shared/` |
 | Cloud identities / memberships | Supabase Auth + RLS tables |
 | Cloud job/session/approval indexes | Supabase operational state |
-| Cloud asset mirror | Supabase Storage or configured provider; never the only copy for portable deliverables |
+| Cloud asset mirror | configured object storage; never the only copy for portable deliverables |
 | Source code history | Git |
 | Production deployment | Vercel project/deployment state |
 | Secrets | secret manager / deployment secret store; never ICM export |
@@ -54,4 +55,4 @@ No adapter owns business truth. Adapters translate into work orders/context pack
 - Accessibility, mobile, reduced motion, rights, provenance, rollback, and owner control are release requirements.
 
 ## Current work
-Read `ops/reports/plans/ZTE-20260810-0001.md` for the active brownfield reorganization slice.
+Phase 1 ICM migration is active on `zte/ZTE-20260811-0002/icm-phase-1`. Read `docs/architecture/MIGRATION_MAP.md` for migration state and `studio/CONTEXT.md` for the current design-office router.
