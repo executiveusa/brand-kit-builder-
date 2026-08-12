@@ -55,4 +55,14 @@ Interface routing begins at `interfaces/CONTEXT.md`. No adapter owns business tr
 - Accessibility, mobile, reduced motion, rights, provenance, rollback, and owner control are release requirements.
 
 ## Current work
-Phase 1 ICM migration is active on `zte/ZTE-20260811-0002/icm-phase-1`. Read `docs/architecture/MIGRATION_MAP.md` for migration state and `studio/CONTEXT.md` for the current design-office router.
+Phase 3 cloud operating layer is active on `zte/ZTE-20260812-0004/cloud-operating-layer`.
+
+Current slice:
+- namespaced `brand_studio_*` Supabase schema and rollback;
+- tenant/RLS/append-only/approval-transition tests;
+- browser Supabase client using URL + publishable key only;
+- progressive sign-in/workspace/project/work-order persistence surface;
+- no production Supabase migration yet;
+- no production Vercel deployment yet.
+
+Read `supabase/CONTEXT.md` for cloud ownership/security rules and `apps/web/CONTEXT.md` for the human front-door contract.
