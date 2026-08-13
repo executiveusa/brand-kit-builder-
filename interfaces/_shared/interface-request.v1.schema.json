@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pauli.studio/schemas/interface-request.v1.json",
+  "title": "Pauli Studio Interface Request",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "tenant", "project", "outcome", "idempotency_key"],
+  "properties": {
+    "version": {"const": "interface-request.v1"},
+    "tenant": {"type": "string", "minLength": 1, "maxLength": 160},
+    "project": {"type": "string", "minLength": 1, "maxLength": 180},
+    "outcome": {"type": "string", "minLength": 1, "maxLength": 8000},
+    "idempotency_key": {"type": "string", "minLength": 16, "maxLength": 128},
+    "attachments": {"type": "array", "items": {"type": "string"}, "default": []},
+    "protected_items": {"type": "array", "items": {"type": "string"}, "default": []},
+    "constraints": {"type": "array", "items": {"type": "string"}, "default": []},
+    "requires_approval": {"type": "boolean", "default": false}
+  }
+}
