@@ -1,0 +1,30 @@
+name: Brand Studio Portability
+
+on:
+  pull_request:
+    paths:
+      - 'portability/**'
+      - '.github/workflows/brand-studio-portability.yml'
+  push:
+    branches:
+      - 'zte/**'
+    paths:
+      - 'portability/**'
+      - '.github/workflows/brand-studio-portability.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  portable-pack:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: portability/runtime
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Portable intelligence tests
+        run: npm test
