@@ -38,98 +38,70 @@ export async function signOutCloudUser() {
 
 export async function listOrganizations(): Promise<CloudOrganization[]> {
   const client = requireClient()
-  const { data, error } = await client
-    .from('brand_studio_organizations')
-    .select('id,name,slug')
-    .order('created_at', { ascending: true })
+  const { data, error } = await client.rpc('brand_studio_list_organizations')
   if (error) throw error
-  return (data ?? []) as CloudOrganization[]
+  return (data ?? []).map((row) => ({
+    id: row.id as string,
+    name: row.name as string,
+    role: row.role as CloudOrganization['role'],
+    slug: slugify(row.name as string),
+  }))
 }
 
 export async function createOrganization(name: string): Promise<CloudOrganization> {
   const client = requireClient()
-  const user = await getCloudUser()
-  if (!user) throw new Error('Sign in before creating a studio workspace.')
-  const slug = slugify(name)
-  if (!slug) throw new Error('Organization name must contain letters or numbers.')
-  const { data, error } = await client
-    .from('brand_studio_organizations')
-    .insert({ name: name.trim(), slug, created_by: user.id })
-    .select('id,name,slug')
-    .single()
+  if (!slugify(name)) throw new Error('Organization name must contain letters or numbers.')
+  const { data, error } = await client.rpc('brand_studio_create_organization', { p_name: name.trim() })
   if (error) throw error
-  return data as CloudOrganization
+  const row = data?.[0]
+  if (!row) throw new Error('Organization creation returned no receipt.')
+  return {
+    id: row.id as string,
+    name: row.name as string,
+    role: row.role as CloudOrganization['role'],
+    slug: slugify(row.name as string),
+  }
 }
 
 export async function listProjects(organizationId: string): Promise<CloudProject[]> {
   const client = requireClient()
-  const { data, error } = await client
-    .from('brand_studio_projects')
-    .select('id,organization_id,name,slug,canonical_manifest_path,canonical_manifest_hash')
-    .eq('organization_id', organizationId)
-    .neq('lifecycle_status', 'archived')
-    .order('created_at', { ascending: true })
+  const { data, error } = await client.rpc('brand_studio_list_projects', {
+    p_organization_id: organizationId,
+  })
   if (error) throw error
   return (data ?? []) as CloudProject[]
 }
 
 export async function createProject(organization: CloudOrganization, name: string): Promise<CloudProject> {
   const client = requireClient()
-  const user = await getCloudUser()
-  if (!user) throw new Error('Sign in before creating a project.')
   const slug = slugify(name)
   if (!slug) throw new Error('Project name must contain letters or numbers.')
-  const canonicalManifestPath = `studio/projects/${organization.slug}/${slug}/manifest.json`
-  const { data, error } = await client
-    .from('brand_studio_projects')
-    .insert({
-      organization_id: organization.id,
-      name: name.trim(),
-      slug,
-      canonical_manifest_path: canonicalManifestPath,
-      created_by: user.id,
-    })
-    .select('id,organization_id,name,slug,canonical_manifest_path,canonical_manifest_hash')
-    .single()
+  const icmPath = `studio/projects/${organization.slug}/${slug}/`
+  const { data, error } = await client.rpc('brand_studio_create_project', {
+    p_organization_id: organization.id,
+    p_name: name.trim(),
+    p_icm_path: icmPath,
+  })
   if (error) throw error
-  return data as CloudProject
+  const row = data?.[0]
+  if (!row) throw new Error('Project creation returned no receipt.')
+  return row as CloudProject
 }
 
 export async function createWorkOrder(project: CloudProject, intent: string): Promise<CloudWorkOrderReceipt> {
   const client = requireClient()
-  const user = await getCloudUser()
-  if (!user) throw new Error('Sign in before creating a work order.')
-
-  const { data: session, error: sessionError } = await client
-    .from('brand_studio_sessions')
-    .insert({
-      organization_id: project.organization_id,
-      project_id: project.id,
-      user_id: user.id,
-      channel: 'web',
-      metadata: { surface: 'polish-outcome-composer' },
-    })
-    .select('id')
-    .single()
-  if (sessionError) throw sessionError
-
-  const { data, error } = await client
-    .from('brand_studio_work_orders')
-    .insert({
-      organization_id: project.organization_id,
-      project_id: project.id,
-      session_id: session.id,
-      requested_by: user.id,
-      intent: intent.trim(),
-      normalized_request: {
-        source: 'web',
-        intent: intent.trim(),
-        canonical_manifest_path: project.canonical_manifest_path,
-      },
-      status: 'queued',
-    })
-    .select('id,status,intent,created_at')
-    .single()
+  const trimmedIntent = intent.trim()
+  if (!trimmedIntent) throw new Error('Describe the outcome before creating a work order.')
+  const idempotencyKey = `${project.id}:${slugify(trimmedIntent).slice(0, 72)}:${trimmedIntent.length}`
+  const { data, error } = await client.rpc('brand_studio_create_work_order', {
+    p_organization_id: project.organization_id,
+    p_project_id: project.id,
+    p_intent: trimmedIntent,
+    p_idempotency_key: idempotencyKey,
+    p_requires_approval: false,
+  })
   if (error) throw error
-  return data as CloudWorkOrderReceipt
+  const row = data?.[0]
+  if (!row) throw new Error('Work-order creation returned no receipt.')
+  return row as CloudWorkOrderReceipt
 }
