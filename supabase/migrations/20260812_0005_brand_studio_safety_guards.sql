@@ -1,0 +1,5 @@
+-- Deprecated before application.
+-- This file targeted the abandoned `public.brand_studio_*` table design.
+-- The isolated `brand_studio` / `brand_studio_private` architecture contains these guards in
+-- `20260812_0005_brand_studio_isolated_schema.sql` and subsequent hardening migrations.
+-- This file intentionally performs no database changes so historical migration ordering remains stable.

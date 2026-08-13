@@ -33,7 +33,7 @@ Interface routing begins at `interfaces/CONTEXT.md`. No adapter owns business tr
 | Brand intelligence | approved versioned ICM files + brand manifest |
 | Factory law | `studio/_system/` |
 | Shared creative intelligence | `studio/_shared/` |
-| Cloud identities / memberships | Supabase Auth + RLS tables |
+| Cloud identities / memberships | Supabase Auth + Brand Studio isolated RLS domain |
 | Cloud job/session/approval indexes | Supabase operational state |
 | Cloud asset mirror | configured object storage; never the only copy for portable deliverables |
 | Source code history | Git |
@@ -54,5 +54,12 @@ Interface routing begins at `interfaces/CONTEXT.md`. No adapter owns business tr
 - Brand-specific design, not generic SaaS decoration.
 - Accessibility, mobile, reduced motion, rights, provenance, rollback, and owner control are release requirements.
 
-## Current work
-Phase 1 ICM migration is active on `zte/ZTE-20260811-0002/icm-phase-1`. Read `docs/architecture/MIGRATION_MAP.md` for migration state and `studio/CONTEXT.md` for the current design-office router.
+## Current state
+Phases 0–3 are implemented. Phase 3 created the authorized `brand_studio` + `brand_studio_private` domains inside Botanic Creations with forced RLS, RPC-only browser access, tenant-isolation proof, approval/owner guards, rollback and green web CI.
+
+Canonical brand truth still lives in ICM; Supabase stores operational cloud state only.
+
+## Next work
+Phase 4: make REST, MCP, CLI, folder-drop, Popebot and local callers normalize into the same request/work-order/receipt contracts. Read `interfaces/CONTEXT.md` first.
+
+Production Vercel deployment remains separately approval-gated.

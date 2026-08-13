@@ -1,0 +1,22 @@
+# Tasks — Brand Studio Cloud Phase 3
+
+- [x] Inspect connected Supabase project and existing tables.
+- [x] Confirm no existing `brand_studio_*` production tables.
+- [x] Confirm no existing Supabase development branches.
+- [x] Write namespaced operational migration.
+- [x] Write safety-hardening migration.
+- [x] Write isolated rollback SQL.
+- [x] Write tenant/RLS/append-only/state-transition SQL tests.
+- [x] Add browser Supabase client with publishable-key boundary.
+- [x] Add progressive cloud sign-in/workspace/project/work-order UI.
+- [x] Add local/offline truth-state browser test.
+- [ ] Green build/lint/Playwright on final branch head.
+- [ ] Create isolated Supabase development branch after required organization/cost confirmation.
+- [ ] Apply migrations to development branch.
+- [ ] Execute `brand_studio_rls.sql` on development branch.
+- [ ] Run Supabase security and performance advisors.
+- [ ] Generate TypeScript types from validated development schema and compare to app contracts.
+- [ ] Update HTML audit/implementation report with database proof.
+- [ ] Open PR and complete independent review.
+- [ ] Merge Phase 3 only after 8.5+ gate and owner approval.
+- [ ] Do not apply production DDL without the separate production database approval.

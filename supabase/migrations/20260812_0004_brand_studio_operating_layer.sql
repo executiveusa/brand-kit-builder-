@@ -1,0 +1,5 @@
+-- Deprecated before application.
+-- Phase 3 originally modeled Brand Studio as prefixed tables in public.
+-- Owner direction and Botanic Creations conventions require a dedicated isolated schema instead.
+-- Apply `20260812_0005_brand_studio_isolated_schema.sql` instead.
+-- This file intentionally performs no database changes.
