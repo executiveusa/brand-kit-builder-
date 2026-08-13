@@ -1,0 +1,30 @@
+name: Brand Studio Factory
+
+on:
+  pull_request:
+    paths:
+      - 'studio/_system/runtime/**'
+      - '.github/workflows/brand-studio-factory.yml'
+  push:
+    branches:
+      - 'zte/**'
+    paths:
+      - 'studio/_system/runtime/**'
+      - '.github/workflows/brand-studio-factory.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  factory-runtime:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: studio/_system/runtime
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Factory lifecycle tests
+        run: npm test
