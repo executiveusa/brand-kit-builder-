@@ -1,0 +1,82 @@
+name: Brand Studio Release Candidate
+
+on:
+  pull_request:
+    paths:
+      - 'apps/web/**'
+      - 'interfaces/**'
+      - 'studio/_system/runtime/**'
+      - 'portability/**'
+      - 'supabase/**'
+      - 'ops/reports/**'
+      - '.github/workflows/brand-studio-release.yml'
+  push:
+    branches:
+      - 'zte/**'
+
+permissions:
+  contents: read
+
+jobs:
+  release-candidate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Interface equivalence
+        working-directory: interfaces/runtime
+        run: npm test
+
+      - name: Factory lifecycle
+        working-directory: studio/_system/runtime
+        run: npm test
+
+      - name: Portable intelligence
+        working-directory: portability/runtime
+        run: npm test
+
+      - name: Install web dependencies
+        working-directory: apps/web
+        run: npm install --no-audit --no-fund
+
+      - name: Build web
+        working-directory: apps/web
+        run: npm run build
+
+      - name: Lint web
+        working-directory: apps/web
+        run: npm run lint
+
+      - name: Install Chromium
+        working-directory: apps/web
+        run: npx playwright install --with-deps chromium
+
+      - name: Browser and accessibility evidence
+        working-directory: apps/web
+        run: npm run test:visual
+
+      - name: Architecture guardrails
+        shell: bash
+        run: |
+          test -f supabase/rollback/20260812_0004_brand_studio_operating_layer.sql
+          test -f docs/architecture/PORTABILITY_CONTRACT.md
+          test -f studio/_system/contracts/FACTORY.md
+          test -f studio/_system/guardians/GUARDIANS.md
+          ! grep -R --exclude='*.sql' --exclude='*.md' --exclude='*.json' -nE "service_role|SUPABASE_SERVICE_ROLE_KEY|sk-[A-Za-z0-9]" apps interfaces studio portability || false
+
+      - name: Upload release evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: brand-studio-release-evidence
+          path: |
+            apps/web/artifacts/design-audit/screenshots
+            apps/web/artifacts/design-audit/playwright-results
+          if-no-files-found: warn
+          retention-days: 14
