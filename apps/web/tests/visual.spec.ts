@@ -105,3 +105,12 @@ test('reduced motion disables smooth scrolling', async ({ page }) => {
   const behavior = await page.evaluate(() => getComputedStyle(document.documentElement).scrollBehavior)
   expect(behavior).toBe('auto')
 })
+
+test('cloud client is RPC-only for Brand Studio data', async () => {
+  const serviceSource = await fs.readFile(path.resolve('src/lib/cloud/service.ts'), 'utf8')
+  expect(serviceSource).not.toMatch(/\.from\(['"]brand_studio/i)
+  expect(serviceSource).toContain("rpc('brand_studio_list_organizations')")
+  expect(serviceSource).toContain("rpc('brand_studio_create_organization'")
+  expect(serviceSource).toContain("rpc('brand_studio_create_project'")
+  expect(serviceSource).toContain("rpc('brand_studio_create_work_order'")
+})
