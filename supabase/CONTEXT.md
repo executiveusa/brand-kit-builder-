@@ -1,6 +1,6 @@
 # Supabase context
 
-Status: **Phase 3 migration and browser integration are implemented on the ZTE branch; no Brand Studio production schema has been applied.**
+Status: **Phase 3 Brand Studio domain is applied to Botanic Creations under dedicated isolated schemas.**
 
 Supabase is the cloud operational layer for identity, tenancy, sessions, jobs, approvals, sync metadata and artifact indexes. It is not the editable source of brand truth.
 
@@ -9,64 +9,71 @@ Supabase is the cloud operational layer for identity, tenancy, sessions, jobs, a
 - Project ref: `cyxdevcjycmffhmwxojh`
 - Region: `us-west-1`
 - Shared infrastructure: yes
-- Existing `brand_studio_*` production tables: none at Phase 3 start
-- Existing Supabase development branches: none at Phase 3 start
+- Brand Studio domain: `brand_studio`
+- Private implementation domain: `brand_studio_private`
+- Direct browser table access: **denied**
 
-## Phase 3 schema
-All new tables are namespaced to avoid collisions with other systems using the shared database:
-- `brand_studio_organizations`
-- `brand_studio_memberships`
-- `brand_studio_projects`
-- `brand_studio_sessions`
-- `brand_studio_work_orders`
-- `brand_studio_job_runs`
-- `brand_studio_approvals`
-- `brand_studio_artifact_index`
-- `brand_studio_sync_state`
-- `brand_studio_activity_events`
+## Phase 3 data domain
+Tables live only inside `brand_studio`:
+- `organizations`
+- `memberships`
+- `projects`
+- `sessions`
+- `work_orders`
+- `job_runs`
+- `approvals`
+- `artifact_index`
+- `sync_state`
+- `activity_events`
 
-Migration source:
-- `migrations/20260812_0004_brand_studio_operating_layer.sql`
-- `migrations/20260812_0005_brand_studio_safety_guards.sql`
+Migration sources:
+- `migrations/20260812_0004_brand_studio_operating_layer.sql` — deprecated no-op from the superseded public-table design.
+- `migrations/20260812_0005_brand_studio_isolated_schema.sql` — isolated schemas, tables, RLS, guards and RPC boundary.
+- `migrations/20260812_0006_brand_studio_rpc_hardening.sql` — public SECURITY INVOKER façade over unexposed private implementations.
+- `migrations/20260812_0007_brand_studio_performance_hardening.sql` — FK indexes and RLS planner improvements.
 
 Rollback source:
 - `rollback/20260812_0004_brand_studio_operating_layer.sql`
 
-Isolation/security test source:
-- `tests/brand_studio_rls.sql`
+## Browser API
+The browser can call only these authenticated public RPCs:
+- `brand_studio_create_organization`
+- `brand_studio_list_organizations`
+- `brand_studio_create_project`
+- `brand_studio_list_projects`
+- `brand_studio_create_work_order`
+- `brand_studio_record_approval`
+
+The public wrappers are SECURITY INVOKER. Elevated implementation functions live in `brand_studio_private`, which is not part of the exposed REST schema. Anonymous execution is revoked.
+
+## Guardrails proved
+- RLS is enabled and forced on every Brand Studio table.
+- `authenticated` has no direct usage on `brand_studio`.
+- anonymous users cannot execute Brand Studio RPCs.
+- tenant A cannot read tenant B organizations or projects.
+- the last active owner cannot be removed/demoted.
+- approval-gated work cannot complete before an approved decision exists.
+- approvals and activity events are append-only.
+- no test tenant/user/work-order rows remain after the transaction-scoped verification suite.
+- Supabase security advisor reports no Brand Studio-specific warnings.
+- performance advisor reports no Brand Studio unindexed-FK/auth-initplan/duplicate-policy warnings; new unused-index INFO is expected until traffic exists.
 
 ## Ownership
-Supabase owns:
-- authentication and memberships;
-- tenant/project operational indexes;
-- web sessions and normalized work-order receipts;
-- job-run state;
-- append-only human approval decisions;
-- append-only activity events;
-- sync state and artifact metadata.
+Supabase owns operational indexes and state only: authentication, memberships, sessions, work-order/job status, approvals, activity, sync metadata and artifact references.
 
-Supabase does **not** own:
-- editable brand strategy;
-- editable brand voice;
-- protected creative decisions;
-- the canonical brand manifest;
-- the only copy of a deliverable.
+Supabase does **not** own editable strategy, voice, protected creative decisions, canonical manifests, or the only copy of a deliverable. Those remain approved/versioned ICM files.
 
-Those remain approved, versioned ICM files + the project manifest.
-
-## Browser contract
+## Browser configuration
 `apps/web` may receive only:
 - `VITE_SUPABASE_URL`
 - `VITE_SUPABASE_PUBLISHABLE_KEY`
 
-Never expose a secret key or service-role credential to the browser. RLS is the authorization boundary for authenticated browser writes.
+Never expose a secret/service-role credential to the browser.
 
 ## Law
-- Every tenant-scoped table requires RLS and cross-tenant isolation tests.
-- Approval and activity ledgers are append-only to authenticated clients.
-- A `needs_approval` work order cannot become `completed` without an immutable `approved` decision record.
-- The final active owner of an organization cannot be removed or demoted.
-- Browser deletion of organizations is not granted.
-- No secrets are stored in project files or client-readable rows.
-- Database migrations are reviewed on an isolated development branch before production application.
-- Production database and production deployment changes remain separately approval-gated.
+- One tenant cannot observe or mutate another tenant.
+- No adapter or cloud table replaces ICM brand truth.
+- Consequential state transitions require the correct role and approval evidence.
+- No secrets in repo, browser rows, logs or portable exports.
+- Schema rollback must target only the Brand Studio domain.
+- Vercel production deployment remains a separate explicit approval gate.
