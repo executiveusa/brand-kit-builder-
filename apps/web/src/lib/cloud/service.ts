@@ -1,6 +1,12 @@
 import { supabase } from './client'
 import type { CloudOrganization, CloudProject, CloudWorkOrderReceipt } from './contracts'
 
+type OrganizationRpcRow = {
+  id: string
+  name: string
+  role: CloudOrganization['role']
+}
+
 function requireClient() {
   if (!supabase) throw new Error('Cloud mode is not configured for this build.')
   return supabase
@@ -40,11 +46,11 @@ export async function listOrganizations(): Promise<CloudOrganization[]> {
   const client = requireClient()
   const { data, error } = await client.rpc('brand_studio_list_organizations')
   if (error) throw error
-  return (data ?? []).map((row) => ({
-    id: row.id as string,
-    name: row.name as string,
-    role: row.role as CloudOrganization['role'],
-    slug: slugify(row.name as string),
+  return ((data ?? []) as OrganizationRpcRow[]).map((row) => ({
+    id: row.id,
+    name: row.name,
+    role: row.role,
+    slug: slugify(row.name),
   }))
 }
 
@@ -53,13 +59,13 @@ export async function createOrganization(name: string): Promise<CloudOrganizatio
   if (!slugify(name)) throw new Error('Organization name must contain letters or numbers.')
   const { data, error } = await client.rpc('brand_studio_create_organization', { p_name: name.trim() })
   if (error) throw error
-  const row = data?.[0]
+  const row = (data?.[0] ?? null) as OrganizationRpcRow | null
   if (!row) throw new Error('Organization creation returned no receipt.')
   return {
-    id: row.id as string,
-    name: row.name as string,
-    role: row.role as CloudOrganization['role'],
-    slug: slugify(row.name as string),
+    id: row.id,
+    name: row.name,
+    role: row.role,
+    slug: slugify(row.name),
   }
 }
 
