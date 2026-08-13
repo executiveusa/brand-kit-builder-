@@ -251,24 +251,24 @@ export function CloudWorkspace({ intent }: CloudWorkspaceProps) {
               </select>
               <div className="cloud-save-row">
                 <div>
-                  <span className="micro">Canonical brand truth</span>
-                  <p>{activeProject?.canonical_manifest_path}</p>
+                  <span className="micro">Canonical ICM home</span>
+                  <p>{activeProject?.icm_path ?? 'Project path will be assigned by the ICM factory.'}</p>
                 </div>
                 <button type="button" onClick={saveWorkOrder} disabled={busy || !intent.trim()}>
                   {busy ? 'Working…' : 'Queue this outcome'}
                 </button>
               </div>
+              {receipt && (
+                <div className="cloud-receipt" role="status">
+                  <Check aria-hidden="true" />
+                  <div><strong>Work order queued</strong><p>{receipt.id} · {receipt.status}</p></div>
+                </div>
+              )}
             </>
           )}
         </>
       )}
 
-      {receipt && (
-        <div className="cloud-receipt" role="status">
-          <Check size={16} aria-hidden="true" />
-          <div><strong>Work order {receipt.status}</strong><span>{receipt.id}</span></div>
-        </div>
-      )}
       {message && <p className="cloud-message" role="status">{message}</p>}
       {error && <p className="cloud-error" role="alert">{error}</p>}
     </aside>
