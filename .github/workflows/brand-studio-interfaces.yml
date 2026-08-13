@@ -1,0 +1,30 @@
+name: Brand Studio Interfaces
+
+on:
+  pull_request:
+    paths:
+      - 'interfaces/**'
+      - '.github/workflows/brand-studio-interfaces.yml'
+  push:
+    branches:
+      - 'zte/**'
+    paths:
+      - 'interfaces/**'
+      - '.github/workflows/brand-studio-interfaces.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  contract-equivalence:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: interfaces/runtime
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Interface equivalence tests
+        run: npm test
