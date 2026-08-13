@@ -1,27 +1,17 @@
 begin;
 
--- Roll back only objects introduced by 20260812_0004_brand_studio_operating_layer.
--- Existing shared botanic-creations tables are intentionally untouched.
+-- Destructive rollback for the Brand Studio domain only.
+-- Apply only when explicitly rolling back Phase 3 on the exact database that received it.
+-- No pre-existing Botanic Creations schema/table/function is targeted here.
 
-drop table if exists public.brand_studio_activity_events cascade;
-drop table if exists public.brand_studio_sync_state cascade;
-drop table if exists public.brand_studio_artifact_index cascade;
-drop table if exists public.brand_studio_approvals cascade;
-drop table if exists public.brand_studio_job_runs cascade;
-drop table if exists public.brand_studio_work_orders cascade;
-drop table if exists public.brand_studio_sessions cascade;
-drop table if exists public.brand_studio_projects cascade;
-drop table if exists public.brand_studio_memberships cascade;
-drop table if exists public.brand_studio_organizations cascade;
+drop function if exists public.brand_studio_record_approval(uuid,text,text,text);
+drop function if exists public.brand_studio_create_work_order(uuid,uuid,text,text,boolean);
+drop function if exists public.brand_studio_list_projects(uuid);
+drop function if exists public.brand_studio_create_project(uuid,text,text);
+drop function if exists public.brand_studio_list_organizations();
+drop function if exists public.brand_studio_create_organization(text);
 
-drop function if exists public.brand_studio_validate_work_order_transition() cascade;
-drop function if exists public.brand_studio_preserve_last_owner() cascade;
-drop function if exists public.brand_studio_is_owner(uuid) cascade;
-drop function if exists public.brand_studio_can_admin(uuid) cascade;
-drop function if exists public.brand_studio_can_write(uuid) cascade;
-drop function if exists public.brand_studio_member_role(uuid) cascade;
-drop function if exists public.brand_studio_is_member(uuid) cascade;
-drop function if exists public.brand_studio_bootstrap_owner() cascade;
-drop function if exists public.brand_studio_set_updated_at() cascade;
+drop schema if exists brand_studio_private cascade;
+drop schema if exists brand_studio cascade;
 
 commit;
