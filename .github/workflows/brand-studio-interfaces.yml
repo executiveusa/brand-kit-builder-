@@ -42,3 +42,20 @@ jobs:
           node-version: '22'
       - name: MCP runtime tests
         run: npm test
+
+  cli-runtime:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: interfaces/cli
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: CLI runtime tests
+        run: npm test
+      - name: CLI capability smoke
+        run: node cli.mjs capabilities
+      - name: Bash launcher smoke
+        run: bash ./pdfactory capabilities
