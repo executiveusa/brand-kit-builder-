@@ -57,3 +57,5 @@ jobs:
         run: npm test
       - name: CLI capability smoke
         run: node cli.mjs capabilities
+      - name: Bash launcher smoke
+        run: bash ./pdfactory capabilities
