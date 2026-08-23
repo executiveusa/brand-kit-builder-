@@ -8,6 +8,7 @@ on:
   push:
     branches:
       - 'zte/**'
+      - 'feat/**'
     paths:
       - 'interfaces/**'
       - '.github/workflows/brand-studio-interfaces.yml'
@@ -27,4 +28,17 @@ jobs:
         with:
           node-version: '22'
       - name: Interface equivalence tests
+        run: npm test
+
+  mcp-runtime:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: interfaces/mcp
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: MCP runtime tests
         run: npm test

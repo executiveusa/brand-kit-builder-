@@ -4,12 +4,19 @@
 This folder is the design office. It separates **factory law**, **shared creative intelligence**, **project work**, and **templates** so agents can cold-start without crawling the repository.
 
 ## Read order
-1. `../CONTEXT.md`
-2. `./_system/governance/CONSOLIDATION.md`
-3. Only the contract/reference required for the current task
+1. `../AGENTS.md`
+2. `../CONTEXT.md`
+3. `./_system/contracts/ICM.md`
+4. `./_system/governance/WALK_TEST.md`
+5. `./_system/skills/CONTEXT.md`
+6. `./_system/governance/CONSOLIDATION.md` only when factory-wide context is required
+7. Only the contract/reference required for the current task
 
 ## Routes
 - Factory stages + ICM law → `_system/contracts/ICM.md`
+- Cold-start walk test → `_system/governance/WALK_TEST.md`
+- Design skill routing → `_system/skills/CONTEXT.md`
+- Machine quality bar → `_system/governance/DESIGN_STANDARD.json`
 - Worker roles/pipeline → `_system/contracts/FACTORY.md`
 - Model routing → `_system/routing/AUTO_ROUTER.md`
 - Independent release checks → `_system/guardians/GUARDIANS.md`
@@ -25,6 +32,7 @@ This folder is the design office. It separates **factory law**, **shared creativ
 - `_templates/` = blank project structures and repeatable project starters.
 - `projects/` = tenant-sealed brand work.
 - A project fact has one canonical home; other locations may only point to it.
+- Skills guide work but never become a second source of brand truth.
 - No secret material belongs in this tree.
 
 ## Current migration state

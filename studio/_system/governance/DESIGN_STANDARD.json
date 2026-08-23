@@ -1,0 +1,39 @@
+{
+  "name": "Pauli Design Standard",
+  "version": "1.0.0",
+  "minimum_ship_score": 9.0,
+  "builder_may_self_approve": false,
+  "done_requires_evidence": true,
+  "dimensions": {
+    "brand_foundation": 8.0,
+    "positioning_clarity": 9.0,
+    "governing_idea": 9.0,
+    "distinctiveness": 9.0,
+    "visual_hierarchy": 9.0,
+    "typography": 9.0,
+    "color_system": 9.0,
+    "usability": 9.0,
+    "mobile": 8.5,
+    "accessibility": 9.0,
+    "presentation": 9.0,
+    "provenance": 10.0,
+    "rights": 10.0,
+    "anti_slop": 10.0
+  },
+  "required_judges": [
+    "strategy",
+    "taste",
+    "usability",
+    "accessibility",
+    "rights-provenance",
+    "responsive"
+  ],
+  "required_skills": [
+    "brand-discovery",
+    "collins-level",
+    "design-guardian",
+    "gauntlet",
+    "design-proof",
+    "design-delivery"
+  ]
+}
