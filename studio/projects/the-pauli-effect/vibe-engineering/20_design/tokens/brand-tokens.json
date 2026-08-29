@@ -1,0 +1,48 @@
+{
+  "version": "1.0.0-draft",
+  "brand": "Vibe Engineering",
+  "colors": {
+    "ink": "#0B0D0B",
+    "inkSoft": "#141714",
+    "paper": "#EFECE2",
+    "paperDim": "#B7B5AD",
+    "proof": "#C9FF38",
+    "reject": "#FF4D4D"
+  },
+  "semantic": {
+    "background": "{colors.ink}",
+    "foreground": "{colors.paper}",
+    "muted": "{colors.paperDim}",
+    "selected": "{colors.proof}",
+    "verified": "{colors.proof}",
+    "rejected": "{colors.reject}",
+    "needsReview": "{colors.reject}"
+  },
+  "type": {
+    "display": "Aalto",
+    "body": "Projekt Blackbird",
+    "fallback": "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+    "basePx": 16,
+    "scale": 1.25,
+    "maxFamilies": 2
+  },
+  "shape": {
+    "baseRadiusPx": 2,
+    "uiRadiusPx": 4,
+    "editorialRadiusPx": 0,
+    "linePx": 1
+  },
+  "spacing": {
+    "basePx": 4,
+    "sectionPx": 64,
+    "componentGapPx": 16,
+    "textMaxPx": 720
+  },
+  "motion": {
+    "microMs": 150,
+    "hoverMs": 200,
+    "pageMs": 400,
+    "heroEase": "cubic-bezier(0.16,1,0.3,1)",
+    "reducedMotion": true
+  }
+}

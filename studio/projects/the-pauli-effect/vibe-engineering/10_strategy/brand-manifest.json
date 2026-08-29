@@ -1,0 +1,145 @@
+{
+  "manifest_version": "1.0.0",
+  "tenant": "the-pauli-effect",
+  "status": "strategy_locked",
+  "brand": {
+    "name": "Vibe Engineering",
+    "tagline": "Verify It Before Everything.",
+    "category": "AI-era systems thinking and creative decision-making",
+    "languages": ["en"],
+    "origin_story": "Vibe Engineering grew from a simple problem: AI can make almost anything quickly, but speed without judgment creates sameness, weak decisions, and false confidence. VIBE turns the human part into a repeatable practice: understand the idea, see the system, use taste, verify the work, and keep ownership.",
+    "values": [
+      "Verify before trusting",
+      "Think in systems",
+      "Use your taste",
+      "Prove the important parts",
+      "Own what you build"
+    ]
+  },
+  "strategy": {
+    "positioning_statement": "For non-technical creators, young builders, founders, operators, and small-business owners, Vibe Engineering is the AI-era thinking and making system that helps them turn ideas into real things with systems thinking, taste, proof, and ownership because it makes the human decision process explicit instead of asking people to trust a one-shot AI output.",
+    "brand_promise": "A better way to turn your ideas into real things without giving up your judgment or control.",
+    "proof_points": [
+      "V.I.B.E. makes verification the first principle: Verify It Before Everything.",
+      "The method separates idea, system, build, proof, judgment, and ownership instead of treating generation as completion.",
+      "The public experience is designed for people who do not identify as developers.",
+      "The product repo includes explicit verification, quality, ownership, and rollback doctrine rather than generation-only workflows."
+    ],
+    "differentiation": {
+      "everybody_zigs": "Lead with faster generation, more tools, more agents, technical power, or one-shot outputs.",
+      "we_zag": "Lead with the human operating system: know what you want, see how the pieces connect, use your taste, make a decision, verify the result, and own it.",
+      "competitors": []
+    },
+    "audience": {
+      "primary": {
+        "description": "Non-technical creators and builders—especially younger people, founders, operators, and small-business owners—who have ideas and access to AI but need a simple process for turning output into intentional, useful work.",
+        "psychographics": [
+          "Wants capability without developer cosplay",
+          "Values culture and taste but dislikes fake trend-chasing",
+          "Learns better through examples and action than lectures",
+          "Wants ownership and independence",
+          "Needs a clear process that reduces cognitive load"
+        ]
+      },
+      "tribes": [
+        "Creators who build",
+        "Young people learning to direct AI",
+        "Owners turning ideas into systems",
+        "Generalists with taste and agency"
+      ]
+    }
+  },
+  "voice": {
+    "personality": ["clear", "confident", "grounded"],
+    "tone_rules": [
+      {
+        "context": "homepage",
+        "do": "Lead with one concrete idea and short sentences. Make the next action obvious.",
+        "dont": "Explain internal architecture, model routing, or methodology jargon before the visitor understands the point."
+      },
+      {
+        "context": "teaching",
+        "do": "Show the decision through a real example: compare, choose, test, verify.",
+        "dont": "Lecture people with abstract systems language when the same lesson can be demonstrated."
+      },
+      {
+        "context": "culture",
+        "do": "Sound current through confidence, observation, and specificity.",
+        "dont": "Use forced slang, fake street language, or decorative 'urban' clichés."
+      },
+      {
+        "context": "critique",
+        "do": "Name the problem plainly and show the better decision.",
+        "dont": "Mock the user, shame beginners, or make AI itself the villain."
+      }
+    ]
+  },
+  "visual": {
+    "logo_direction": "01-proof-mark-wordmark",
+    "color_system": {
+      "colors": [
+        {"name":"Ink","hex":"#0B0D0B","oklch":"oklch(0.156 0.005 145.3)","rgb":"11 13 11","cmyk":"15 0 15 95","role":"anchor","usage_percent":52},
+        {"name":"Warm Paper","hex":"#EFECE2","oklch":"oklch(0.943 0.014 93.0)","rgb":"239 236 226","cmyk":"0 1 5 6","role":"neutral","usage_percent":26},
+        {"name":"Proof Acid","hex":"#C9FF38","oklch":"oklch(0.930 0.217 124.4)","rgb":"201 255 56","cmyk":"21 0 78 0","role":"primary_action","usage_percent":12},
+        {"name":"Ink Soft","hex":"#141714","oklch":"oklch(0.200 0.007 145.3)","rgb":"20 23 20","cmyk":"13 0 13 91","role":"secondary","usage_percent":4},
+        {"name":"Paper Dim","hex":"#B7B5AD","oklch":"oklch(0.772 0.011 95.2)","rgb":"183 181 173","cmyk":"0 1 5 28","role":"neutral","usage_percent":4},
+        {"name":"Reject Red","hex":"#FF4D4D","oklch":"oklch(0.673 0.215 25.0)","rgb":"255 77 77","cmyk":"0 70 70 0","role":"status","usage_percent":2}
+      ],
+      "contrast_proof": [
+        {"pair":"Warm Paper on Ink","ratio":16.50,"passes_aa":true},
+        {"pair":"Proof Acid on Ink","ratio":16.57,"passes_aa":true},
+        {"pair":"Paper Dim on Ink","ratio":9.50,"passes_aa":true},
+        {"pair":"Reject Red on Ink","ratio":5.96,"passes_aa":true},
+        {"pair":"Proof Acid on Warm Paper","ratio":1.00,"passes_aa":false}
+      ]
+    },
+    "type_system": {
+      "display": {
+        "family": "Aalto",
+        "darya_id": "10-aalto",
+        "license_status": "free",
+        "free_alternative": "Projekt Blackbird Bold",
+        "rationale": "Architectural structure with human warmth. It communicates systems thinking without looking like default SaaS typography and gives large statements a recognizable shape without relying on graffiti or distressed display tropes."
+      },
+      "body": {
+        "family": "Projekt Blackbird",
+        "darya_id": "06-projekt-blackbird",
+        "license_status": "free",
+        "free_alternative": "system-ui",
+        "rationale": "A clean, precise neo-grotesk keeps teaching copy, navigation, captions, and interfaces readable while letting the content and imagery carry culture."
+      },
+      "scale_ratio": 1.25,
+      "base_size_px": 16
+    }
+  },
+  "protected_items": [
+    "V.I.B.E. means Verify It Before Everything.",
+    "Vibe Engineering is part of the Pauli suite of products.",
+    "Built by The Pauli Effect — 2026.",
+    "The audience does not need to become developers.",
+    "Human judgment, taste, systems thinking, proof, and ownership remain central."
+  ],
+  "hard_bans": [
+    "generic purple/blue AI gradient identity",
+    "AI brain, robot, matrix-code, or fake-future visual shorthand",
+    "generic SaaS card/bento/glass dashboard composition",
+    "forced slang or cultural cosplay",
+    "graffiti/distressed raster/paint slash/torn paper/sticker clutter as default urban shorthand",
+    "more than two font families",
+    "unlicensed or unprovenanced fonts/assets",
+    "decorative use of Reject Red",
+    "Proof Acid text on Warm Paper",
+    "copying another studio's visual identity"
+  ],
+  "provenance": {
+    "created_by": "Pauli Brand Studio — VIBE brand build",
+    "created_at": "2026-08-29T21:00:00Z",
+    "sources": [
+      {"claim":"Existing VIBE product design direction","source":"https://github.com/executiveusa/vibe-engineering/blob/main/DESIGN.md","verified_at":"2026-08-29T21:00:00Z"},
+      {"claim":"Existing VIBE brand voice and visual direction","source":"https://github.com/executiveusa/vibe-engineering/blob/main/docs/BRAND.md","verified_at":"2026-08-29T21:00:00Z"},
+      {"claim":"Existing V proof-mark seed","source":"https://github.com/executiveusa/vibe-engineering/blob/main/public/favicon.svg","verified_at":"2026-08-29T21:00:00Z"},
+      {"claim":"Typography candidates and license status","source":"studio/_shared/design-systems/type/DARYA_FONT_REGISTRY.md","verified_at":"2026-08-29T21:00:00Z"},
+      {"claim":"Owner direction: V.I.B.E., non-technical audience, systems thinking, youth and decision discipline","source":"Owner working-session direction — 2026-08-29","verified_at":"2026-08-29T21:00:00Z"}
+    ]
+  }
+}
