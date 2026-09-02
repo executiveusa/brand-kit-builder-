@@ -1,0 +1,72 @@
+name: PARÉ Self Host
+
+on:
+  pull_request:
+    paths:
+      - 'Dockerfile'
+      - 'compose.yaml'
+      - '.dockerignore'
+      - '.env.pare.example'
+      - 'interfaces/**'
+      - 'studio/_system/**'
+      - 'apps/web/**'
+      - '.github/workflows/pare-self-host.yml'
+  push:
+    branches:
+      - 'zte/**'
+    paths:
+      - 'Dockerfile'
+      - 'compose.yaml'
+      - '.dockerignore'
+      - '.env.pare.example'
+      - 'interfaces/**'
+      - 'studio/_system/**'
+      - 'apps/web/**'
+      - '.github/workflows/pare-self-host.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  image-smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compose syntax
+        env:
+          PARE_API_TOKEN: ci-only-placeholder
+        run: docker compose config --quiet
+      - name: Build PARÉ image
+        run: docker build -t pare-ci:${{ github.sha }} .
+      - name: Start isolated container
+        run: |
+          docker run -d --rm --name pare-ci -p 127.0.0.1:8788:8788 \
+            -e PARE_API_TOKEN=ci-only-placeholder \
+            pare-ci:${{ github.sha }}
+      - name: Wait for health
+        run: |
+          for i in {1..30}; do
+            if curl --fail --silent http://127.0.0.1:8788/health >/tmp/health.json; then exit 0; fi
+            sleep 1
+          done
+          docker logs pare-ci
+          exit 1
+      - name: Auth boundary and capabilities smoke
+        run: |
+          test "$(curl --silent --output /dev/null --write-out '%{http_code}' http://127.0.0.1:8788/v1/capabilities)" = "401"
+          curl --fail --silent -H 'Authorization: Bearer ci-only-placeholder' http://127.0.0.1:8788/v1/capabilities | tee /tmp/capabilities.json
+          node -e "const x=JSON.parse(require('fs').readFileSync('/tmp/capabilities.json')); if(x.system!=='PARÉ'||x.operator!=='One Hands') process.exit(1)"
+      - name: One Hands plan smoke
+        run: |
+          curl --fail --silent \
+            -H 'Authorization: Bearer ci-only-placeholder' \
+            -H 'Content-Type: application/json' \
+            -d '{"tenant":"ci","project":"smoke","outcome":"Build the brand, SEO and social plan.","workflow_id":"brand-kit.v1","parent_stage":"00_intake","step_id":"intake","action":"discover"}' \
+            http://127.0.0.1:8788/v2/plan | tee /tmp/plan.json
+          node -e "const x=JSON.parse(require('fs').readFileSync('/tmp/plan.json')); if(!x.plan.included_workflows.includes('seo.v1')||!x.plan.included_workflows.includes('social.v2')) process.exit(1)"
+      - name: Container logs
+        if: always()
+        run: docker logs pare-ci || true
+      - name: Stop container
+        if: always()
+        run: docker stop pare-ci || true
