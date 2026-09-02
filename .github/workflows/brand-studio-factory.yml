@@ -4,12 +4,22 @@ on:
   pull_request:
     paths:
       - 'studio/_system/runtime/**'
+      - 'studio/_system/workflows/**'
+      - 'studio/_system/adapters/**'
+      - 'studio/_system/schemas/**'
+      - 'studio/_system/contracts/**'
+      - 'studio/_system/skills/**'
       - '.github/workflows/brand-studio-factory.yml'
   push:
     branches:
       - 'zte/**'
     paths:
       - 'studio/_system/runtime/**'
+      - 'studio/_system/workflows/**'
+      - 'studio/_system/adapters/**'
+      - 'studio/_system/schemas/**'
+      - 'studio/_system/contracts/**'
+      - 'studio/_system/skills/**'
       - '.github/workflows/brand-studio-factory.yml'
 
 permissions:
@@ -28,3 +38,18 @@ jobs:
           node-version: '22'
       - name: Factory lifecycle tests
         run: npm test
+      - name: One Hands syntax checks
+        run: |
+          node --check src/one-hands.mjs
+          node --check src/workflows.mjs
+
+  schema-syntax:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Parse workflow and schema JSON
+        run: |
+          node -e "for (const f of ['studio/_system/workflows/registry.v1.json','studio/_system/schemas/work-order.v2.json','studio/_system/schemas/workflow-receipt.v2.json','studio/projects/pauli/pare/10_strategy/brand-manifest.json']) JSON.parse(require('fs').readFileSync(f,'utf8'));"
