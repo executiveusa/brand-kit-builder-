@@ -1,0 +1,100 @@
+{
+  "manifest_version": "1.0.0",
+  "tenant": "pauli",
+  "status": "strategy_locked",
+  "brand": {
+    "name": "PARÉ",
+    "tagline": "Brand systems, reduced to what matters.",
+    "category": "Sovereign in-house brand software / installable Brand OS",
+    "languages": ["en"],
+    "origin_story": "PARÉ consolidates Pauli Brand Studio's ICM brand intelligence, One Hands orchestration, independent design validation and replaceable execution/publishing adapters into software that can be installed and adapted to a company without mandatory subscription lock-in.",
+    "values": ["ownership", "clarity", "craft", "proof", "restraint"]
+  },
+  "strategy": {
+    "positioning_statement": "For companies that need a serious internal brand capability without handing their identity to another subscription dashboard, PARÉ is an installable brand operating system that turns company context into governed strategy, identity, production assets, voice, SEO, social and delivery packages because canonical intelligence stays portable, workers are replaceable adapters, and consequential outputs require independent proof.",
+    "brand_promise": "A company can leave with a brand system it can understand, operate, move and keep.",
+    "proof_points": [
+      "The existing Brand Studio repository already uses ICM stages, manifests, ledgers, independent validation and portable project folders.",
+      "PARÉ exposes common request/workflow semantics across CLI, MCP and REST implementations in the repository.",
+      "Self-host packaging keeps project intelligence in owner-controlled persistent storage and treats Darya/Postiz as optional runtime adapters."
+    ],
+    "differentiation": {
+      "everybody_zigs": "Brand generators optimize for fast assets, static brand guides stop at documentation, and many SaaS tools make their dashboard/provider part of the operating dependency.",
+      "we_zag": "PARÉ installs a governed brand operating system around portable company truth, production asset engineering, search/social consistency, replaceable workers and evidence-backed human gates.",
+      "competitors": []
+    },
+    "audience": {
+      "primary": {
+        "description": "Founders, executives, creative/marketing leads, social-purpose organizations and culturally sensitive brands that value high craft, ownership and operational simplicity.",
+        "psychographics": [
+          "wants professional brand quality without generic AI output",
+          "cares about control of code, assets, data and operating knowledge",
+          "prefers one coherent method over a collection of disconnected tools",
+          "will pay for installation/customization when it reduces long-term dependency"
+        ]
+      },
+      "tribes": ["owner-operators", "in-house creative teams", "independent studios", "social-impact organizations"]
+    }
+  },
+  "voice": {
+    "personality": ["direct", "cultured", "grounded"],
+    "tone_rules": [
+      {
+        "context": "product marketing",
+        "do": "Use concrete language about ownership, outcomes, proof and how the software works.",
+        "dont": "Lead with AI jargon, luxury adjectives, vague innovation claims or fear-based SaaS rhetoric."
+      },
+      {
+        "context": "operational status",
+        "do": "Use the exact PARÉ status language contract and name missing evidence clearly.",
+        "dont": "Call generated, configured, deployed or CI-passing work Official, Production or Done without the required proof."
+      },
+      {
+        "context": "creative direction",
+        "do": "Explain decisions through strategy, culture, audience, material and application.",
+        "dont": "Use fashionable references as permission to copy another brand's protected expression."
+      }
+    ]
+  },
+  "protected_items": [
+    "PARÉ product name",
+    "Brand systems, reduced to what matters. tagline",
+    "One Hands operator role",
+    "ICM as canonical brand intelligence",
+    "customer ownership / no mandatory subscription lock-in",
+    "builder cannot self-approve",
+    "production and external publish require recorded human approval"
+  ],
+  "hard_bans": [
+    "AI brand kit generator as primary positioning",
+    "fabricated proof or SEO metrics",
+    "generic luxury styling",
+    "copied competitor identity",
+    "raster logo concepts represented as official vector masters",
+    "secret material in portable brand intelligence",
+    "mandatory Pauli hosting as a condition of continued use"
+  ],
+  "provenance": {
+    "created_by": "One Hands implementation build",
+    "created_at": "2026-09-02T21:19:00Z",
+    "approved_by": "Bambu",
+    "approved_at": "2026-09-02T21:19:00Z",
+    "sources": [
+      {
+        "claim": "The product name is PARÉ and the tagline is Brand systems, reduced to what matters.",
+        "source": "Owner-approved PARÉ naming and hero direction in project conversation, 2026-09-02",
+        "verified_at": "2026-09-02T21:19:00Z"
+      },
+      {
+        "claim": "PARÉ is installable in-house software with customer ownership and optional ongoing maintenance rather than mandatory subscription lock-in.",
+        "source": "Owner build instruction in project conversation, 2026-09-02",
+        "verified_at": "2026-09-02T21:19:00Z"
+      },
+      {
+        "claim": "Brand Kit Builder remains canonical and Darya/OpenHands acts as an execution worker.",
+        "source": "Approved ICM architecture decision and One Hands build contract",
+        "verified_at": "2026-09-02T21:19:00Z"
+      }
+    ]
+  }
+}
