@@ -1,0 +1,41 @@
+{
+  "version": "pare-social-svg-library.v1",
+  "type": "shared-vector-reference",
+  "icm_scope": "studio/_shared/assets/social/pare-social-svg",
+  "symbols": [
+    "facebook",
+    "x",
+    "instagram",
+    "youtube",
+    "dribbble",
+    "pinterest",
+    "linkedin",
+    "snapchat",
+    "twitch",
+    "tiktok",
+    "whatsapp",
+    "reddit"
+  ],
+  "variants": {
+    "square": "square-sprite.svg",
+    "circle": "circle-sprite.svg"
+  },
+  "vector_proof": {
+    "embedded_raster_images": 0,
+    "source_conversion": "EPS -> PDF (Ghostscript) -> SVG (pdftocairo) -> optimized SVG (scour)",
+    "symbol_render_smoke_tested": true
+  },
+  "rights_status": {
+    "legacy_freepik_source": "license supplied in original upload; standalone redistribution restrictions apply",
+    "newer_square_set": "unverified; no license file in uploaded archive",
+    "newer_circle_set": "unverified; no license file in uploaded archive",
+    "platform_marks": "third-party trademarks; follow current platform brand/trademark rules"
+  },
+  "agent_policy": {
+    "default_use": "internal-reference-and-mockups",
+    "standalone_redistribution": "requires-rights-verification",
+    "may_claim_pare_ownership": false,
+    "may_rasterize_canonical_source": false,
+    "must_preserve_rights_state": true
+  }
+}
