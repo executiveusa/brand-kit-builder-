@@ -1,0 +1,30 @@
+services:
+  pare:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - "${PARE_BIND_ADDRESS:-127.0.0.1}:${PARE_PORT:-8788}:8788"
+    environment:
+      HOST: 0.0.0.0
+      PORT: 8788
+      PAULI_BRAND_STUDIO_ROOT: /app
+      PARE_WEB_DIST: /app/apps/web/dist
+      PARE_API_TOKEN: ${PARE_API_TOKEN:?set PARE_API_TOKEN in the owner runtime}
+      DARYA_WORKER_URL: ${DARYA_WORKER_URL:-}
+      DARYA_WORKER_TOKEN: ${DARYA_WORKER_TOKEN:-}
+      POSTIZ_BASE_URL: ${POSTIZ_BASE_URL:-}
+      POSTIZ_API_KEY: ${POSTIZ_API_KEY:-}
+    volumes:
+      - ./studio/projects:/app/studio/projects
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:8788/health').then(r=>{if(!r.ok)process.exit(1)}).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+# Postiz and Darya/OpenHands are intentionally separate services/runtimes.
+# Configure their owner-controlled URLs above after deploying them on the same private network or trusted endpoint.
+# PARÉ does not require Pauli-hosted infrastructure to retain canonical ICM brand intelligence.
