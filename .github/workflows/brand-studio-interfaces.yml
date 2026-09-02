@@ -4,6 +4,9 @@ on:
   pull_request:
     paths:
       - 'interfaces/**'
+      - 'studio/_system/runtime/**'
+      - 'studio/_system/workflows/**'
+      - 'studio/_system/adapters/**'
       - '.github/workflows/brand-studio-interfaces.yml'
   push:
     branches:
@@ -11,6 +14,9 @@ on:
       - 'feat/**'
     paths:
       - 'interfaces/**'
+      - 'studio/_system/runtime/**'
+      - 'studio/_system/workflows/**'
+      - 'studio/_system/adapters/**'
       - '.github/workflows/brand-studio-interfaces.yml'
 
 permissions:
@@ -29,6 +35,21 @@ jobs:
           node-version: '22'
       - name: Interface equivalence tests
         run: npm test
+
+  rest-runtime:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: interfaces/rest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: REST runtime tests
+        run: npm test
+      - name: REST syntax check
+        run: node --check server.mjs
 
   mcp-runtime:
     runs-on: ubuntu-latest
@@ -57,5 +78,7 @@ jobs:
         run: npm test
       - name: CLI capability smoke
         run: node cli.mjs capabilities
+      - name: CLI workflow smoke
+        run: node cli.mjs workflows --root ../..
       - name: Bash launcher smoke
         run: bash ./pdfactory capabilities
