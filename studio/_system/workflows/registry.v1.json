@@ -1,0 +1,104 @@
+{
+  "version": "workflow-registry.v1",
+  "product": "PARE",
+  "operator": "one-hands",
+  "canonical_stage_model": ["00_intake", "10_strategy", "20_design", "30_validate", "40_deliver", "50_publish"],
+  "workflows": [
+    {
+      "workflow_id": "brand-kit.v1",
+      "name": "Official brand system",
+      "description": "Core PARÉ path from real-world intake to an approval-ready sovereign brand package.",
+      "parent_stages": ["00_intake", "10_strategy", "20_design", "30_validate", "40_deliver"],
+      "steps": [
+        {"step_id":"intake","parent_stage":"00_intake","action":"discover","approval_required":false},
+        {"step_id":"positioning","parent_stage":"10_strategy","action":"position","approval_required":false},
+        {"step_id":"voice","parent_stage":"10_strategy","action":"build-voice","approval_required":false},
+        {"step_id":"territories","parent_stage":"10_strategy","action":"propose-three-territories","approval_required":false},
+        {"step_id":"identity","parent_stage":"20_design","action":"design-identity-system","approval_required":false},
+        {"step_id":"svg","parent_stage":"20_design","action":"engineer-svg-system","approval_required":false},
+        {"step_id":"type","parent_stage":"20_design","action":"select-darya-typography","approval_required":false},
+        {"step_id":"color","parent_stage":"20_design","action":"build-color-system","approval_required":false},
+        {"step_id":"imagery","parent_stage":"20_design","action":"direct-image-system","approval_required":false},
+        {"step_id":"guardian","parent_stage":"30_validate","action":"design-guardian","approval_required":false},
+        {"step_id":"gauntlet","parent_stage":"30_validate","action":"independent-gauntlet","approval_required":false},
+        {"step_id":"proof","parent_stage":"30_validate","action":"compile-proof","approval_required":false},
+        {"step_id":"package","parent_stage":"40_deliver","action":"build-official-package-candidate","approval_required":true}
+      ],
+      "default_outputs": ["brand-manifest.json","brand-voice.md","brand-book.html","brand-book.pdf","asset-package/","developer-handoff/","proof/"],
+      "quality_floor": 8.5
+    },
+    {
+      "workflow_id": "seo.v1",
+      "name": "Brand-integrated SEO",
+      "description": "Evidence-aware search/entity/content architecture woven into brand strategy, website handoff and social discovery.",
+      "parent_stages": ["10_strategy", "20_design", "40_deliver", "50_publish"],
+      "steps": [
+        {"step_id":"entity","parent_stage":"10_strategy","action":"define-searchable-entity","approval_required":false},
+        {"step_id":"intent","parent_stage":"10_strategy","action":"map-audience-search-intent","approval_required":false},
+        {"step_id":"topics","parent_stage":"10_strategy","action":"map-topic-and-page-architecture","approval_required":false},
+        {"step_id":"metadata","parent_stage":"20_design","action":"specify-metadata-social-preview-and-alt-text","approval_required":false},
+        {"step_id":"schema","parent_stage":"40_deliver","action":"recommend-structured-data","approval_required":false},
+        {"step_id":"handoff","parent_stage":"40_deliver","action":"compile-seo-handoff","approval_required":false},
+        {"step_id":"measure","parent_stage":"50_publish","action":"define-measurement-plan","approval_required":false}
+      ],
+      "hard_bans": ["invented search volume","invented rankings","invented backlinks","keyword stuffing","metadata that contradicts the approved brand"],
+      "quality_floor": 8.5
+    },
+    {
+      "workflow_id": "social.v2",
+      "name": "Governed social system",
+      "description": "Plan, adapt, review, schedule, publish and measure social content from approved brand truth.",
+      "parent_stages": ["40_deliver", "50_publish"],
+      "steps": [
+        {"step_id":"plan","parent_stage":"40_deliver","action":"social-plan","approval_required":false},
+        {"step_id":"adapt","parent_stage":"40_deliver","action":"platform-adapt","approval_required":false},
+        {"step_id":"review","parent_stage":"30_validate","action":"social-review","approval_required":false},
+        {"step_id":"schedule","parent_stage":"50_publish","action":"postiz-schedule","approval_required":true},
+        {"step_id":"publish","parent_stage":"50_publish","action":"postiz-publish","approval_required":true},
+        {"step_id":"measure","parent_stage":"50_publish","action":"social-measure","approval_required":false}
+      ],
+      "provider": {"type":"external-adapter","default":"postiz","server_side_only":true},
+      "quality_floor": 8.5
+    },
+    {
+      "workflow_id": "flipbook.v1",
+      "name": "Interactive brand book",
+      "description": "Compile approved brand-book content into the reusable flipbook delivery surface without changing canonical brand truth.",
+      "parent_stages": ["40_deliver"],
+      "steps": [
+        {"step_id":"manifest","parent_stage":"40_deliver","action":"compile-book-manifest","approval_required":false},
+        {"step_id":"render","parent_stage":"40_deliver","action":"render-flipbook","approval_required":false},
+        {"step_id":"verify","parent_stage":"30_validate","action":"verify-flipbook","approval_required":false}
+      ],
+      "quality_floor": 8.5
+    },
+    {
+      "workflow_id": "sovereign-install.v1",
+      "name": "Sovereign client installation",
+      "description": "Package PARÉ for a customer-owned runtime with portable ICM truth, explicit secrets boundary, backup and rollback.",
+      "parent_stages": ["40_deliver", "50_publish"],
+      "steps": [
+        {"step_id":"package","parent_stage":"40_deliver","action":"build-install-package","approval_required":false},
+        {"step_id":"preflight","parent_stage":"30_validate","action":"verify-self-host-preflight","approval_required":false},
+        {"step_id":"install","parent_stage":"50_publish","action":"install-on-owner-runtime","approval_required":true},
+        {"step_id":"verify","parent_stage":"50_publish","action":"verify-owner-runtime","approval_required":false}
+      ],
+      "quality_floor": 8.5
+    },
+    {
+      "workflow_id": "product-audit.v1",
+      "name": "Home/product audit",
+      "description": "Proof-driven audit of the PARÉ home/product surface after implementation.",
+      "parent_stages": ["30_validate"],
+      "steps": [
+        {"step_id":"clarity","parent_stage":"30_validate","action":"audit-product-clarity","approval_required":false},
+        {"step_id":"brand","parent_stage":"30_validate","action":"audit-brand-distinction","approval_required":false},
+        {"step_id":"ux","parent_stage":"30_validate","action":"audit-krug-accessibility-mobile","approval_required":false},
+        {"step_id":"truth","parent_stage":"30_validate","action":"audit-capability-truth","approval_required":false},
+        {"step_id":"commercial","parent_stage":"30_validate","action":"audit-commercial-positioning","approval_required":false},
+        {"step_id":"report","parent_stage":"30_validate","action":"write-audit-html","approval_required":false}
+      ],
+      "quality_floor": 8.5
+    }
+  ]
+}
