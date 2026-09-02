@@ -2,9 +2,11 @@
 import { pathToFileURL } from 'node:url'
 import { resolve } from 'node:path'
 import { fromCli } from '../runtime/src/normalize.mjs'
+import { fromCliV2 } from '../runtime/src/one-hands.mjs'
 import { createReferenceBuilder, createReferenceGuardian, runFactory } from '../../studio/_system/runtime/src/factory.mjs'
+import { oneHandsCapabilities, prepareOneHandsOutcome } from '../../studio/_system/runtime/src/one-hands.mjs'
 
-const VERSION = '0.1.0'
+const VERSION = '0.2.0'
 
 function json(value) {
   process.stdout.write(`${JSON.stringify(value, null, 2)}\n`)
@@ -16,39 +18,57 @@ function fail(message, code = 1) {
 }
 
 function usage() {
-  return `Pauli Design Factory CLI v${VERSION}
+  return `PARÉ / Pauli Brand Studio CLI v${VERSION}
 
 Usage:
   pdfactory capabilities
+  pdfactory workflows [--root <path>]
   pdfactory normalize --tenant <id> --project <id> --outcome <text> [options]
+  pdfactory normalize-v2 --tenant <id> --project <id> --outcome <text> [routing]
+  pdfactory plan --tenant <id> --project <id> --outcome <text> [routing] [--root <path>]
   pdfactory run-reference --tenant <id> --project <id> --outcome <text> [options]
 
-Options:
+Base options:
   --attachments <a,b,c>
   --protected <a,b,c>
   --constraints <a,b,c>
   --requires-approval <true|false>
-  --root <path>                  Design Factory repo root for run-reference
+
+V2 routing:
+  --workflow <brand-kit.v1|seo.v1|social.v2|flipbook.v1|sovereign-install.v1|product-audit.v1>
+  --stage <00_intake|10_strategy|20_design|30_validate|40_deliver|50_publish>
+  --step <step-id>
+  --action <action>
+  --outputs <a,b,c>
+  --approval-required <true|false>
+
+Runtime options:
+  --root <path>                  Brand Studio repo root
   --compact                      Print one-line JSON
   --help
 
 Design law:
   CLI is only a transport. Canonical truth remains in ICM/manifests.
-  Reference execution stops at G5 human approval and never publishes.
+  Provider/model credentials never enter canonical work orders.
+  External publish, client installation and production promotion require recorded human approval.
 `
 }
 
 export function capabilities() {
   return {
-    system: 'Pauli Design Factory',
+    system: 'PARÉ',
+    studio: 'Pauli Brand Studio',
+    operator: 'One Hands',
     architecture: 'ICM',
+    ownership_model: 'sovereign-installable',
     repo: 'executiveusa/brand-kit-builder-',
     stages: ['00_intake', '10_strategy', '20_design', '30_validate', '40_deliver', '50_publish'],
     gates: ['G0', 'G1', 'G2', 'G3', 'G4', 'G5'],
-    skills: ['brand-discovery', 'collins-level', 'design-guardian', 'gauntlet', 'design-proof', 'design-delivery'],
-    transports: { cli: 'live', mcp_stdio: 'live', rest: 'contract-defined; deployment/runtime separate', folder_drop: 'normalized', local: 'normalized' },
-    commands: ['capabilities', 'normalize', 'run-reference'],
-    laws: ['strategy-before-styling', 'builder-and-critic-separated', 'no-evidence-no-completion', 'G5-human-approval-before-publish']
+    workflows: ['brand-kit.v1', 'seo.v1', 'social.v2', 'flipbook.v1', 'sovereign-install.v1', 'product-audit.v1'],
+    skills: ['brand-discovery', 'collins-level', 'svg-engineering', 'seo', 'humanize', 'design-guardian', 'gauntlet', 'design-proof', 'design-delivery'],
+    transports: { cli: 'live', mcp_stdio: 'live', rest: 'contract/runtime', folder_drop: 'normalized', local: 'normalized' },
+    commands: ['capabilities', 'workflows', 'normalize', 'normalize-v2', 'plan', 'run-reference'],
+    laws: ['strategy-before-styling', 'builder-and-critic-separated', 'no-evidence-no-completion', 'approval-before-external-publish-or-production', 'client-owns-installation-and-brand-intelligence']
   }
 }
 
@@ -78,12 +98,24 @@ export async function execute(argv, { cwd = process.cwd(), env = process.env } =
   if (command === 'capabilities') return { kind: 'json', value: capabilities() }
 
   const parsed = splitRoot(rest)
+  const root = resolve(parsed.root || env.PAULI_BRAND_STUDIO_ROOT || cwd)
+
+  if (command === 'workflows') {
+    return { kind: 'json', value: await oneHandsCapabilities(root), compact: parsed.compact }
+  }
   if (command === 'normalize') {
     return { kind: 'json', value: fromCli(parsed.argv), compact: parsed.compact }
   }
+  if (command === 'normalize-v2') {
+    return { kind: 'json', value: fromCliV2(parsed.argv), compact: parsed.compact }
+  }
+  if (command === 'plan') {
+    const request = fromCliV2(parsed.argv)
+    const value = await prepareOneHandsOutcome({ input: request, root })
+    return { kind: 'json', value, compact: parsed.compact }
+  }
   if (command === 'run-reference') {
     const request = fromCli(parsed.argv)
-    const root = resolve(parsed.root || env.PAULI_BRAND_STUDIO_ROOT || cwd)
     const value = await runFactory({ request, root, builder: createReferenceBuilder(), guardian: createReferenceGuardian() })
     return { kind: 'json', value, compact: parsed.compact }
   }
