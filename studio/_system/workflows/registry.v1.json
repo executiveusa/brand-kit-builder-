@@ -48,7 +48,7 @@
       "workflow_id": "social.v2",
       "name": "Governed social system",
       "description": "Plan, adapt, review, schedule, publish and measure social content from approved brand truth.",
-      "parent_stages": ["40_deliver", "50_publish"],
+      "parent_stages": ["30_validate", "40_deliver", "50_publish"],
       "steps": [
         {"step_id":"plan","parent_stage":"40_deliver","action":"social-plan","approval_required":false},
         {"step_id":"adapt","parent_stage":"40_deliver","action":"platform-adapt","approval_required":false},
@@ -64,7 +64,7 @@
       "workflow_id": "flipbook.v1",
       "name": "Interactive brand book",
       "description": "Compile approved brand-book content into the reusable flipbook delivery surface without changing canonical brand truth.",
-      "parent_stages": ["40_deliver"],
+      "parent_stages": ["30_validate", "40_deliver"],
       "steps": [
         {"step_id":"manifest","parent_stage":"40_deliver","action":"compile-book-manifest","approval_required":false},
         {"step_id":"render","parent_stage":"40_deliver","action":"render-flipbook","approval_required":false},
@@ -76,7 +76,7 @@
       "workflow_id": "sovereign-install.v1",
       "name": "Sovereign client installation",
       "description": "Package PARÉ for a customer-owned runtime with portable ICM truth, explicit secrets boundary, backup and rollback.",
-      "parent_stages": ["40_deliver", "50_publish"],
+      "parent_stages": ["30_validate", "40_deliver", "50_publish"],
       "steps": [
         {"step_id":"package","parent_stage":"40_deliver","action":"build-install-package","approval_required":false},
         {"step_id":"preflight","parent_stage":"30_validate","action":"verify-self-host-preflight","approval_required":false},
