@@ -3,7 +3,6 @@ import {
   ArrowRight,
   ArrowUpRight,
   Check,
-  Cloud,
   FileOutput,
   MessageCircle,
   Search,
