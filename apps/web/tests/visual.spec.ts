@@ -25,10 +25,10 @@ async function expectSectionBelowStickyHeader(page: import('@playwright/test').P
 test.beforeEach(async ({ page }) => {
   await ensureShotDir()
   await page.goto('/')
-  await expect(page.getByRole('heading', { name: /Make the brand/i })).toBeVisible()
+  await expect(page.getByRole('heading', { name: /Brand systems/i })).toBeVisible()
 })
 
-test('desktop proof, navigation, composer, cloud boundary, route preview and console', async ({ page }) => {
+test('desktop proof, navigation, planner, cloud boundary, route preview and console', async ({ page }) => {
   const runtimeErrors: string[] = []
   page.on('console', (message) => {
     if (message.type() === 'error') runtimeErrors.push(message.text())
@@ -44,13 +44,16 @@ test('desktop proof, navigation, composer, cloud boundary, route preview and con
   await page.locator('.site-header').screenshot({ path: path.join(shotDir, 'desktop-1440-nav.png') })
   await page.locator('footer').screenshot({ path: path.join(shotDir, 'desktop-1440-footer.png') })
 
+  await expect(page.getByText('Not subscription lock-in.')).toBeVisible()
+  await expect(page.getByText(/nothing left to take away/i)).toBeVisible()
+
   const cloudBoundary = page.getByLabel('Cloud operating layer status')
   await expect(cloudBoundary).toContainText('Not configured')
   await expect(cloudBoundary).toContainText('publishable key')
   await cloudBoundary.screenshot({ path: path.join(shotDir, 'desktop-cloud-offline.png') })
 
   await page.goto('/')
-  await page.getByRole('link', { name: 'Open studio' }).click()
+  await page.getByRole('link', { name: 'Create a brand' }).first().click()
   await expect(page.locator('#studio')).toBeInViewport()
   await expectSectionBelowStickyHeader(page, '#studio')
   await expect(page.getByRole('heading', { name: 'Ask for the outcome.' })).toBeVisible()
@@ -59,7 +62,9 @@ test('desktop proof, navigation, composer, cloud boundary, route preview and con
   await page.getByRole('button', { name: 'Social campaign' }).click()
   await expect(page.locator('#outcome')).toHaveValue(/Instagram campaign system/)
   await page.getByRole('button', { name: /Show the route/i }).click()
-  await expect(page.getByText('Build campaign system')).toBeVisible()
+  await expect(page.getByText('Adapt the social system')).toBeVisible()
+  await expect(page.getByText('Build search architecture')).toBeVisible()
+  await expect(page.getByText('Preview · no publish')).toBeVisible()
   await page.locator('.route-preview').screenshot({ path: path.join(shotDir, 'route-preview.png') })
 
   const proof = page.getByRole('link', { name: /Open brand book/i })
@@ -69,12 +74,24 @@ test('desktop proof, navigation, composer, cloud boundary, route preview and con
   expect(runtimeErrors).toEqual([])
 })
 
+test('SEO metadata and structured data stay specific and claim-safe', async ({ page }) => {
+  await page.goto('/')
+  await expect(page).toHaveTitle(/PARÉ — Sovereign Brand Software/)
+  await expect(page.locator('meta[name="description"]')).toHaveAttribute('content', /sovereign in-house brand software/i)
+  await expect(page.locator('meta[property="og:title"]')).toHaveAttribute('content', /Brand systems, reduced to what matters/i)
+  const schema = JSON.parse(await page.locator('script[type="application/ld+json"]').textContent() || '{}')
+  expect(schema['@type']).toBe('SoftwareApplication')
+  expect(schema.name).toBe('PARÉ')
+  expect(schema).not.toHaveProperty('aggregateRating')
+  expect(schema).not.toHaveProperty('offers')
+})
+
 test('tablet layout', async ({ page }) => {
   await page.setViewportSize({ width: 768, height: 1024 })
   await page.goto('/')
   await noHorizontalOverflow(page)
   await page.screenshot({ path: path.join(shotDir, 'tablet-768-full.png'), fullPage: true })
-  await expect(page.getByRole('link', { name: 'Open studio' })).toBeVisible()
+  await expect(page.getByRole('link', { name: 'Create a brand' }).first()).toBeVisible()
   await expect(page.getByLabel('Cloud operating layer status')).toBeVisible()
 })
 
@@ -87,7 +104,7 @@ test('mobile layout, cloud boundary, anchor offset and keyboard focus', async ({
   await expect(page.getByLabel('Cloud operating layer status')).toContainText('Not configured')
 
   await page.goto('/')
-  await page.getByRole('link', { name: 'Open studio' }).click()
+  await page.getByRole('link', { name: 'Create a brand' }).first().click()
   await expectSectionBelowStickyHeader(page, '#studio')
   await expect(page.getByRole('heading', { name: 'Ask for the outcome.' })).toBeVisible()
   await page.screenshot({ path: path.join(shotDir, 'mobile-390-primary-action.png') })
