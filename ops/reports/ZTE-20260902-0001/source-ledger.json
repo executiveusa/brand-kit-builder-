@@ -1,0 +1,162 @@
+{
+  "version": "pare-source-ledger.v1",
+  "bead_id": "ZTE-20260902-0001",
+  "recorded_at": "2026-09-02T21:19:00Z",
+  "policy": "References inform principles/adapters. Do not copy protected identity or vendor third-party source into PARÉ without compatible licensing, attribution and a concrete need.",
+  "sources": [
+    {
+      "source": "executiveusa/brand-kit-builder-",
+      "accessed": true,
+      "commit_sha_or_file_hash": "f3b33983f7c674c82bfe87a6d28ccd18b99f0aa2",
+      "files_or_pages_read": ["AGENTS.md", "CONTEXT.md", "studio/CONTEXT.md", "studio/_system/contracts/ICM.md", "studio/_system/governance/WALK_TEST.md", "studio/_system/skills/CONTEXT.md", "interfaces/runtime/src/normalize.mjs", "studio/_system/runtime/src/factory.mjs", "interfaces/cli/cli.mjs", "interfaces/mcp/server.mjs", "interfaces/rest/API.md", "apps/web/CONTEXT.md", "apps/web/src/App.tsx", "apps/web/src/styles.css", "apps/web/tests/visual.spec.ts"],
+      "applicable_rules": ["ICM is canonical", "one fact one home", "builder cannot self-approve", "proof before completion", "production approval required"],
+      "license": "repository-specific; preserve existing notices",
+      "trust_level": "primary",
+      "conflicts": [],
+      "notes": "Canonical implementation repository. Branch work starts from the pinned baseline."
+    },
+    {
+      "source": "executiveusa/Darya-designs",
+      "accessed": true,
+      "commit_sha_or_file_hash": "9b7872ffd38cdbc55a8be931c646c3b57cccdabc",
+      "files_or_pages_read": ["AGENTS.md", "LICENSE"],
+      "applicable_rules": ["use as bounded execution worker", "respect repository setup/testing conventions when changing Darya itself"],
+      "license": "MIT outside enterprise/; enterprise/ has separate license",
+      "trust_level": "reference",
+      "conflicts": ["Darya contains its own broad agent/product ambitions; PARÉ does not make those canonical brand truth"],
+      "notes": "No Darya source vendored in this build. PARÉ adds an HTTP worker protocol boundary."
+    },
+    {
+      "source": "Leonxlnx/unlazy",
+      "accessed": true,
+      "commit_sha_or_file_hash": "473d4b80421c36d733042434cd4b938f81a19ef1",
+      "files_or_pages_read": ["README.md", "LICENSE"],
+      "applicable_rules": ["acceptance ledger before substantial implementation", "runnable evidence gates", "reverify before completion"],
+      "license": "MIT",
+      "trust_level": "inspiration",
+      "conflicts": [],
+      "notes": "Principles translated into local completion-gates skill; no repository vendoring."
+    },
+    {
+      "source": "DietrichGebert/ponytail",
+      "accessed": true,
+      "commit_sha_or_file_hash": "2ed6c52c9d7e5e56942508591085fd45dea277d3",
+      "files_or_pages_read": ["README.md", "LICENSE"],
+      "applicable_rules": ["subtraction ladder", "reuse/native/platform capability before new code", "do not subtract safety/accessibility"],
+      "license": "MIT",
+      "trust_level": "inspiration",
+      "conflicts": [],
+      "notes": "Principles translated into local subtraction skill; no repository vendoring."
+    },
+    {
+      "source": "blader/humanizer",
+      "accessed": true,
+      "commit_sha_or_file_hash": "e2e92e7b4b8229253ed5c8e81dc65463fdeddda5",
+      "files_or_pages_read": ["SKILL.md", "LICENSE"],
+      "applicable_rules": ["preserve claims", "never invent facts", "remove generic AI prose", "match real writer voice"],
+      "license": "MIT",
+      "trust_level": "inspiration",
+      "conflicts": [],
+      "notes": "Principles translated into source-preserving humanize skill; no repository vendoring."
+    },
+    {
+      "source": "michaelshimeles/ralphy",
+      "accessed": true,
+      "commit_sha_or_file_hash": "506eea0e7d72c8eeb96dd2f697363bef396add34",
+      "files_or_pages_read": ["README.md", "cli/package.json"],
+      "applicable_rules": ["task-list execution", "branch isolation", "explicit boundaries", "tests/verification per task"],
+      "license": "MIT (README and CLI package metadata)",
+      "trust_level": "inspiration",
+      "conflicts": [],
+      "notes": "ICM/One Hands remains the orchestrator. Ralphy patterns inform execution discipline only."
+    },
+    {
+      "source": "robonuggets/gauntlet-loop",
+      "accessed": true,
+      "commit_sha_or_file_hash": "9b1975a1b8f01981f3f1e6b667ad3aaf907178ea",
+      "files_or_pages_read": ["LICENSE", "repository/README and gauntlet references inspected previously"],
+      "applicable_rules": ["fresh independent critic", "direct comparison", "return largest gap", "repeat until quality bar passes"],
+      "license": "CC BY 4.0",
+      "trust_level": "reference",
+      "conflicts": [],
+      "notes": "Existing Pauli gauntlet skill already expresses the method. Keep attribution when adapting licensed material."
+    },
+    {
+      "source": "AgriciDaniel/claude-seo",
+      "accessed": true,
+      "commit_sha_or_file_hash": "a1480c7e590b16001bd9dc1627eacdcd44d580f9",
+      "files_or_pages_read": ["repository structure/search excerpts", "LICENSE"],
+      "applicable_rules": ["SEO as research/audit/content/schema workflow", "tool-backed evidence when claiming measurements"],
+      "license": "MIT",
+      "trust_level": "inspiration",
+      "conflicts": [],
+      "notes": "PARÉ implements its own brand-integrated SEO contract and does not import tool-specific measurement claims."
+    },
+    {
+      "source": "emilkowalski/skills",
+      "accessed": true,
+      "commit_sha_or_file_hash": "d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7",
+      "files_or_pages_read": ["repository metadata", "LICENSE", "interaction principles already captured in project MISSION"],
+      "applicable_rules": ["immediate feedback", "direct manipulation", "interruptible restrained motion", "reduced-motion support"],
+      "license": "MIT",
+      "trust_level": "reference",
+      "conflicts": [],
+      "notes": "No new UI dependency added merely because a reference repository exists."
+    },
+    {
+      "source": "gitroomhq/postiz-app",
+      "accessed": true,
+      "commit_sha_or_file_hash": "ec162d2ac19f7ec736d2ead907369d4b8d12f274",
+      "files_or_pages_read": ["LICENSE", "apps/sdk/README.md", "apps/sdk/package.json", "apps/sdk/src/index.ts"],
+      "applicable_rules": ["public API process boundary", "explicit integration targeting", "server-side credentials", "schedule/publish approval"],
+      "license": "AGPL-3.0",
+      "trust_level": "reference",
+      "conflicts": ["Do not copy/vendor Postiz source or SDK into PARÉ core without intentionally accepting AGPL obligations."],
+      "notes": "PARÉ uses a native-fetch external adapter against a separately deployed Postiz instance."
+    },
+    {
+      "source": "KAKU_BrandBook_2022_VF (2).pdf",
+      "accessed": true,
+      "commit_sha_or_file_hash": "not available in GitHub execution context",
+      "files_or_pages_read": ["13-page brand-book reference inspected in project context"],
+      "applicable_rules": ["brand-book sequence", "rationale", "logo system", "typography", "palette", "applications"],
+      "license": "owner-provided reference; reuse rights beyond project use not asserted",
+      "trust_level": "governing",
+      "conflicts": [],
+      "notes": "Structure informs PARÉ brand-book outputs; KAKU visual identity is not copied."
+    },
+    {
+      "source": "Brand-Voice-Template.pdf",
+      "accessed": true,
+      "commit_sha_or_file_hash": "not available in GitHub execution context",
+      "files_or_pages_read": ["all 3 pages available in project context"],
+      "applicable_rules": ["real phrases", "true stories", "proof", "platform voice rules", "specific over impressive"],
+      "license": "reference document; redistribution rights not asserted",
+      "trust_level": "governing",
+      "conflicts": [],
+      "notes": "Used as structure/principle reference, not copied as a redistributable template."
+    },
+    {
+      "source": "HEART_AND-SOUL.md + Collins-Level protocol + A2A audit loop + Ultimate Image Prompting Guide",
+      "accessed": true,
+      "commit_sha_or_file_hash": "owner-provided project sources",
+      "files_or_pages_read": ["project-provided parsed/visual source context"],
+      "applicable_rules": ["subtraction", "strategy before styling", "proof before claims", "HTML/evidence audit", "asset lock and structured image direction"],
+      "license": "mixed owner/reference sources; do not redistribute blindly",
+      "trust_level": "governing",
+      "conflicts": [],
+      "notes": "These remain source-of-truth governance inputs in the Brand Studio rather than duplicated prose."
+    },
+    {
+      "source": "social-media logo ZIP uploads",
+      "accessed": false,
+      "commit_sha_or_file_hash": "not inspected for rights/provenance in this build",
+      "files_or_pages_read": [],
+      "applicable_rules": [],
+      "license": "unknown",
+      "trust_level": "reference",
+      "conflicts": ["Do not ship third-party social marks from these ZIPs until provenance/license/use requirements are verified."],
+      "notes": "PARÉ social capability does not require bundling platform logo assets."
+    }
+  ]
+}
