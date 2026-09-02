@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pauli.studio/schemas/workflow-receipt.v2.json",
+  "title": "PARÉ Workflow Receipt v2",
+  "description": "Evidence-bearing transport-neutral receipt for a One Hands workflow action.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "work_order_id", "workflow_id", "step_id", "action", "state", "tenant", "project", "idempotency_key", "at"],
+  "properties": {
+    "version": { "const": "workflow-receipt.v2" },
+    "work_order_id": { "type": "string" },
+    "workflow_id": { "type": "string" },
+    "step_id": { "type": "string" },
+    "action": { "type": "string" },
+    "state": { "enum": ["queued", "running", "candidate", "gate_pending", "failed", "retrying", "escalated", "approved", "complete", "done"] },
+    "tenant": { "type": "string" },
+    "project": { "type": "string" },
+    "idempotency_key": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "at": { "type": "string", "format": "date-time" },
+    "outputs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["path", "sha256"],
+        "properties": {
+          "path": { "type": "string" },
+          "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+          "status": { "enum": ["draft", "candidate", "verified", "approved", "canonical", "official"] }
+        }
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["kind", "ref"],
+        "properties": {
+          "kind": { "type": "string" },
+          "ref": { "type": "string" },
+          "sha256": { "type": "string" }
+        }
+      }
+    },
+    "approval": {
+      "type": "object",
+      "properties": {
+        "required": { "type": "boolean" },
+        "status": { "enum": ["not_required", "pending", "approved", "rejected"] },
+        "evidence_ref": { "type": "string" }
+      }
+    },
+    "rollback_ref": { "type": "string" },
+    "notes": { "type": "array", "items": { "type": "string" } }
+  }
+}
