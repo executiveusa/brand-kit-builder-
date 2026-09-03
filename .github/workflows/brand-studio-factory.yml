@@ -9,10 +9,16 @@ on:
       - 'studio/_system/schemas/**'
       - 'studio/_system/contracts/**'
       - 'studio/_system/skills/**'
+      - 'studio/_system/governance/**'
+      - 'ops/validate_creative_direction.mjs'
+      - 'AGENTS.md'
+      - 'CONTEXT.md'
+      - 'README.md'
       - '.github/workflows/brand-studio-factory.yml'
   push:
     branches:
       - 'zte/**'
+      - 'pare/**'
     paths:
       - 'studio/_system/runtime/**'
       - 'studio/_system/workflows/**'
@@ -20,6 +26,11 @@ on:
       - 'studio/_system/schemas/**'
       - 'studio/_system/contracts/**'
       - 'studio/_system/skills/**'
+      - 'studio/_system/governance/**'
+      - 'ops/validate_creative_direction.mjs'
+      - 'AGENTS.md'
+      - 'CONTEXT.md'
+      - 'README.md'
       - '.github/workflows/brand-studio-factory.yml'
 
 permissions:
@@ -52,4 +63,6 @@ jobs:
           node-version: '22'
       - name: Parse workflow and schema JSON
         run: |
-          node -e "for (const f of ['studio/_system/workflows/registry.v1.json','studio/_system/schemas/work-order.v2.json','studio/_system/schemas/workflow-receipt.v2.json','studio/projects/pauli/pare/10_strategy/brand-manifest.json']) JSON.parse(require('fs').readFileSync(f,'utf8'));"
+          node -e "for (const f of ['studio/_system/workflows/registry.v1.json','studio/_system/schemas/work-order.v2.json','studio/_system/schemas/workflow-receipt.v2.json','studio/_system/schemas/creative-direction.v1.json','studio/_system/governance/DESIGN_STANDARD.json','studio/projects/pauli/pare/10_strategy/brand-manifest.json']) JSON.parse(require('fs').readFileSync(f,'utf8'));"
+      - name: Verify creative direction wiring and gates
+        run: node ops/validate_creative_direction.mjs
