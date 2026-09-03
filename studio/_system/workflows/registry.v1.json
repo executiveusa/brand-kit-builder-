@@ -7,25 +7,54 @@
     {
       "workflow_id": "brand-kit.v1",
       "name": "Official brand system",
-      "description": "Core PARÉ path from real-world intake to an approval-ready sovereign brand package.",
+      "description": "Core PARÉ path from real-world intake to an approval-ready sovereign brand package. New identities and material rebrands must pass creative-direction.v1 before delivery.",
       "parent_stages": ["00_intake", "10_strategy", "20_design", "30_validate", "40_deliver"],
       "steps": [
         {"step_id":"intake","parent_stage":"00_intake","action":"discover","approval_required":false},
         {"step_id":"positioning","parent_stage":"10_strategy","action":"position","approval_required":false},
         {"step_id":"voice","parent_stage":"10_strategy","action":"build-voice","approval_required":false},
-        {"step_id":"territories","parent_stage":"10_strategy","action":"propose-three-territories","approval_required":false},
+        {"step_id":"governing-idea","parent_stage":"10_strategy","action":"governing-idea-gate","approval_required":false},
+        {"step_id":"territories","parent_stage":"10_strategy","action":"propose-three-territories-from-one-governing-idea","approval_required":false},
+        {"step_id":"distinctiveness","parent_stage":"10_strategy","action":"distinctiveness-test-each-territory","approval_required":false},
+        {"step_id":"territory-selection","parent_stage":"10_strategy","action":"human-select-territory","approval_required":true},
         {"step_id":"identity","parent_stage":"20_design","action":"design-identity-system","approval_required":false},
+        {"step_id":"behavior","parent_stage":"20_design","action":"build-brand-behavior-grammar","approval_required":false},
         {"step_id":"svg","parent_stage":"20_design","action":"engineer-svg-system","approval_required":false},
         {"step_id":"type","parent_stage":"20_design","action":"select-darya-typography","approval_required":false},
         {"step_id":"color","parent_stage":"20_design","action":"build-color-system","approval_required":false},
         {"step_id":"imagery","parent_stage":"20_design","action":"direct-image-system","approval_required":false},
+        {"step_id":"stress-test","parent_stage":"20_design","action":"application-stress-test","approval_required":false},
+        {"step_id":"commercial-desirability","parent_stage":"30_validate","action":"independent-commercial-desirability-judge","approval_required":false},
         {"step_id":"guardian","parent_stage":"30_validate","action":"design-guardian","approval_required":false},
         {"step_id":"gauntlet","parent_stage":"30_validate","action":"independent-gauntlet","approval_required":false},
         {"step_id":"proof","parent_stage":"30_validate","action":"compile-proof","approval_required":false},
         {"step_id":"package","parent_stage":"40_deliver","action":"build-official-package-candidate","approval_required":true}
       ],
-      "default_outputs": ["brand-manifest.json","brand-voice.md","brand-book.html","brand-book.pdf","asset-package/","developer-handoff/","proof/"],
-      "quality_floor": 8.5
+      "required_contracts": ["studio/_system/contracts/ICM.md","studio/_system/contracts/CREATIVE_DIRECTION.md"],
+      "required_schemas": ["studio/_system/schemas/brand-manifest.v1.json","studio/_system/schemas/creative-direction.v1.json"],
+      "default_outputs": ["brand-manifest.json","brand-voice.md","governing-idea.json","distinctiveness-test.json","brand-behavior.json","application-stress-test.json","commercial-desirability.json","brand-book.html","brand-book.pdf","asset-package/","developer-handoff/","proof/"],
+      "quality_floor": 9.0
+    },
+    {
+      "workflow_id": "creative-direction.v1",
+      "name": "Governed creative direction",
+      "description": "Five-layer bridge from positioning to an ownable, behaviorally coherent, stress-tested and commercially useful design direction under human territory selection.",
+      "parent_stages": ["10_strategy", "20_design", "30_validate"],
+      "steps": [
+        {"step_id":"governing-idea","parent_stage":"10_strategy","action":"governing-idea-gate","approval_required":false,"min_score":9.0},
+        {"step_id":"territories","parent_stage":"10_strategy","action":"propose-three-territories-from-one-governing-idea","approval_required":false},
+        {"step_id":"distinctiveness","parent_stage":"10_strategy","action":"distinctiveness-test-each-territory","approval_required":false,"required_verdict":"OWNABLE","min_score":9.0},
+        {"step_id":"territory-selection","parent_stage":"10_strategy","action":"human-select-territory","approval_required":true},
+        {"step_id":"brand-behavior","parent_stage":"20_design","action":"build-brand-behavior-grammar","approval_required":false,"min_score":9.0},
+        {"step_id":"stress-test","parent_stage":"20_design","action":"application-stress-test","approval_required":false,"min_score":9.0},
+        {"step_id":"commercial-desirability","parent_stage":"30_validate","action":"independent-commercial-desirability-judge","approval_required":false,"min_score":9.0},
+        {"step_id":"proof","parent_stage":"30_validate","action":"validate-creative-direction-schema-and-proof","approval_required":false}
+      ],
+      "hard_bans": ["styling before governing idea","builder self-approval","non-OWNABLE territory advancing","single mockup treated as system proof","commercial score inferred from taste","invented research or performance data","copying reference-studio work"],
+      "required_contracts": ["studio/_system/contracts/CREATIVE_DIRECTION.md"],
+      "required_schemas": ["studio/_system/schemas/creative-direction.v1.json"],
+      "default_outputs": ["10_strategy/governing-idea.json","10_strategy/distinctiveness-test.json","20_design/brand-behavior.json","20_design/application-stress-test.json","30_validate/commercial-desirability.json"],
+      "quality_floor": 9.0
     },
     {
       "workflow_id": "seo.v1",
