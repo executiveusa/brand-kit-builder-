@@ -47,6 +47,20 @@
         }
       }
     },
+    "creative_direction": {
+      "type": "object",
+      "description": "Pointers to governed creative-direction artifacts. Required by ICM for new identity/material rebrand work, but optional here for backward compatibility with existing manifests.",
+      "properties": {
+        "workflow": { "const": "creative-direction.v1" },
+        "governing_idea": { "type": "string", "description": "Path to 10_strategy/governing-idea.json" },
+        "distinctiveness_test": { "type": "string", "description": "Path to 10_strategy/distinctiveness-test.json" },
+        "selected_territory": { "type": "string" },
+        "territory_approval_receipt": { "type": "string" },
+        "brand_behavior": { "type": "string", "description": "Path to 20_design/brand-behavior.json" },
+        "application_stress_test": { "type": "string", "description": "Path to 20_design/application-stress-test.json" },
+        "commercial_desirability": { "type": "string", "description": "Path to 30_validate/commercial-desirability.json" }
+      }
+    },
     "voice": {
       "type": "object",
       "required": ["personality", "tone_rules"],
