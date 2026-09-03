@@ -13,6 +13,21 @@ This repository is a governed design office. Humans and agents bring an outcome 
 
 Canonical stage law: `studio/_system/contracts/ICM.md`.
 
+For new identity creation or material rebrands, the existing stage model contains the mandatory `creative-direction.v1` bridge:
+
+`positioning → governing idea → territories → distinctiveness → HUMAN TERRITORY SELECTION → identity → brand behavior → application stress test → commercial desirability → guardian → gauntlet → proof`
+
+Canonical creative-direction law: `studio/_system/contracts/CREATIVE_DIRECTION.md`.
+
+## Five mandatory creative-direction layers
+1. Governing Idea Gate.
+2. Distinctiveness Test.
+3. Brand Behavior Grammar.
+4. Application Stress Test.
+5. Commercial Desirability Judge.
+
+All five carry a 9.0 quality floor. The selected territory must be `OWNABLE`. Human selection is required between distinctiveness and identity production. The builder cannot self-approve.
+
 ## Human surface
 `apps/web/` is the design-office front door. The default interaction is outcome-first conversation. Configuration, model choice, provider details, and workflow machinery stay behind progressive disclosure.
 
@@ -31,6 +46,7 @@ Interface routing begins at `interfaces/CONTEXT.md`. No adapter owns business tr
 | Domain | Canonical owner |
 |---|---|
 | Brand intelligence | approved versioned ICM files + brand manifest |
+| Creative direction | stage artifacts governed by `CREATIVE_DIRECTION.md` + `creative-direction.v1.json` |
 | Factory law | `studio/_system/` |
 | Shared creative intelligence | `studio/_shared/` |
 | Cloud identities / memberships | Supabase Auth + Brand Studio isolated RLS domain |
@@ -42,16 +58,23 @@ Interface routing begins at `interfaces/CONTEXT.md`. No adapter owns business tr
 
 ## Current human gates
 1. Start / source-of-truth confirmation.
-2. Canonical brand decision approvals when required.
-3. Final package approval.
-4. Production deployment approval.
+2. Canonical brand decisions when required.
+3. Creative territory selection for new identity/material rebrand work.
+4. Final package approval.
+5. Production deployment approval.
 
 ## Quality
 - Strategy before styling.
+- One governing idea before territories.
+- Only `OWNABLE` territory may advance.
+- Behavior before polish.
+- Stress-test the system, not one hero mockup.
+- Commercial desirability is judged independently from taste.
 - Proof before claim.
 - Separate builder and critic.
-- No fake metrics, testimonials, backend states, or success UI.
+- No fake metrics, testimonials, backend states, research, cultural claims, or success UI.
 - Brand-specific design, not generic SaaS decoration.
+- External studios are principle lenses only; never copy their work.
 - Accessibility, mobile, reduced motion, rights, provenance, rollback, and owner control are release requirements.
 
 ## Current state
@@ -60,6 +83,8 @@ Phases 0–3 are implemented. Phase 3 created the authorized `brand_studio` + `b
 Canonical brand truth still lives in ICM; Supabase stores operational cloud state only.
 
 ## Next work
-Phase 4: make REST, MCP, CLI, folder-drop, Popebot and local callers normalize into the same request/work-order/receipt contracts. Read `interfaces/CONTEXT.md` first.
+Phase 4 remains: make REST, MCP, CLI, folder-drop, Popebot and local callers normalize into the same request/work-order/receipt contracts. Read `interfaces/CONTEXT.md` first.
+
+The creative-direction hardening is additive to that phase and does not replace the interface-normalization work.
 
 Production Vercel deployment remains separately approval-gated.
