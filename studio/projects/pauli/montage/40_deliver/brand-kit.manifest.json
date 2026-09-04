@@ -1,0 +1,27 @@
+{
+  "brand":"Montage",
+  "version":"1.0.0",
+  "governingIdea":"Many moments. One story.",
+  "assets":{
+    "mark":"../20_design/assets/montage-mark.svg",
+    "wordmark":"../20_design/assets/montage-wordmark.svg",
+    "lockup":"../20_design/assets/montage-lockup.svg",
+    "reverse":"../20_design/assets/montage-reverse.svg",
+    "tokens":"../20_design/tokens.css"
+  },
+  "strategy":{
+    "positioning":"../10_strategy/positioning.md",
+    "voice":"../10_strategy/brand-voice.md",
+    "manifest":"../10_strategy/brand-manifest.json",
+    "governingIdea":"../10_strategy/governing-idea.json",
+    "distinctiveness":"../10_strategy/distinctiveness-test.json"
+  },
+  "validation":{
+    "applicationStressTest":"../20_design/application-stress-test.json",
+    "commercialDesirability":"../30_validate/commercial-desirability.json"
+  },
+  "primaryCTA":"Start a Montage",
+  "definition":"A montage is an artistic technique or process of combining multiple separate images, video clips, or pieces of media into a single, unified composition.",
+  "sourceOfTruth":"studio/projects/pauli/montage",
+  "status":"delivery-candidate"
+}
