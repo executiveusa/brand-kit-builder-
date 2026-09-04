@@ -1,0 +1,22 @@
+{
+  "brand": "Montage",
+  "territory": "Editorial Sequence",
+  "tests": {
+    "recognizableWithoutLogo": 9.2,
+    "competitorInterchangeability": 9.1,
+    "trendDependence": 9.0,
+    "ownability": 9.3,
+    "memorableBehavior": 9.4
+  },
+  "verdict": "OWNABLE",
+  "reason": "The identity is governed by a product-native behavior: many visual fragments converge into one composed story. The mark, layout, motion and workflow all express the same principle rather than relying on generic AI aesthetics.",
+  "avoid": [
+    "literal clapperboards",
+    "retro film reels",
+    "generic sparkle AI marks",
+    "gradient blobs",
+    "dashboard-first identity",
+    "film perforations as the only distinctive device"
+  ],
+  "ownerSelection": "Editorial Sequence selected in chat, 2026-09-04"
+}

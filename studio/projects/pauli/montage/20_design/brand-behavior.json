@@ -1,0 +1,36 @@
+{
+  "brand": "Montage",
+  "systemCoherence": 9.4,
+  "grammar": {
+    "layout": {
+      "behavior": "Use large open fields interrupted by deliberate frames, crops and sequences.",
+      "why": "The composition should enact montage: fragments become a whole.",
+      "use_when": "Heroes, showcases, product storytelling, social and presentation layouts.",
+      "avoid_when": "Operational screens where clarity requires denser information."
+    },
+    "typography": {
+      "behavior": "Large editorial serif for brand statements; restrained sans-serif for controls and explanation.",
+      "why": "Creates cinematic authorship without making the interface feel like a poster.",
+      "use_when": "Brand moments, definitions, section openings, end cards.",
+      "avoid_when": "Dense tables, form labels, technical metadata."
+    },
+    "imagery": {
+      "behavior": "Show real moments in purposeful juxtaposition; never one generic stock hero pretending to represent montage.",
+      "why": "The brand idea depends on visible plurality resolving into one composition.",
+      "use_when": "Hero loops, examples, case studies, campaign surfaces.",
+      "avoid_when": "If footage has no narrative relationship and becomes decorative noise."
+    },
+    "motion": {
+      "behavior": "Frames enter separately, align on rhythm, then resolve into a stable composition. Cuts are default; dissolves are intentional exceptions.",
+      "why": "Motion should demonstrate editorial logic rather than decorate the interface.",
+      "use_when": "Hero sequence, logo sting, transitions between examples, export confirmation.",
+      "avoid_when": "Routine controls, reading-heavy surfaces, reduced-motion contexts."
+    },
+    "interaction": {
+      "behavior": "System prepares; human reviews consequential output.",
+      "why": "The product should remove editing labor without removing trust.",
+      "use_when": "Selects, generated rough cuts, exports, publishing.",
+      "avoid_when": "Never force review for reversible low-risk organization work."
+    }
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "brand": {
+    "name": "Montage",
+    "pronunciation": "/mänˈtäZH/",
+    "definition": "A montage is an artistic technique or process of combining multiple separate images, video clips, or pieces of media into a single, unified composition.",
+    "governingIdea": "Many moments. One story.",
+    "productPromise": "Turn raw clips into a finished montage without becoming an editor.",
+    "category": "AI-assisted video storytelling and montage creation"
+  },
+  "audience": {
+    "primary": ["creators", "founders", "small teams", "storytellers", "operators"],
+    "need": "Turn existing footage into concise, coherent video without mastering a professional editing suite."
+  },
+  "personality": ["editorial", "cinematic", "decisive", "human", "restrained", "intelligent"],
+  "visualSystem": {
+    "coreBehavior": "Fragments align, sequence and resolve into a unified composition.",
+    "mark": "A framed M drawn as a single editorial sequence path inside a video frame.",
+    "displayTypeface": "Instrument Serif",
+    "interfaceTypeface": "Inter",
+    "fallbackDisplay": "Georgia, serif",
+    "fallbackInterface": "Arial, sans-serif",
+    "palette": {
+      "ink": "#0A0A0A",
+      "paper": "#F4F1EA",
+      "white": "#FFFFFF",
+      "slate": "#747474",
+      "line": "#D9D5CC",
+      "signal": "#D7A95B"
+    },
+    "ratio": "16:9 is the primary cinematic frame; 9:16 and 1:1 are first-class outputs.",
+    "photography": "Real-feeling documentary, travel, people, motion, process and environment. Avoid generic stock poses.",
+    "layout": "Large fields of whitespace interrupted by purposeful frames, crops and sequences."
+  },
+  "voice": {
+    "principle": "Editorial clarity with cinematic confidence.",
+    "primaryCTA": "Start a Montage",
+    "secondaryCTA": "Watch Demo",
+    "avoid": ["AI magic", "revolutionary", "next-generation creativity", "synergy", "feature-count copy"]
+  },
+  "workflow": [
+    "Bring in your clips",
+    "Find the best moments",
+    "Build the montage",
+    "Export anywhere"
+  ],
+  "outputFormats": ["9:16 Reels", "16:9 Video", "1:1 Social", "Captions", "Highlights", "Walkthroughs"],
+  "safety": {
+    "sourceMasters": "immutable",
+    "editing": "working copies/proxies/derivatives",
+    "publish": "human-reviewable consequential action"
+  },
+  "status": "owner-approved creative direction; production identity in progress",
+  "version": "1.0.0"
+}
