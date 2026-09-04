@@ -1,0 +1,40 @@
+:root {
+  --montage-ink: #0a0a0a;
+  --montage-paper: #f4f1ea;
+  --montage-white: #ffffff;
+  --montage-slate: #747474;
+  --montage-line: #d9d5cc;
+  --montage-signal: #d7a95b;
+  --montage-display: "Instrument Serif", Georgia, serif;
+  --montage-ui: Inter, Arial, sans-serif;
+  --montage-radius-sm: 8px;
+  --montage-radius-md: 14px;
+  --montage-radius-lg: 24px;
+  --montage-space-1: 4px;
+  --montage-space-2: 8px;
+  --montage-space-3: 12px;
+  --montage-space-4: 16px;
+  --montage-space-6: 24px;
+  --montage-space-8: 32px;
+  --montage-space-12: 48px;
+  --montage-space-16: 64px;
+  --montage-space-24: 96px;
+  --montage-ease: cubic-bezier(.2,.8,.2,1);
+  --montage-fast: 120ms;
+  --montage-medium: 260ms;
+  --montage-sequence: 760ms;
+}
+
+.montage-display {
+  font-family: var(--montage-display);
+  font-weight: 400;
+  letter-spacing: -0.035em;
+}
+
+.montage-ui {
+  font-family: var(--montage-ui);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --montage-fast: 0ms; --montage-medium: 0ms; --montage-sequence: 0ms; }
+}
