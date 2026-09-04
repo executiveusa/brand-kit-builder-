@@ -1,0 +1,22 @@
+{
+  "brand": "Montage",
+  "judge": "independent product/brand criteria",
+  "scores": {
+    "perceivedValue": 9.3,
+    "offerComprehension": 9.6,
+    "positionFit": 9.4,
+    "desire": 9.2,
+    "reasonToChoose": 9.3,
+    "marketPosition": 9.1,
+    "nextActionCoherence": 9.6
+  },
+  "average": 9.36,
+  "verdict": "PASS",
+  "reason": "The brand translates the product's actual job—compressing scattered footage into a coherent story—into one memorable idea, one visual behavior and one obvious action. The strongest distinction is story-before-timeline plus protected source handling, not generic AI novelty.",
+  "releaseNotes": [
+    "Launch hero must demonstrate a real montage behavior rather than use one static stock image.",
+    "Definition should stay readable and secondary to the product promise.",
+    "Primary CTA remains Start a Montage.",
+    "Do not claim full hosted readiness until deployment and cloud connection proof are green."
+  ]
+}
