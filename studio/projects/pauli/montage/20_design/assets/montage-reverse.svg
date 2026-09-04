@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 96" role="img" aria-labelledby="title desc">
+  <title id="title">Montage reverse logo</title>
+  <desc id="desc">White Montage lockup for dark video and dark interfaces.</desc>
+  <g transform="translate(4 12)" fill="none" stroke="#FFFFFF" stroke-linecap="square" stroke-linejoin="miter">
+    <rect x="2" y="4" width="68" height="58" rx="2" stroke-width="4"/>
+    <path d="M15 51V18L36 42L57 18V51" stroke-width="5"/>
+  </g>
+  <text x="98" y="70" fill="#FFFFFF" font-family="Instrument Serif, Georgia, serif" font-size="70" font-weight="400" letter-spacing="-1.8">Montage</text>
+</svg>
