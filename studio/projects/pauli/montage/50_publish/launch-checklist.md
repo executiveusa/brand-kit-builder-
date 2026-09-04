@@ -10,6 +10,8 @@
 - [x] Application stress test passed.
 - [x] Commercial desirability passed.
 - [x] Portable brand kit manifest created.
+- [x] Social reel, square, video end-card, and watermark templates created.
+- [x] PARÉ brand-kit repository deployed successfully to Vercel production.
 
 ## Product surface
 - [x] Launch hero uses the exact approved definition.
@@ -21,11 +23,19 @@
 - [x] Protected source-master behavior is represented accurately.
 - [x] Media Library is linked from primary navigation.
 - [x] Mobile hierarchy is simplified.
-- [ ] Production URL verified after merge/deploy.
+- [x] Product brand-launch PR #49 passed branch freshness, Phase 10 generation, GRINIONS, typecheck/build, and browser/local-footage acceptance.
+- [x] Product brand-launch PR #49 merged to `main` at `c9996392c09103293c783b97350939c4f0d42433`.
+- [ ] Montage production Vercel project created on the current `pauli-4426's projects` team.
+- [ ] Production URL verified after project import/deploy.
 - [ ] Server secrets verified on production runtime.
 - [ ] Google Drive production connection test.
 - [ ] OneDrive production connection test.
 - [ ] Export-back capability stays disabled until separate publish permission is implemented and reviewed.
+
+## Hosting evidence
+PARÉ / Brand Kit Builder is live on Vercel and the latest Montage brand-kit commit deployed `READY` to production.
+
+The Montage product repo is still wired to an older Vercel integration that reports the legacy team's free-deployment quota failure. The current writable Vercel team does not yet contain a project linked to `executiveusa/pauli-montage-video-agent`. Do not mark the Montage app publicly launched until that project exists and its runtime is verified.
 
 ## Temporary launch/demo photography
 The initial marketing hero may use free Unsplash demo photography while first-party Montage showcase footage is assembled. Replace demo photography with Montage-produced/user-owned showcase work as soon as available.
@@ -38,4 +48,4 @@ Selected launch references:
 - David Schultz — concert/live event — Unsplash.
 
 ## Release rule
-Do not call the product fully launched until the product repository gates are green and the production URL is verified. Build success alone is not runtime proof.
+Do not call the Montage product fully launched until the production URL and cloud connection paths are verified. Build success alone is not runtime proof.
