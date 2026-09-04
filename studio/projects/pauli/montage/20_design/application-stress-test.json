@@ -1,0 +1,22 @@
+{
+  "brand": "Montage",
+  "score": 9.3,
+  "status": "PASS",
+  "applications": [
+    {"surface":"desktop landing hero","score":9.5,"proof":"Mark, definition, montage background behavior, CTA hierarchy and workflow coexist without competing."},
+    {"surface":"mobile landing hero","score":9.2,"proof":"Mark and wordmark separate cleanly; definition wraps naturally; primary CTA remains thumb-reachable."},
+    {"surface":"app navigation","score":9.4,"proof":"Mark works at compact size without relying on wordmark."},
+    {"surface":"favicon / app icon","score":9.1,"proof":"Framed-M silhouette remains identifiable at small scale."},
+    {"surface":"video watermark","score":9.3,"proof":"Single-color path system works over video with contrast field when needed."},
+    {"surface":"social avatar","score":9.2,"proof":"Mark is centered and readable without text."},
+    {"surface":"presentation / brand book","score":9.5,"proof":"Editorial serif, whitespace and framed-image grammar scale to documents."},
+    {"surface":"light mode","score":9.5,"proof":"Ink on Paper/White is primary system."},
+    {"surface":"dark mode / footage overlay","score":9.4,"proof":"Reverse white lockup defined; signal color remains accent only."},
+    {"surface":"9:16 social composition","score":9.3,"proof":"Fragment-to-whole grid adapts to vertical crops and preserves logo clearance."}
+  ],
+  "risks": [
+    "Wordmark SVG depends on the approved display typeface being loaded; mark SVG is fully geometric and independent.",
+    "Montage backgrounds must be curated for narrative relationship; random collage treatment weakens the identity.",
+    "Signal gold should not become a luxury-decoration shortcut."
+  ]
+}
