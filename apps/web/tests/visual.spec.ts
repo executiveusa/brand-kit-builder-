@@ -74,6 +74,24 @@ test('desktop proof, navigation, planner, cloud boundary, route preview and cons
   expect(runtimeErrors).toEqual([])
 })
 
+test('built-in Brownfield Rescue resolves to its canonical workflow route', async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 1000 })
+  await page.goto('/#studio')
+  await page.getByRole('button', { name: 'Rescue existing' }).click()
+  await expect(page.locator('#outcome')).toHaveValue(/Rescue this existing product/)
+  await page.getByRole('button', { name: /Show the route/i }).click()
+
+  const preview = page.locator('.route-preview')
+  await expect(preview).toContainText('brownfield-rescue.v1')
+  await expect(preview).toContainText('Baseline')
+  await expect(preview).toContainText('Find the friction')
+  await expect(preview).toContainText('Repair one bounded slice')
+  await expect(preview).toContainText('Verify')
+  await expect(preview).toContainText('Prove and hand back')
+  await expect(preview).toContainText('Preview · no publish')
+  await preview.screenshot({ path: path.join(shotDir, 'brownfield-rescue-route.png') })
+})
+
 test('SEO metadata and structured data stay specific and claim-safe', async ({ page }) => {
   await page.goto('/')
   await expect(page).toHaveTitle(/PARÉ — Sovereign Brand Software/)

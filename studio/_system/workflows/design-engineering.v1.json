@@ -1,0 +1,61 @@
+{
+  "version": "design-engineering-workflows.v1",
+  "interface": "design-chat",
+  "default_laws": [
+    "studio/_system/skills/adhd-elegant-simplicity/SKILL.md",
+    "studio/_system/skills/design-engineering-workflows/SKILL.md"
+  ],
+  "workflows": [
+    {
+      "workflow_id": "audit-cut.v1",
+      "name": "Audit + Cut",
+      "intent_examples": ["audit this interface", "simplify this", "what should we remove", "why is this confusing"],
+      "mode": "brownfield",
+      "required_skills": ["adhd-elegant-simplicity", "design-engineering-workflows", "design-guardian"],
+      "optional_skills": ["refero-design"],
+      "mutates_by_default": false,
+      "outputs": ["baseline", "P0-P3 findings", "removal list", "repair slice", "proof plan"]
+    },
+    {
+      "workflow_id": "reference-lock.v1",
+      "name": "Reference Lock",
+      "intent_examples": ["find the visual direction", "lock the design direction", "research references before we build", "give me three strong directions"],
+      "mode": "greenfield-or-brownfield",
+      "required_skills": ["adhd-elegant-simplicity", "refero-design", "design-engineering-workflows"],
+      "mutates_by_default": false,
+      "outputs": ["design brief", "reference comparison", "primary reference lock", "rejected traits", "decision ledger"],
+      "approval_boundary": "human selects direction before expensive implementation when multiple viable directions exist"
+    },
+    {
+      "workflow_id": "brownfield-rescue.v1",
+      "name": "Brownfield Rescue",
+      "intent_examples": ["rescue this screen", "fix this interface", "redesign this without breaking it", "improve the existing product"],
+      "mode": "brownfield",
+      "required_skills": ["adhd-elegant-simplicity", "design-engineering-workflows", "subtraction", "completion-gates"],
+      "conditional_skills": ["refero-design", "design-guardian", "gauntlet", "design-proof"],
+      "sequence": ["baseline", "audit-and-cut", "reference-lock-if-needed", "specify-one-slice", "implement", "render-and-test", "visual-qa", "independent-proof"],
+      "outputs": ["minimal patch", "evidence", "unresolved risks", "rollback"]
+    },
+    {
+      "workflow_id": "greenfield-interface.v1",
+      "name": "Greenfield Interface",
+      "intent_examples": ["design a new screen", "build a new landing page", "create a new flow", "make a new product interface"],
+      "mode": "greenfield",
+      "required_skills": ["adhd-elegant-simplicity", "refero-design", "design-engineering-workflows", "completion-gates"],
+      "conditional_skills": ["design-guardian", "gauntlet", "design-proof"],
+      "sequence": ["validate-outcome", "reference-research", "direction-selection-if-needed", "specification", "one-verifiable-slice", "visual-qa", "independent-proof"],
+      "outputs": ["reference lock", "specification", "implementation slice", "evidence"]
+    },
+    {
+      "workflow_id": "visual-qa.v1",
+      "name": "Visual QA",
+      "intent_examples": ["visual QA", "check the implementation against the design", "mobile QA", "is this actually finished"],
+      "mode": "validation",
+      "required_skills": ["adhd-elegant-simplicity", "refero-design", "design-engineering-workflows", "design-proof"],
+      "sequence": ["capture-evidence", "compare-to-lock", "check-responsive-accessibility-states", "rank-P0-P3", "repair-authorized-P0-P2", "retest", "report-truthful-status"],
+      "outputs": ["evidence set", "severity ledger", "truthful completion state"]
+    }
+  ],
+  "status_states": ["DESIGNED", "IMPLEMENTED", "TESTED", "READY_FOR_PREVIEW", "PREVIEW_VERIFIED", "PRODUCTION_VERIFIED"],
+  "law": "The design chat exposes outcomes and a small set of named workflows. It does not expose the internal agent roster, provider configuration, or workflow graph unless requested."
+}
