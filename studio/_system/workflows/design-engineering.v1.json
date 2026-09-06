@@ -7,7 +7,7 @@
   ],
   "workflows": [
     {
-      "workflow_id": "audit-and-cut.v1",
+      "workflow_id": "audit-cut.v1",
       "name": "Audit + Cut",
       "intent_examples": ["audit this interface", "simplify this", "what should we remove", "why is this confusing"],
       "mode": "brownfield",
