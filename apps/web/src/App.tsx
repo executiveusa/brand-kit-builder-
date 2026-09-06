@@ -18,6 +18,85 @@ type RouteStep = {
   detail: string
 }
 
+type WorkflowShortcut = {
+  id: string
+  label: string
+  prompt: string
+  description: string
+  route: RouteStep[]
+}
+
+const workflowShortcuts: WorkflowShortcut[] = [
+  {
+    id: 'brownfield-rescue.v1',
+    label: 'Rescue existing',
+    prompt: 'Rescue this existing product without rewriting what already works. Inspect it first, reduce the friction, make the smallest justified changes, and prove the result.',
+    description: 'Inspect → baseline → repair one bounded slice → visual QA → proof.',
+    route: [
+      { title: 'Baseline', detail: 'Inspect the existing product, architecture, content, interaction model and current checks before changing anything.' },
+      { title: 'Find the friction', detail: 'Identify broken behavior, duplicate logic, cognitive load, generic design patterns and the smallest meaningful blast radius.' },
+      { title: 'Lock direction only if needed', detail: 'Use reference research only when the current visual direction is insufficient or contradictory; preserve protected assets and working conventions.' },
+      { title: 'Repair one bounded slice', detail: 'Make the smallest isolated change that materially improves the user outcome without rewriting the product.' },
+      { title: 'Verify', detail: 'Test responsive behavior, accessibility, state clarity, regressions and visual drift against the approved direction.' },
+      { title: 'Prove and hand back', detail: 'Return evidence, remaining risks and rollback. A builder may not approve its own work.' },
+    ],
+  },
+  {
+    id: 'greenfield-interface.v1',
+    label: 'Design new',
+    prompt: 'Design a new interface from the user outcome first. Validate the smallest valuable scope, establish the visual direction, specify it, build one verifiable slice, and prove it.',
+    description: 'Outcome → reference lock → specification → one slice → proof.',
+    route: [
+      { title: 'Define the outcome', detail: 'Establish the user, trigger, desired result, primary action, constraints, ownership and proof before styling.' },
+      { title: 'Research directions', detail: 'Study several relevant references, compare their underlying design logic and select one dominant foundation.' },
+      { title: 'Lock the system', detail: 'Specify typography, spacing, color roles, imagery, motion, interaction and accessibility before implementation.' },
+      { title: 'Build one slice', detail: 'Implement the smallest end-to-end interface slice that can be meaningfully tested.' },
+      { title: 'Challenge the result', detail: 'Run independent visual, usability, accessibility and failure-state review.' },
+      { title: 'Prove', detail: 'Return rendered evidence and an explicit verification status before expanding scope.' },
+    ],
+  },
+  {
+    id: 'audit-cut.v1',
+    label: 'Audit + cut',
+    prompt: 'Audit this experience for clutter, confusion, generic AI design and unnecessary decisions. Rank the problems, remove what does not earn attention, and give me the smallest repair plan.',
+    description: 'Evidence-first critique and subtraction without automatic mutation.',
+    route: [
+      { title: 'Observe', detail: 'Inspect the actual interface, copy, states and task path rather than judging from assumptions.' },
+      { title: 'Rank defects', detail: 'Classify issues by severity: blocked outcome, material friction, polish debt or optional improvement.' },
+      { title: 'Subtract', detail: 'Remove, combine, infer or progressively disclose anything that does not help the user understand, decide, act, verify or recover.' },
+      { title: 'Protect what works', detail: 'Preserve useful conventions, brand truth, accessibility and consequential human controls.' },
+      { title: 'Return the repair slice', detail: 'Provide the smallest high-leverage fix sequence with proof criteria. Do not mutate unless implementation was requested.' },
+    ],
+  },
+  {
+    id: 'reference-lock.v1',
+    label: 'Reference lock',
+    prompt: 'Research and lock a distinctive visual direction before building. Compare multiple references, choose one dominant foundation, define the design decisions, and prevent visual drift.',
+    description: 'Research → compare → select → decision ledger → locked direction.',
+    route: [
+      { title: 'Read the brief', detail: 'Resolve the audience, outcome, brand truth, protected assets and the specific visual problem that needs direction.' },
+      { title: 'Research multiple references', detail: 'Study several relevant examples for typography, color, imagery, pacing, interaction and craft rather than copying a finished layout.' },
+      { title: 'Choose a dominant foundation', detail: 'Select one reference logic as the primary system and borrow only narrow secondary traits when they have a clear purpose.' },
+      { title: 'Write the decision ledger', detail: 'Lock typography, palette roles, spacing, imagery, iconography, motion, states and responsive behavior before coding.' },
+      { title: 'Set anti-drift rules', detail: 'Record what must not be introduced so implementation cannot slide back into generic AI aesthetics or unrelated references.' },
+    ],
+  },
+  {
+    id: 'visual-qa.v1',
+    label: 'Visual QA',
+    prompt: 'Verify this implementation visually and functionally. Compare the rendered result against the approved system at the required breakpoints, rank defects, repair material drift, and report what is actually proven.',
+    description: 'Render → compare → repair → accessibility/state check → proof.',
+    route: [
+      { title: 'Render the real implementation', detail: 'Inspect the actual product at required desktop and mobile breakpoints, including loading, empty, error and interactive states where relevant.' },
+      { title: 'Compare against the lock', detail: 'Check typography, spacing, hierarchy, color roles, imagery, motion, interaction and responsive ordering against the approved system.' },
+      { title: 'Rank visual defects', detail: 'Separate release blockers from material drift, polish debt and optional refinements.' },
+      { title: 'Repair material drift', detail: 'Fix the smallest set of defects that prevent the implementation from matching the approved direction and user outcome.' },
+      { title: 'Verify accessibility and state truth', detail: 'Check focus, keyboard use, contrast, reduced motion, touch targets and whether success/failure states accurately describe reality.' },
+      { title: 'Issue proof status', detail: 'Report DESIGNED, IMPLEMENTED, TESTED, PREVIEW VERIFIED or PRODUCTION VERIFIED only when supporting evidence exists.' },
+    ],
+  },
+]
+
 const quickPrompts = [
   'Build a complete brand kit from my current website and logo.',
   'Create an Instagram campaign system from the approved brand.',
@@ -43,7 +122,10 @@ const proofRows = [
   },
 ]
 
-function buildRoute(value: string): RouteStep[] {
+function buildRoute(value: string, workflowId: string): RouteStep[] {
+  const workflow = workflowShortcuts.find((candidate) => candidate.id === workflowId)
+  if (workflow) return workflow.route
+
   const text = value.toLowerCase()
   const route: RouteStep[] = [
     {
@@ -101,14 +183,34 @@ function buildRoute(value: string): RouteStep[] {
 
 export function App() {
   const [outcome, setOutcome] = useState('')
+  const [selectedWorkflowId, setSelectedWorkflowId] = useState('')
   const [submitted, setSubmitted] = useState('')
-  const route = useMemo(() => (submitted ? buildRoute(submitted) : []), [submitted])
+  const [submittedWorkflowId, setSubmittedWorkflowId] = useState('')
+  const submittedWorkflow = useMemo(
+    () => workflowShortcuts.find((workflow) => workflow.id === submittedWorkflowId) ?? null,
+    [submittedWorkflowId],
+  )
+  const route = useMemo(
+    () => (submitted ? buildRoute(submitted, submittedWorkflowId) : []),
+    [submitted, submittedWorkflowId],
+  )
+  const cloudIntent = submitted
+    ? submittedWorkflowId
+      ? `${submitted}\n\nUse built-in workflow: ${submittedWorkflowId}.`
+      : submitted
+    : ''
+
+  function chooseWorkflow(workflow: WorkflowShortcut) {
+    setSelectedWorkflowId(workflow.id)
+    setOutcome(workflow.prompt)
+  }
 
   function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
     const value = outcome.trim()
     if (!value) return
     setSubmitted(value)
+    setSubmittedWorkflowId(selectedWorkflowId)
   }
 
   return (
@@ -207,21 +309,50 @@ export function App() {
               <textarea
                 id="outcome"
                 value={outcome}
-                onChange={(event) => setOutcome(event.target.value)}
+                onChange={(event) => {
+                  setOutcome(event.target.value)
+                  setSelectedWorkflowId('')
+                }}
                 placeholder="Build the launch brand for our company. We need the identity, production SVG, voice, SEO, social system and a self-hosted handoff."
               />
-              <div className="quick-prompts" aria-label="Example outcomes">
-                {quickPrompts.map((prompt) => (
-                  <button key={prompt} type="button" onClick={() => setOutcome(prompt)}>
-                    {prompt.includes('Instagram') ? 'Social campaign' : prompt.includes('SEO') ? 'Brand + SEO' : prompt.includes('server') ? 'Sovereign install' : 'Brand kit'}
-                  </button>
-                ))}
+              <div>
+                <span className="micro">Built-in engineering workflows</span>
+                <div className="quick-prompts" aria-label="Built-in engineering workflows">
+                  {workflowShortcuts.map((workflow) => (
+                    <button
+                      key={workflow.id}
+                      type="button"
+                      aria-pressed={selectedWorkflowId === workflow.id}
+                      title={workflow.description}
+                      onClick={() => chooseWorkflow(workflow)}
+                    >
+                      {workflow.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+              <div>
+                <span className="micro">Common outcomes</span>
+                <div className="quick-prompts" aria-label="Example outcomes">
+                  {quickPrompts.map((prompt) => (
+                    <button
+                      key={prompt}
+                      type="button"
+                      onClick={() => {
+                        setSelectedWorkflowId('')
+                        setOutcome(prompt)
+                      }}
+                    >
+                      {prompt.includes('Instagram') ? 'Social campaign' : prompt.includes('SEO') ? 'Brand + SEO' : prompt.includes('server') ? 'Sovereign install' : 'Brand kit'}
+                    </button>
+                  ))}
+                </div>
               </div>
               <div className="composer-submit">
                 <button className="primary-button" type="submit">
                   Show the route <ArrowRight size={16} aria-hidden="true" />
                 </button>
-                <p>This public surface previews the method. Agent execution runs through the authenticated REST, MCP, CLI or folder-drop interfaces.</p>
+                <p>Choose a built-in workflow or describe the outcome normally. One Hands keeps the workflow machinery behind the conversation.</p>
               </div>
             </div>
 
@@ -231,6 +362,9 @@ export function App() {
                   <div>
                     <span className="micro">One Hands route preview</span>
                     <h3>{submitted}</h3>
+                    {submittedWorkflow && (
+                      <p className="micro">{submittedWorkflow.label} · {submittedWorkflow.id}</p>
+                    )}
                   </div>
                   <span className="truth-badge">Preview · no publish</span>
                 </div>
@@ -253,7 +387,7 @@ export function App() {
             <h2 id="cloud-title">Keep the work.<br /><em>Not the dependency.</em></h2>
             <p>Cloud state can index organizations, projects and receipts. Canonical brand intelligence still lives in portable ICM files and approved manifests.</p>
           </div>
-          <CloudWorkspace intent={submitted} />
+          <CloudWorkspace intent={cloudIntent} />
         </section>
 
         <section className="system section-shell" id="system">
