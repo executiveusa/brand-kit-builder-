@@ -29,8 +29,8 @@ jobs:
       run:
         working-directory: interfaces/runtime
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
           node-version: '22'
       - name: Interface equivalence tests
@@ -42,8 +42,8 @@ jobs:
       run:
         working-directory: interfaces/rest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
           node-version: '22'
       - name: REST runtime tests
@@ -57,8 +57,8 @@ jobs:
       run:
         working-directory: interfaces/mcp
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
           node-version: '22'
       - name: MCP runtime tests
@@ -70,8 +70,8 @@ jobs:
       run:
         working-directory: interfaces/cli
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
           node-version: '22'
       - name: CLI runtime tests
