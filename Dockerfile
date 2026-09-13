@@ -1,11 +1,11 @@
-FROM node:22-alpine AS web-build
+FROM node:26-alpine AS web-build
 WORKDIR /build/apps/web
 COPY apps/web/package.json ./package.json
 RUN npm install --no-audit --no-fund
 COPY apps/web/ ./
 RUN npm run build
 
-FROM node:22-alpine AS runtime
+FROM node:26-alpine AS runtime
 ENV NODE_ENV=production \
     HOST=0.0.0.0 \
     PORT=8788 \
