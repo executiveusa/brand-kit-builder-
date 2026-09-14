@@ -15,7 +15,7 @@ jobs:
     if: github.event_name == 'workflow_dispatch' || github.event.schedule == '15 15 * * *'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Read recent OFF Brand feed items
         run: python ops/intelligence/offbrand_ingest.py --days 21 --limit 8 > /tmp/offbrand.json
       - name: Queue unseen posts as PARÉ intelligence work orders
