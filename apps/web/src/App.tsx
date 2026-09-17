@@ -10,6 +10,7 @@ import {
   ShieldCheck,
   Share2,
   Usb,
+  Type,
 } from 'lucide-react'
 import { CloudWorkspace } from './components/CloudWorkspace'
 
@@ -76,8 +77,8 @@ const workflowShortcuts: WorkflowShortcut[] = [
     route: [
       { title: 'Read the brief', detail: 'Resolve the audience, outcome, brand truth, protected assets and the specific visual problem that needs direction.' },
       { title: 'Research multiple references', detail: 'Study several relevant examples for typography, color, imagery, pacing, interaction and craft rather than copying a finished layout.' },
-      { title: 'Choose a dominant foundation', detail: 'Select one reference logic as the primary system and borrow only narrow secondary traits when they have a clear purpose.' },
-      { title: 'Write the decision ledger', detail: 'Lock typography, palette roles, spacing, imagery, iconography, motion, states and responsive behavior before coding.' },
+      { title: 'Choose a dominant foundation', detail: 'Select one reference logic as the primary system. Propose primary, secondary and fallback type choices from the font reference set, then verify licensing before approval.' },
+      { title: 'Write the decision ledger', detail: 'Lock the chosen type family, roles, weights, fallback stack, license evidence, palette roles, spacing, imagery, iconography, motion, states and responsive behavior before coding.' },
       { title: 'Set anti-drift rules', detail: 'Record what must not be introduced so implementation cannot slide back into generic AI aesthetics or unrelated references.' },
     ],
   },
@@ -102,6 +103,39 @@ const quickPrompts = [
   'Create an Instagram campaign system from the approved brand.',
   'Build the brand, website SEO and search-ready content architecture.',
   'Install this brand system on our own server and package the intelligence for handoff.',
+]
+
+type FontReference = {
+  name: string
+  className: string
+  note: string
+  href: string
+}
+
+const fontReferences: FontReference[] = [
+  { name: 'Geist', className: 'Sans / system', note: 'Vercel', href: 'https://vercel.com/font#get' },
+  { name: 'Galgo Condensed', className: 'Display / condensed', note: 'Giulia Boggio', href: 'https://www.awwwards.com/inspiration/galgo-condensed-by-giulia-boggio' },
+  { name: 'NOHEMI', className: 'Sans / display', note: 'License check required', href: 'https://www.awwwards.com/inspiration/nohemi-typeface' },
+  { name: 'Ranade', className: 'Sans / versatile', note: 'Fontshare', href: 'https://www.fontshare.com/fonts/ranade' },
+  { name: 'Clash Display', className: 'Display / variable', note: 'Fontshare', href: 'https://www.fontshare.com/fonts/clash-display' },
+  { name: 'Cabinet Grotesk', className: 'Grotesk / variable', note: 'Fontshare', href: 'https://www.fontshare.com/fonts/cabinet-grotesk' },
+  { name: 'Satoshi', className: 'Sans / variable', note: 'Fontshare', href: 'https://www.fontshare.com/fonts/satoshi' },
+  { name: 'Junicode Bold Condensed', className: 'Serif / condensed', note: 'License check required', href: 'https://www.awwwards.com/inspiration/junicode-bold-condensed' },
+  { name: 'Bigilla', className: 'Serif / display', note: 'Jérémie Gauthier', href: 'https://www.pixelsurplus.com/freebies/bigilla-free-display-serif-typeface' },
+  { name: 'OffBit', className: 'Display / pixel', note: 'License check required', href: 'https://www.awwwards.com/inspiration/offbit-free-font' },
+  { name: 'Disket Mono', className: 'Mono / grid', note: 'License check required', href: 'https://www.awwwards.com/inspiration/disket-mono-display-monospaced-grid-based-typeface' },
+  { name: 'Heming', className: 'Mono / variable', note: 'Personal + commercial listed', href: 'https://www.awwwards.com/inspiration/heming-a-free-variable-monotype-font' },
+]
+
+const fontSources = [
+  {
+    label: 'Awwwards Free Fonts collection',
+    href: 'https://www.awwwards.com/awwwards/collections/free-fonts/',
+  },
+  {
+    label: '100 Best Free Fonts for Designers in 2025',
+    href: 'https://www.awwwards.com/best-free-fonts.html',
+  },
 ]
 
 const proofRows = [
@@ -142,7 +176,7 @@ function buildRoute(value: string, workflowId: string): RouteStep[] {
     },
     {
       title: 'Design the system',
-      detail: 'Create identity, production SVG, DARYA typography, color, imagery and the applications this company actually needs.',
+      detail: 'Create identity, production SVG, a primary/secondary/fallback type proposal from the PARÉ Fonts library, color, imagery and the applications this company actually needs. Verify the current font license before production use.',
     },
   ]
 
@@ -223,6 +257,7 @@ export function App() {
         <nav aria-label="Primary navigation">
           <a href="#work">System</a>
           <a href="#studio">Studio</a>
+          <a href="#fonts">Fonts</a>
           <a href="#ownership">Ownership</a>
         </nav>
         <a className="header-cta" href="#studio">Create a brand</a>
@@ -381,9 +416,44 @@ export function App() {
           </form>
         </section>
 
+        <section className="fonts section-shell" id="fonts" aria-labelledby="fonts-title">
+          <div className="section-heading">
+            <span>03 — Fonts</span>
+            <h2 id="fonts-title">Type with a reason.<br /><em>License before release.</em></h2>
+          </div>
+          <div className="font-intro">
+            <p>
+              Every PARÉ brand-kit route now proposes a primary, secondary and fallback type system from this reference library.
+              These are research leads, not bundled font files or automatic commercial-use clearance.
+            </p>
+            <div className="font-sources" aria-label="Font research sources">
+              {fontSources.map((source) => (
+                <a key={source.href} href={source.href} target="_blank" rel="noreferrer">
+                  {source.label} <ArrowUpRight size={14} aria-hidden="true" />
+                </a>
+              ))}
+            </div>
+          </div>
+          <div className="font-grid">
+            {fontReferences.map((font, index) => (
+              <a className="font-card" key={font.name} href={font.href} target="_blank" rel="noreferrer">
+                <span className="font-index">{String(index + 1).padStart(2, '0')}</span>
+                <Type aria-hidden="true" />
+                <h3>{font.name}</h3>
+                <p>{font.className}</p>
+                <small>{font.note} <ArrowUpRight size={12} aria-hidden="true" /></small>
+              </a>
+            ))}
+          </div>
+          <div className="font-gate">
+            <strong>Brand-kit type gate</strong>
+            <span>Shortlist → role + weight tests → small-size proof → current license read-back → owner selection → production files.</span>
+          </div>
+        </section>
+
         <section className="cloud-shell" aria-labelledby="cloud-title">
           <div className="cloud-shell-copy">
-            <p className="eyebrow">03 — Optional operating layer</p>
+            <p className="eyebrow">04 — Optional operating layer</p>
             <h2 id="cloud-title">Keep the work.<br /><em>Not the dependency.</em></h2>
             <p>Cloud state can index organizations, projects and receipts. Canonical brand intelligence still lives in portable ICM files and approved manifests.</p>
           </div>
@@ -392,7 +462,7 @@ export function App() {
 
         <section className="system section-shell" id="system">
           <div className="section-heading">
-            <span>04 — One office, many doors</span>
+            <span>05 — One office, many doors</span>
             <h2>Call it from<br /><em>where the work happens.</em></h2>
           </div>
           <div className="system-grid">
@@ -405,7 +475,7 @@ export function App() {
 
         <section className="closing" id="ownership">
           <div>
-            <p className="eyebrow">05 — Ownership</p>
+            <p className="eyebrow">06 — Ownership</p>
             <h2>Installed for you.<br />Owned by you.<br />Operated your way.</h2>
           </div>
           <div className="closing-copy">
