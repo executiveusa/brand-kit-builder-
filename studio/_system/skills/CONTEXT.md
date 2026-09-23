@@ -57,3 +57,4 @@ The numbered design layers are governing idea, distinctiveness, brand behavior, 
 - Humanization may change wording, not evidence.
 - SVG concepts do not become Official until vector/provenance/independent-review gates pass.
 - ADHD simplification may remove friction, not necessary trust, recovery, accessibility, proof, or human authority.
+| font selection / typeface research for any brand or site | font-finding/SKILL.md |

@@ -1,0 +1,5458 @@
+{
+ "catalog": "awwwards-free-fonts",
+ "version": "1.0.0",
+ "harvested": "2026-09-23",
+ "source": "https://www.awwwards.com/awwwards/collections/free-fonts/",
+ "item_count": 287,
+ "license_law": "The word 'free' in the Awwwards collection is not a license. license_status 'free-license-text-found' means license text was observed at the source on harvest date; re-verify at source before production use (studio/FONTS.md gate). 'unverified-check-source' means no license text could be machine-read; treat as unknown until a human or agent reads the current license at source_url.",
+ "fonts": [
+  {
+   "name": "Galgo Condensed",
+   "designer": "Giulia Boggio",
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "condensed",
+    "font"
+   ],
+   "source_url": "https://www.giuliaboggio.xyz/fonts/galgo-condensed",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/element/2024/06/666ab60e306ed872843610.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Aalto Display Font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "sans",
+    "display"
+   ],
+   "tags": [
+    "opentype",
+    "display font",
+    "modern"
+   ],
+   "source_url": "https://iframefonts.gumroad.com/l/aalto-display-font",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/element/2024/06/666a95a470cd4960562181.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Unique Typeface",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display",
+    "variable"
+   ],
+   "tags": [
+    "typeface",
+    "free",
+    "variable",
+    "condensed"
+   ],
+   "source_url": "https://www.behance.net/gallery/160832905/Unique-Typeface-Free-Variable-Condensed-7-Styles",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/element/2024/06/666ac6a2cc375751589706.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Geist",
+   "designer": "Vercel",
+   "source_site": null,
+   "categories": [
+    "serif",
+    "sans",
+    "mono"
+   ],
+   "tags": [
+    "typeface",
+    "monospace",
+    "sans serif",
+    "clean"
+   ],
+   "source_url": "https://vercel.com/font#get",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/element/2024/06/666ac01de80e6356323247.jpg",
+   "license_status": "free-license-text-found",
+   "license_evidence": [
+    "Licensed under OFL .",
+    "Read the license ."
+   ]
+  },
+  {
+   "name": "Round 8",
+   "designer": "atipo",
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "heavyweight",
+    "typeface"
+   ],
+   "source_url": "https://www.atipofoundry.com/fonts/round-8",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/element/2024/06/666ac1cc89c3a822135645.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "NOHEMI Typeface",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "variable"
+   ],
+   "tags": [
+    "free",
+    "variable",
+    "styles"
+   ],
+   "source_url": "https://www.behance.net/gallery/168183377/NOHEMI-Typeface-Free-Variable-9-Styles",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/element/2024/06/666ac59cee56d767069712.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Absans Font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "sans"
+   ],
+   "tags": [
+    "century grotesque",
+    "open font license"
+   ],
+   "source_url": "https://www.collletttivo.it/typefaces/absans",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/element/2024/06/666aa3f9141b7570850654.jpg",
+   "license_status": "free-license-text-found",
+   "license_evidence": [
+    "Details Designed by Valerio Monopoli Released December 13, 2023 1 Family , 1 Style Supports Latin Licensed under SIL Open Font License Released December 13, 2023 Version 1."
+   ]
+  },
+  {
+   "name": "Dirtyline 36Daysoftype 2022",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "free fonts",
+    "typography",
+    "typo",
+    "font",
+    "design",
+    "typeface",
+    "display",
+    "extended",
+    "ligatures"
+   ],
+   "source_url": "https://dirtylinestudio.com/product/dirtyline-36daysoftype-2022/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/element/2022/07/62c56430515d3949380759.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Humane",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif",
+    "sans"
+   ],
+   "tags": [
+    "free font",
+    "sans serif",
+    "typeface"
+   ],
+   "source_url": "https://rajputrajesh-448.gumroad.com/l/HUMANE",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/element/2022/07/62cfdeeb30c19642978573.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Pangram Sans Rounded",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "sans"
+   ],
+   "tags": [
+    "typography",
+    "fonts",
+    "free font",
+    "pangram"
+   ],
+   "source_url": "https://www.behance.net/gallery/119737485/Pangram-Sans-Rounded-Free-Font?tracking_source=for_you_feed_activity",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2021/05/60a9148ab733a324527679.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Junicode bold condensed",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "mono",
+    "display"
+   ],
+   "tags": [
+    "free font",
+    "bold",
+    "condensed"
+   ],
+   "source_url": "https://open-foundry.com/fonts/junicode_bold_condensed",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2020/06/5ed91d791dc6b433389159.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "PP Mori",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif",
+    "sans"
+   ],
+   "tags": [
+    "typeface",
+    "font",
+    "free font",
+    "gothic",
+    "sans serif",
+    "type"
+   ],
+   "source_url": "https://pangrampangram.com/products/mori",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/element/2022/07/62c75b552bd15329776065.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": [
+    "nian, Norwegian, Polish, Portuguese, Romanian, Saami, Serbian, Slovak, Slovenian, Spanish, Swahili, Swedish, Turkish, (and more) Commercial Licenses Love Mori for your project? Grab our comprehensive licenses below.",
+    "in USD Add to cart    → Not sure what to get? Or can’t find the right coverage? Please contact us for our tailored corporate licenses! Contact us Need more information about our licenses? Our FAQ usually contains most of the answers."
+   ]
+  },
+  {
+   "name": "Saint Regus",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "free font",
+    "bold",
+    "display",
+    "font",
+    "typography",
+    "typeface"
+   ],
+   "source_url": "https://www.myfonts.com/fonts/sonar-hubermann/saint-regus/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2021/05/60b0da77b90e6708648926.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": [
+    "288 167579289 167579290 167579291 167579292 167579293 167579294 167579295 167579296 167579297 167579298 167579299 Licensing Options MyFonts licenses are tailored for individual creatives.",
+    "Not all licenses are compatible with broad usage cases or complicated creative workflows, so make sure to read the full EULA text for details."
+   ]
+  },
+  {
+   "name": "Manuscribe Free",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display",
+    "script",
+    "variable"
+   ],
+   "tags": [
+    "free font",
+    "variable font",
+    "display",
+    "script"
+   ],
+   "source_url": "https://visuely.net/display/manuscribe-free/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/element/2022/07/62cfe16e9bf40756713164.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Harmond free display typeface",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif",
+    "sans",
+    "display"
+   ],
+   "tags": [
+    "free fonts",
+    "modern serif",
+    "display family",
+    "elegant style"
+   ],
+   "source_url": "https://dirtylinestudio.com/product/harmond-free-display-typeface/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2021/01/5ff6ce6c8ba5b632310872.jpg",
+   "license_status": "personal-use-only",
+   "license_evidence": [
+    "Dirtyline product page: \"Lisence: Personal Use\""
+   ]
+  },
+  {
+   "name": "Wagon Display Typeface",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif",
+    "sans",
+    "display"
+   ],
+   "tags": [
+    "fresh",
+    "modern",
+    "serif",
+    "style",
+    "display",
+    "typeface",
+    "glyphs",
+    "sharp shapes",
+    "editorial use",
+    "triangular serifs"
+   ],
+   "source_url": "https://dirtylinestudio.com/product/wagon-free-font",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2021/11/619b5226afb53108977209.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Milky Walky",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif",
+    "sans",
+    "display"
+   ],
+   "tags": [
+    "type",
+    "free font",
+    "typeface",
+    "display",
+    "sans serif",
+    "ligatures"
+   ],
+   "source_url": "https://www.behance.net/gallery/147602097/Milky-Walky-Font",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/element/2022/07/62c7650844182550708002.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Ranade",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif",
+    "sans"
+   ],
+   "tags": [
+    "fontshare",
+    "free fonts",
+    "sans serif",
+    "neo-grotesk",
+    "type"
+   ],
+   "source_url": "https://www.fontshare.com/fonts/ranade",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/element/2022/07/62cc57d252210232308073.jpg",
+   "license_status": "free-license-text-found",
+   "license_evidence": [
+    "Fontshare platform: ITF Free Font License (same platform as Satoshi, verified on Satoshi page)"
+   ]
+  },
+  {
+   "name": "Bigilla display serif typeface designed",
+   "designer": "Jérémie Gauthier",
+   "source_site": null,
+   "categories": [
+    "serif",
+    "display"
+   ],
+   "tags": [
+    "display",
+    "serif",
+    "ligatures"
+   ],
+   "source_url": "https://www.pixelsurplus.com/freebies/bigilla-free-display-serif-typeface",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2021/02/602b9570b2f56460197730.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Mamen Chisa",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "typeface",
+    "font",
+    "free font",
+    "display font",
+    "display"
+   ],
+   "source_url": "https://www.behance.net/gallery/147570901/Mamenchisa-Free-Font",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/element/2022/07/62c75e5c3486d202960979.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Mango Grotesque Variable Font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "sans",
+    "variable"
+   ],
+   "tags": [
+    "grotesque",
+    "variable font. free font"
+   ],
+   "source_url": "https://rajputrajesh-448.gumroad.com/l/MangoGrotesque",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/element/2022/07/62cfe0476d342787925507.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Vegawanty font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif",
+    "sans",
+    "script"
+   ],
+   "tags": [
+    "serif",
+    "modern",
+    "typeface",
+    "handwriting"
+   ],
+   "source_url": "https://pixelify.net/download/free-fonts/serif/vegawanty-modern-serif/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2022/02/6218d5910140a998028172.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Bosch Display free font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "free font",
+    "display"
+   ],
+   "source_url": "https://iframefonts.com/if-bosch-display-font/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2022/02/6203d55e1870e889564449.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Neue Metana Next",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "sans"
+   ],
+   "tags": [
+    "geometric",
+    "alternative",
+    "contemporary",
+    "typeface",
+    "font",
+    "urban"
+   ],
+   "source_url": "https://dirtylinestudio.com/product/neue-metana-next-free-font/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/element/2022/03/623db6896fa21380385513.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Flaviotte Font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif"
+   ],
+   "tags": [
+    "free font",
+    "editorial",
+    "font",
+    "type",
+    "serif"
+   ],
+   "source_url": "https://dafontfile.com/flaviotte-font/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/element/2022/07/62cbdaa86c6b0341874533.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Canobis – Psychedelic Typeface",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display",
+    "retro"
+   ],
+   "tags": [
+    "type",
+    "free font",
+    "typeface",
+    "display"
+   ],
+   "source_url": "https://visuely.net/display/canobis-free/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/element/2022/07/62c7714d7d2e1325581468.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "IF Durer Font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "free fonts",
+    "display",
+    "renaissance",
+    "webfont"
+   ],
+   "source_url": "https://iframefonts.com/if-durer-display-font/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/element/2022/07/62c566ab091c3385074246.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "HK Grotesk Wide",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "sans"
+   ],
+   "tags": [
+    "free font",
+    "typeface"
+   ],
+   "source_url": "https://hanken.co/collections/free/products/hk-grotesk-wide",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/element/2022/11/637e1ed2a8f37274403583.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": [
+    "Type Sans serif Display Variant: Desktop Font Family Desktop Font Family Web Font Family Licensed to: Full legal name of the person or company this license covers.",
+    "Sans Serif Serif Display Monospaced Free Fonts HDC Fontwear All Fonts Blog FAQ Updates Services Font License Kerning Game Privacy Policy How to Install Fonts Contact © 2026, Hanken Design Co."
+   ]
+  },
+  {
+   "name": "OffBit",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "font",
+    "typography",
+    "free"
+   ],
+   "source_url": "https://power-type.com/offbit/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/element/2022/10/634005b55498b999358709.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Vercetti Regular Font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif",
+    "sans"
+   ],
+   "tags": [
+    "free font",
+    "sans-serif",
+    "glyphs"
+   ],
+   "source_url": "https://filipposfragkogiannis.com/fonts/vercetti-regular/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/element/2022/09/632c2c80e0848063616350.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": [
+    "se Agreement This End User License Agreement (“EULA”) is a legal agreement between you, hereinafter sometimes referred to as “End User” or “Licensee,” and Filippos Fragkogiannis.",
+    "arketing reasons only, Filippos Fragkogiannis is entitled to use (repost, archive, share on social media and/or web) any utilization of the licensed font made public by the end user; including the company’s name, trademarks, branding, and images or videos of the font in use."
+   ]
+  },
+  {
+   "name": "Wriggle",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "font",
+    "typography",
+    "free"
+   ],
+   "source_url": "https://www.behance.net/gallery/144028707/Wriggle-Free-Font?tracking_source=search_projects%7Cfree+font",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/element/2022/10/634001626b59d301169919.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "MONIQA TYPEFACE",
+   "designer": "Rajesh Rajput",
+   "source_site": null,
+   "categories": [
+    "variable"
+   ],
+   "tags": [
+    "free",
+    "variable",
+    "latin & cyrillic",
+    "uppercase"
+   ],
+   "source_url": "https://www.behance.net/gallery/114431757/MONIQA-TYPEFACE-Free-Variable-Latin-Cyrillic",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2021/03/6053476e136d7304731821.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Projekt Blackbird",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif",
+    "sans",
+    "display"
+   ],
+   "tags": [
+    "free font",
+    "sans-serif",
+    "typography",
+    "typeface"
+   ],
+   "source_url": "https://pixelsurplus.com/collections/free-fonts/products/projekt-blackbird-free-sans-serif-font",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2021/07/60f02ca63a641810722509.jpg",
+   "license_status": "free-license-text-found",
+   "license_evidence": [
+    "icy\":\"deny\",\"barcode\":null,\"requires_selling_plan\":false,\"selling_plan_allocations\":[],\"quantity_rule\":{\"min\":1,\"max\":null,\"increment\":1}}] Free for personal & commercial use View License Details Projekt Blackbird is a free sans serif font created by Leonit Gashi ."
+   ]
+  },
+  {
+   "name": "Remboy Typeface",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "display font",
+    "free font",
+    "type"
+   ],
+   "source_url": "https://fontesk.com/remboy-font/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/element/2022/07/62c7640fac471714846201.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Black Sansa Thin",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "sans",
+    "display",
+    "retro"
+   ],
+   "tags": [
+    "free font",
+    "retro",
+    "display font"
+   ],
+   "source_url": "https://www.behance.net/gallery/144906155/Black-Sansa-Thin-Free-Retro-Display-Font",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/element/2022/07/62cd1efce6318923190630.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Heming a Free Variable Monotype Font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "mono",
+    "variable"
+   ],
+   "tags": [
+    "free font",
+    "variable font",
+    "monotype"
+   ],
+   "source_url": "https://pixelsurplus.com/products/heming-free-variable-font",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/element/2022/07/62cfe6a1d4abc386690776.jpg",
+   "license_status": "free-license-text-found",
+   "license_evidence": [
+    "icy\":\"deny\",\"barcode\":null,\"requires_selling_plan\":false,\"selling_plan_allocations\":[],\"quantity_rule\":{\"min\":1,\"max\":null,\"increment\":1}}] Free for personal & commercial use View License Details Heming by Ádám Görzsöny is a free modern-looking, monotype style font."
+   ]
+  },
+  {
+   "name": "DX Sitrus display font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "display font",
+    "free font"
+   ],
+   "source_url": "https://dirtylinestudio.com/product/dx-sitrus-free/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2021/01/5ff6cf528b32c160757983.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Magilio",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif",
+    "display",
+    "retro"
+   ],
+   "tags": [
+    "free font",
+    "font",
+    "typography",
+    "serif",
+    "vintage",
+    "bold"
+   ],
+   "source_url": "https://www.behance.net/gallery/119990601/Magilio-A-Chic-Serif-Fonts?tracking_source=search_projects_published_date%7Cfree%20font",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2021/05/60ae0a2952052637821914.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Fornite Light",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif",
+    "script"
+   ],
+   "tags": [
+    "free font",
+    "serif font",
+    "typography",
+    "script"
+   ],
+   "source_url": "https://www.behance.net/gallery/122011281/Fornire-Light-Free-Serif-Font?tracking_source=search_projects_published_date%7Cfree%20font",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2021/07/60deea6d93cae204468759.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Resist Sans Neo-Grotesque Font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "sans"
+   ],
+   "tags": [
+    "free fonts",
+    "font",
+    "typography",
+    "sans",
+    "neo-grotesque"
+   ],
+   "source_url": "https://www.behance.net/gallery/92980461/Resist-Sans-Neo-Grotesque-with-2-Free-Styles?tracking_source=search%7Cfree%20font",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2020/06/5ed4cbda47f1e813472569.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Comic Cat",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "free font",
+    "cyrillic",
+    "latin",
+    "font",
+    "type"
+   ],
+   "source_url": "https://www.behance.net/gallery/119157709/Comic-CAT-Free-Font-Cyrillic-and-Latin",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/element/2022/07/62cc9f29a63a9390532997.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Gavency",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "display",
+    "typeface",
+    "demo",
+    "type"
+   ],
+   "source_url": "https://visuely.net/serif/gavency-free/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/element/2022/07/62cc9fdfe522c711753526.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Chillax",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "sans"
+   ],
+   "tags": [
+    "geometric sans",
+    "free font",
+    "type"
+   ],
+   "source_url": "https://www.fontshare.com/fonts/chillax",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/element/2022/07/62cd2579be61b811446441.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Cotta",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif"
+   ],
+   "tags": [
+    "serif font",
+    "type",
+    "font"
+   ],
+   "source_url": "https://www.behance.net/gallery/144181203/Cotta-Free-Elegant-Serif-Font",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/element/2022/07/62cd22960d9af951340738.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Clash Display Variable Font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display",
+    "variable"
+   ],
+   "tags": [
+    "free fonts",
+    "display",
+    "type",
+    "font",
+    "typography",
+    "variable font"
+   ],
+   "source_url": "https://www.fontshare.com/fonts/clash-display",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/element/2022/07/62cc410ae48ab896699490.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Cabinet Grotesk Variable Font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "sans",
+    "variable"
+   ],
+   "tags": [
+    "grotesk",
+    "variable font",
+    "free font",
+    "type"
+   ],
+   "source_url": "https://www.fontshare.com/fonts/cabinet-grotesk",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/element/2022/07/62cc58e02925b705613666.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "São Torpes Free Display Font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "free font",
+    "display font",
+    "typeface"
+   ],
+   "source_url": "https://www.behance.net/gallery/147152797/Sao-Torpes-Free-Display-Font",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/element/2022/07/62c76f783438c476334957.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Goku",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif",
+    "sans"
+   ],
+   "tags": [
+    "type",
+    "typeface",
+    "humanist",
+    "serif",
+    "font",
+    "free font"
+   ],
+   "source_url": "https://www.behance.net/gallery/147459527/Goku-Free-Font",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/element/2022/07/62c75f3b869d2285857441.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Migha",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "display font",
+    "free font",
+    "font family",
+    "typography",
+    "typeface"
+   ],
+   "source_url": "https://themeui.net/migha-free-variable-font/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2021/05/60ae189b8979e843629269.jpg",
+   "license_status": "free-license-text-found",
+   "license_evidence": [
+    "e Sans Serif Font About Theme-UI is a handpicked collection of the best UI kit freebies and web design resources free for both personal and commercial use."
+   ]
+  },
+  {
+   "name": "Satoshi Variable Font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif",
+    "sans",
+    "variable"
+   ],
+   "tags": [
+    "variable font",
+    "free font",
+    "typeface",
+    "typo",
+    "sans-serif",
+    "fontshare"
+   ],
+   "source_url": "https://www.fontshare.com/fonts/satoshi",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/element/2022/07/62cc4440c6143735429115.jpg",
+   "license_status": "free-license-text-found",
+   "license_evidence": [
+    "Fontshare page: \"License Closed Source / ITF Free Font License\" (Fontshare ITF Free = free for commercial use)"
+   ]
+  },
+  {
+   "name": "Branch Modern Ligature",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif",
+    "sans"
+   ],
+   "tags": [
+    "serif",
+    "font",
+    "free font",
+    "ligature"
+   ],
+   "source_url": "https://www.behance.net/gallery/147598345/Branch-Modern-Ligature-Serif-FREE",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/element/2022/07/62c765d693d64507491030.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Rayken Stylish Serif",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif"
+   ],
+   "tags": [
+    "free font",
+    "serif",
+    "typeface",
+    "type"
+   ],
+   "source_url": "https://www.behance.net/gallery/147495719/Rayken-Stylish-Serif-Font-Free-Font-Download",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/element/2022/07/62c7703e14215266325410.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Meshed Display",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif",
+    "sans",
+    "display"
+   ],
+   "tags": [
+    "varible",
+    "display",
+    "serif",
+    "typeface",
+    "style",
+    "modern"
+   ],
+   "source_url": "https://rajputrajesh-448.gumroad.com/l/MeshedDisplay",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/element/2022/03/6232fbf2aa6a0751589621.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Baunk font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif",
+    "sans",
+    "display"
+   ],
+   "tags": [
+    "san serif",
+    "font",
+    "typeface",
+    "modern",
+    "bold"
+   ],
+   "source_url": "https://bagerich.com/font/freebies/baunk/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2022/02/6218d1cd86539938458923.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": [
+    "al License App/Game License Extended License Reset options BAUNK by bagerich $ 0 License Type Choose an option Standard Licence Webfont License Digital License App/Game License Extended License Clear BAUNK quantity Add to cart Need custom order? Please contact us .",
+    "Search Shop Deals Free Fonts Compare License Fonts in Use Submit Font in Use Contact Login / Register Shopping cart Close We use cookies to improve your experience on our website."
+   ]
+  },
+  {
+   "name": "Rockstar Display",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "free fonts",
+    "uppercase",
+    "display"
+   ],
+   "source_url": "https://www.behance.net/gallery/129352927/Rockstar-Display",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2021/10/616d78e253738133859293.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "OTF Glusp: Free Display Font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "font",
+    "free",
+    "typography"
+   ],
+   "source_url": "https://www.epicpxls.com/items/otf-glusp-free-display-font",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/element/2022/08/62f393bfc9298093729511.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": [
+    "66 KB) License Basic License O Obys 5 followers Follow visibility 33."
+   ]
+  },
+  {
+   "name": "HK Grotesk Regular",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "sans"
+   ],
+   "tags": [
+    "free font",
+    "typeface"
+   ],
+   "source_url": "https://hanken.co/collections/free/products/hk-grotesk",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/element/2022/11/637e1fe8f1f3b512755919.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": [
+    "Type Sans serif Licensed to: Full legal name of the person or company this license covers.",
+    "Sans Serif Serif Display Monospaced Free Fonts HDC Fontwear All Fonts Blog FAQ Updates Services Font License Kerning Game Privacy Policy How to Install Fonts Contact © 2026, Hanken Design Co."
+   ]
+  },
+  {
+   "name": "THUNDER typeface",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display",
+    "variable"
+   ],
+   "tags": [
+    "display",
+    "condensed",
+    "variable font",
+    "typeface"
+   ],
+   "source_url": "https://www.behance.net/gallery/124582465/THUNDER-Free-Typeface-Variable-36-Styles",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2021/08/61122282c32fa444131991.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Bigilla: A display serif typeface with ligatures and alternates",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif",
+    "display"
+   ],
+   "tags": [
+    "display",
+    "serif",
+    "typeface",
+    "regular",
+    "bold",
+    "ligatures",
+    "alternates",
+    "multilingual",
+    "branding",
+    "posters",
+    "magazines",
+    "packaging designs"
+   ],
+   "source_url": "https://www.behance.net/gallery/93242287/BIGILLA-FREE-DISPLAY-SERIF-TYPEFACE",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2020/05/5ed0c9bf3134d125286397.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Calfine",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif",
+    "display"
+   ],
+   "tags": [
+    "free font",
+    "bold",
+    "serif",
+    "contrast",
+    "display",
+    "typography",
+    "typo"
+   ],
+   "source_url": "https://fontesk.com/calfine-font/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2021/05/60b0d662dfb21487787230.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Avenue Mono",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "mono"
+   ],
+   "tags": [
+    "type",
+    "font",
+    "free font",
+    "monospaced",
+    "typeface"
+   ],
+   "source_url": "https://boulevardlab.com/Avenue-Mono",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/element/2022/07/62c75d3986e55570580255.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Mersad",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif",
+    "sans",
+    "variable"
+   ],
+   "tags": [
+    "free font",
+    "variable font",
+    "typeface",
+    "sans serif",
+    "ink traps"
+   ],
+   "source_url": "https://www.behance.net/gallery/145150505/Mersad-Free-Variable-Typeface",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/element/2022/07/62cfe511a6a91185302061.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Maghfirea",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif",
+    "sans"
+   ],
+   "tags": [
+    "free font",
+    "serif",
+    "typeface",
+    "modern",
+    "minimalist",
+    "typography"
+   ],
+   "source_url": "https://fontesk.com/maghfirea-font/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2021/05/60b0d7dadbf62773055883.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Newake sans-serif font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif",
+    "sans"
+   ],
+   "tags": [
+    "free font",
+    "sans-serif font",
+    "rounded corners"
+   ],
+   "source_url": "https://www.behance.net/gallery/118133975/Newake-Free-Font",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2021/07/60ed3cdb0993b698637755.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Neutral Face - Sans serif free font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif",
+    "sans",
+    "display"
+   ],
+   "tags": [
+    "free font",
+    "sans serif",
+    "typography",
+    "typeface",
+    "font",
+    "regular",
+    "bold"
+   ],
+   "source_url": "https://themeui.net/neutral-face-free-font/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2021/05/60ae0b70a08b6322815250.jpg",
+   "license_status": "free-license-text-found",
+   "license_evidence": [
+    "e Sans Serif Font About Theme-UI is a handpicked collection of the best UI kit freebies and web design resources free for both personal and commercial use."
+   ]
+  },
+  {
+   "name": "Triakis",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "sans"
+   ],
+   "tags": [
+    "free font",
+    "regular",
+    "geometric",
+    "typeface",
+    "typography"
+   ],
+   "source_url": "https://www.behance.net/gallery/114613281/Triakis-Font-Family",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2021/08/610a5da66d1bb874954247.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Super Duper",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif",
+    "sans",
+    "display"
+   ],
+   "tags": [
+    "free font",
+    "sans serif",
+    "typography",
+    "high",
+    "condensed",
+    "type family"
+   ],
+   "source_url": "https://www.behance.net/gallery/122587547/SuperDuper-typeface-(free-sans-serif-font-family)",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2021/07/60deec41c9f8e795232598.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Harmony",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif"
+   ],
+   "tags": [
+    "free font",
+    "serif font",
+    "typeface"
+   ],
+   "source_url": "https://www.behance.net/gallery/122411115/HARMONY-Typeface?tracking_source=search_projects_published_date%7Cfree%20font",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2021/07/60deeb44d9239166167579.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Nighty",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display",
+    "retro"
+   ],
+   "tags": [
+    "free font",
+    "vintage",
+    "70's",
+    "oldschool",
+    "display",
+    "typeface",
+    "retro",
+    "typography"
+   ],
+   "source_url": "https://fontesk.com/nighty-font/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2021/05/60b0d9ac29262356118113.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Creme Espana",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "script"
+   ],
+   "tags": [
+    "free font",
+    "calligraphy",
+    "typography",
+    "script",
+    "font"
+   ],
+   "source_url": "https://fontesk.com/creme-espana-font/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2021/05/60b0d5978ac2a484711259.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Kenoky & Coffekan",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "mono",
+    "display",
+    "script"
+   ],
+   "tags": [
+    "free font",
+    "typeface",
+    "signature",
+    "script",
+    "calligraphy",
+    "display",
+    "typography",
+    "monoline"
+   ],
+   "source_url": "https://fontesk.com/kenoky-coffekan-fonts/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2021/05/60b0d8d7d27e5529453658.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Eskool",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "free font",
+    "display",
+    "typeface",
+    "90's",
+    "oldschool"
+   ],
+   "source_url": "https://www.behance.net/gallery/114826243/Eskool-Free-Display-Typeface",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2021/05/609a57882532e856709824.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "WILD WORD - Bold free font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "free font",
+    "font",
+    "typography",
+    "caps",
+    "bold",
+    "typo"
+   ],
+   "source_url": "https://www.behance.net/gallery/92287657/WILD-WORLD-Font?tracking_source=search_projects_views%7Cfree%20font",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2021/05/609a515eace64681676297.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Rebeqa",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif",
+    "sans",
+    "variable"
+   ],
+   "tags": [
+    "free font",
+    "sans serif",
+    "typeface",
+    "variable font",
+    "typography"
+   ],
+   "source_url": "https://fontesk.com/rebeqa-typeface/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2021/05/60b0d74d93bf3523325743.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Subjectivity - Display geometric font family",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "sans",
+    "display"
+   ],
+   "tags": [
+    "free font",
+    "font",
+    "display",
+    "font family",
+    "typeface",
+    "typography",
+    "bold",
+    "regular"
+   ],
+   "source_url": "https://themeui.net/subjectivity-free-display-font-family/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2021/05/60ae17cb06d16685267348.jpg",
+   "license_status": "free-license-text-found",
+   "license_evidence": [
+    "e Sans Serif Font About Theme-UI is a handpicked collection of the best UI kit freebies and web design resources free for both personal and commercial use."
+   ]
+  },
+  {
+   "name": "Luthon Southard Font Duo",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif",
+    "mono",
+    "script"
+   ],
+   "tags": [
+    "free font",
+    "serif",
+    "monoline",
+    "script",
+    "typography",
+    "lettering"
+   ],
+   "source_url": "https://fontesk.com/luthon-southard-font-duo/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2021/05/60b0d4d69448a700675713.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Neue Metana font",
+   "designer": "Dirtyline Studio",
+   "source_site": null,
+   "categories": [
+    "sans",
+    "display"
+   ],
+   "tags": [
+    "free font",
+    "typeface",
+    "modern minimalist",
+    "geometric",
+    "ligature",
+    "trend",
+    "bold weights"
+   ],
+   "source_url": "https://dirtylinestudio.com/product/neue-metana-free-font/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2020/10/5f9ad8ac21407160801713.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Sonder Regular",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif"
+   ],
+   "tags": [
+    "free font",
+    "regular",
+    "typography",
+    "typeface",
+    "serif",
+    "font family"
+   ],
+   "source_url": "https://pixelsurplus.com/collections/free-fonts/products/sonder-regular-free-font",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2021/07/60f69b239e873502712440.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": [
+    "tal License - Under 1M Views or Personal Use Video/Digital License - 1M+ Views or Commercial Use Broadcast License - Film/TV/Streaming ePub License (Per Title) App License Large Volume Commercial Use Free - Sonder Regular - Desktop Commercial License - $0.",
+    "00 USD Desktop Commercial License - $15."
+   ]
+  },
+  {
+   "name": "Fogtwo No5",
+   "designer": "gluk",
+   "source_site": null,
+   "categories": [
+    "serif",
+    "display"
+   ],
+   "tags": [
+    "serif",
+    "free font",
+    "display font"
+   ],
+   "source_url": "https://fontsarena.com/fogtwo-no5-by-gluk/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2021/07/6102757621cca026511045.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Free Faces",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif",
+    "sans",
+    "mono",
+    "display",
+    "script"
+   ],
+   "tags": [
+    "free font",
+    "font",
+    "typeface",
+    "serif",
+    "sans",
+    "typography",
+    "cursive",
+    "slab",
+    "monospace",
+    "display"
+   ],
+   "source_url": "https://freefaces.gallery/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2021/05/608fbb642c734973292071.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Kate typeface designed",
+   "designer": "Jérémie Gauthier",
+   "source_site": null,
+   "categories": [
+    "serif",
+    "display"
+   ],
+   "tags": [
+    "display",
+    "ligatures",
+    "serif"
+   ],
+   "source_url": "https://www.almarena.fr/shop/kate-typeface/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2021/02/602b899eb0bcd936729923.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Fontshare",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "sans",
+    "display"
+   ],
+   "tags": [
+    "Art & Illustration",
+    "Mobile & Apps",
+    "Web & Interactive",
+    "Clean",
+    "Flat Design",
+    "Typography",
+    "Vector",
+    "Web Fonts",
+    "Black",
+    "White",
+    "Menu - Horizontal"
+   ],
+   "source_url": "https://www.fontshare.com/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Karen Funny Cartoon Font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "cartoon font",
+    "display"
+   ],
+   "source_url": "https://www.behance.net/gallery/103966123/Free-Font-Karen-Funny-Cartoon-Font",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2020/09/5f59e98cbf51c819147208.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Tropikal Typeface font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif",
+    "display",
+    "retro"
+   ],
+   "tags": [
+    "serif display",
+    "old serif",
+    "vintage font"
+   ],
+   "source_url": "https://www.gabreyes.com/daily-posts/tropikal-typeface",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2020/10/5f96aa9e4bb97998197881.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Archia regular font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif",
+    "sans"
+   ],
+   "tags": [
+    "free font",
+    "regular",
+    "sans serif",
+    "typo",
+    "typography",
+    "typeface"
+   ],
+   "source_url": "http://atipofoundry.com/fonts/archia",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2020/01/5e2b76a236bd4335519115.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "SK Falcon typeface",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif",
+    "sans"
+   ],
+   "tags": [
+    "free font",
+    "typeface",
+    "geometric semi-serif font"
+   ],
+   "source_url": "https://www.myfonts.com/fonts/salih-kizilkaya/sk-falcon/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2020/09/5f59f8ebadb8b340272425.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": [
+    "267 168556268 168556269 168556270 168556272 168556273 168556274 168556275 168556276 168556277 168556278 168556279 Licensing Options MyFonts licenses are tailored for individual creatives.",
+    "Not all licenses are compatible with broad usage cases or complicated creative workflows, so make sure to read the full EULA text for details."
+   ]
+  },
+  {
+   "name": "Dx Rigraf font",
+   "designer": "Dirtyline Studio",
+   "source_site": null,
+   "categories": [
+    "serif",
+    "sans",
+    "mono",
+    "display",
+    "variable"
+   ],
+   "tags": [
+    "free font",
+    "display",
+    "typeface",
+    "fresh & modern",
+    "sans serif",
+    "monospace",
+    "variable font"
+   ],
+   "source_url": "https://dirtylinestudio.com/product/dx-rigraf-free-font/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2020/10/5f9ad9a313d77347352382.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Disket Mono - Display monospaced, grid based typeface",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "mono",
+    "display"
+   ],
+   "tags": [
+    "free font",
+    "font",
+    "typography",
+    "monospaced",
+    "typeface",
+    "grid",
+    "bold"
+   ],
+   "source_url": "http://rostype.com/disket/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2021/05/60ae094133979532706956.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Fontshare - Type Foundry",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "sans"
+   ],
+   "tags": [
+    "clean",
+    "typography",
+    "vector",
+    "web fonts",
+    "free fonts",
+    "type foundry",
+    "typography",
+    "typeface"
+   ],
+   "source_url": "https://www.fontshare.com/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2021/04/60819d5783b06245979119.mp4",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "The Polite Type - Educational free font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif",
+    "sans"
+   ],
+   "tags": [
+    "free font",
+    "typeface",
+    "sans serif"
+   ],
+   "source_url": "https://www.thepolitetype.com/#try-it",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2021/04/6087ee0b47029657065498.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Elanor Font",
+   "designer": "Dirtyline Studio",
+   "source_site": null,
+   "categories": [
+    "serif",
+    "display",
+    "retro"
+   ],
+   "tags": [
+    "free font",
+    "typoghraphy",
+    "retro",
+    "serif font",
+    "typo",
+    "display typeface"
+   ],
+   "source_url": "https://dirtylinestudio.com/product/elanor-free-font/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2021/04/606d71787a01f901650775.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Archivo Narrow Regular",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif",
+    "sans"
+   ],
+   "tags": [
+    "free font",
+    "regular",
+    "sans-serif",
+    "typography",
+    "typeface"
+   ],
+   "source_url": "https://open-foundry.com/fonts/archivo_narrow_regular",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2021/07/60f02b2ed700a517818276.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Intro Script Font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "script"
+   ],
+   "tags": [
+    "font",
+    "free font",
+    "calligraphy font",
+    "script",
+    "handwritten"
+   ],
+   "source_url": "https://www.fontfabric.com/fonts/intro-script/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2021/05/60ae08883b49a500259742.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Kalmansk",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "free font",
+    "display",
+    "bold"
+   ],
+   "source_url": "https://www.behance.net/gallery/100907019/Kalmansk-Free-Font",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2020/07/5f185fee57eba696520706.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Casta font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif",
+    "display"
+   ],
+   "tags": [
+    "typeface",
+    "font family",
+    "free font",
+    "sharp",
+    "editorial",
+    "display"
+   ],
+   "source_url": "https://dirtylinestudio.com/product/casta-free-font/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2020/06/5ee8d474a92a7240937010.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Scalter free typeface",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "script"
+   ],
+   "tags": [
+    "script",
+    "free font"
+   ],
+   "source_url": "https://dirtylinestudio.com/product/scalter-free-typeface/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2020/08/5f34f192c6201274144031.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Shrimp free sans serif font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif",
+    "sans"
+   ],
+   "tags": [
+    "free font"
+   ],
+   "source_url": "https://www.pixelsurplus.com/freebies/shrimp-free-sans-serif-font",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2020/06/5ee88f3c328d5580682680.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": [
+    "1M+ Pageviews / Month Video/Digital License - Under 1M Views or Personal Use Video/Digital License - 1M+ Views or Commercial Use Broadcast License - Film/TV/Streaming ePub License (Per Title) App License Large Volume Commercial Use Free - Desktop Commercial License - $0.",
+    "00 USD Web Font License - 0-10k Pageviews / Month - $64."
+   ]
+  },
+  {
+   "name": "Vinson free font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif",
+    "sans"
+   ],
+   "tags": [
+    "free font",
+    "sans serif"
+   ],
+   "source_url": "http://anagramdesign.graphics/produit/vinson-free-font/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2020/06/5ee8e5a5a1220714398169.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Nafta free font",
+   "designer": "Krisjanis Mezulis",
+   "source_site": null,
+   "categories": [
+    "script"
+   ],
+   "tags": [
+    "brush",
+    "free font",
+    "hand drawn",
+    "script"
+   ],
+   "source_url": "https://wildpicks.design/product/nafta-free-font/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2020/10/5f86def0c007b723574860.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": [
+    "Licensing All fonts marked “Free” are free for commercial and personal use.",
+    "When purchasing a paid font, please choose the license wisely, depending on the project You will use the font on."
+   ]
+  },
+  {
+   "name": "SK-Modernist: A Geometric Avant Garde like typeface",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "sans"
+   ],
+   "tags": [
+    "modernist",
+    "minimalist",
+    "clean",
+    "typeface",
+    "grotesk",
+    "helvetica",
+    "geometric",
+    "avant garde",
+    "optically adjusted",
+    "free font",
+    "typography",
+    "font"
+   ],
+   "source_url": "https://www.behance.net/gallery/32918197/Modernist-Typeface",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2020/06/5ed4c141add43842775739.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Rolest script font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "script"
+   ],
+   "tags": [
+    "free font",
+    "calligraphy",
+    "script"
+   ],
+   "source_url": "https://fancy-fonts.com/rolest-script-font/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2020/09/5f68b728637f4219027822.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Pulchella free font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "free font",
+    "ligatures",
+    "display"
+   ],
+   "source_url": "https://www.behance.net/gallery/101439689/PULCHELLA-FREE-FONT",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2020/09/5f59e3d1d0ea1368781071.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Resin free font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "free font"
+   ],
+   "source_url": "https://jeremydownes.co.uk/shop/resin-free-font",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2020/07/5f1864055ec65863683886.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Tribes free font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "free font",
+    "display"
+   ],
+   "source_url": "https://www.pixelsurplus.com/freebies/tribes-free-font",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2020/07/5f1861fe9e5e6747975533.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": [
+    "tal License - Under 1M Views or Personal Use Video/Digital License - 1M+ Views or Commercial Use Broadcast License - Film/TV/Streaming ePub License (Per Title) App License Large Volume Commercial Use (Please Contact) Free - Desktop Commercial License - $0.",
+    "00 USD Web Font License - 0-10k Pageviews / Month - $64."
+   ]
+  },
+  {
+   "name": "Lincoln/MITRE retro computer font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "retro"
+   ],
+   "tags": [
+    "retro",
+    "free font",
+    "graphic design studio",
+    "type-design"
+   ],
+   "source_url": "https://colophon.info/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2020/05/5ec3f1797625c924309736.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Ramona free display font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display",
+    "script"
+   ],
+   "tags": [
+    "free fonts",
+    "display",
+    "handwriting"
+   ],
+   "source_url": "https://www.pixelsurplus.com/freebies/ramona-free-display-font",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2020/06/5ee8d364b2cf9133049512.jpg",
+   "license_status": "free-license-text-found",
+   "license_evidence": [
+    "icy\":\"deny\",\"barcode\":null,\"requires_selling_plan\":false,\"selling_plan_allocations\":[],\"quantity_rule\":{\"min\":1,\"max\":null,\"increment\":1}}] Free for personal & commercial use View License Details Ramona is a free textured sans serif font created by Cristian Tournier ."
+   ]
+  },
+  {
+   "name": "Lezerno - Uppercase Free Font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif",
+    "sans"
+   ],
+   "tags": [
+    "free font",
+    "typography",
+    "notes",
+    "caps",
+    "upper-case",
+    "sans serif"
+   ],
+   "source_url": "https://www.behance.net/gallery/121812757/Lezerno-FREE-FONT",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2021/06/60dc5d5712adc759261571.png",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Maragsâ - Display typeface",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif",
+    "display"
+   ],
+   "tags": [
+    "free font",
+    "display",
+    "semi-serif",
+    "typeface",
+    "sharp edges"
+   ],
+   "source_url": "https://gumroad.com/l/bGawp",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2020/06/5ee8c59d2cec3537405594.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Mak free font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "free font"
+   ],
+   "source_url": "https://www.pixelsurplus.com/freebies/mak-free-experimental-font",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2020/06/5ee891c1cffec800611844.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Longline Quart display font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "free fonts",
+    "display"
+   ],
+   "source_url": "https://fancy-fonts.com/longline-quart-display-font/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2020/09/5f59d58220ab8315535870.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Leiko free font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "free font"
+   ],
+   "source_url": "https://drive.google.com/file/d/1SAy1KTknp_r81uYJEvFkrgovFiWZaZNp/view",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2020/06/5ed9167ceea6b685901588.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Voklea",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "free font",
+    "display font",
+    "typography"
+   ],
+   "source_url": "https://www.behance.net/gallery/122683061/Free-FONT-Voklea?tracking_source=search_projects_published_date%7Cfree%20font",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2021/07/60deebb70e40a437349978.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Faune typeface family",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif",
+    "sans"
+   ],
+   "tags": [
+    "free font",
+    "family font",
+    "typo",
+    "typography",
+    "illustration",
+    "sans serif"
+   ],
+   "source_url": "http://cnap.graphismeenfrance.fr/faune/en.html",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2020/06/5ed4cd2e2fd7d638570797.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Bagnard Sans",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "sans"
+   ],
+   "tags": [
+    "free font",
+    "typeface",
+    "sans",
+    "typography"
+   ],
+   "source_url": "https://open-foundry.com/fonts/bagnard_sans_regular",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2021/07/61027a6b48bcc817892826.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Le Super Serif Typeface",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif"
+   ],
+   "tags": [
+    "serif",
+    "font",
+    "free font",
+    "typo",
+    "typeface",
+    "typography"
+   ],
+   "source_url": "https://www.behance.net/gallery/14681931/le-super-serif-typeface",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2020/03/5e67bd7a6e54b038367908.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Nimbus Sans - The Real Free Helvetica",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "sans"
+   ],
+   "tags": [
+    "typography",
+    "typo",
+    "design",
+    "modernist",
+    "helvetica",
+    "nimbus sans",
+    "modernism",
+    "free fonts",
+    "free",
+    "resources"
+   ],
+   "source_url": "https://www.fontsquirrel.com/fonts/nimbus-sans-l",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2020/02/5e46e71f17b39837518534.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": [
+    "s & Tools Webfont Generator Font Identifier Font Talk Creative Market Fonts Nimbus Sans L B Download OTF Commercial Desktop Use - this free license allows you to create commercial graphics and documents.",
+    "'>Z @font-face Embedding - this free license allows you to embed the font in your websites with CSS."
+   ]
+  },
+  {
+   "name": "Supremacy",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "free font",
+    "typography",
+    "typeface",
+    "display font",
+    "bold"
+   ],
+   "source_url": "https://pixelsurplus.com/collections/free-fonts/products/supremacy-free-display-typeface",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2021/07/60f69e7370ecb189487997.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": [
+    "tal License - Under 1M Views or Personal Use Video/Digital License - 1M+ Views or Commercial Use Broadcast License - Film/TV/Streaming ePub License (Per Title) App License Large Volume Commercial Use (Please Contact) Free - Desktop Commercial License - $0.",
+    "00 USD Web Font License - 0-10k Pageviews / Month - $64."
+   ]
+  },
+  {
+   "name": "MAK.",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "free font",
+    "experimental",
+    "latin",
+    "cyrillic",
+    "typo",
+    "typeface",
+    "typography"
+   ],
+   "source_url": "https://www.behance.net/gallery/89569065/MAK-Free-font?tracking_source=search%7Cfree%20font",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2020/01/5e34b0726badd396110560.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Variablefonts.io - How to start with variable fonts",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "variable"
+   ],
+   "tags": [
+    "variaable fonts",
+    "fonts",
+    "typeface"
+   ],
+   "source_url": "https://variablefonts.io/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2020/03/5e624e7dd473d071241101.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Restora - old style serif font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif"
+   ],
+   "tags": [
+    "free font",
+    "serif",
+    "oldstyle",
+    "typo",
+    "font",
+    "typography",
+    "typeface"
+   ],
+   "source_url": "https://www.behance.net/gallery/90088935/RESTORA-FREE-OLD-STYLE-SERIF-FONTS?tracking_source=search%7Cfree%20font",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2020/01/5e34a6c8c582a343237763.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Obrazec",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif",
+    "sans",
+    "script"
+   ],
+   "tags": [
+    "free font",
+    "script",
+    "typeface",
+    "typo",
+    "typography",
+    "sans serif"
+   ],
+   "source_url": "https://www.behance.net/gallery/90846455/OBRAZEC-FREE-INDUSTRIAL-SANS-SERIF?tracking_source=search%7Cfree%20font",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2020/01/5e2b722891ff7570271730.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Bagnard Regular",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif"
+   ],
+   "tags": [
+    "free font",
+    "regular",
+    "serif",
+    "typography",
+    "typeface"
+   ],
+   "source_url": "https://open-foundry.com/fonts/bagnard_regular",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2021/07/60f01f5515e85455333983.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Okta Neue",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif",
+    "sans"
+   ],
+   "tags": [
+    "free font",
+    "sans serif",
+    "typeface",
+    "typo",
+    "typography",
+    "font"
+   ],
+   "source_url": "https://www.behance.net/gallery/89863185/Okta-Neue-Geometric-Grotesk-with-2-Free-Styles?tracking_source=search%7Cfree%20font",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2020/01/5e27187d360bc996817844.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Centrion",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "free font",
+    "futurism",
+    "typeface",
+    "regular",
+    "high",
+    "typography"
+   ],
+   "source_url": "https://dirtylinestudio.com/product/centrion-free/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2021/08/611cd6e8d80f4812543601.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Moustique serif typeface",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif"
+   ],
+   "tags": [
+    "free font",
+    "serif",
+    "typeface",
+    "typo",
+    "typography",
+    "font"
+   ],
+   "source_url": "https://www.behance.net/gallery/85859583/MOUSTIQUE-FREE-ELEGANT-SERIF-TYPEFACE?tracking_source=search%7Cfree%20font",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2020/01/5e2b77927dc36183514500.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Elegant display typeface - Stanley",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "free font",
+    "typeface",
+    "typo",
+    "typography"
+   ],
+   "source_url": "https://www.behance.net/gallery/76829783/STANLEY-FREE-ELEGANT-DISPLAY-TYPEFACE?tracking_source=search%7Cfree%20font",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2020/01/5e2b7403b5145896735049.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Dx Gaster",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif",
+    "sans"
+   ],
+   "tags": [
+    "free font",
+    "serif font",
+    "modern",
+    "italic",
+    "typography"
+   ],
+   "source_url": "https://dirtylinestudio.com/product/dx-gaster-free-font/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2021/08/612622d503cc2859837460.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Westfalia Free Font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "free font",
+    "typography",
+    "fonts"
+   ],
+   "source_url": "https://www.behance.net/gallery/44666325/WESTFALIA-FREE-FONT",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2017/01/west.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Hagrid Variable Font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "sans",
+    "variable"
+   ],
+   "tags": [
+    "free font",
+    "typeface",
+    "typo",
+    "typography",
+    "grotesque font",
+    "variable font"
+   ],
+   "source_url": "https://www.behance.net/gallery/89579507/HAGRID-A-cryptotypographic-wonder-with-4-free-fonts?tracking_source=search%7Cfree%20font",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2020/01/5e2b72fb5e263122122662.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Emberly Typeface",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "variable"
+   ],
+   "tags": [
+    "free fonts",
+    "typography",
+    "typeface",
+    "variable"
+   ],
+   "source_url": "https://www.behance.net/gallery/87667103/Emberly-Free-Typeface-54-Styles",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2019/11/5dc98e56d4eba781814298.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Basier Mono",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "mono"
+   ],
+   "tags": [
+    "free",
+    "font",
+    "typography",
+    "regular"
+   ],
+   "source_url": "http://atipofoundry.com/fonts/basier-mono",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2019/07/5d19dd403c7f9265292352.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Escucha (+ Consuela font duo)",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "sans"
+   ],
+   "tags": [
+    "free",
+    "font",
+    "typography",
+    "modern"
+   ],
+   "source_url": "https://www.behance.net/gallery/72987559/ESCUCHA-CONSUELA-FREE-STYLISH-MODERN-FONT-DUO",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2018/12/5c07d0c60895a.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Telegraf Free Font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "sans"
+   ],
+   "tags": [
+    "free font",
+    "typography",
+    "letters",
+    "sans"
+   ],
+   "source_url": "https://pangrampangram.com/products/telegraf?variant=29471193694250",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2019/08/5d5bda1ebc256695282676.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": [
+    "nian, Norwegian, Polish, Portuguese, Romanian, Saami, Serbian, Slovak, Slovenian, Spanish, Swahili, Swedish, Turkish, (and more) Commercial Licenses Love Telegraf for your project? Grab our comprehensive licenses below.",
+    "in USD Add to cart    → Not sure what to get? Or can’t find the right coverage? Please contact us for our tailored corporate licenses! Contact us Need more information about our licenses? Our FAQ usually contains most of the answers."
+   ]
+  },
+  {
+   "name": "Kenfolg serif typeface",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif"
+   ],
+   "tags": [
+    "free fonts",
+    "typography",
+    "font",
+    "serif",
+    "typeface"
+   ],
+   "source_url": "https://www.dafont.com/made-kenfolg.font",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2019/08/5d5bdff7453ba195028841.jpg",
+   "license_status": "personal-use-only",
+   "license_evidence": [
+    "s  Euro   MADE Kenfolg   à   € by MadeType in Basic > Serif   79,396 downloads (5 yesterday)   Free for personal use  Download    MADE Kenfolg v2 PERSONAL USE.",
+    "net/madetype ---- NOTE: THIS FONT IS FOR PERSONAL USE ONLY! ---- BUY FOR COMMERCIAL USE: https://pixelsurplus."
+   ]
+  },
+  {
+   "name": "Fat Font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "fat",
+    "font",
+    "free",
+    "display"
+   ],
+   "source_url": "https://www.behance.net/gallery/67098477/FREE-FAT-FONT",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2018/09/5b92661633dc2.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Calama",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "typeface",
+    "free",
+    "font",
+    "condensed"
+   ],
+   "source_url": "https://www.behance.net/gallery/64919843/CALAMA-FREE-CONDENSED-FONT",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2018/06/5b2a2912593bc.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Loki - Sans Serif Brush",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif",
+    "sans",
+    "script"
+   ],
+   "tags": [
+    "handwritten sans serif",
+    "brush script",
+    "glyphs",
+    "flourishes"
+   ],
+   "source_url": "https://www.behance.net/gallery/79515667/Loki-Free-Sans-Serif-Brush-Font",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2019/05/5ced071d8fbcd036615625.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Fibre Free Vintage Font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "retro"
+   ],
+   "tags": [
+    "fonts",
+    "typography",
+    "vintage"
+   ],
+   "source_url": "https://www.behance.net/gallery/38563857/Fibre-Free-Vintage-Font",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2017/01/fibre-font.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Borsok",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "free",
+    "font",
+    "bold",
+    "display",
+    "typography"
+   ],
+   "source_url": "https://www.behance.net/gallery/72358435/BORSOK-FREE-BOLD-DISPLAY-FONT",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2018/12/5c07cfd8205c0.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Nimitz",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "retro"
+   ],
+   "tags": [
+    "free",
+    "font",
+    "all caps",
+    "retro",
+    "typography"
+   ],
+   "source_url": "https://www.behance.net/gallery/73542149/NIMITZ-FREE-ALL-CAPS-RETRO-FONT",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2018/12/5c1a2aa38462f.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Recollet Retro Bold Script Font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display",
+    "script",
+    "retro"
+   ],
+   "tags": [
+    "retro",
+    "bold",
+    "script font"
+   ],
+   "source_url": "https://www.behance.net/gallery/101007571/Recollet-Retro-Bold-Script-Font",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2020/07/5f1862ad65101721237547.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Salsa BT",
+   "designer": "Bastarda Design Studio",
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "bastarda",
+    "type",
+    "free font",
+    "display"
+   ],
+   "source_url": "https://www.bastardatype.com/fonts",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2020/06/5ed77872b48f4940635890.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": [
+    "Our single license model covers everything: Print, digital, and logotype use.",
+    "stellanos de la Hoz External Credits Antonio Grass, Juan Pablo Fajardo, Ana Peña Check it: A Type of Amigo Regiones Latin Basic EULA Single license model."
+   ]
+  },
+  {
+   "name": "Argesta Hairline with cool discretionary ligatures.",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "free",
+    "fonts",
+    "free fonts",
+    "typo",
+    "typography",
+    "ligatures"
+   ],
+   "source_url": "http://atipofoundry.com/fonts/argesta",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2020/03/5e62224a00798171462278.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "VTF Lack",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "free fonts",
+    "type",
+    "typeface",
+    "typography"
+   ],
+   "source_url": "https://www.behance.net/gallery/63198269/VTF-Lack-Free-font",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2019/09/5d7773bedeac3869427959.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Barcelony Font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "script"
+   ],
+   "tags": [
+    "free",
+    "font",
+    "handwritten",
+    "script",
+    "typography"
+   ],
+   "source_url": "https://www.behance.net/gallery/80458759/BARCELONY-FREE-SCRIPT-FONT?tracking_source=search%257CFONT",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2019/07/5d19df6aa13aa356754396.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Made Saonara font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif"
+   ],
+   "tags": [
+    "free fonts",
+    "typography",
+    "serif",
+    "typeface"
+   ],
+   "source_url": "https://www.behance.net/gallery/80135825/MADE-SAONARA-Font?tracking_source=search%7Cfont",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2019/08/5d5fb45de6c7e957948960.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Inter typeface family",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "computer screens",
+    "legibility",
+    "typography",
+    "readability",
+    "typeface"
+   ],
+   "source_url": "https://rsms.me/inter/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2019/07/5d1de72792026985176062.",
+   "license_status": "free-license-text-found",
+   "license_evidence": [
+    "Refer to the SIL Open Font License 1."
+   ]
+  },
+  {
+   "name": "Labour Union",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "retro"
+   ],
+   "tags": [
+    "free",
+    "font",
+    "vintage",
+    "typography"
+   ],
+   "source_url": "https://www.behance.net/gallery/71372607/LABOUR-UNION-SMALL-FREE-VINTAGE-FONT",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2018/10/5bc88c2b268c4.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Cervanttis",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "script"
+   ],
+   "tags": [
+    "free",
+    "font",
+    "handwritten",
+    "script",
+    "typography"
+   ],
+   "source_url": "https://www.behance.net/gallery/79828477/CERVANTTIS-FREE-SIGNATURE-FONT?tracking_source=search%257Cfonts",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2019/07/5d19dea10b2f4139862047.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Blaze Type",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif",
+    "sans",
+    "display"
+   ],
+   "tags": [
+    "typeface",
+    "foundry",
+    "typo",
+    "typography",
+    "sans",
+    "serif",
+    "display",
+    "collection",
+    "trial",
+    "free font"
+   ],
+   "source_url": "https://blazetype.eu/typecatalogue/fonttrials",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2021/05/608fca917084b906403848.jpg",
+   "license_status": "demo-or-trial-flag",
+   "license_evidence": [
+    "Cart 👤 Log in × Typefaces Trial Pairings Articles About Ignition Award News Case studies Custom fonts Fonts in Use The foundry For Students License EULA Legals 4 0 4 Page not found The page you're looking for doesn't exist or has been moved."
+   ]
+  },
+  {
+   "name": "Romantic Orche Script",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif",
+    "script"
+   ],
+   "tags": [
+    "free font",
+    "calligraphy",
+    "handwriting",
+    "font",
+    "typography"
+   ],
+   "source_url": "https://www.pixelsurplus.com/freebies/ochre-script-free-romantic-calligraphy-font",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2020/01/5e270cc7b8dc1235021200.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": [
+    "tal License - Under 1M Views or Personal Use Video/Digital License - 1M+ Views or Commercial Use Broadcast License - Film/TV/Streaming ePub License (Per Title) App License Large Volume Commercial Use (Please Contact) Free - Desktop Commercial License - $0.",
+    "00 USD Web Font License - 0-10k Pageviews / Month - $64."
+   ]
+  },
+  {
+   "name": "Technique Sans Free Font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "sans"
+   ],
+   "tags": [
+    "grotesque",
+    "sans"
+   ],
+   "source_url": "https://www.behance.net/gallery/79907715/Technique-Free-Font?tracking_source=search%7Cfont",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2019/05/5cd2d97fbef2c168428042.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Zoika",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif",
+    "display"
+   ],
+   "tags": [
+    "free",
+    "font",
+    "serif",
+    "bold",
+    "typography"
+   ],
+   "source_url": "https://www.behance.net/gallery/81861515/FREE-Zoika-Typography?tracking_source=search%257CFONT",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2019/07/5d19e06a80566155493302.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Soulcraft",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "variable"
+   ],
+   "tags": [
+    "free",
+    "font",
+    "variable",
+    "typography"
+   ],
+   "source_url": "https://www.behance.net/gallery/72595599/Soulcraft-Typeface",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2018/12/5c1a2a6da8e4c.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Free Font: Skyscapers",
+   "designer": "Fuadhasan",
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "free fonts",
+    "display font",
+    "display",
+    "typography"
+   ],
+   "source_url": "http://2ttf.com/6IF8GLA3aiM",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2020/01/5e1dcb4365d77175786355.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Fontshare",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "free fonts",
+    "type foundry",
+    "typography",
+    "typeface",
+    "web fonts"
+   ],
+   "source_url": "https://www.fontshare.com/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2021/04/60819c83b125f863244104.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Trispace",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "free",
+    "font",
+    "type",
+    "typography"
+   ],
+   "source_url": "https://www.etc.supply/trispace/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2019/07/5d25cbdc15bec707138675.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Monument Extended font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "font",
+    "extended",
+    "bold",
+    "heavy"
+   ],
+   "source_url": "https://www.behance.net/gallery/68622765/Monument-Extended-New-Free-Font",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2018/12/5c1a4fa1507f8.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Mattone Font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif",
+    "sans"
+   ],
+   "tags": [
+    "free font",
+    "sans-serif",
+    "design typefaces"
+   ],
+   "source_url": "http://collletttivo.it/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2019/06/5d0b39434b31d627457273.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Allyca Script Font Family",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "script"
+   ],
+   "tags": [
+    "free fonts",
+    "font",
+    "typo",
+    "script",
+    "typography"
+   ],
+   "source_url": "https://creativetacos.com/allyca-script-font-family/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2020/03/5e5e51e492e1b383819264.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Stella Display Font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "display",
+    "free font",
+    "bold"
+   ],
+   "source_url": "https://www.behance.net/gallery/79279723/Free-Stella-Display-Font?tracking_source=search%257Cfree%2Bfont",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2019/05/5cd2daaeecd7e765181042.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Benzol Regular",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "free fonts",
+    "bold",
+    "regular",
+    "typeface",
+    "typography",
+    ""
+   ],
+   "source_url": "https://www.behance.net/gallery/83763085/Benzol-Regular-Free-Font?tracking_source=search%7Cfont",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2019/08/5d5fb099bbf1a938651644.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Sango font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "free fonts",
+    "type",
+    "typeface"
+   ],
+   "source_url": "https://www.behance.net/gallery/30763765/Sango-Free-Typeface?tracking_source=search%7Cfont",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2019/09/5d6f7f3a1449b031026609.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Misto Font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "free fonts",
+    "typography",
+    "type",
+    "typeface"
+   ],
+   "source_url": "https://www.behance.net/gallery/84911751/Misto-Font-Free-(Cyrillic-and-Latin)?tracking_source=search%7Cfont",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2019/09/5d6e3bbddf54b151105755.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Tomato Soup",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "script"
+   ],
+   "tags": [
+    "free",
+    "font",
+    "script",
+    "handwritten",
+    "typography"
+   ],
+   "source_url": "https://www.behance.net/gallery/73232983/TOMATO-SOUP-FREE-TRENDY-SCRIPT-FONT",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2018/12/5c1a2b1497b96.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Berman Bold",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "free fonts",
+    "typeface",
+    "typography",
+    "letter",
+    "gothic"
+   ],
+   "source_url": "https://www.behance.net/gallery/80035441/Berman-Bold-Blackletter-Typeface?tracking_source=search%7Cfont",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2019/08/5d5bdf7abe822784192432.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Rousseau Deco",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "free",
+    "font",
+    "typography"
+   ],
+   "source_url": "https://www.behance.net/gallery/72995511/Rousseau-Deco-free-font",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2018/12/5c1a2a373a9c3.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Bimbo",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "mono",
+    "script"
+   ],
+   "tags": [
+    "free font",
+    "monoline",
+    "script",
+    "typeface",
+    "typo",
+    "typography",
+    "hand-drawn"
+   ],
+   "source_url": "https://www.behance.net/gallery/63546899/Bimbo-free-type-family-6-weights-of-monoline-fun?tracking_source=search-all%7Cfree%20font",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2020/01/5e2b703c68ee0204119926.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Rude free font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif"
+   ],
+   "tags": [
+    "free fonts",
+    "serif",
+    "typography",
+    "letters",
+    "type",
+    "typeface"
+   ],
+   "source_url": "https://www.pixelsurplus.com/freebies/rude-free-handcrafted-serif-font",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2019/08/5d5fa9e3714c3605735245.jpg",
+   "license_status": "free-license-text-found",
+   "license_evidence": [
+    "icy\":\"deny\",\"barcode\":null,\"requires_selling_plan\":false,\"selling_plan_allocations\":[],\"quantity_rule\":{\"min\":1,\"max\":null,\"increment\":1}}] Free for personal & commercial use View License Details Rude is a carefully crafted free serif font from Masha Chuprova ."
+   ]
+  },
+  {
+   "name": "Noah",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "sans"
+   ],
+   "tags": [
+    "free font",
+    "typography",
+    "type",
+    "geometric",
+    "sans"
+   ],
+   "source_url": "https://www.fontfabric.com/fonts/noah/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2019/08/5d4ab535ad68a526307787.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Rhythmic font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "script"
+   ],
+   "tags": [
+    "free",
+    "font",
+    "handwritten",
+    "script",
+    "typography",
+    "caps",
+    "brush",
+    "marker"
+   ],
+   "source_url": "https://www.pixelsurplus.com/freebies/rhythmic-free-dry-brush-svg-font",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2019/07/5d356a1e4ab53004193402.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": [
+    "Month Web Font License - 1M+ Pageviews / Month Video/Digital License - Under 1M Views or Personal Use Video/Digital License - 1M+ Views or Commercial Use Broadcast License - Film/TV/Streaming ePub License (Per Title) App License Large Volume Commercial Use Desktop Commercial License - $18.",
+    "00 USD Free - Personal Use License - $0."
+   ]
+  },
+  {
+   "name": "Free Handwriting Fonts Gallery",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "script"
+   ],
+   "tags": [
+    "ifontmaker",
+    "handwriting",
+    "font",
+    "app",
+    "gallery",
+    "free fonts"
+   ],
+   "source_url": "https://2ttf.com/gallery",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2020/01/5e1dc7eb61206630013724.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Type With Pride",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "free font",
+    "font",
+    "typeface",
+    "type",
+    "typography",
+    "colorful"
+   ],
+   "source_url": "https://www.typewithpride.com/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2020/03/5e67c954ca33e669792906.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Archia Regular",
+   "designer": "atipo",
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "free font",
+    "typeface"
+   ],
+   "source_url": "https://www.atipofoundry.com/fonts/archia",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2020/09/5f68acd611003008175933.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Big John",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "free",
+    "font",
+    "typography"
+   ],
+   "source_url": "https://www.behance.net/gallery/46920415/Big-John-PRO-Free-Typeface",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2018/12/5c07d1b8e8489.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Syke font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "sans"
+   ],
+   "tags": [
+    "free",
+    "font",
+    "sans",
+    "typography"
+   ],
+   "source_url": "https://www.behance.net/gallery/80994955/Syke-RegularItalic-FREE-FONTS?tracking_source=search%257Cfonts",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2019/07/5d19dbc909b7f963358344.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Herbert font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif"
+   ],
+   "tags": [
+    "free",
+    "font",
+    "serif",
+    "typography",
+    "regular"
+   ],
+   "source_url": "https://www.behance.net/gallery/80371811/Herbert-font-free-regular?tracking_source=search%2525257Cfont",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2019/07/5d26ff45510ee225825215.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Miratrix - brutalist font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif",
+    "sans",
+    "display"
+   ],
+   "tags": [
+    "free fonts",
+    "typography",
+    "typeface",
+    "sans serif",
+    "brutalism",
+    "bold"
+   ],
+   "source_url": "https://www.behance.net/gallery/85045335/Miratrix-Font-Free-LatinCyrilic",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2019/09/5d80c97463a06185825539.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Bondi",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "free",
+    "font",
+    "typography",
+    ""
+   ],
+   "source_url": "https://www.behance.net/gallery/72196735/Bondi-Free-Font",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2018/12/5c07d1725dafa.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Reglo font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "free font"
+   ],
+   "source_url": "http://www.love-letters.be/foundry.html",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2020/06/5ed91be1cbd17661850821.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Foerte",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif",
+    "display"
+   ],
+   "tags": [
+    "free",
+    "font",
+    "serif",
+    "typography",
+    "bold"
+   ],
+   "source_url": "https://www.behance.net/gallery/82383283/FREE-Serif-Font-Foerte?tracking_source=search%257Cfont",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2019/07/5d26f9a99cfbd480511856.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Good Hood font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "script",
+    "retro"
+   ],
+   "tags": [
+    "free font",
+    "script",
+    "retro font",
+    "brush stroke"
+   ],
+   "source_url": "https://www.behance.net/gallery/102742741/GOODHOOD-FREE-FONT",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2020/10/5f91a926127a4562171286.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Saint George Stencil Font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif"
+   ],
+   "tags": [
+    "free",
+    "font",
+    "slab serif",
+    "typography"
+   ],
+   "source_url": "https://www.behance.net/gallery/82450043/Free-Saint-George-Stencil-Font?tracking_source=search%257Cfont",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2019/07/5d26f50578a2d606425447.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Omega Sans",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif",
+    "sans"
+   ],
+   "tags": [
+    "free",
+    "font",
+    "sans",
+    "typography",
+    "sans serif",
+    "regular"
+   ],
+   "source_url": "https://www.ajtypography.com/shop/omega-sans-free-font",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2019/07/5d25cda7840fc942672044.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Azonix",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "sans"
+   ],
+   "tags": [
+    "free",
+    "font",
+    "modern",
+    "typography"
+   ],
+   "source_url": "https://www.behance.net/gallery/72157723/AZONIX-FREE-MODERN-TYPEFACE",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2018/12/5c07d03071f6e.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Circus Display Font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display",
+    "script"
+   ],
+   "tags": [
+    "display",
+    "free font",
+    "script"
+   ],
+   "source_url": "https://pixelbuddha.net/freebie/the-circus-display-font",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2018/11/5bf552ec7027a.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": [
+    "UI/UX Resources Social Media Design Blog Design tutorials Selections Interviews Articles Company About studio Contact us Reading Commercial License Premium Membership Refund Policy Join the Community Follow our social profiles no to miss out on new releases from our studio."
+   ]
+  },
+  {
+   "name": "Arkipelago",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "script"
+   ],
+   "tags": [
+    "inky brush",
+    "script",
+    "free font"
+   ],
+   "source_url": "https://www.pixelsurplus.com/freebies/arkipelago-free-inky-brush-script",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2018/11/5bf55259008bc.jpg",
+   "license_status": "free-license-text-found",
+   "license_evidence": [
+    "_plan\":false,\"selling_plan_allocations\":[],\"quantity_rule\":{\"min\":1,\"max\":null,\"increment\":1}}] Free for personal & commercial use View License Details Arkipelago , from Nasir Udin , is a free wet inky brush script font that has a traditional vibe with its imperfect handwriting."
+   ]
+  },
+  {
+   "name": "Morganite",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "free",
+    "font",
+    "typography"
+   ],
+   "source_url": "https://www.behance.net/gallery/66748265/Morganite-Free-Typeface-18-Styles",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2018/10/5bd977c3cde28.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Yeager",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "free",
+    "font",
+    "typography",
+    "mechanical",
+    "display"
+   ],
+   "source_url": "https://www.behance.net/gallery/71653671/YEAGER-FREE-MECHANICAL-DISPLAY-TYPEFACE",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2018/10/5bd9746fc5311.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Kensmark",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "free",
+    "font",
+    "typography",
+    "bold",
+    "slanted",
+    "display"
+   ],
+   "source_url": "https://www.behance.net/gallery/71776133/KENSMARK-03-FREE-BOLD-SLANTED-DISPLAY-TYPEFACE",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2018/10/5bd972f38e3f2.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Serico",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "free",
+    "font",
+    "typography"
+   ],
+   "source_url": "https://www.behance.net/gallery/70963271/SERICO-FREE-FONT",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2018/10/5bc88c71a771e.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Codec Pro Variable Font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif",
+    "sans",
+    "mono",
+    "variable"
+   ],
+   "tags": [
+    "free font",
+    "serif",
+    "geometric",
+    "font",
+    "typeface",
+    "typo",
+    "typography",
+    "variable font"
+   ],
+   "source_url": "https://www.behance.net/gallery/89572499/Codec-Pro-The-Workhorse-Sans-with-two-free-weights?tracking_source=search%7Cfree%20font",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2020/01/5e2b7558512a9256696445.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Anodina Free font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "free font"
+   ],
+   "source_url": "https://www.behance.net/gallery/71016909/ANODINA-FREE-SYMMETRIC-FONT",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2018/10/5bc8908ed9da3.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Acrylic",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "free",
+    "font",
+    "thick",
+    "bold",
+    "typography"
+   ],
+   "source_url": "https://www.behance.net/gallery/70533205/ACRYLIC-HAND-THICK-FREE-STRONG-BOLD-SVG-FONT",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2018/10/5bc88d0f6c2a6.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Understock",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif",
+    "retro"
+   ],
+   "tags": [
+    "free",
+    "font",
+    "vintage",
+    "serif",
+    "typography"
+   ],
+   "source_url": "https://www.behance.net/gallery/71195031/UNDERSTOCK-FREE-VINTAGE-SERIF-FONT",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2018/10/5bc88cd2ea811.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Finland",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "sans"
+   ],
+   "tags": [
+    "free",
+    "font",
+    "rounded",
+    "thin",
+    "geometric",
+    "typography"
+   ],
+   "source_url": "https://www.behance.net/gallery/70960113/FINLAND-FREE-ROUNDED-THIN-GEOMETRIC-FONT",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2018/10/5bc88c9fb7e5c.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Horizon",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "script"
+   ],
+   "tags": [
+    "free",
+    "handlettered",
+    "script",
+    "font"
+   ],
+   "source_url": "https://www.behance.net/gallery/69503953/HORIZON-FREE-HANDLETTERED-SCRIPT",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2018/09/5b92642ac2538.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Tradesmith",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "retro"
+   ],
+   "tags": [
+    "font",
+    "vintage",
+    "free",
+    "behance"
+   ],
+   "source_url": "https://www.behance.net/gallery/69269355/TRADESMITH-FREE-VINTAGE-FONT",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2018/09/5b924dd909c89.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Buckwheat",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "handpainted",
+    "svg",
+    "font",
+    "typography",
+    "behance"
+   ],
+   "source_url": "https://www.behance.net/gallery/69482613/BUCKWHEAT-FREE-HANDPAINTED-SVG-FONT",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2018/09/5b924dab05b54.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Ladi - Based on liquid forms free font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "free font",
+    "typeface",
+    "display",
+    "contrast",
+    "typo",
+    "typography"
+   ],
+   "source_url": "https://www.behance.net/gallery/107435535/Ladi-Free-Typeface?tracking_source=search_projects_appreciations%7Cfree%20font",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2021/05/609a553324bdb082888483.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Agnes - display font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif",
+    "display"
+   ],
+   "tags": [
+    "free font",
+    "typeface",
+    "serif",
+    "font",
+    "typography"
+   ],
+   "source_url": "https://payhip.com/b/6Ma1",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2020/01/5e2703cc073bc661844713.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Half",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif",
+    "sans"
+   ],
+   "tags": [
+    "free font",
+    "sans serif",
+    "modern",
+    "typo",
+    "font",
+    "typography",
+    "typeface"
+   ],
+   "source_url": "https://www.behance.net/gallery/91196477/Half-Free-Family-Font?tracking_source=search%7Cfree%20font",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2020/01/5e349483e78d8602273288.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Gilam",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif",
+    "sans"
+   ],
+   "tags": [
+    "typeface",
+    "free",
+    "font",
+    "sans serif"
+   ],
+   "source_url": "https://www.fontfabric.com/gilam/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2018/06/5b2a26b933943.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Leira",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "script"
+   ],
+   "tags": [
+    "free",
+    "font",
+    "typeface",
+    "brush",
+    "hand drawn"
+   ],
+   "source_url": "https://www.behance.net/gallery/67314365/Leira-Free-Hand-Drawn-Brush-Font",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2018/07/5b3dd4355afb9.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Colus",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif",
+    "sans"
+   ],
+   "tags": [
+    "typeface",
+    "free",
+    "font",
+    "sans serif"
+   ],
+   "source_url": "https://www.fontfabric.com/colus/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2018/06/5b2a2328a4c28.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Colortube",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "typeface",
+    "free",
+    "font",
+    "rounded",
+    "colorful"
+   ],
+   "source_url": "https://www.fontfabric.com/colortube/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2018/06/5b2a1febca4d7.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Briberra",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "script"
+   ],
+   "tags": [
+    "typeface",
+    "free",
+    "font",
+    "handwritten"
+   ],
+   "source_url": "https://www.behance.net/gallery/65223659/BRIBERRA-FREE-ROUGH-BOLD-SCRIPT-FONT",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2018/06/5b2a16593b758.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "America",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "script"
+   ],
+   "tags": [
+    "typeface",
+    "free",
+    "font",
+    "handwritten",
+    "brush"
+   ],
+   "source_url": "https://www.behance.net/gallery/65846533/AMERICA-FREE-TEXTURED-SCRIPT-FONT",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2018/06/5b2a151b806fd.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Cunia",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif",
+    "sans"
+   ],
+   "tags": [
+    "typeface",
+    "free",
+    "font",
+    "sans serif"
+   ],
+   "source_url": "https://www.behance.net/gallery/66454661/CUNIA-FREE-FONT",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2018/06/5b2a123327e9f.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Aloja handwriting font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "script"
+   ],
+   "tags": [
+    "typeface",
+    "free",
+    "font",
+    "handwritten"
+   ],
+   "source_url": "https://www.behance.net/gallery/64965959/Aloja-Free-Handwritten-Font",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2018/05/5b0e5b6312ad5.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Range",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif",
+    "sans",
+    "display"
+   ],
+   "tags": [
+    "display",
+    "free font",
+    "sansserif"
+   ],
+   "source_url": "http://www.layerform.com/free-font-range-sans-display-font/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2017/09/59b682e104a92.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Neon",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "free font",
+    "display",
+    "rounded"
+   ],
+   "source_url": "https://www.freefonts.io/downloads/neon-font",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2017/07/5964b86e937a8.jpg",
+   "license_status": "personal-use-only",
+   "license_evidence": [
+    "There is also a license in PDF file.",
+    "Some fonts come with personal use only policy and some are allowed for commercial use so we recommend you please read EULA before using."
+   ]
+  },
+  {
+   "name": "Fivo Sans",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif",
+    "sans"
+   ],
+   "tags": [
+    "sans serif",
+    "free font",
+    "grotesque"
+   ],
+   "source_url": "https://www.behance.net/gallery/53653425/Fivo-Sans-Free-Font-Family",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2017/07/5964b8c0de330.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Bunday Slab Bold , Light & Italic",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif",
+    "display"
+   ],
+   "tags": [
+    "slab serif"
+   ],
+   "source_url": "https://www.fontspring.com/fonts/buntype/bunday-slab?utm_source=fontsquirrel.com&amp;amp;utm_medium=download_link&amp;amp;utm_campaign=bunday-slab#firstfreeproduct",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2017/07/5964b8d7e74cc.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Manoyri",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display",
+    "script"
+   ],
+   "tags": [
+    "handwritten",
+    "handmade",
+    "free font",
+    "display"
+   ],
+   "source_url": "https://www.graphicpear.com/manoyri-font/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2017/07/595e0df69b8d6.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Belda Regular",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif",
+    "display",
+    "script"
+   ],
+   "tags": [
+    "classical",
+    "calligraphy",
+    "roman capital",
+    "serif",
+    "display"
+   ],
+   "source_url": "https://www.fontsquirrel.com/fonts/belda",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2017/07/5964b6bd68f48.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": [
+    "Webfont Generator Font Identifier Font Talk Creative Market Fonts Belda B Download Belda from Fontspring Commercial Desktop Use - this free license allows you to create commercial graphics and documents.",
+    "'>Z @font-face Embedding - this free license allows you to embed the font in your websites with CSS."
+   ]
+  },
+  {
+   "name": "Black  Animal",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display",
+    "script"
+   ],
+   "tags": [
+    "brush",
+    "display",
+    "all caps",
+    "free font"
+   ],
+   "source_url": "https://sellfy.com/p/Ywfu/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2017/07/595e0e9c43925.",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Spectral - 7 weights",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif"
+   ],
+   "tags": [
+    "serif",
+    "roman",
+    "italic",
+    "small caps",
+    ""
+   ],
+   "source_url": "https://fonts.google.com/specimen/Spectral",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2017/07/5964b8125bb13.jpg",
+   "license_status": "free-license-text-found",
+   "license_evidence": [
+    "Google Fonts distribution (SIL OFL platform)"
+   ]
+  },
+  {
+   "name": "Monky",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif",
+    "sans",
+    "display"
+   ],
+   "tags": [
+    "free font",
+    "display",
+    "sans serif"
+   ],
+   "source_url": "https://goo.gl/34v9Hq",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2017/06/5954cd38403b9.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Monotonia",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "mono",
+    "display"
+   ],
+   "tags": [
+    "free font",
+    "display",
+    "western"
+   ],
+   "source_url": "https://www.dropbox.com/s/wxrdlq6xdfhaqsm/monotonia.otf?dl=0",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2017/06/5954cd7f80bba.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Novar",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif"
+   ],
+   "tags": [
+    "free font",
+    "serif"
+   ],
+   "source_url": "http://marcoballare.com/project/novar/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2017/07/5964b834a2abf.",
+   "license_status": "unverified-check-source",
+   "license_evidence": [
+    "Novar | marco ballarè --> --> --> --> font design font license Seleziona una pagina Novar Novar is an elegant serif font designed in 2017.",
+    "Download here Read font license for personal and commercial use."
+   ]
+  },
+  {
+   "name": "Grodna",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif",
+    "retro"
+   ],
+   "tags": [
+    "free font",
+    "retro",
+    "art nouveau",
+    "vintage",
+    "serif"
+   ],
+   "source_url": "https://sellfy.com/p/iy6I/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2017/06/5954cb1b06741.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Chlakh",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "script",
+    "retro"
+   ],
+   "tags": [
+    "vinatage",
+    "retro",
+    "dispay",
+    "free demo",
+    "handwritten",
+    "handmade"
+   ],
+   "source_url": "https://www.pixelsurplus.com/products/chlakh-free-hand-drawn-font/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2017/06/5954cf0e6c7d9.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Wesley Gothic",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "sans",
+    "display"
+   ],
+   "tags": [
+    "display",
+    "free font",
+    "geometric"
+   ],
+   "source_url": "http://www.hellofont.com/fonts/1249",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2017/06/5954c8de971ae.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Olegos",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "display",
+    "free demo"
+   ],
+   "source_url": "https://www.graphicpear.com/olegos-typeface/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2017/06/5954ca330bf93.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Wavehaus Sans Typeface",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif",
+    "sans"
+   ],
+   "tags": [
+    "free font",
+    "font family",
+    "sans serif"
+   ],
+   "source_url": "https://sellfy.com/p/XS0L/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2017/06/5954c86f540f3.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Elisabeth Font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "free font",
+    "typography",
+    "fonts"
+   ],
+   "source_url": "https://gumroad.com/l/elisabeth",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2017/05/elisabeth.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Noway Free Font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "free font",
+    "typography",
+    "fonts"
+   ],
+   "source_url": "http://atipofoundry.com/fonts/noway",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2017/02/noway.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Cast Iron",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "free typeface",
+    "font",
+    "condensed",
+    "display"
+   ],
+   "source_url": "http://jeremyvessey.com/free/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2017/02/58aac09b96343.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": [
+    "ay! This bundle includes: Yonder Wayfarer Growler Script Yosemite Parlour Parlour Sans Native + Instapress Nations Sitka Longshore Extended License *** Also includes a new exclusive hand drawn font that is only available within this bundle."
+   ]
+  },
+  {
+   "name": "Playlist Free Font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "script"
+   ],
+   "tags": [
+    "handdrawn",
+    "free font",
+    "brush",
+    "lettering",
+    "ornament",
+    "script"
+   ],
+   "source_url": "https://www.pixelo.net/product/playlist-free-font/?utm_source=behance&amp;amp;utm_medium=social&amp;amp;utm_campaign=freebies",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2017/02/58aabc7a5a376.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": [
+    "r Behance Pinterest Instagram Company About Blog Coupons Privacy Policy Affiliate Program Product Past Deals Freebies Support Contact Terms Licenses FAQ © 2026 Pixelo."
+   ]
+  },
+  {
+   "name": "Bohem Free Font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "retro"
+   ],
+   "tags": [
+    "vintage font",
+    "free font",
+    "typography"
+   ],
+   "source_url": "https://www.behance.net/gallery/47137523/Bohem-Free-Font",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2017/02/bourbon.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Simplifica",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "free font",
+    "typography",
+    "fonts"
+   ],
+   "source_url": "https://www.graphicpear.com/simplifica-free-typeface/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2017/02/simpli.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Big John",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "free font",
+    "typography",
+    "fonts"
+   ],
+   "source_url": "https://www.behance.net/gallery/19484739/Big-John-Slim-Joe-FREE-Font",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2017/02/big-jonh.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Ginebra free font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "free font",
+    "typography",
+    "fontpack"
+   ],
+   "source_url": "https://www.behance.net/gallery/33012653/ginebra-free-font",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2017/01/ginebra.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Free Font - New Day",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "fonts",
+    "free fonts",
+    "typography"
+   ],
+   "source_url": "https://www.behance.net/gallery/23792563/ONE-DAY-Free-Font",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2017/01/587428538b4c6.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Muller",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif",
+    "sans"
+   ],
+   "tags": [
+    "sans-serif",
+    "grotesque sans"
+   ],
+   "source_url": "http://www.fontfabric.com/muller-font/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2016/11/582c3b09dfe9e.png",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Carosello",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "script",
+    "retro"
+   ],
+   "tags": [
+    "vintage",
+    "handwriting",
+    "free font",
+    "ttf",
+    "otf"
+   ],
+   "source_url": "http://befonts.com/carosello-font.html",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2016/11/582c39373f2b7.png",
+   "license_status": "unverified-check-source",
+   "license_evidence": [
+    "s Peacky Style Script Font Calligraphy Fonts , Handwritten Fonts , Script Fonts You can download the best fonts, free fonts for personal or commercial use.",
+    "Terms Privacy DMCA Font Licenses Font Approval Contact US Top Fonts New Message Sharing more details will increase your chances of receiving a reply."
+   ]
+  },
+  {
+   "name": "Borg",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "sans"
+   ],
+   "tags": [
+    "minimal",
+    "curves",
+    "free",
+    ""
+   ],
+   "source_url": "https://www.behance.net/gallery/12578815/Borg-Typeface-(FREE)",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2016/11/582c51fa73b20.png",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Brela",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif"
+   ],
+   "tags": [
+    "serif"
+   ],
+   "source_url": "http://cargocollective.com/makarskaestudio/Brela-Free-Download",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2016/11/582d6cf14b190.png",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Poetesen One",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    ""
+   ],
+   "source_url": "http://www.dafont.com/poetsen-one.font",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2016/11/582ed365908bb.png",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Hello Stockholm",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "script"
+   ],
+   "tags": [
+    "brush script",
+    "free font"
+   ],
+   "source_url": "http://creativebooster.net/products/hello-stockholm-handmade-typeface",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2016/11/582c368fe4ea8.png",
+   "license_status": "personal-use-only",
+   "license_evidence": [
+    "This font is free for personal use only, but you buy the commercial license here."
+   ]
+  },
+  {
+   "name": "Aleo",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    ""
+   ],
+   "source_url": "http://www.fontfabric.com/aleo-free-font/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2016/11/582eeabc9bfe6.png",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Klinic Slab",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif"
+   ],
+   "tags": [
+    "slab-serif"
+   ],
+   "source_url": "http://www.losttype.com/font/?name=klinic",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2016/11/582eeb8369274.png",
+   "license_status": "unverified-check-source",
+   "license_evidence": [
+    "Licensing You can Pay-What-You-Want for a Personal Use License.",
+    "A 1-5 User Commercial License is available for $45."
+   ]
+  },
+  {
+   "name": "Medio",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif"
+   ],
+   "tags": [
+    "serif"
+   ],
+   "source_url": "http://www.dotcolon.net/font/medio/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2016/11/582ee63791956.png",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Margot",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif"
+   ],
+   "tags": [
+    "serif"
+   ],
+   "source_url": "https://www.behance.net/gallery/13819879/Margot-Free-Font",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2016/11/582ee4eea2c3d.png",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Mapta",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif"
+   ],
+   "tags": [
+    "serif"
+   ],
+   "source_url": "https://www.behance.net/gallery/7434601/Marta-Free-Font",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2016/11/582ee1545a4b6.png",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Bitter Ht",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif"
+   ],
+   "tags": [
+    "slab-serif"
+   ],
+   "source_url": "https://www.behance.net/gallery/36251789/Bitter-ht",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2016/11/582eda470de87.png",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Blenda Script",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "script"
+   ],
+   "tags": [
+    "script"
+   ],
+   "source_url": "https://www.behance.net/gallery/Blenda-Script-Free-Font/13832171",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2016/11/582ef3f0b0674.png",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Farray",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    ""
+   ],
+   "source_url": "https://www.behance.net/gallery/FARRAY-FONT-FREE-DOWNLOAD/14844917",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2016/11/582ed3c6bc48f.png",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Bariol",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "rounded",
+    "free font"
+   ],
+   "source_url": "https://www.behance.net/gallery/4015111/bariol",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2016/11/582d7f00d3d9c.png",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Gandhi Sans",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "sans"
+   ],
+   "tags": [
+    "headings",
+    "oblique",
+    "paragraph"
+   ],
+   "source_url": "https://www.fontsquirrel.com/fonts/gandhi-sans",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2016/11/582ebfa46534f.png",
+   "license_status": "unverified-check-source",
+   "license_evidence": [
+    "ces & Tools Webfont Generator Font Identifier Font Talk Creative Market Fonts Gandhi Sans B Download OTF Commercial Desktop Use - this free license allows you to create commercial graphics and documents.",
+    "'>Z @font-face Embedding - this free license allows you to embed the font in your websites with CSS."
+   ]
+  },
+  {
+   "name": "Campton Typefamily",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    ""
+   ],
+   "source_url": "https://www.behance.net/gallery/Campton-Typefamily/14680165",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2016/11/582da62e48793.png",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Cylburn",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "script"
+   ],
+   "tags": [
+    "semi-connected script"
+   ],
+   "source_url": "http://www.losttype.com/font/?name=cylburn",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2016/11/582ef2a9cb07c.png",
+   "license_status": "unverified-check-source",
+   "license_evidence": [
+    "Licensing You can Pay-What-You-Want for a Personal Use License.",
+    "A 1-5 User Commercial License is available for $30."
+   ]
+  },
+  {
+   "name": "Passero",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    ""
+   ],
+   "source_url": "https://www.behance.net/gallery/7901021/Passero-Typeface",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2016/11/582d9693dfcf2.png",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Simplifica",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "smooth",
+    "free font"
+   ],
+   "source_url": "https://www.behance.net/gallery/SIMPLIFICA-Typeface-Free/14209843",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2016/11/582d9dee6df0b.png",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Tracks Type",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    ""
+   ],
+   "source_url": "http://www.fontfabric.com/track-free-font/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2016/11/582d9db43235a.png",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Linotte",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif",
+    "sans"
+   ],
+   "tags": [
+    "comic",
+    "rounded",
+    "sans serif"
+   ],
+   "source_url": "https://www.behance.net/gallery/21348189/Linotte-Typeface",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2016/11/582d80335b539.png",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "PILSNER & GUTENBERG",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "script",
+    "retro"
+   ],
+   "tags": [
+    "vintage",
+    "handwritten"
+   ],
+   "source_url": "http://www.pixelsurplus.com/freebies/pilsner-and-gutenberg",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2016/11/582c390d24715.png",
+   "license_status": "unverified-check-source",
+   "license_evidence": [
+    "oadcast License - Under 1M Views or Personal Use Broadcast License - 1M+ Views or Commercial Use Broadcast License - Film/TV/Streaming ePub License (Per Title) App License Large Volume Commercial Use (Please Contact) Free - Desktop Commercial License - $0.",
+    "00 USD Web Font License - 0-10k Pageviews / Month - $64."
+   ]
+  },
+  {
+   "name": "FairView",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif",
+    "sans"
+   ],
+   "tags": [
+    "sans-serif"
+   ],
+   "source_url": "http://www.losttype.com/font/?name=fairview",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2016/11/582d9cf5e06f0.png",
+   "license_status": "unverified-check-source",
+   "license_evidence": [
+    "Licensing You can Pay-What-You-Want for a Personal Use License.",
+    "A 1-5 User Commercial License is available for $30."
+   ]
+  },
+  {
+   "name": "Fvriosa",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    ""
+   ],
+   "source_url": "https://www.behance.net/gallery/34621039/FVRIOSA-free-handmade-brush-font",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2016/11/582d9c031ebfc.png",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Redressed",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    ""
+   ],
+   "source_url": "https://www.fontsquirrel.com/fonts/redressed",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2016/11/582d98f0b2294.png",
+   "license_status": "unverified-check-source",
+   "license_evidence": [
+    "urces & Tools Webfont Generator Font Identifier Font Talk Creative Market Fonts Redressed B Download TTF Commercial Desktop Use - this free license allows you to create commercial graphics and documents.",
+    "'>Z @font-face Embedding - this free license allows you to embed the font in your websites with CSS."
+   ]
+  },
+  {
+   "name": "Parker",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "retro"
+   ],
+   "tags": [
+    "hand drawn",
+    "vintage"
+   ],
+   "source_url": "https://www.behance.net/gallery/18632037/Parker-Font-(Free)",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2016/11/582d966874597.png",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Grandhotel",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display",
+    "retro"
+   ],
+   "tags": [
+    "casual",
+    "display",
+    "retro"
+   ],
+   "source_url": "https://www.fontsquirrel.com/fonts/grand-hotel",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2016/11/582d954d5bcd3.png",
+   "license_status": "unverified-check-source",
+   "license_evidence": [
+    "ces & Tools Webfont Generator Font Identifier Font Talk Creative Market Fonts Grand Hotel B Download OTF Commercial Desktop Use - this free license allows you to create commercial graphics and documents.",
+    "'>Z @font-face Embedding - this free license allows you to embed the font in your websites with CSS."
+   ]
+  },
+  {
+   "name": "Fabfelt",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    ""
+   ],
+   "source_url": "https://www.behance.net/gallery/23900247/Fabfelt-script-Free-font",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2016/11/582d937e668a6.png",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Cutepunk",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "script"
+   ],
+   "tags": [
+    "free font",
+    "handwritten"
+   ],
+   "source_url": "https://www.behance.net/gallery/17184235/cutepunk-typeface",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2016/11/582d922199f67.png",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Bizon",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "free font"
+   ],
+   "source_url": "https://www.behance.net/gallery/20936689/Bizon-Free-Font",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2016/11/582d9163b7395.png",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Tryst",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    ""
+   ],
+   "source_url": "https://www.fontsquirrel.com/fonts/tryst",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2016/11/582eec5a0a680.png",
+   "license_status": "unverified-check-source",
+   "license_evidence": [
+    "Resources & Tools Webfont Generator Font Identifier Font Talk Creative Market Fonts Tryst B Download OTF Commercial Desktop Use - this free license allows you to create commercial graphics and documents.",
+    "'>m Philatype serif 1 Style Sample Specimens Test Drive Glyphs License Tryst Regular Tryst Regular 12 14 18 24 36 48 60 72 144 Tryst Regular Philatype Font License v1."
+   ]
+  },
+  {
+   "name": "Fonarto",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif",
+    "sans"
+   ],
+   "tags": [
+    "sans serif",
+    "free font"
+   ],
+   "source_url": "https://www.behance.net/gallery/20085723/Fonarto-Free-Font",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2016/11/582d89c9f1076-1.png",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Choplin",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    ""
+   ],
+   "source_url": "http://www.fontfabric.com/choplin-free-font/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2016/11/582d6db4d2fc9.png",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Dual",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    ""
+   ],
+   "source_url": "http://charlesdaoud.com/portfolio/dual-typeface/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2016/11/582d890836969.png",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Arenq",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    ""
+   ],
+   "source_url": "http://www.dafont.com/arenq.font",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2016/11/582d87e4b2a40.png",
+   "license_status": "free-license-text-found",
+   "license_evidence": [
+    "Remember: it's free for personal and commercial use! Hey, like me on Facebook: https://www."
+   ]
+  },
+  {
+   "name": "Ailerons",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "free font"
+   ],
+   "source_url": "https://www.behance.net/gallery/25541553/Ailerons-free-typeface",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2016/11/582d846a1e8ac.png",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Ahamono",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "mono"
+   ],
+   "tags": [
+    ""
+   ],
+   "source_url": "https://www.behance.net/gallery/19532783/AhamonoMonospaced",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2016/11/582d7b67ba7fd.png",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Shihan",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    ""
+   ],
+   "source_url": "https://www.behance.net/gallery/24989815/Shihan-Free-Typeface",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2016/11/582d7aeacf5b7.png",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Oranienbaum",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif"
+   ],
+   "tags": [
+    "free font",
+    "serif"
+   ],
+   "source_url": "http://www.dafont.com/oranienbaum.font",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2016/11/582d7a066f603.png",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Norwester",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif",
+    "sans"
+   ],
+   "tags": [
+    "sans-serif",
+    "free fonts"
+   ],
+   "source_url": "http://jamiewilson.io/norwester/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2016/10/580f27fd221af.png",
+   "license_status": "free-license-text-found",
+   "license_evidence": [
+    "Free Download SIL Open Font License (OFL) As payment, please consider donating to the International Justice Mission ."
+   ]
+  },
+  {
+   "name": "Makhina",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "rounded"
+   ],
+   "source_url": "https://dribbble.com/shots/1307130-MAKHINA-Free-Font?list=searches&amp;amp;tag=free_fonts",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2016/11/582c567cecb5b.png",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Building",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "free font",
+    "art deco"
+   ],
+   "source_url": "https://www.behance.net/gallery/15876377/BUILDING-Free-Typeface%20Leonardo%20Gubbioni",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2016/11/582c521b2fc29.png",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Somatic Rounded",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif",
+    "sans"
+   ],
+   "tags": [
+    "rounded",
+    "sans-serif",
+    ""
+   ],
+   "source_url": "https://www.dropbox.com/sh/ipt2jyxhf8wd2k3/AACLUnLtjwwAiV5x30ESUzzea?dl=0",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2016/11/582c3a5ac57de.png",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Bebas Neue",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif",
+    "sans"
+   ],
+   "tags": [
+    "sans-serif"
+   ],
+   "source_url": "http://www.fontfabric.com/bebas-neue/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2016/11/582d9ccb784e5.png",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Bauchaomaicha",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "rounded"
+   ],
+   "source_url": "https://www.behance.net/gallery/Bauchaomaicha-font-FREE/11885825",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2016/11/582ed5034bf6d.png",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Linux Libertine",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "serif"
+   ],
+   "tags": [
+    "serif"
+   ],
+   "source_url": "http://www.dafont.com/linux-libertine.font",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2016/11/582c362d59e9c.png",
+   "license_status": "free-license-text-found",
+   "license_evidence": [
+    "Poll   in Basic > Serif   1,641,526 downloads (148 yesterday)   94 comments   Public domain / GPL / OFL  - 16 font files  Download    LinLibertine_R."
+   ]
+  },
+  {
+   "name": "buffalo",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "script",
+    "retro"
+   ],
+   "tags": [
+    "vintage",
+    "handwritten"
+   ],
+   "source_url": "http://www.pixelsurplus.com/freebies/buffalo",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2016/11/582c38cbb4ca0.png",
+   "license_status": "unverified-check-source",
+   "license_evidence": [
+    "icense - 1M+ Pageviews / Month Broadcast License - Under 1M Views or Personal Use Broadcast License - 1M+ Views or Commercial Use Broadcast License - Film/TV/Streaming ePub License (Per Title) App License Large Volume Commercial Use License Desktop Commercial License - $16.",
+    "00 USD Free - Personal Use License - $0."
+   ]
+  },
+  {
+   "name": "WILD YOUTH",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "script"
+   ],
+   "tags": [
+    "brush script",
+    "free font"
+   ],
+   "source_url": "http://www.pixelsurplus.com/freebies/wild-youth#",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2016/11/582c365002a96.png",
+   "license_status": "unverified-check-source",
+   "license_evidence": [
+    "icense - 1M+ Pageviews / Month Broadcast License - Under 1M Views or Personal Use Broadcast License - 1M+ Views or Commercial Use Broadcast License - Film/TV/Streaming ePub License (Per Title) App License Large Volume Commercial Use (Please Contact) Desktop Commercial License - $16.",
+    "00 USD Free - Personal Use License - $0."
+   ]
+  },
+  {
+   "name": "Silverfake",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "display"
+   ],
+   "tags": [
+    "free font"
+   ],
+   "source_url": "http://www.fontfabric.com/silverfake-free-font/",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2016/11/582d7b2c9945b.png",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  },
+  {
+   "name": "Wolf in the City",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "script"
+   ],
+   "tags": [
+    "script"
+   ],
+   "source_url": "http://www.dafont.com/wolf-in-the-city.font",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2016/11/582ef112a754d.png",
+   "license_status": "personal-use-only",
+   "license_evidence": [
+    "K | Thomas Boucherie   in Script > Calligraphy   3,819,904 downloads (16 yesterday)   83 comments   Free for personal use  - 3 font files  Download    Wolf in the City.",
+    "ttf Note of the author Hello, If you want to use this font, please contact me before any commercial use."
+   ]
+  },
+  {
+   "name": "Lifestyle - Handwritten Font",
+   "designer": null,
+   "source_site": null,
+   "categories": [
+    "mono",
+    "script"
+   ],
+   "tags": [
+    "free fonts",
+    "font",
+    "typo",
+    "typography",
+    "script",
+    "handwritten",
+    "monoline"
+   ],
+   "source_url": "https://www.behance.net/gallery/91435979/lifestyle-free-handwritten-font?tracking_source=search%7Cfree%20font",
+   "preview_image": "https://assets.awwwards.com/awards/media/cache/thumb_880_660/external/2020/03/5e5e4f6bbc240455988910.jpg",
+   "license_status": "unverified-check-source",
+   "license_evidence": []
+  }
+ ]
+}

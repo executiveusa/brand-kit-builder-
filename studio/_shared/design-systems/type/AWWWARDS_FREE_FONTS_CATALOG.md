@@ -1,0 +1,325 @@
+# AWWWARDS FREE FONTS CATALOG
+## 288 typefaces harvested from the owner-specified Awwwards free-fonts collection
+### v1.0.0 — harvested 2026-09-23 — source: https://www.awwwards.com/awwwards/collections/free-fonts/
+
+---
+
+## LICENSE LAW
+
+The word "free" in this collection is not a license. Per `studio/FONTS.md`, no font in this catalog may be bundled or claimed for commercial use until the current original license is read back from the source. Statuses:
+
+- **free-license-text-found** — license text was observed at the source on harvest date (OFL/ITF Free/"free for personal & commercial"). Re-verify before production; licenses change.
+- **personal-use-only** — source states personal use only on harvest date. Not for client or commercial work.
+- **demo-or-trial-flag** — source reads as a demo/trial/free version of a paid font.
+- **unverified-check-source** — no license text could be machine-read (JS-heavy pages: Behance, Gumroad, etc.). Unknown until read at source.
+
+Counts: 17 free-license-text-found / 5 personal-use-only / 1 demo-or-trial / 264 unverified. One collection entry is an article, not a font (excluded).
+
+Machine-readable form: `awwwards-free-fonts.catalog.json` in this directory. Query that, not this file.
+
+---
+
+## FREE LICENSE TEXT FOUND (re-verify before production) (17)
+
+- **Absans Font** — see source — [sans] — https://www.collletttivo.it/typefaces/absans — evidence: "Details Designed by Valerio Monopoli Released December 13, 2023 1 Family , 1 Style Supports Latin Licensed under SIL Open Font License Released December 13, 202"
+- **Arenq** — see source — [display] — http://www.dafont.com/arenq.font — evidence: "Remember: it's free for personal and commercial use! Hey, like me on Facebook: https://www."
+- **Arkipelago** — see source — [script] — https://www.pixelsurplus.com/freebies/arkipelago-free-inky-brush-script — evidence: "_plan':false,'selling_plan_allocations':[],'quantity_rule':{'min':1,'max':null,'increment':1}}] Free for personal & commercial use View License Details Arkipela"
+- **Geist** — Vercel — [serif, sans, mono] — https://vercel.com/font#get — evidence: "Licensed under OFL ."
+- **Heming a Free Variable Monotype Font** — see source — [mono, variable] — https://pixelsurplus.com/products/heming-free-variable-font — evidence: "icy':'deny','barcode':null,'requires_selling_plan':false,'selling_plan_allocations':[],'quantity_rule':{'min':1,'max':null,'increment':1}}] Free for personal & "
+- **Inter typeface family** — see source — [display] — https://rsms.me/inter/ — evidence: "Refer to the SIL Open Font License 1."
+- **Linux Libertine** — see source — [serif] — http://www.dafont.com/linux-libertine.font — evidence: "Poll   in Basic > Serif   1,641,526 downloads (148 yesterday)   94 comments   Public domain / GPL / OFL  - 16 font files  Download    LinLibertine_R."
+- **Migha** — see source — [display] — https://themeui.net/migha-free-variable-font/ — evidence: "e Sans Serif Font About Theme-UI is a handpicked collection of the best UI kit freebies and web design resources free for both personal and commercial use."
+- **Neutral Face - Sans serif free font** — see source — [serif, sans, display] — https://themeui.net/neutral-face-free-font/ — evidence: "e Sans Serif Font About Theme-UI is a handpicked collection of the best UI kit freebies and web design resources free for both personal and commercial use."
+- **Norwester** — see source — [serif, sans] — http://jamiewilson.io/norwester/ — evidence: "Free Download SIL Open Font License (OFL) As payment, please consider donating to the International Justice Mission ."
+- **Projekt Blackbird** — see source — [serif, sans, display] — https://pixelsurplus.com/collections/free-fonts/products/projekt-blackbird-free-sans-serif-font — evidence: "icy':'deny','barcode':null,'requires_selling_plan':false,'selling_plan_allocations':[],'quantity_rule':{'min':1,'max':null,'increment':1}}] Free for personal & "
+- **Ramona free display font** — see source — [display, script] — https://www.pixelsurplus.com/freebies/ramona-free-display-font — evidence: "icy':'deny','barcode':null,'requires_selling_plan':false,'selling_plan_allocations':[],'quantity_rule':{'min':1,'max':null,'increment':1}}] Free for personal & "
+- **Ranade** — see source — [serif, sans] — https://www.fontshare.com/fonts/ranade — evidence: "Fontshare platform: ITF Free Font License (same platform as Satoshi, verified on Satoshi page)"
+- **Rude free font** — see source — [serif] — https://www.pixelsurplus.com/freebies/rude-free-handcrafted-serif-font — evidence: "icy':'deny','barcode':null,'requires_selling_plan':false,'selling_plan_allocations':[],'quantity_rule':{'min':1,'max':null,'increment':1}}] Free for personal & "
+- **Satoshi Variable Font** — see source — [serif, sans, variable] — https://www.fontshare.com/fonts/satoshi — evidence: "Fontshare page: 'License Closed Source / ITF Free Font License' (Fontshare ITF Free = free for commercial use)"
+- **Spectral - 7 weights** — see source — [serif] — https://fonts.google.com/specimen/Spectral — evidence: "Google Fonts distribution (SIL OFL platform)"
+- **Subjectivity - Display geometric font family** — see source — [sans, display] — https://themeui.net/subjectivity-free-display-font-family/ — evidence: "e Sans Serif Font About Theme-UI is a handpicked collection of the best UI kit freebies and web design resources free for both personal and commercial use."
+
+---
+
+## PERSONAL USE ONLY (not for commercial work) (5)
+
+- **Harmond free display typeface** — see source — [serif, sans, display] — https://dirtylinestudio.com/product/harmond-free-display-typeface/ — evidence: "Dirtyline product page: 'Lisence: Personal Use'"
+- **Hello Stockholm** — see source — [script] — http://creativebooster.net/products/hello-stockholm-handmade-typeface — evidence: "This font is free for personal use only, but you buy the commercial license here."
+- **Kenfolg serif typeface** — see source — [serif] — https://www.dafont.com/made-kenfolg.font — evidence: "s  Euro   MADE Kenfolg   à   € by MadeType in Basic > Serif   79,396 downloads (5 yesterday)   Free for personal use  Download    MADE Kenfolg v2 PERSONAL USE."
+- **Neon** — see source — [display] — https://www.freefonts.io/downloads/neon-font — evidence: "There is also a license in PDF file."
+- **Wolf in the City** — see source — [script] — http://www.dafont.com/wolf-in-the-city.font — evidence: "K | Thomas Boucherie   in Script > Calligraphy   3,819,904 downloads (16 yesterday)   83 comments   Free for personal use  - 3 font files  Download    Wolf in t"
+
+---
+
+## DEMO / TRIAL FLAG (1)
+
+- **Blaze Type** — see source — [serif, sans, display] — https://blazetype.eu/typecatalogue/fonttrials — evidence: "Cart 👤 Log in × Typefaces Trial Pairings Articles About Ignition Award News Case studies Custom fonts Fonts in Use The foundry For Students License EULA Legals "
+
+---
+
+## UNVERIFIED — CHECK LICENSE AT SOURCE (264)
+
+- **Aalto Display Font** — see source — [sans, display] — https://iframefonts.gumroad.com/l/aalto-display-font
+- **Acrylic** — see source — [display] — https://www.behance.net/gallery/70533205/ACRYLIC-HAND-THICK-FREE-STRONG-BOLD-SVG-FONT
+- **Agnes - display font** — see source — [serif, display] — https://payhip.com/b/6Ma1
+- **Ahamono** — see source — [mono] — https://www.behance.net/gallery/19532783/AhamonoMonospaced
+- **Ailerons** — see source — [display] — https://www.behance.net/gallery/25541553/Ailerons-free-typeface
+- **Aleo** — see source — [display] — http://www.fontfabric.com/aleo-free-font/
+- **Allyca Script Font Family** — see source — [script] — https://creativetacos.com/allyca-script-font-family/
+- **Aloja handwriting font** — see source — [script] — https://www.behance.net/gallery/64965959/Aloja-Free-Handwritten-Font
+- **America** — see source — [script] — https://www.behance.net/gallery/65846533/AMERICA-FREE-TEXTURED-SCRIPT-FONT
+- **Anodina Free font** — see source — [display] — https://www.behance.net/gallery/71016909/ANODINA-FREE-SYMMETRIC-FONT
+- **Archia Regular** — atipo — [display] — https://www.atipofoundry.com/fonts/archia
+- **Archia regular font** — see source — [serif, sans] — http://atipofoundry.com/fonts/archia
+- **Archivo Narrow Regular** — see source — [serif, sans] — https://open-foundry.com/fonts/archivo_narrow_regular
+- **Argesta Hairline with cool discretionary ligatures.** — see source — [display] — http://atipofoundry.com/fonts/argesta
+- **Avenue Mono** — see source — [mono] — https://boulevardlab.com/Avenue-Mono
+- **Azonix** — see source — [sans] — https://www.behance.net/gallery/72157723/AZONIX-FREE-MODERN-TYPEFACE
+- **Bagnard Regular** — see source — [serif] — https://open-foundry.com/fonts/bagnard_regular
+- **Bagnard Sans** — see source — [sans] — https://open-foundry.com/fonts/bagnard_sans_regular
+- **Barcelony Font** — see source — [script] — https://www.behance.net/gallery/80458759/BARCELONY-FREE-SCRIPT-FONT?tracking_source=search%257CFONT
+- **Bariol** — see source — [display] — https://www.behance.net/gallery/4015111/bariol
+- **Basier Mono** — see source — [mono] — http://atipofoundry.com/fonts/basier-mono
+- **Bauchaomaicha** — see source — [display] — https://www.behance.net/gallery/Bauchaomaicha-font-FREE/11885825
+- **Baunk font** — see source — [serif, sans, display] — https://bagerich.com/font/freebies/baunk/ — evidence: "al License App/Game License Extended License Reset options BAUNK by bagerich $ 0 License Type Choose an option Standard Licence Webfont License Digital License "
+- **Bebas Neue** — see source — [serif, sans] — http://www.fontfabric.com/bebas-neue/
+- **Belda Regular** — see source — [serif, display, script] — https://www.fontsquirrel.com/fonts/belda — evidence: "Webfont Generator Font Identifier Font Talk Creative Market Fonts Belda B Download Belda from Fontspring Commercial Desktop Use - this free license allows you t"
+- **Benzol Regular** — see source — [display] — https://www.behance.net/gallery/83763085/Benzol-Regular-Free-Font?tracking_source=search%7Cfont
+- **Berman Bold** — see source — [display] — https://www.behance.net/gallery/80035441/Berman-Bold-Blackletter-Typeface?tracking_source=search%7Cfont
+- **Big John** — see source — [display] — https://www.behance.net/gallery/46920415/Big-John-PRO-Free-Typeface
+- **Big John** — see source — [display] — https://www.behance.net/gallery/19484739/Big-John-Slim-Joe-FREE-Font
+- **Bigilla display serif typeface designed** — Jérémie Gauthier — [serif, display] — https://www.pixelsurplus.com/freebies/bigilla-free-display-serif-typeface
+- **Bigilla: A display serif typeface with ligatures and alternates** — see source — [serif, display] — https://www.behance.net/gallery/93242287/BIGILLA-FREE-DISPLAY-SERIF-TYPEFACE
+- **Bimbo** — see source — [mono, script] — https://www.behance.net/gallery/63546899/Bimbo-free-type-family-6-weights-of-monoline-fun?tracking_source=search-all%7Cfree%20font
+- **Bitter Ht** — see source — [serif] — https://www.behance.net/gallery/36251789/Bitter-ht
+- **Bizon** — see source — [display] — https://www.behance.net/gallery/20936689/Bizon-Free-Font
+- **Black  Animal** — see source — [display, script] — https://sellfy.com/p/Ywfu/
+- **Black Sansa Thin** — see source — [sans, display, retro] — https://www.behance.net/gallery/144906155/Black-Sansa-Thin-Free-Retro-Display-Font
+- **Blenda Script** — see source — [script] — https://www.behance.net/gallery/Blenda-Script-Free-Font/13832171
+- **Bohem Free Font** — see source — [retro] — https://www.behance.net/gallery/47137523/Bohem-Free-Font
+- **Bondi** — see source — [display] — https://www.behance.net/gallery/72196735/Bondi-Free-Font
+- **Borg** — see source — [sans] — https://www.behance.net/gallery/12578815/Borg-Typeface-(FREE)
+- **Borsok** — see source — [display] — https://www.behance.net/gallery/72358435/BORSOK-FREE-BOLD-DISPLAY-FONT
+- **Bosch Display free font** — see source — [display] — https://iframefonts.com/if-bosch-display-font/
+- **Branch Modern Ligature** — see source — [serif, sans] — https://www.behance.net/gallery/147598345/Branch-Modern-Ligature-Serif-FREE
+- **Brela** — see source — [serif] — http://cargocollective.com/makarskaestudio/Brela-Free-Download
+- **Briberra** — see source — [script] — https://www.behance.net/gallery/65223659/BRIBERRA-FREE-ROUGH-BOLD-SCRIPT-FONT
+- **Buckwheat** — see source — [display] — https://www.behance.net/gallery/69482613/BUCKWHEAT-FREE-HANDPAINTED-SVG-FONT
+- **buffalo** — see source — [script, retro] — http://www.pixelsurplus.com/freebies/buffalo — evidence: "icense - 1M+ Pageviews / Month Broadcast License - Under 1M Views or Personal Use Broadcast License - 1M+ Views or Commercial Use Broadcast License - Film/TV/St"
+- **Building** — see source — [display] — https://www.behance.net/gallery/15876377/BUILDING-Free-Typeface%20Leonardo%20Gubbioni
+- **Bunday Slab Bold , Light & Italic** — see source — [serif, display] — https://www.fontspring.com/fonts/buntype/bunday-slab?utm_source=fontsquirrel.com&amp;amp;utm_medium=download_link&amp;amp;utm_campaign=bunday-slab#firstfreeproduct
+- **Cabinet Grotesk Variable Font** — see source — [sans, variable] — https://www.fontshare.com/fonts/cabinet-grotesk
+- **Calama** — see source — [display] — https://www.behance.net/gallery/64919843/CALAMA-FREE-CONDENSED-FONT
+- **Calfine** — see source — [serif, display] — https://fontesk.com/calfine-font/
+- **Campton Typefamily** — see source — [display] — https://www.behance.net/gallery/Campton-Typefamily/14680165
+- **Canobis – Psychedelic Typeface** — see source — [display, retro] — https://visuely.net/display/canobis-free/
+- **Carosello** — see source — [script, retro] — http://befonts.com/carosello-font.html — evidence: "s Peacky Style Script Font Calligraphy Fonts , Handwritten Fonts , Script Fonts You can download the best fonts, free fonts for personal or commercial use."
+- **Cast Iron** — see source — [display] — http://jeremyvessey.com/free/ — evidence: "ay! This bundle includes: Yonder Wayfarer Growler Script Yosemite Parlour Parlour Sans Native + Instapress Nations Sitka Longshore Extended License *** Also inc"
+- **Casta font** — see source — [serif, display] — https://dirtylinestudio.com/product/casta-free-font/
+- **Centrion** — see source — [display] — https://dirtylinestudio.com/product/centrion-free/
+- **Cervanttis** — see source — [script] — https://www.behance.net/gallery/79828477/CERVANTTIS-FREE-SIGNATURE-FONT?tracking_source=search%257Cfonts
+- **Chillax** — see source — [sans] — https://www.fontshare.com/fonts/chillax
+- **Chlakh** — see source — [script, retro] — https://www.pixelsurplus.com/products/chlakh-free-hand-drawn-font/
+- **Choplin** — see source — [display] — http://www.fontfabric.com/choplin-free-font/
+- **Circus Display Font** — see source — [display, script] — https://pixelbuddha.net/freebie/the-circus-display-font — evidence: "UI/UX Resources Social Media Design Blog Design tutorials Selections Interviews Articles Company About studio Contact us Reading Commercial License Premium Memb"
+- **Clash Display Variable Font** — see source — [display, variable] — https://www.fontshare.com/fonts/clash-display
+- **Codec Pro Variable Font** — see source — [serif, sans, mono, variable] — https://www.behance.net/gallery/89572499/Codec-Pro-The-Workhorse-Sans-with-two-free-weights?tracking_source=search%7Cfree%20font
+- **Colortube** — see source — [display] — https://www.fontfabric.com/colortube/
+- **Colus** — see source — [serif, sans] — https://www.fontfabric.com/colus/
+- **Comic Cat** — see source — [display] — https://www.behance.net/gallery/119157709/Comic-CAT-Free-Font-Cyrillic-and-Latin
+- **Cotta** — see source — [serif] — https://www.behance.net/gallery/144181203/Cotta-Free-Elegant-Serif-Font
+- **Creme Espana** — see source — [script] — https://fontesk.com/creme-espana-font/
+- **Cunia** — see source — [serif, sans] — https://www.behance.net/gallery/66454661/CUNIA-FREE-FONT
+- **Cutepunk** — see source — [script] — https://www.behance.net/gallery/17184235/cutepunk-typeface
+- **Cylburn** — see source — [script] — http://www.losttype.com/font/?name=cylburn — evidence: "Licensing You can Pay-What-You-Want for a Personal Use License."
+- **Dirtyline 36Daysoftype 2022** — see source — [display] — https://dirtylinestudio.com/product/dirtyline-36daysoftype-2022/
+- **Disket Mono - Display monospaced, grid based typeface** — see source — [mono, display] — http://rostype.com/disket/
+- **Dual** — see source — [display] — http://charlesdaoud.com/portfolio/dual-typeface/
+- **Dx Gaster** — see source — [serif, sans] — https://dirtylinestudio.com/product/dx-gaster-free-font/
+- **Dx Rigraf font** — Dirtyline Studio — [serif, sans, mono, display, variable] — https://dirtylinestudio.com/product/dx-rigraf-free-font/
+- **DX Sitrus display font** — see source — [display] — https://dirtylinestudio.com/product/dx-sitrus-free/
+- **Elanor Font** — Dirtyline Studio — [serif, display, retro] — https://dirtylinestudio.com/product/elanor-free-font/
+- **Elegant display typeface - Stanley** — see source — [display] — https://www.behance.net/gallery/76829783/STANLEY-FREE-ELEGANT-DISPLAY-TYPEFACE?tracking_source=search%7Cfree%20font
+- **Elisabeth Font** — see source — [display] — https://gumroad.com/l/elisabeth
+- **Emberly Typeface** — see source — [variable] — https://www.behance.net/gallery/87667103/Emberly-Free-Typeface-54-Styles
+- **Escucha (+ Consuela font duo)** — see source — [sans] — https://www.behance.net/gallery/72987559/ESCUCHA-CONSUELA-FREE-STYLISH-MODERN-FONT-DUO
+- **Eskool** — see source — [display] — https://www.behance.net/gallery/114826243/Eskool-Free-Display-Typeface
+- **Fabfelt** — see source — [display] — https://www.behance.net/gallery/23900247/Fabfelt-script-Free-font
+- **FairView** — see source — [serif, sans] — http://www.losttype.com/font/?name=fairview — evidence: "Licensing You can Pay-What-You-Want for a Personal Use License."
+- **Farray** — see source — [display] — https://www.behance.net/gallery/FARRAY-FONT-FREE-DOWNLOAD/14844917
+- **Fat Font** — see source — [display] — https://www.behance.net/gallery/67098477/FREE-FAT-FONT
+- **Faune typeface family** — see source — [serif, sans] — http://cnap.graphismeenfrance.fr/faune/en.html
+- **Fibre Free Vintage Font** — see source — [retro] — https://www.behance.net/gallery/38563857/Fibre-Free-Vintage-Font
+- **Finland** — see source — [sans] — https://www.behance.net/gallery/70960113/FINLAND-FREE-ROUNDED-THIN-GEOMETRIC-FONT
+- **Fivo Sans** — see source — [serif, sans] — https://www.behance.net/gallery/53653425/Fivo-Sans-Free-Font-Family
+- **Flaviotte Font** — see source — [serif] — https://dafontfile.com/flaviotte-font/
+- **Foerte** — see source — [serif, display] — https://www.behance.net/gallery/82383283/FREE-Serif-Font-Foerte?tracking_source=search%257Cfont
+- **Fogtwo No5** — gluk — [serif, display] — https://fontsarena.com/fogtwo-no5-by-gluk/
+- **Fonarto** — see source — [serif, sans] — https://www.behance.net/gallery/20085723/Fonarto-Free-Font
+- **Fontshare** — see source — [sans, display] — https://www.fontshare.com/
+- **Fontshare** — see source — [display] — https://www.fontshare.com/
+- **Fontshare - Type Foundry** — see source — [sans] — https://www.fontshare.com/
+- **Fornite Light** — see source — [serif, script] — https://www.behance.net/gallery/122011281/Fornire-Light-Free-Serif-Font?tracking_source=search_projects_published_date%7Cfree%20font
+- **Free Faces** — see source — [serif, sans, mono, display, script] — https://freefaces.gallery/
+- **Free Font - New Day** — see source — [display] — https://www.behance.net/gallery/23792563/ONE-DAY-Free-Font
+- **Free Font: Skyscapers** — Fuadhasan — [display] — http://2ttf.com/6IF8GLA3aiM
+- **Free Handwriting Fonts Gallery** — see source — [script] — https://2ttf.com/gallery
+- **Fvriosa** — see source — [display] — https://www.behance.net/gallery/34621039/FVRIOSA-free-handmade-brush-font
+- **Galgo Condensed** — Giulia Boggio — [display] — https://www.giuliaboggio.xyz/fonts/galgo-condensed
+- **Gandhi Sans** — see source — [sans] — https://www.fontsquirrel.com/fonts/gandhi-sans — evidence: "ces & Tools Webfont Generator Font Identifier Font Talk Creative Market Fonts Gandhi Sans B Download OTF Commercial Desktop Use - this free license allows you t"
+- **Gavency** — see source — [display] — https://visuely.net/serif/gavency-free/
+- **Gilam** — see source — [serif, sans] — https://www.fontfabric.com/gilam/
+- **Ginebra free font** — see source — [display] — https://www.behance.net/gallery/33012653/ginebra-free-font
+- **Goku** — see source — [serif, sans] — https://www.behance.net/gallery/147459527/Goku-Free-Font
+- **Good Hood font** — see source — [script, retro] — https://www.behance.net/gallery/102742741/GOODHOOD-FREE-FONT
+- **Grandhotel** — see source — [display, retro] — https://www.fontsquirrel.com/fonts/grand-hotel — evidence: "ces & Tools Webfont Generator Font Identifier Font Talk Creative Market Fonts Grand Hotel B Download OTF Commercial Desktop Use - this free license allows you t"
+- **Grodna** — see source — [serif, retro] — https://sellfy.com/p/iy6I/
+- **Hagrid Variable Font** — see source — [sans, variable] — https://www.behance.net/gallery/89579507/HAGRID-A-cryptotypographic-wonder-with-4-free-fonts?tracking_source=search%7Cfree%20font
+- **Half** — see source — [serif, sans] — https://www.behance.net/gallery/91196477/Half-Free-Family-Font?tracking_source=search%7Cfree%20font
+- **Harmony** — see source — [serif] — https://www.behance.net/gallery/122411115/HARMONY-Typeface?tracking_source=search_projects_published_date%7Cfree%20font
+- **Herbert font** — see source — [serif] — https://www.behance.net/gallery/80371811/Herbert-font-free-regular?tracking_source=search%2525257Cfont
+- **HK Grotesk Regular** — see source — [sans] — https://hanken.co/collections/free/products/hk-grotesk — evidence: "Type Sans serif Licensed to: Full legal name of the person or company this license covers."
+- **HK Grotesk Wide** — see source — [sans] — https://hanken.co/collections/free/products/hk-grotesk-wide — evidence: "Type Sans serif Display Variant: Desktop Font Family Desktop Font Family Web Font Family Licensed to: Full legal name of the person or company this license cove"
+- **Horizon** — see source — [script] — https://www.behance.net/gallery/69503953/HORIZON-FREE-HANDLETTERED-SCRIPT
+- **Humane** — see source — [serif, sans] — https://rajputrajesh-448.gumroad.com/l/HUMANE
+- **IF Durer Font** — see source — [display] — https://iframefonts.com/if-durer-display-font/
+- **Intro Script Font** — see source — [script] — https://www.fontfabric.com/fonts/intro-script/
+- **Junicode bold condensed** — see source — [mono, display] — https://open-foundry.com/fonts/junicode_bold_condensed
+- **Kalmansk** — see source — [display] — https://www.behance.net/gallery/100907019/Kalmansk-Free-Font
+- **Karen Funny Cartoon Font** — see source — [display] — https://www.behance.net/gallery/103966123/Free-Font-Karen-Funny-Cartoon-Font
+- **Kate typeface designed** — Jérémie Gauthier — [serif, display] — https://www.almarena.fr/shop/kate-typeface/
+- **Kenoky & Coffekan** — see source — [mono, display, script] — https://fontesk.com/kenoky-coffekan-fonts/
+- **Kensmark** — see source — [display] — https://www.behance.net/gallery/71776133/KENSMARK-03-FREE-BOLD-SLANTED-DISPLAY-TYPEFACE
+- **Klinic Slab** — see source — [serif] — http://www.losttype.com/font/?name=klinic — evidence: "Licensing You can Pay-What-You-Want for a Personal Use License."
+- **Labour Union** — see source — [retro] — https://www.behance.net/gallery/71372607/LABOUR-UNION-SMALL-FREE-VINTAGE-FONT
+- **Ladi - Based on liquid forms free font** — see source — [display] — https://www.behance.net/gallery/107435535/Ladi-Free-Typeface?tracking_source=search_projects_appreciations%7Cfree%20font
+- **Le Super Serif Typeface** — see source — [serif] — https://www.behance.net/gallery/14681931/le-super-serif-typeface
+- **Leiko free font** — see source — [display] — https://drive.google.com/file/d/1SAy1KTknp_r81uYJEvFkrgovFiWZaZNp/view
+- **Leira** — see source — [script] — https://www.behance.net/gallery/67314365/Leira-Free-Hand-Drawn-Brush-Font
+- **Lezerno - Uppercase Free Font** — see source — [serif, sans] — https://www.behance.net/gallery/121812757/Lezerno-FREE-FONT
+- **Lifestyle - Handwritten Font** — see source — [mono, script] — https://www.behance.net/gallery/91435979/lifestyle-free-handwritten-font?tracking_source=search%7Cfree%20font
+- **Lincoln/MITRE retro computer font** — see source — [retro] — https://colophon.info/
+- **Linotte** — see source — [serif, sans] — https://www.behance.net/gallery/21348189/Linotte-Typeface
+- **Loki - Sans Serif Brush** — see source — [serif, sans, script] — https://www.behance.net/gallery/79515667/Loki-Free-Sans-Serif-Brush-Font
+- **Longline Quart display font** — see source — [display] — https://fancy-fonts.com/longline-quart-display-font/
+- **Luthon Southard Font Duo** — see source — [serif, mono, script] — https://fontesk.com/luthon-southard-font-duo/
+- **Made Saonara font** — see source — [serif] — https://www.behance.net/gallery/80135825/MADE-SAONARA-Font?tracking_source=search%7Cfont
+- **Maghfirea** — see source — [serif, sans] — https://fontesk.com/maghfirea-font/
+- **Magilio** — see source — [serif, display, retro] — https://www.behance.net/gallery/119990601/Magilio-A-Chic-Serif-Fonts?tracking_source=search_projects_published_date%7Cfree%20font
+- **Mak free font** — see source — [display] — https://www.pixelsurplus.com/freebies/mak-free-experimental-font
+- **MAK.** — see source — [display] — https://www.behance.net/gallery/89569065/MAK-Free-font?tracking_source=search%7Cfree%20font
+- **Makhina** — see source — [display] — https://dribbble.com/shots/1307130-MAKHINA-Free-Font?list=searches&amp;amp;tag=free_fonts
+- **Mamen Chisa** — see source — [display] — https://www.behance.net/gallery/147570901/Mamenchisa-Free-Font
+- **Mango Grotesque Variable Font** — see source — [sans, variable] — https://rajputrajesh-448.gumroad.com/l/MangoGrotesque
+- **Manoyri** — see source — [display, script] — https://www.graphicpear.com/manoyri-font/
+- **Manuscribe Free** — see source — [display, script, variable] — https://visuely.net/display/manuscribe-free/
+- **Mapta** — see source — [serif] — https://www.behance.net/gallery/7434601/Marta-Free-Font
+- **Maragsâ - Display typeface** — see source — [serif, display] — https://gumroad.com/l/bGawp
+- **Margot** — see source — [serif] — https://www.behance.net/gallery/13819879/Margot-Free-Font
+- **Mattone Font** — see source — [serif, sans] — http://collletttivo.it/
+- **Medio** — see source — [serif] — http://www.dotcolon.net/font/medio/
+- **Mersad** — see source — [serif, sans, variable] — https://www.behance.net/gallery/145150505/Mersad-Free-Variable-Typeface
+- **Meshed Display** — see source — [serif, sans, display] — https://rajputrajesh-448.gumroad.com/l/MeshedDisplay
+- **Milky Walky** — see source — [serif, sans, display] — https://www.behance.net/gallery/147602097/Milky-Walky-Font
+- **Miratrix - brutalist font** — see source — [serif, sans, display] — https://www.behance.net/gallery/85045335/Miratrix-Font-Free-LatinCyrilic
+- **Misto Font** — see source — [display] — https://www.behance.net/gallery/84911751/Misto-Font-Free-(Cyrillic-and-Latin)?tracking_source=search%7Cfont
+- **MONIQA TYPEFACE** — Rajesh Rajput — [variable] — https://www.behance.net/gallery/114431757/MONIQA-TYPEFACE-Free-Variable-Latin-Cyrillic
+- **Monky** — see source — [serif, sans, display] — https://goo.gl/34v9Hq
+- **Monotonia** — see source — [mono, display] — https://www.dropbox.com/s/wxrdlq6xdfhaqsm/monotonia.otf?dl=0
+- **Monument Extended font** — see source — [display] — https://www.behance.net/gallery/68622765/Monument-Extended-New-Free-Font
+- **Morganite** — see source — [display] — https://www.behance.net/gallery/66748265/Morganite-Free-Typeface-18-Styles
+- **Moustique serif typeface** — see source — [serif] — https://www.behance.net/gallery/85859583/MOUSTIQUE-FREE-ELEGANT-SERIF-TYPEFACE?tracking_source=search%7Cfree%20font
+- **Muller** — see source — [serif, sans] — http://www.fontfabric.com/muller-font/
+- **Nafta free font** — Krisjanis Mezulis — [script] — https://wildpicks.design/product/nafta-free-font/ — evidence: "Licensing All fonts marked “Free” are free for commercial and personal use."
+- **Neue Metana font** — Dirtyline Studio — [sans, display] — https://dirtylinestudio.com/product/neue-metana-free-font/
+- **Neue Metana Next** — see source — [sans] — https://dirtylinestudio.com/product/neue-metana-next-free-font/
+- **Newake sans-serif font** — see source — [serif, sans] — https://www.behance.net/gallery/118133975/Newake-Free-Font
+- **Nighty** — see source — [display, retro] — https://fontesk.com/nighty-font/
+- **Nimbus Sans - The Real Free Helvetica** — see source — [sans] — https://www.fontsquirrel.com/fonts/nimbus-sans-l — evidence: "s & Tools Webfont Generator Font Identifier Font Talk Creative Market Fonts Nimbus Sans L B Download OTF Commercial Desktop Use - this free license allows you t"
+- **Nimitz** — see source — [retro] — https://www.behance.net/gallery/73542149/NIMITZ-FREE-ALL-CAPS-RETRO-FONT
+- **Noah** — see source — [sans] — https://www.fontfabric.com/fonts/noah/
+- **NOHEMI Typeface** — see source — [variable] — https://www.behance.net/gallery/168183377/NOHEMI-Typeface-Free-Variable-9-Styles
+- **Novar** — see source — [serif] — http://marcoballare.com/project/novar/ — evidence: "Novar | marco ballarè --> --> --> --> font design font license Seleziona una pagina Novar Novar is an elegant serif font designed in 2017."
+- **Noway Free Font** — see source — [display] — http://atipofoundry.com/fonts/noway
+- **Obrazec** — see source — [serif, sans, script] — https://www.behance.net/gallery/90846455/OBRAZEC-FREE-INDUSTRIAL-SANS-SERIF?tracking_source=search%7Cfree%20font
+- **OffBit** — see source — [display] — https://power-type.com/offbit/
+- **Okta Neue** — see source — [serif, sans] — https://www.behance.net/gallery/89863185/Okta-Neue-Geometric-Grotesk-with-2-Free-Styles?tracking_source=search%7Cfree%20font
+- **Olegos** — see source — [display] — https://www.graphicpear.com/olegos-typeface/
+- **Omega Sans** — see source — [serif, sans] — https://www.ajtypography.com/shop/omega-sans-free-font
+- **Oranienbaum** — see source — [serif] — http://www.dafont.com/oranienbaum.font
+- **OTF Glusp: Free Display Font** — see source — [display] — https://www.epicpxls.com/items/otf-glusp-free-display-font — evidence: "66 KB) License Basic License O Obys 5 followers Follow visibility 33."
+- **Pangram Sans Rounded** — see source — [sans] — https://www.behance.net/gallery/119737485/Pangram-Sans-Rounded-Free-Font?tracking_source=for_you_feed_activity
+- **Parker** — see source — [retro] — https://www.behance.net/gallery/18632037/Parker-Font-(Free)
+- **Passero** — see source — [display] — https://www.behance.net/gallery/7901021/Passero-Typeface
+- **PILSNER & GUTENBERG** — see source — [script, retro] — http://www.pixelsurplus.com/freebies/pilsner-and-gutenberg — evidence: "oadcast License - Under 1M Views or Personal Use Broadcast License - 1M+ Views or Commercial Use Broadcast License - Film/TV/Streaming ePub License (Per Title) "
+- **Playlist Free Font** — see source — [script] — https://www.pixelo.net/product/playlist-free-font/?utm_source=behance&amp;amp;utm_medium=social&amp;amp;utm_campaign=freebies — evidence: "r Behance Pinterest Instagram Company About Blog Coupons Privacy Policy Affiliate Program Product Past Deals Freebies Support Contact Terms Licenses FAQ © 2026 "
+- **Poetesen One** — see source — [display] — http://www.dafont.com/poetsen-one.font
+- **PP Mori** — see source — [serif, sans] — https://pangrampangram.com/products/mori — evidence: "nian, Norwegian, Polish, Portuguese, Romanian, Saami, Serbian, Slovak, Slovenian, Spanish, Swahili, Swedish, Turkish, (and more) Commercial Licenses Love Mori f"
+- **Pulchella free font** — see source — [display] — https://www.behance.net/gallery/101439689/PULCHELLA-FREE-FONT
+- **Range** — see source — [serif, sans, display] — http://www.layerform.com/free-font-range-sans-display-font/
+- **Rayken Stylish Serif** — see source — [serif] — https://www.behance.net/gallery/147495719/Rayken-Stylish-Serif-Font-Free-Font-Download
+- **Rebeqa** — see source — [serif, sans, variable] — https://fontesk.com/rebeqa-typeface/
+- **Recollet Retro Bold Script Font** — see source — [display, script, retro] — https://www.behance.net/gallery/101007571/Recollet-Retro-Bold-Script-Font
+- **Redressed** — see source — [display] — https://www.fontsquirrel.com/fonts/redressed — evidence: "urces & Tools Webfont Generator Font Identifier Font Talk Creative Market Fonts Redressed B Download TTF Commercial Desktop Use - this free license allows you t"
+- **Reglo font** — see source — [display] — http://www.love-letters.be/foundry.html
+- **Remboy Typeface** — see source — [display] — https://fontesk.com/remboy-font/
+- **Resin free font** — see source — [display] — https://jeremydownes.co.uk/shop/resin-free-font
+- **Resist Sans Neo-Grotesque Font** — see source — [sans] — https://www.behance.net/gallery/92980461/Resist-Sans-Neo-Grotesque-with-2-Free-Styles?tracking_source=search%7Cfree%20font
+- **Restora - old style serif font** — see source — [serif] — https://www.behance.net/gallery/90088935/RESTORA-FREE-OLD-STYLE-SERIF-FONTS?tracking_source=search%7Cfree%20font
+- **Rhythmic font** — see source — [script] — https://www.pixelsurplus.com/freebies/rhythmic-free-dry-brush-svg-font — evidence: "Month Web Font License - 1M+ Pageviews / Month Video/Digital License - Under 1M Views or Personal Use Video/Digital License - 1M+ Views or Commercial Use Broadc"
+- **Rockstar Display** — see source — [display] — https://www.behance.net/gallery/129352927/Rockstar-Display
+- **Rolest script font** — see source — [script] — https://fancy-fonts.com/rolest-script-font/
+- **Romantic Orche Script** — see source — [serif, script] — https://www.pixelsurplus.com/freebies/ochre-script-free-romantic-calligraphy-font — evidence: "tal License - Under 1M Views or Personal Use Video/Digital License - 1M+ Views or Commercial Use Broadcast License - Film/TV/Streaming ePub License (Per Title) "
+- **Round 8** — atipo — [display] — https://www.atipofoundry.com/fonts/round-8
+- **Rousseau Deco** — see source — [display] — https://www.behance.net/gallery/72995511/Rousseau-Deco-free-font
+- **Saint George Stencil Font** — see source — [serif] — https://www.behance.net/gallery/82450043/Free-Saint-George-Stencil-Font?tracking_source=search%257Cfont
+- **Saint Regus** — see source — [display] — https://www.myfonts.com/fonts/sonar-hubermann/saint-regus/ — evidence: "288 167579289 167579290 167579291 167579292 167579293 167579294 167579295 167579296 167579297 167579298 167579299 Licensing Options MyFonts licenses are tailore"
+- **Salsa BT** — Bastarda Design Studio — [display] — https://www.bastardatype.com/fonts — evidence: "Our single license model covers everything: Print, digital, and logotype use."
+- **Sango font** — see source — [display] — https://www.behance.net/gallery/30763765/Sango-Free-Typeface?tracking_source=search%7Cfont
+- **Scalter free typeface** — see source — [script] — https://dirtylinestudio.com/product/scalter-free-typeface/
+- **Serico** — see source — [display] — https://www.behance.net/gallery/70963271/SERICO-FREE-FONT
+- **Shihan** — see source — [display] — https://www.behance.net/gallery/24989815/Shihan-Free-Typeface
+- **Shrimp free sans serif font** — see source — [serif, sans] — https://www.pixelsurplus.com/freebies/shrimp-free-sans-serif-font — evidence: "1M+ Pageviews / Month Video/Digital License - Under 1M Views or Personal Use Video/Digital License - 1M+ Views or Commercial Use Broadcast License - Film/TV/Str"
+- **Silverfake** — see source — [display] — http://www.fontfabric.com/silverfake-free-font/
+- **Simplifica** — see source — [display] — https://www.graphicpear.com/simplifica-free-typeface/
+- **Simplifica** — see source — [display] — https://www.behance.net/gallery/SIMPLIFICA-Typeface-Free/14209843
+- **SK Falcon typeface** — see source — [serif, sans] — https://www.myfonts.com/fonts/salih-kizilkaya/sk-falcon/ — evidence: "267 168556268 168556269 168556270 168556272 168556273 168556274 168556275 168556276 168556277 168556278 168556279 Licensing Options MyFonts licenses are tailore"
+- **SK-Modernist: A Geometric Avant Garde like typeface** — see source — [sans] — https://www.behance.net/gallery/32918197/Modernist-Typeface
+- **Somatic Rounded** — see source — [serif, sans] — https://www.dropbox.com/sh/ipt2jyxhf8wd2k3/AACLUnLtjwwAiV5x30ESUzzea?dl=0
+- **Sonder Regular** — see source — [serif] — https://pixelsurplus.com/collections/free-fonts/products/sonder-regular-free-font — evidence: "tal License - Under 1M Views or Personal Use Video/Digital License - 1M+ Views or Commercial Use Broadcast License - Film/TV/Streaming ePub License (Per Title) "
+- **Soulcraft** — see source — [variable] — https://www.behance.net/gallery/72595599/Soulcraft-Typeface
+- **Stella Display Font** — see source — [display] — https://www.behance.net/gallery/79279723/Free-Stella-Display-Font?tracking_source=search%257Cfree%2Bfont
+- **Super Duper** — see source — [serif, sans, display] — https://www.behance.net/gallery/122587547/SuperDuper-typeface-(free-sans-serif-font-family)
+- **Supremacy** — see source — [display] — https://pixelsurplus.com/collections/free-fonts/products/supremacy-free-display-typeface — evidence: "tal License - Under 1M Views or Personal Use Video/Digital License - 1M+ Views or Commercial Use Broadcast License - Film/TV/Streaming ePub License (Per Title) "
+- **Syke font** — see source — [sans] — https://www.behance.net/gallery/80994955/Syke-RegularItalic-FREE-FONTS?tracking_source=search%257Cfonts
+- **São Torpes Free Display Font** — see source — [display] — https://www.behance.net/gallery/147152797/Sao-Torpes-Free-Display-Font
+- **Technique Sans Free Font** — see source — [sans] — https://www.behance.net/gallery/79907715/Technique-Free-Font?tracking_source=search%7Cfont
+- **Telegraf Free Font** — see source — [sans] — https://pangrampangram.com/products/telegraf?variant=29471193694250 — evidence: "nian, Norwegian, Polish, Portuguese, Romanian, Saami, Serbian, Slovak, Slovenian, Spanish, Swahili, Swedish, Turkish, (and more) Commercial Licenses Love Telegr"
+- **The Polite Type - Educational free font** — see source — [serif, sans] — https://www.thepolitetype.com/#try-it
+- **THUNDER typeface** — see source — [display, variable] — https://www.behance.net/gallery/124582465/THUNDER-Free-Typeface-Variable-36-Styles
+- **Tomato Soup** — see source — [script] — https://www.behance.net/gallery/73232983/TOMATO-SOUP-FREE-TRENDY-SCRIPT-FONT
+- **Tracks Type** — see source — [display] — http://www.fontfabric.com/track-free-font/
+- **Tradesmith** — see source — [retro] — https://www.behance.net/gallery/69269355/TRADESMITH-FREE-VINTAGE-FONT
+- **Triakis** — see source — [sans] — https://www.behance.net/gallery/114613281/Triakis-Font-Family
+- **Tribes free font** — see source — [display] — https://www.pixelsurplus.com/freebies/tribes-free-font — evidence: "tal License - Under 1M Views or Personal Use Video/Digital License - 1M+ Views or Commercial Use Broadcast License - Film/TV/Streaming ePub License (Per Title) "
+- **Trispace** — see source — [display] — https://www.etc.supply/trispace/
+- **Tropikal Typeface font** — see source — [serif, display, retro] — https://www.gabreyes.com/daily-posts/tropikal-typeface
+- **Tryst** — see source — [display] — https://www.fontsquirrel.com/fonts/tryst — evidence: "Resources & Tools Webfont Generator Font Identifier Font Talk Creative Market Fonts Tryst B Download OTF Commercial Desktop Use - this free license allows you t"
+- **Type With Pride** — see source — [display] — https://www.typewithpride.com/
+- **Understock** — see source — [serif, retro] — https://www.behance.net/gallery/71195031/UNDERSTOCK-FREE-VINTAGE-SERIF-FONT
+- **Unique Typeface** — see source — [display, variable] — https://www.behance.net/gallery/160832905/Unique-Typeface-Free-Variable-Condensed-7-Styles
+- **Variablefonts.io - How to start with variable fonts** — see source — [variable] — https://variablefonts.io/
+- **Vegawanty font** — see source — [serif, sans, script] — https://pixelify.net/download/free-fonts/serif/vegawanty-modern-serif/
+- **Vercetti Regular Font** — see source — [serif, sans] — https://filipposfragkogiannis.com/fonts/vercetti-regular/ — evidence: "se Agreement This End User License Agreement (“EULA”) is a legal agreement between you, hereinafter sometimes referred to as “End User” or “Licensee,” and Filip"
+- **Vinson free font** — see source — [serif, sans] — http://anagramdesign.graphics/produit/vinson-free-font/
+- **Voklea** — see source — [display] — https://www.behance.net/gallery/122683061/Free-FONT-Voklea?tracking_source=search_projects_published_date%7Cfree%20font
+- **VTF Lack** — see source — [display] — https://www.behance.net/gallery/63198269/VTF-Lack-Free-font
+- **Wagon Display Typeface** — see source — [serif, sans, display] — https://dirtylinestudio.com/product/wagon-free-font
+- **Wavehaus Sans Typeface** — see source — [serif, sans] — https://sellfy.com/p/XS0L/
+- **Wesley Gothic** — see source — [sans, display] — http://www.hellofont.com/fonts/1249
+- **Westfalia Free Font** — see source — [display] — https://www.behance.net/gallery/44666325/WESTFALIA-FREE-FONT
+- **WILD WORD - Bold free font** — see source — [display] — https://www.behance.net/gallery/92287657/WILD-WORLD-Font?tracking_source=search_projects_views%7Cfree%20font
+- **WILD YOUTH** — see source — [script] — http://www.pixelsurplus.com/freebies/wild-youth# — evidence: "icense - 1M+ Pageviews / Month Broadcast License - Under 1M Views or Personal Use Broadcast License - 1M+ Views or Commercial Use Broadcast License - Film/TV/St"
+- **Wriggle** — see source — [display] — https://www.behance.net/gallery/144028707/Wriggle-Free-Font?tracking_source=search_projects%7Cfree+font
+- **Yeager** — see source — [display] — https://www.behance.net/gallery/71653671/YEAGER-FREE-MECHANICAL-DISPLAY-TYPEFACE
+- **Zoika** — see source — [serif, display] — https://www.behance.net/gallery/81861515/FREE-Zoika-Typography?tracking_source=search%257CFONT
