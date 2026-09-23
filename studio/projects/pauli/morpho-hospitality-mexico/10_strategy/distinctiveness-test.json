@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0",
+  "governing_idea": "El territorio habla primero.",
+  "approval_state": "human_selection_required",
+  "territories": [
+    {
+      "id": "atlas-vivo",
+      "verdict": "OWNABLE",
+      "score": 9.4,
+      "recognizable_without_logo": true,
+      "competitor_interchangeability": "low",
+      "trend_dependence": "low",
+      "ownable_behaviors": [
+        "evidence routes",
+        "place indexing",
+        "cartographic information hierarchy",
+        "spatial focus transitions"
+      ],
+      "biggest_risk": "sliding into generic GIS or climate-tech UI",
+      "why_ownable": "Location is not decoration; it becomes the organizing grammar for evidence, product navigation and storytelling."
+    },
+    {
+      "id": "cuaderno-de-campo",
+      "verdict": "OWNABLE",
+      "score": 9.1,
+      "recognizable_without_logo": true,
+      "competitor_interchangeability": "low-medium",
+      "trend_dependence": "low",
+      "ownable_behaviors": [
+        "numbered observations",
+        "evidence annotations",
+        "field-note hierarchy",
+        "source-as-footnote"
+      ],
+      "biggest_risk": "sliding into rustic travel editorial or eco-lodge branding",
+      "why_ownable": "The evidence workflow itself behaves like a disciplined field notebook rather than a card dashboard."
+    },
+    {
+      "id": "pulso-del-destino",
+      "verdict": "OWNABLE",
+      "score": 9,
+      "recognizable_without_logo": true,
+      "competitor_interchangeability": "medium",
+      "trend_dependence": "medium",
+      "ownable_behaviors": [
+        "temporal change grammar",
+        "before/now comparison",
+        "rhythmic signal hierarchy"
+      ],
+      "biggest_risk": "sliding into generic monitoring/fintech analytics",
+      "why_ownable": "It can be ownable only if the rhythm is tied to hospitality/destination context and evidence, not abstract wave graphics."
+    }
+  ],
+  "recommended_by_builder": {
+    "territory": "atlas-vivo",
+    "rationale": "Strongest fit with evidence, place, Mexico hospitality, product scalability, and anti-SaaS differentiation.",
+    "canonical": false
+  },
+  "required_human_action": "Select exactly one territory before identity, final typography, logo, color palette, or brand behavior is approved."
+}
