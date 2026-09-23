@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0",
+  "project": "morpho-hospitality-mexico",
+  "language_priority": [
+    "es-MX",
+    "en"
+  ],
+  "statement": "El territorio habla primero.",
+  "tension": "La conversación del viajero nace en lugares, experiencias y comunidades concretas, pero las herramientas de monitoreo suelen reducirla a gráficos abstractos. Morpho debe convertir señales dispersas en inteligencia operativa sin borrar el contexto del lugar.",
+  "audience_truth": {
+    "status": "product-derived-hypothesis",
+    "statement": "Los operadores necesitan detectar cambios, reputación, fricción y oportunidad rápidamente, y poder verificar de dónde sale cada conclusión.",
+    "proof": [
+      "morpho product architecture",
+      "stored evidence model",
+      "hospitality workspace watch dimensions"
+    ]
+  },
+  "cultural_truth": {
+    "status": "design-hypothesis",
+    "statement": "La identidad debe sentirse situada en México sin recurrir a clichés turísticos, pseudoartesanales ni símbolos culturales inventados.",
+    "proof": [
+      "owner constraints",
+      "global design governance"
+    ]
+  },
+  "business_truth": {
+    "status": "verified-product-constraint",
+    "statement": "Morpho debe venderse como herramienta especializada y creíble para hospitalidad/ecoturismo, mientras mantiene un motor reusable para otros verticales.",
+    "proof": [
+      "morpho hospitality product contract",
+      "working shared Supabase backend"
+    ]
+  },
+  "must_feel": [
+    "observador",
+    "preciso",
+    "local",
+    "contemporáneo",
+    "humano",
+    "tranquilo",
+    "útil",
+    "verificable"
+  ],
+  "must_not_feel": [
+    "SaaS genérico",
+    "eco cliché",
+    "turismo gubernamental",
+    "místico",
+    "cyberpunk",
+    "lujo vacío",
+    "chatbot",
+    "greenwashing"
+  ],
+  "score": 9.2,
+  "approval_state": "strategy_candidate"
+}
